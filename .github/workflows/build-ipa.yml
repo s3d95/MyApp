@@ -33,16 +33,16 @@ jobs:
         run: |
           mkdir Payload
           cp -R build/Build/Products/Release-iphoneos/MyApp.app Payload/
-          zip -qry MyApp.ipa Payload
+          zip -qry FalafelEmpire.ipa Payload
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MyApp-ipa
-          path: MyApp.ipa
+          name: FalafelEmpire-ipa
+          path: FalafelEmpire.ipa
 
       - name: Publish release (direct IPA link)
         uses: softprops/action-gh-release@v2
         with:
           tag_name: build-${{ github.run_number }}
-          name: MyApp build ${{ github.run_number }}
-          files: MyApp.ipa
+          name: Falafel Empire build ${{ github.run_number }}
+          files: FalafelEmpire.ipa
