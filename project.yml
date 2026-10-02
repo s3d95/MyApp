@@ -1,4 +1,4 @@
-﻿name: MyApp
+name: MyApp
 options:
   bundleIdPrefix: com.wardapp
   deploymentTarget:
