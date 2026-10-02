@@ -1,15 +1,19 @@
 import SwiftUI
 
+private let twoColumns = [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)]
+
 // MARK: - Managers
 
 struct ManagersView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
-            VStack(spacing: 10) {
-                SectionTitle(title: "الموظفين",
-                             subtitle: "وظّف حدا يشغّل القسم عنك، وبيضل يربحلك حتى وإنت مسكّر اللعبة.")
-                ForEach(GameData.businesses) { def in
-                    ManagerCard(def: def)
+            VStack(spacing: 12) {
+                SectionTitle(title: "المدراء",
+                             subtitle: "المدير بيشغّل القسم عنك بدون ما تضغط، وبيضل يبيع حتى وإنت مسكّر اللعبة (لحد ٨ ساعات).")
+                LazyVGrid(columns: twoColumns, spacing: 10) {
+                    ForEach(GameData.businesses) { def in
+                        ManagerTile(def: def)
+                    }
                 }
             }
             .padding(16)
@@ -17,39 +21,39 @@ struct ManagersView: View {
     }
 }
 
-struct ManagerCard: View {
+struct ManagerTile: View {
     @EnvironmentObject var game: Game
     let def: BusinessDef
 
     var body: some View {
         let line = game.s.lines[def.id]
-        HStack(spacing: 12) {
-            EmojiBubble(emoji: def.managerEmoji, tint: Color(hex: def.tint), size: 54)
-            VStack(alignment: .leading, spacing: 3) {
-                Text(def.managerName)
-                    .font(.system(size: 16, weight: .heavy, design: .rounded))
-                    .foregroundColor(Theme.cream)
-                Text("مسؤول قسم \(def.name) \(def.emoji)")
-                    .font(.system(size: 12, weight: .medium, design: .rounded))
-                    .foregroundColor(Theme.muted)
-            }
-            Spacer(minLength: 6)
+        VStack(spacing: 6) {
+            EmojiBubble(emoji: def.managerEmoji, tint: Color(hex: def.tint), size: 50)
+            Text(def.managerName)
+                .font(.system(size: 15, weight: .heavy, design: .rounded))
+                .foregroundColor(Theme.cream)
+            Text("قسم \(def.name) \(def.emoji)")
+                .font(.system(size: 11, weight: .semibold, design: .rounded))
+                .foregroundColor(Theme.muted)
+            Spacer(minLength: 0)
             if line.hasManager {
-                Label("شغّال", systemImage: "checkmark.seal.fill")
+                Text("✅ شغّال")
                     .font(.system(size: 13, weight: .heavy, design: .rounded))
                     .foregroundColor(Theme.money)
+                    .padding(.vertical, 9)
             } else if line.owned == 0 {
-                Text("افتح القسم أول")
+                Text("🔒 افتح القسم أول")
                     .font(.system(size: 12, weight: .bold, design: .rounded))
                     .foregroundColor(Theme.muted)
+                    .padding(.vertical, 9)
             } else {
                 PriceButton(title: "وظّف", price: Fmt.money(def.managerCost),
                             enabled: game.s.money >= def.managerCost) {
                     game.hire(def.id)
                 }
-                .frame(width: 118)
             }
         }
+        .frame(maxWidth: .infinity, minHeight: 170)
         .card()
         .opacity(line.owned == 0 ? 0.55 : 1)
     }
@@ -61,26 +65,52 @@ struct UpgradesView: View {
     @EnvironmentObject var game: Game
 
     var body: some View {
-        let lines = game.s.lines
+        let s = game.s
         let available = GameData.upgrades.filter { u in
-            guard !game.s.purchased.contains(u.id) else { return false }
-            if case .business(let b) = u.target { return lines[b].owned > 0 }
+            guard !s.purchased.contains(u.id) else { return false }
+            if let sec = u.section { return s.lines[sec].owned > 0 }
             return true
         }
-        let bought = game.s.purchased.count
 
         ScrollView(showsIndicators: false) {
-            VStack(spacing: 10) {
+            VStack(spacing: 12) {
                 SectionTitle(title: "التطويرات",
-                             subtitle: "اشتريت \(bought) من \(GameData.upgrades.count). كل تطوير بيضاعف أرباحك.")
-                ForEach(Array(available.prefix(30))) { u in
-                    UpgradeCard(u: u)
+                             subtitle: "اشتريت \(s.purchased.count) من \(GameData.upgrades.count) تطوير.")
+
+                LazyVGrid(columns: twoColumns, spacing: 10) {
+                    LevelCard(icon: "🤖", title: "الأوتو كليكر",
+                              value: s.autoLevel == 0 ? "مش مفعّل" : "\(s.autoLevel) ضغطة بالثانية",
+                              level: s.autoLevel, maxLevel: GameData.maxAutoLevel,
+                              cost: s.nextAutoCost, buttonTitle: s.autoLevel == 0 ? "شغّله" : "+1 ضغطة/ث") {
+                        game.upgradeAuto()
+                    }
+                    LevelCard(icon: "✋", title: "قوة الضغطة",
+                              value: "\(Fmt.money(Double(1 + s.tapLevel))) بالضغطة",
+                              level: s.tapLevel, maxLevel: GameData.maxTapLevel,
+                              cost: s.nextTapCost, buttonTitle: "+₪1 بالضغطة") {
+                        game.upgradeTap()
+                    }
                 }
+
+                if !available.isEmpty {
+                    Text("تطويرات الأقسام والدعاية")
+                        .font(.system(size: 16, weight: .heavy, design: .rounded))
+                        .foregroundColor(Theme.cream)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 4)
+                }
+
+                LazyVGrid(columns: twoColumns, spacing: 10) {
+                    ForEach(available) { u in
+                        UpgradeTile(u: u)
+                    }
+                }
+
                 if available.isEmpty {
                     Text("ما في تطويرات متاحة هلء. افتح أقسام جديدة! 🏆")
                         .font(.system(size: 14, weight: .bold, design: .rounded))
                         .foregroundColor(Theme.muted)
-                        .padding(.top, 30)
+                        .padding(.top, 20)
                 }
             }
             .padding(16)
@@ -88,133 +118,158 @@ struct UpgradesView: View {
     }
 }
 
-struct UpgradeCard: View {
+struct LevelCard: View {
+    @EnvironmentObject var game: Game
+    let icon: String
+    let title: String
+    let value: String
+    let level: Int
+    let maxLevel: Int
+    let cost: Double?
+    let buttonTitle: String
+    let action: () -> Void
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack {
+                Text(icon).font(.system(size: 28))
+                Spacer()
+                Text("مستوى \(level)/\(maxLevel)")
+                    .font(.system(size: 10, weight: .heavy, design: .rounded))
+                    .foregroundColor(Theme.gold)
+                    .padding(.horizontal, 7)
+                    .padding(.vertical, 3)
+                    .background(Capsule().fill(Theme.gold.opacity(0.15)))
+            }
+            Text(title)
+                .font(.system(size: 15, weight: .heavy, design: .rounded))
+                .foregroundColor(Theme.cream)
+            Text(value)
+                .font(.system(size: 12, weight: .bold, design: .rounded))
+                .foregroundColor(Theme.money)
+            Spacer(minLength: 0)
+            if let cost = cost {
+                PriceButton(title: buttonTitle, price: Fmt.money(cost), enabled: game.s.money >= cost, action: action)
+            } else {
+                Text("🏆 الحد الأقصى")
+                    .font(.system(size: 13, weight: .heavy, design: .rounded))
+                    .foregroundColor(Theme.gold)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 9)
+            }
+        }
+        .frame(maxWidth: .infinity, minHeight: 170, alignment: .topLeading)
+        .card()
+        .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).stroke(Theme.gold.opacity(0.35), lineWidth: 1))
+    }
+}
+
+struct UpgradeTile: View {
     @EnvironmentObject var game: Game
     let u: UpgradeDef
 
     var body: some View {
-        HStack(spacing: 12) {
-            EmojiBubble(emoji: u.icon, tint: Theme.gold.opacity(0.7), size: 50)
-            VStack(alignment: .leading, spacing: 3) {
-                Text(u.title)
-                    .font(.system(size: 15, weight: .heavy, design: .rounded))
-                    .foregroundColor(Theme.cream)
-                Text(u.detail)
-                    .font(.system(size: 12, weight: .bold, design: .rounded))
-                    .foregroundColor(Theme.gold)
-            }
-            Spacer(minLength: 6)
+        VStack(alignment: .leading, spacing: 6) {
+            Text(u.icon).font(.system(size: 26))
+            Text(u.title)
+                .font(.system(size: 14, weight: .heavy, design: .rounded))
+                .foregroundColor(Theme.cream)
+                .lineLimit(1)
+            Text(u.detail)
+                .font(.system(size: 11, weight: .bold, design: .rounded))
+                .foregroundColor(Theme.gold)
+                .fixedSize(horizontal: false, vertical: true)
+            Spacer(minLength: 0)
             PriceButton(title: "اشتري", price: Fmt.money(u.cost), enabled: game.s.money >= u.cost) {
                 game.buyUpgrade(u)
             }
-            .frame(width: 118)
         }
+        .frame(maxWidth: .infinity, minHeight: 160, alignment: .topLeading)
         .card()
     }
 }
 
-// MARK: - Branches (prestige)
+// MARK: - Branches
 
-struct PrestigeView: View {
+struct BranchesView: View {
     @EnvironmentObject var game: Game
-    @State private var confirm = false
+    private let columns = Array(repeating: GridItem(.flexible(), spacing: 8), count: 3)
 
     var body: some View {
         let s = game.s
-        let gain = s.starsToGain
-        let canOpen = gain >= 1
 
         ScrollView(showsIndicators: false) {
             VStack(spacing: 12) {
                 SectionTitle(title: "الفروع",
-                             subtitle: "افتح فرع بمدينة جديدة: بتبلّش من الأول، بس بتاخد معك نجوم السمعة ⭐ وكل نجمة بتزيد أرباحك 2% للأبد.")
+                             subtitle: "كل فرع جديد بمدينة تانية بيزيد كل أرباحك 10%.")
 
-                VStack(spacing: 6) {
-                    Text("⭐").font(.system(size: 50))
-                    Text("\(Int(s.claimedStars)) نجمة سمعة")
-                        .font(.system(size: 22, weight: .black, design: .rounded))
-                        .foregroundColor(Theme.cream)
-                    Text("أرباحك زايدة +\(Int(s.claimedStars * 2))%")
-                        .font(.system(size: 14, weight: .bold, design: .rounded))
+                HStack(spacing: 10) {
+                    statBox("🏙️", "\(1 + s.branchesOwned)", "فروع")
+                    statBox("📈", "+\(s.branchesOwned * 10)%", "من الفروع")
+                    statBox("📣", "+\(s.globalBonusPercent)%", "بونص كلي")
+                }
+
+                if let next = s.nextBranch {
+                    Button { game.buyBranch() } label: {
+                        BigButtonLabel(text: "افتح فرع \(next.city) · \(Fmt.money(next.cost))",
+                                       enabled: s.money >= next.cost)
+                    }
+                    .buttonStyle(PressableStyle())
+                    .disabled(s.money < next.cost)
+                } else {
+                    Text("👑 فتحت فروع بكل المدن!")
+                        .font(.system(size: 16, weight: .heavy, design: .rounded))
                         .foregroundColor(Theme.gold)
                 }
-                .frame(maxWidth: .infinity)
-                .card()
 
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("إذا فتحت فرع جديد هلء:")
-                        .font(.system(size: 14, weight: .heavy, design: .rounded))
-                        .foregroundColor(Theme.cream)
-                    infoRow("نجوم جديدة", "+\(Int(gain)) ⭐")
-                    infoRow("المدينة الجاية", "📍 \(s.nextCityName)")
-                    infoRow("أرباحك بتصير", "+\(Int((s.claimedStars + gain) * 2))%")
-                    if !canOpen {
-                        let p = min(1, s.lifetimeEarnings / s.lifetimeForNextStar)
-                        Text("لازم توصل أرباحك الكلية لـ \(Fmt.money(s.lifetimeForNextStar)) لتاخد أول نجمة.")
-                            .font(.system(size: 12, weight: .medium, design: .rounded))
-                            .foregroundColor(Theme.muted)
-                            .fixedSize(horizontal: false, vertical: true)
-                        GeometryReader { geo in
-                            ZStack(alignment: .leading) {
-                                Capsule().fill(Color.black.opacity(0.35))
-                                Capsule().fill(Theme.gold).frame(width: geo.size.width * CGFloat(p))
-                            }
-                        }
-                        .frame(height: 8)
+                LazyVGrid(columns: columns, spacing: 8) {
+                    cityTile(name: GameData.homeCity, sub: "🏠 الأصلي", owned: true, isNext: false)
+                    ForEach(Array(GameData.branches.enumerated()), id: \.offset) { k, b in
+                        cityTile(name: b.city,
+                                 sub: k < s.branchesOwned ? "✅ مفتوح" : Fmt.money(b.cost),
+                                 owned: k < s.branchesOwned,
+                                 isNext: k == s.branchesOwned)
                     }
                 }
-                .card()
-
-                Button { confirm = true } label: {
-                    BigButtonLabel(text: "افتح فرع في \(s.nextCityName) 🚀", enabled: canOpen)
-                }
-                .buttonStyle(PressableStyle())
-                .disabled(!canOpen)
-
-                CitiesStrip(current: s.cityIndex)
             }
             .padding(16)
         }
-        .alert("متأكد؟", isPresented: $confirm) {
-            Button("افتح الفرع", role: .destructive) { game.prestige() }
-            Button("لا، بعدين", role: .cancel) {}
-        } message: {
-            Text("رح تبلّش من الأول في \(s.nextCityName): المصاري والأقسام والموظفين والتطويرات بيرجعوا لصفر، بس بتاخد معك \(Int(gain)) نجمة ⭐ بتزيد أرباحك للأبد.")
-        }
     }
 
-    private func infoRow(_ title: String, _ value: String) -> some View {
-        HStack {
-            Text(title)
-                .font(.system(size: 13, weight: .medium, design: .rounded))
-                .foregroundColor(Theme.muted)
-            Spacer()
+    private func statBox(_ icon: String, _ value: String, _ title: String) -> some View {
+        VStack(spacing: 3) {
+            Text(icon).font(.system(size: 20))
             Text(value)
-                .font(.system(size: 14, weight: .heavy, design: .rounded))
+                .font(.system(size: 17, weight: .black, design: .rounded))
                 .foregroundColor(Theme.cream)
+            Text(title)
+                .font(.system(size: 11, weight: .semibold, design: .rounded))
+                .foregroundColor(Theme.muted)
         }
+        .frame(maxWidth: .infinity)
+        .card()
     }
-}
 
-struct CitiesStrip: View {
-    let current: Int
-
-    var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 8) {
-                ForEach(GameData.cities.indices, id: \.self) { k in
-                    let visited = k < current
-                    let here = k == current % GameData.cities.count && current < GameData.cities.count
-                    Text((visited ? "✓ " : "") + GameData.cities[k])
-                        .font(.system(size: 13, weight: .heavy, design: .rounded))
-                        .foregroundColor(here ? Color(hex: 0x2A1608) : (visited ? Theme.money : Theme.muted))
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 7)
-                        .background(Capsule().fill(here ? Theme.gold : Color.white.opacity(0.06)))
-                }
-            }
-            .padding(.vertical, 4)
+    private func cityTile(name: String, sub: String, owned: Bool, isNext: Bool) -> some View {
+        VStack(spacing: 4) {
+            Text(owned ? "🏪" : (isNext ? "📍" : "🔒")).font(.system(size: 24))
+            Text(name)
+                .font(.system(size: 13, weight: .heavy, design: .rounded))
+                .foregroundColor(Theme.cream)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
+            Text(sub)
+                .font(.system(size: 10, weight: .bold, design: .rounded))
+                .foregroundColor(owned ? Theme.money : Theme.muted)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
         }
+        .frame(maxWidth: .infinity)
+        .frame(height: 92)
+        .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(owned ? Theme.cardHi : Theme.card))
+        .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous)
+            .stroke(isNext ? Theme.gold : Theme.stroke, lineWidth: isNext ? 2 : 1))
+        .opacity(owned || isNext ? 1 : 0.6)
     }
 }
 
@@ -229,15 +284,15 @@ struct MoreView: View {
         let s = game.s
         ScrollView(showsIndicators: false) {
             VStack(spacing: 12) {
-                SectionTitle(title: "إحصائيات", subtitle: "كل شي عن إمبراطوريتك.")
+                SectionTitle(title: "إحصائيات", subtitle: "كل شي عن مشروعك.")
 
                 VStack(spacing: 12) {
                     statRow("💰", "أرباحك بكل الأوقات", Fmt.money(s.lifetimeEarnings))
-                    statRow("🏪", "أرباح هالفرع", Fmt.money(s.runEarnings))
+                    statRow("🧆", "قطع مبيوعة", Fmt.number(s.totalSold))
+                    statRow("👨‍🍳", "عدد البياعين", "\(s.totalSellers)")
                     statRow("👆", "عدد الضغطات", "\(s.totalTaps)")
-                    statRow("📦", "الوحدات اللي بتملكها", "\(s.totalOwned)")
                     statRow("⬆️", "التطويرات", "\(s.purchased.count)")
-                    statRow("🌍", "الفروع اللي فتحتها", "\(s.prestigeCount)")
+                    statRow("🏙️", "الفروع", "\(1 + s.branchesOwned)")
                 }
                 .card()
 
@@ -271,10 +326,16 @@ struct MoreView: View {
                         .background(RoundedRectangle(cornerRadius: 14).stroke(Theme.red.opacity(0.5), lineWidth: 1))
                 }
 
-                Text("صُنعت بحب ❤️ في فلسطين · نسخة 1.0")
-                    .font(.system(size: 12, weight: .medium, design: .rounded))
-                    .foregroundColor(Theme.muted.opacity(0.7))
-                    .padding(.top, 6)
+                VStack(spacing: 4) {
+                    Text("Developer: Saad")
+                        .font(.system(size: 14, weight: .heavy, design: .rounded))
+                        .foregroundColor(Theme.gold)
+                        .environment(\.layoutDirection, .leftToRight)
+                    Text("صُنعت بحب ❤️ في فلسطين · نسخة 1.1")
+                        .font(.system(size: 12, weight: .medium, design: .rounded))
+                        .foregroundColor(Theme.muted.opacity(0.7))
+                }
+                .padding(.top, 6)
             }
             .padding(16)
         }
@@ -283,7 +344,7 @@ struct MoreView: View {
             Button("امسح", role: .destructive) { game.resetAll() }
             Button("إلغاء", role: .cancel) {}
         } message: {
-            Text("رح تخسر كل التقدم والنجوم والفروع. ما في رجعة.")
+            Text("رح تخسر كل التقدم والفروع. ما في رجعة.")
         }
     }
 

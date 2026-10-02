@@ -62,7 +62,7 @@ struct OfflineView: View {
             Text("أهلاً فيك رجعت!")
                 .font(.system(size: 22, weight: .black, design: .rounded))
                 .foregroundColor(Theme.cream)
-            Text("وإنت غايب، الموظفين ضلّوا شغّالين وربحولك:")
+            Text("غبت \(Fmt.longDuration(game.offlineSeconds))، والمدراء ضلّوا يبيعوا وربحولك:")
                 .font(.system(size: 14, weight: .medium, design: .rounded))
                 .foregroundColor(Theme.muted)
                 .multilineTextAlignment(.center)

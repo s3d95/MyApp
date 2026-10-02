@@ -11,6 +11,8 @@ struct StallView: View {
     @EnvironmentObject var game: Game
     @State private var floats: [FloatText] = []
     @State private var pressed = false
+    @State private var autoPress = false
+    @State private var size: CGSize = .zero
 
     var body: some View {
         let stage = game.s.stage
@@ -19,23 +21,23 @@ struct StallView: View {
                            startPoint: .top, endPoint: .bottom)
             Skyline()
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                .padding(.bottom, 54)
+                .padding(.bottom, 48)
 
             VStack(spacing: 0) {
-                SignBoard(name: game.s.displayName, stage: stage, city: game.s.cityName)
-                    .padding(.top, 10)
-                Awning(a: stage >= 3 ? Color(hex: 0xB91C1C) : Color(hex: 0x15803D), b: Theme.cream)
-                    .frame(height: 30)
+                SignBoard(name: game.s.displayName, stage: stage, city: GameData.homeCity)
                     .padding(.top, 8)
+                Awning(a: stage >= 3 ? Color(hex: 0xB91C1C) : Color(hex: 0x15803D), b: Theme.cream)
+                    .frame(height: 26)
+                    .padding(.top, 6)
                 if stage >= 1 {
                     StringLights().padding(.top, 3)
                 }
                 Spacer()
-                CounterView(stage: stage).frame(height: 56)
+                CounterView(stage: stage).frame(height: 50)
             }
 
-            FalafelButton(pressed: pressed)
-                .offset(y: 22)
+            FalafelButton(pressed: pressed || autoPress)
+                .offset(y: 20)
                 .gesture(
                     DragGesture(minimumDistance: 0, coordinateSpace: .named("hero"))
                         .onChanged { _ in if !pressed { pressed = true } }
@@ -45,29 +47,72 @@ struct StallView: View {
                         }
                 )
 
+            if game.s.autoLevel > 0 {
+                AutoClickerBadge(level: game.s.autoLevel)
+                    .offset(x: 92, y: 18)
+            }
+
             if game.s.totalTaps < 5 {
-                HintBubble(text: "اضغط على الفلافل! 👆").offset(y: 96)
+                HintBubble(text: "اضغط على الفلافل! 👆").offset(y: 84)
             }
 
             ForEach(floats) { f in
                 FloatingLabel(text: f.text).position(f.point)
             }
         }
-        .frame(height: 232)
+        .frame(height: 200)
+        .background(GeometryReader { g in
+            Color.clear
+                .onAppear { size = g.size }
+                .onChange(of: g.size) { size = $0 }
+        })
         .coordinateSpace(name: "hero")
         .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .overlay(RoundedRectangle(cornerRadius: 24, style: .continuous).stroke(Color.white.opacity(0.1), lineWidth: 1))
+        .onChange(of: game.autoBurst) { burst in
+            guard burst.amount > 0, size != .zero else { return }
+            addFloat("+" + Fmt.money(burst.amount),
+                     at: CGPoint(x: size.width / 2 + CGFloat.random(in: -40...40), y: size.height / 2 - 10))
+            autoPress = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { autoPress = false }
+        }
     }
 
     private func tap(at p: CGPoint) {
         let v = game.tapFalafel()
-        let f = FloatText(text: "+" + Fmt.money(v),
-                          point: CGPoint(x: p.x + CGFloat.random(in: -24...24), y: p.y - 34))
+        addFloat("+" + Fmt.money(v), at: CGPoint(x: p.x + CGFloat.random(in: -24...24), y: p.y - 34))
+    }
+
+    private func addFloat(_ text: String, at point: CGPoint) {
+        let f = FloatText(text: text, point: point)
         floats.append(f)
         if floats.count > 25 { floats.removeFirst(floats.count - 25) }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             floats.removeAll { $0.id == f.id }
         }
+    }
+}
+
+/// Little robot next to the falafel showing the auto clicker is working.
+struct AutoClickerBadge: View {
+    let level: Int
+    @State private var bob = false
+
+    var body: some View {
+        VStack(spacing: 2) {
+            Text("🤖").font(.system(size: 26))
+            Text("\(level)/ث")
+                .font(.system(size: 10, weight: .black, design: .rounded))
+                .foregroundColor(Color(hex: 0x2A1608))
+                .padding(.horizontal, 6)
+                .padding(.vertical, 2)
+                .background(Capsule().fill(Theme.gold))
+        }
+        .offset(y: bob ? -3 : 3)
+        .onAppear {
+            withAnimation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true)) { bob = true }
+        }
+        .allowsHitTesting(false)
     }
 }
 
@@ -78,17 +123,17 @@ struct FalafelButton: View {
         ZStack {
             Circle()
                 .fill(Color.black.opacity(0.3))
-                .frame(width: 112, height: 112)
+                .frame(width: 100, height: 100)
                 .blur(radius: 6)
                 .offset(y: 6)
             Circle()
                 .fill(RadialGradient(colors: [Color(hex: 0xFFD08A), Color(hex: 0xE07B24), Color(hex: 0x9A4A12)],
                                      center: .topLeading, startRadius: 4, endRadius: 120))
-                .frame(width: 104, height: 104)
+                .frame(width: 94, height: 94)
             Circle()
                 .stroke(Theme.gold.opacity(0.9), lineWidth: 3)
-                .frame(width: 104, height: 104)
-            Text("🧆").font(.system(size: 58))
+                .frame(width: 94, height: 94)
+            Text("🧆").font(.system(size: 52))
         }
         .scaleEffect(pressed ? 0.88 : 1)
         .animation(.spring(response: 0.25, dampingFraction: 0.5), value: pressed)

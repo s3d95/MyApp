@@ -1,6 +1,7 @@
 import Foundation
 
 struct LineState: Codable {
+    /// Number of sellers working in this section (0 = section locked).
     var owned: Int = 0
     var hasManager: Bool = false
     var cycleStart: Date? = nil
@@ -8,17 +9,17 @@ struct LineState: Codable {
 
 struct GameState: Codable {
     var money: Double = 0
-    var runEarnings: Double = 0
     var lifetimeEarnings: Double = 0
-    var claimedStars: Double = 0
+    var totalSold: Double = 0
     var lines: [LineState] = Array(repeating: LineState(), count: GameData.businesses.count)
     var purchased: Set<String> = []
-    var cityIndex: Int = 0
+    var branchesOwned: Int = 0
+    var tapLevel: Int = 0
+    var autoLevel: Int = 0
     var stallName: String = ""
     var totalTaps: Int = 0
     var lastSaved: Date = Date()
     var createdAt: Date = Date()
-    var prestigeCount: Int = 0
     var soundOn: Bool = true
     var hapticsOn: Bool = true
     var boostUntil: Date? = nil
@@ -27,8 +28,8 @@ struct GameState: Codable {
     init() {}
 
     enum CodingKeys: String, CodingKey {
-        case money, runEarnings, lifetimeEarnings, claimedStars, lines, purchased, cityIndex, stallName,
-             totalTaps, lastSaved, createdAt, prestigeCount, soundOn, hapticsOn, boostUntil, boostFactor
+        case money, lifetimeEarnings, totalSold, lines, purchased, branchesOwned, tapLevel, autoLevel,
+             stallName, totalTaps, lastSaved, createdAt, soundOn, hapticsOn, boostUntil, boostFactor
     }
 
     // Tolerant decoding so older saves keep loading after new fields are added.
@@ -36,17 +37,17 @@ struct GameState: Codable {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         var d = GameState()
         d.money = try c.decodeIfPresent(Double.self, forKey: .money) ?? d.money
-        d.runEarnings = try c.decodeIfPresent(Double.self, forKey: .runEarnings) ?? d.runEarnings
         d.lifetimeEarnings = try c.decodeIfPresent(Double.self, forKey: .lifetimeEarnings) ?? d.lifetimeEarnings
-        d.claimedStars = try c.decodeIfPresent(Double.self, forKey: .claimedStars) ?? d.claimedStars
+        d.totalSold = try c.decodeIfPresent(Double.self, forKey: .totalSold) ?? d.totalSold
         d.lines = try c.decodeIfPresent([LineState].self, forKey: .lines) ?? d.lines
         d.purchased = try c.decodeIfPresent(Set<String>.self, forKey: .purchased) ?? d.purchased
-        d.cityIndex = try c.decodeIfPresent(Int.self, forKey: .cityIndex) ?? d.cityIndex
+        d.branchesOwned = try c.decodeIfPresent(Int.self, forKey: .branchesOwned) ?? d.branchesOwned
+        d.tapLevel = try c.decodeIfPresent(Int.self, forKey: .tapLevel) ?? d.tapLevel
+        d.autoLevel = try c.decodeIfPresent(Int.self, forKey: .autoLevel) ?? d.autoLevel
         d.stallName = try c.decodeIfPresent(String.self, forKey: .stallName) ?? d.stallName
         d.totalTaps = try c.decodeIfPresent(Int.self, forKey: .totalTaps) ?? d.totalTaps
         d.lastSaved = try c.decodeIfPresent(Date.self, forKey: .lastSaved) ?? d.lastSaved
         d.createdAt = try c.decodeIfPresent(Date.self, forKey: .createdAt) ?? d.createdAt
-        d.prestigeCount = try c.decodeIfPresent(Int.self, forKey: .prestigeCount) ?? d.prestigeCount
         d.soundOn = try c.decodeIfPresent(Bool.self, forKey: .soundOn) ?? d.soundOn
         d.hapticsOn = try c.decodeIfPresent(Bool.self, forKey: .hapticsOn) ?? d.hapticsOn
         d.boostUntil = try c.decodeIfPresent(Date.self, forKey: .boostUntil)
@@ -55,6 +56,10 @@ struct GameState: Codable {
         let count = GameData.businesses.count
         if d.lines.count > count { d.lines = Array(d.lines.prefix(count)) }
         while d.lines.count < count { d.lines.append(LineState()) }
+        for i in d.lines.indices { d.lines[i].owned = min(d.lines[i].owned, GameData.maxSellers) }
+        d.branchesOwned = min(d.branchesOwned, GameData.branches.count)
+        d.tapLevel = min(d.tapLevel, GameData.maxTapLevel)
+        d.autoLevel = min(d.autoLevel, GameData.maxAutoLevel)
         self = d
     }
 }
@@ -69,22 +74,21 @@ extension GameState {
     }
 
     var displayName: String { stallName.isEmpty ? "بسطتي" : stallName }
-    var cityName: String { GameData.cities[cityIndex % GameData.cities.count] }
-    var nextCityName: String { GameData.cities[(cityIndex + 1) % GameData.cities.count] }
 
-    var totalOwned: Int { lines.reduce(0) { $0 + $1.owned } }
+    var totalSellers: Int { lines.reduce(0) { $0 + $1.owned } }
 
     var stage: Int {
         var r = 0
-        for (k, t) in GameData.stageThresholds.enumerated() where totalOwned >= t { r = k }
+        for (k, t) in GameData.stageThresholds.enumerated() where totalSellers >= t { r = k }
         return r
     }
 
     mutating func earn(_ v: Double) {
         money += v
-        runEarnings += v
         lifetimeEarnings += v
     }
+
+    // MARK: Speed & price
 
     func milestoneCount(_ i: Int) -> Int {
         GameData.milestones.filter { lines[i].owned >= $0 }.count
@@ -94,70 +98,81 @@ extension GameState {
         GameData.milestones.first(where: { lines[i].owned < $0 })
     }
 
-    func cycleTime(_ i: Int) -> Double {
-        GameData.businesses[i].baseTime / pow(2, Double(milestoneCount(i)))
+    func speedMultiplier(_ i: Int) -> Double {
+        var m = pow(GameData.milestoneSpeed, Double(milestoneCount(i)))
+        for u in GameData.upgrades where u.section == i && purchased.contains(u.id) { m *= u.speed }
+        return m
     }
 
-    var starMultiplier: Double { 1 + claimedStars * 0.02 }
+    func priceMultiplier(_ i: Int) -> Double {
+        var m = 1.0
+        for u in GameData.upgrades where u.section == i && purchased.contains(u.id) { m *= u.price }
+        return m
+    }
+
+    var customersMultiplier: Double {
+        var m = 1.0
+        for u in GameData.upgrades where u.section == nil && purchased.contains(u.id) { m *= u.customers }
+        return m
+    }
+
+    var branchMultiplier: Double { 1 + Double(branchesOwned) * GameData.branchBonus }
+
+    /// Total bonus from ads and branches, shown as a percentage in the UI.
+    var globalBonusPercent: Int { Int(((customersMultiplier * branchMultiplier - 1) * 100).rounded()) }
 
     func boost(at now: Date) -> Double {
         if let u = boostUntil, now < u { return boostFactor }
         return 1
     }
 
-    func upgradeMultiplier(_ i: Int) -> Double {
-        var m = 1.0
-        for u in GameData.upgrades where purchased.contains(u.id) {
-            switch u.target {
-            case .business(let b) where b == i: m *= u.multiplier
-            case .all: m *= u.multiplier
-            default: break
-            }
-        }
-        return m
+    func cycleTime(_ i: Int) -> Double {
+        GameData.businesses[i].baseTime / speedMultiplier(i)
     }
 
-    var tapMultiplier: Double {
-        var m = 1.0
-        for u in GameData.upgrades where u.target == .tap && purchased.contains(u.id) { m *= u.multiplier }
-        return m
+    /// Price of one item including every bonus.
+    func unitPrice(_ i: Int, now: Date) -> Double {
+        GameData.businesses[i].price * priceMultiplier(i) * customersMultiplier * branchMultiplier * boost(at: now)
     }
 
+    /// Money from one cycle: every seller sells one item.
     func revenuePerCycle(_ i: Int, now: Date) -> Double {
-        GameData.businesses[i].baseRevenue * Double(lines[i].owned)
-            * starMultiplier * upgradeMultiplier(i) * boost(at: now)
+        Double(lines[i].owned) * unitPrice(i, now: now)
     }
+
+    // MARK: Tapping
+
+    func tapValue(now: Date) -> Double { Double(1 + tapLevel) * boost(at: now) }
+    var autoRate: Double { Double(autoLevel) }
+
+    var nextTapCost: Double? { tapLevel < GameData.maxTapLevel ? GameData.tapCost(tapLevel) : nil }
+    var nextAutoCost: Double? { autoLevel < GameData.maxAutoLevel ? GameData.autoCost(autoLevel) : nil }
 
     func incomePerSecond(now: Date) -> Double {
-        var total = 0.0
+        var total = autoRate * tapValue(now: now)
         for i in lines.indices where lines[i].owned > 0 && lines[i].hasManager {
             total += revenuePerCycle(i, now: now) / cycleTime(i)
         }
         return total
     }
 
-    func tapValue(now: Date) -> Double {
-        (starMultiplier * boost(at: now) + incomePerSecond(now: now) * 0.08) * tapMultiplier
+    // MARK: Buying sellers
+
+    func remainingSellers(_ i: Int) -> Int { max(0, GameData.maxSellers - lines[i].owned) }
+
+    func sellerCost(_ i: Int, count n: Int) -> Double {
+        let b = GameData.businesses[i]
+        let first = b.sellerBase * pow(b.growth, Double(max(0, lines[i].owned - 1)))
+        return (first * (pow(b.growth, Double(n)) - 1) / (b.growth - 1)).rounded()
     }
 
-    func cost(_ i: Int, count n: Int) -> Double {
-        let b = GameData.businesses[i]
-        let first = b.baseCost * pow(b.growth, Double(lines[i].owned))
-        return first * (pow(b.growth, Double(n)) - 1) / (b.growth - 1)
-    }
-
-    func maxAffordable(_ i: Int) -> Int {
-        let b = GameData.businesses[i]
-        let first = b.baseCost * pow(b.growth, Double(lines[i].owned))
-        guard first.isFinite, first > 0, money >= first else { return 0 }
-        let n = floor(log(money * (b.growth - 1) / first + 1) / log(b.growth))
-        var k = Int(min(max(n, 0), 10_000))
-        while k > 0 && cost(i, count: k) > money { k -= 1 }
+    func maxAffordableSellers(_ i: Int) -> Int {
+        var k = 0
+        while k < remainingSellers(i) && sellerCost(i, count: k + 1) <= money { k += 1 }
         return k
     }
 
-    // Prestige: stars come from lifetime earnings; each star = +2% profit forever.
-    var potentialStars: Double { floor(10 * (lifetimeEarnings / 1e10).squareRoot()) }
-    var starsToGain: Double { max(0, potentialStars - claimedStars) }
-    var lifetimeForNextStar: Double { 1e10 * pow((claimedStars + 1) / 10, 2) }
+    var nextBranch: BranchDef? {
+        branchesOwned < GameData.branches.count ? GameData.branches[branchesOwned] : nil
+    }
 }

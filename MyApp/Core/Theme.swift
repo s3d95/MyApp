@@ -16,6 +16,7 @@ enum Theme {
     static let bgTop = Color(hex: 0x1A120D)
     static let bgBottom = Color(hex: 0x24170F)
     static let card = Color(hex: 0x2E2018)
+    static let cardHi = Color(hex: 0x3D2B1F)
     static let stroke = Color.white.opacity(0.08)
     static let gold = Color(hex: 0xFBBF24)
     static let money = Color(hex: 0x4ADE80)
@@ -71,6 +72,20 @@ enum Fmt {
         if x >= 100 { return String(format: "%.0f", x.rounded(.down)) }
         if x >= 10 { return String(format: "%.1f", (x * 10).rounded(.down) / 10) }
         return String(format: "%.2f", (x * 100).rounded(.down) / 100)
+    }
+
+    /// Short cycle times like "4.0ث".
+    static func seconds(_ s: Double) -> String {
+        if s < 60 { return String(format: "%.1fث", max(0, s)) }
+        return duration(s)
+    }
+
+    /// Human time away, like "2 ساعة و15 دقيقة".
+    static func longDuration(_ s: Double) -> String {
+        let t = max(0, Int(s))
+        let h = t / 3600, m = (t % 3600) / 60
+        if h > 0 { return m > 0 ? "\(h) ساعة و\(m) دقيقة" : "\(h) ساعة" }
+        return "\(max(1, m)) دقيقة"
     }
 
     static func duration(_ s: Double) -> String {

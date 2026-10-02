@@ -6,7 +6,7 @@ enum Tab: CaseIterable {
     var title: String {
         switch self {
         case .shop: return "البسطة"
-        case .managers: return "الموظفين"
+        case .managers: return "المدراء"
         case .upgrades: return "التطويرات"
         case .branches: return "الفروع"
         case .more: return "المزيد"
@@ -80,7 +80,7 @@ struct RootView: View {
         case .shop: ShopView()
         case .managers: ManagersView()
         case .upgrades: UpgradesView()
-        case .branches: PrestigeView()
+        case .branches: BranchesView()
         case .more: MoreView()
         }
     }
@@ -105,9 +105,9 @@ struct HeaderView: View {
             }
             Spacer()
             VStack(alignment: .trailing, spacing: 5) {
-                Chip(text: "📍 " + game.s.cityName)
-                if game.s.claimedStars > 0 {
-                    Chip(text: "⭐ \(Int(game.s.claimedStars)) · +\(Int(game.s.claimedStars * 2))%")
+                Chip(text: "📍 " + GameData.homeCity)
+                if game.s.branchesOwned > 0 {
+                    Chip(text: "🏙️ \(1 + game.s.branchesOwned) فروع · +\(game.s.branchesOwned * 10)%")
                 }
                 if let until = game.s.boostUntil, until > now {
                     TimelineView(.periodic(from: now, by: 1)) { ctx in
@@ -166,13 +166,16 @@ struct TabBar: View {
                 s.lines[d.id].owned > 0 && !s.lines[d.id].hasManager && s.money >= d.managerCost
             }
         case .upgrades:
+            if let c = s.nextAutoCost, s.money >= c { return true }
+            if let c = s.nextTapCost, s.money >= c { return true }
             return GameData.upgrades.contains { u in
                 guard !s.purchased.contains(u.id), s.money >= u.cost else { return false }
-                if case .business(let b) = u.target { return s.lines[b].owned > 0 }
+                if let sec = u.section { return s.lines[sec].owned > 0 }
                 return true
             }
         case .branches:
-            return s.starsToGain >= max(1, s.claimedStars)
+            if let b = s.nextBranch { return s.money >= b.cost }
+            return false
         default:
             return false
         }
