@@ -11,6 +11,8 @@ struct ShopView: View {
             VStack(spacing: 10) {
                 StallView()
 
+                DishBanner(selected: $selected)
+
                 LazyVGrid(columns: columns, spacing: 8) {
                     ForEach(GameData.businesses) { def in
                         SectionTile(index: def.id, selected: selected == def.id) {
@@ -88,6 +90,17 @@ struct SectionTile: View {
             .overlay(Group {
                 if line.hasManager { Text("👔").font(.system(size: 11)).padding(6) }
             }, alignment: .topLeading)
+            .overlay(Group {
+                if game.s.dishIndex == index {
+                    Text("🌟 ×3")
+                        .font(.system(size: 9, weight: .black, design: .rounded))
+                        .foregroundColor(Color(hex: 0x2A1608))
+                        .padding(.horizontal, 5)
+                        .padding(.vertical, 2)
+                        .background(Capsule().fill(Theme.gold))
+                        .offset(y: -6)
+                }
+            }, alignment: .top)
             .overlay(Group {
                 if canBuy { Circle().fill(Theme.money).frame(width: 8, height: 8).padding(8) }
             }, alignment: .topTrailing)
@@ -204,7 +217,7 @@ struct SectionDetail: View {
                             tint: tint, idleHint: line.hasManager ? nil : "اضغط على المربع ليبيعوا")
 
             if maxed {
-                Text("🏆 وصلت الحد الأقصى: \(GameData.maxSellers) بيّاع")
+                Text("🏆 وصلت الحد الأقصى: \(Fmt.number(Double(GameData.maxSellers))) بيّاع")
                     .font(.system(size: 13, weight: .heavy, design: .rounded))
                     .foregroundColor(Theme.gold)
                     .frame(maxWidth: .infinity)
@@ -217,11 +230,77 @@ struct SectionDetail: View {
                     }
                 }
                 if let next = game.s.nextMilestone(index) {
-                    Text("⚡ لما يصيروا \(next) بيّاع، القسم بيصير أسرع 25%")
-                        .font(.system(size: 11, weight: .bold, design: .rounded))
-                        .foregroundColor(Theme.gold.opacity(0.9))
+                    MilestoneHint(owned: line.owned, next: next)
                 }
             }
+        }
+    }
+}
+
+/// Progress toward the section's next speed or profit milestone.
+struct MilestoneHint: View {
+    let owned: Int
+    let next: Int
+
+    var body: some View {
+        let speed = next <= 50
+        let prev = speed ? (GameData.milestones.last(where: { $0 <= owned }) ?? 0)
+                         : (next - GameData.profitStep)
+        let progress = Double(owned - prev) / Double(max(1, next - prev))
+        VStack(alignment: .leading, spacing: 4) {
+            Text(speed ? "⚡ لما يصيروا \(next) بيّاع، القسم بيصير أسرع 25%"
+                       : "💥 لما يصيروا \(next) بيّاع، أرباح القسم ×2")
+                .font(.system(size: 11, weight: .bold, design: .rounded))
+                .foregroundColor(Theme.gold.opacity(0.9))
+            ProgressBar(value: progress, tint: Theme.gold.opacity(0.8), height: 5)
+        }
+    }
+}
+
+/// Today's featured dish sells for triple.
+struct DishBanner: View {
+    @EnvironmentObject var game: Game
+    @Binding var selected: Int
+
+    var body: some View {
+        let i = game.s.dishIndex
+        if i >= 0 && i < GameData.businesses.count {
+            let def = GameData.businesses[i]
+            let open = game.s.lines[i].owned > 0
+            Button {
+                selected = i
+                if game.s.hapticsOn { Feedback.light() }
+            } label: {
+                HStack(spacing: 10) {
+                    Text(def.emoji).font(.system(size: 26))
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("طبق اليوم: \(def.name)")
+                            .font(.system(size: 14, weight: .black, design: .rounded))
+                            .foregroundColor(Theme.cream)
+                        Text(open ? "كل الناس بدها \(def.product)! سعرها ×3 لآخر اليوم"
+                                  : "افتح القسم عشان تستفيد من ×3 اليوم")
+                            .font(.system(size: 11, weight: .semibold, design: .rounded))
+                            .foregroundColor(Theme.muted)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.7)
+                    }
+                    Spacer(minLength: 4)
+                    Text("🌟 ×3")
+                        .font(.system(size: 13, weight: .black, design: .rounded))
+                        .foregroundColor(Color(hex: 0x2A1608))
+                        .padding(.horizontal, 9)
+                        .padding(.vertical, 5)
+                        .background(Capsule().fill(Theme.gold))
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 9)
+                .background(RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(LinearGradient(colors: [Color(hex: def.tint).opacity(0.35), Theme.card],
+                                         startPoint: .leading, endPoint: .trailing)))
+                .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .stroke(Theme.gold.opacity(0.4), lineWidth: 1))
+            }
+            .buttonStyle(PressableStyle())
         }
     }
 }

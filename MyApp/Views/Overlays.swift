@@ -71,6 +71,16 @@ struct OfflineView: View {
                 .foregroundColor(Theme.money)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
+            if !game.offlineDoubled {
+                GoldButton(title: "ضاعفهم ×2", cost: Game.doubleOfflineCost,
+                           enabled: game.s.liras >= Game.doubleOfflineCost) {
+                    withAnimation(.spring()) { game.doubleOffline() }
+                }
+            } else {
+                Text("✨ تضاعفوا!")
+                    .font(.system(size: 14, weight: .heavy, design: .rounded))
+                    .foregroundColor(Theme.lira)
+            }
             Button {
                 withAnimation { game.showOffline = false }
                 if game.s.hapticsOn { Feedback.success() }
@@ -78,6 +88,9 @@ struct OfflineView: View {
                 BigButtonLabel(text: "استلم المصاري 💰")
             }
             .buttonStyle(PressableStyle())
+            Text("المدراء بيشتغلوا لحد \(Int(game.s.offlineHours)) ساعة وإنت برّا")
+                .font(.system(size: 11, weight: .semibold, design: .rounded))
+                .foregroundColor(Theme.muted.opacity(0.8))
         }
     }
 }
@@ -93,7 +106,7 @@ struct OnboardingView: View {
                 .font(.system(size: 22, weight: .black, design: .rounded))
                 .foregroundColor(Theme.cream)
                 .multilineTextAlignment(.center)
-            Text("بتبلّش ببسطة صغيرة بالقدس، وهدفك تصير أكبر سلسلة مطاعم بفلسطين. شو بدك تسمّي بسطتك؟")
+            Text("بتبلّش ببسطة صغيرة بالقدس، وهدفك تصير أكبر سلسلة مطاعم بفلسطين والعالم. شو بدك تسمّي بسطتك؟")
                 .font(.system(size: 14, weight: .medium, design: .rounded))
                 .foregroundColor(Theme.muted)
                 .multilineTextAlignment(.center)
@@ -111,6 +124,73 @@ struct OnboardingView: View {
                 BigButtonLabel(text: "افتح البسطة 🚀")
             }
             .buttonStyle(PressableStyle())
+        }
+    }
+}
+
+/// Daily login reward with the 7-day streak track.
+struct LoginView: View {
+    @EnvironmentObject var game: Game
+    @State private var pop = false
+
+    var body: some View {
+        let today = game.today
+        let index = game.s.loginTrackIndex(today: today)
+        let streak = game.s.loginDay == today - 1 ? game.s.loginStreak + 1 : 1
+        let reward = Catalog.loginTrack[index]
+
+        ModalCard {
+            Text("🎁")
+                .font(.system(size: 60))
+                .scaleEffect(pop ? 1.08 : 0.92)
+                .onAppear {
+                    withAnimation(.easeInOut(duration: 0.7).repeatForever(autoreverses: true)) { pop = true }
+                }
+            Text("مكافأة اليوم \(streak)")
+                .font(.system(size: 22, weight: .black, design: .rounded))
+                .foregroundColor(Theme.cream)
+            Text(streak > 1 ? "🔥 \(streak) يوم ورا بعض! ارجع بكرة عشان تكمّل السلسلة." : "افتح اللعبة كل يوم والمكافآت بتكبر، واليوم السابع فيه صندوق دهب!")
+                .font(.system(size: 13, weight: .medium, design: .rounded))
+                .foregroundColor(Theme.muted)
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
+            LoginTrack(current: index, claimedThrough: index - 1)
+            Text(reward.text)
+                .font(.system(size: 16, weight: .heavy, design: .rounded))
+                .foregroundColor(Theme.lira)
+                .multilineTextAlignment(.center)
+            Button {
+                game.claimLogin()
+            } label: {
+                BigButtonLabel(text: "استلم المكافأة")
+            }
+            .buttonStyle(PressableStyle())
+        }
+    }
+}
+
+/// Row of the 7 daily rewards; `current` is highlighted.
+struct LoginTrack: View {
+    let current: Int
+    let claimedThrough: Int
+
+    var body: some View {
+        HStack(spacing: 4) {
+            ForEach(0..<7, id: \.self) { k in
+                let r = Catalog.loginTrack[k]
+                VStack(spacing: 2) {
+                    Text(k <= claimedThrough ? "✅" : r.icon).font(.system(size: 17))
+                    Text("\(k + 1)")
+                        .font(.system(size: 10, weight: .heavy, design: .rounded))
+                        .foregroundColor(k == current ? Color(hex: 0x2A1608) : Theme.muted)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 6)
+                .background(RoundedRectangle(cornerRadius: 9, style: .continuous)
+                    .fill(k == current ? Theme.gold : Color.white.opacity(0.06)))
+                .overlay(RoundedRectangle(cornerRadius: 9, style: .continuous)
+                    .stroke(k == 6 ? Theme.lira.opacity(0.6) : Color.clear, lineWidth: 1))
+            }
         }
     }
 }

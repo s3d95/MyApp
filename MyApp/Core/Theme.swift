@@ -24,6 +24,10 @@ enum Theme {
     static let cream = Color(hex: 0xFFF7E6)
     static let muted = Color(hex: 0xC9B8A6)
     static let disabled = Color(hex: 0x4A3B30)
+    static let lira = Color(hex: 0xFACC15)
+    static let star = Color(hex: 0xFDE68A)
+    static let purple = Color(hex: 0xA855F7)
+    static let blue = Color(hex: 0x3B82F6)
 }
 
 enum Feedback {
@@ -33,12 +37,14 @@ enum Feedback {
     static func light() { lightGen.impactOccurred() }
     static func medium() { mediumGen.impactOccurred() }
     static func success() { UINotificationFeedbackGenerator().notificationOccurred(.success) }
+    static func error() { UINotificationFeedbackGenerator().notificationOccurred(.error) }
     static func click() { AudioServicesPlaySystemSound(1104) }
 }
 
 enum Fmt {
     private static let suffixes = ["ألف", "مليون", "مليار", "تريليون", "كوادريليون", "كوينتليون",
-                                   "سكستليون", "سبتليون", "أوكتليون", "نونيليون", "ديسيليون"]
+                                   "سكستليون", "سبتليون", "أوكتليون", "نونيليون", "ديسيليون",
+                                   "أنديسيليون", "دوديسيليون", "تريديسيليون", "كواتوردسيليون"]
 
     private static let grouped: NumberFormatter = {
         let f = NumberFormatter()
@@ -72,6 +78,18 @@ enum Fmt {
         if x >= 100 { return String(format: "%.0f", x.rounded(.down)) }
         if x >= 10 { return String(format: "%.1f", (x * 10).rounded(.down) / 10) }
         return String(format: "%.2f", (x * 100).rounded(.down) / 100)
+    }
+
+    /// A share like 0.025 as "2.5%".
+    static func percent(_ v: Double) -> String {
+        let p = v * 100
+        return (p == p.rounded() ? String(format: "%.0f", p) : String(format: "%.1f", p)) + "%"
+    }
+
+    /// Multipliers like "×1.5" or "×2.3 مليون".
+    static func multiplier(_ v: Double) -> String {
+        if v < 10 { return String(format: "%.2f", (v * 100).rounded(.down) / 100) }
+        return number(v)
     }
 
     /// Short cycle times like "4.0ث".

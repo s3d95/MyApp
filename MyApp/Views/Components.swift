@@ -155,3 +155,195 @@ struct ModalCard<Content: View>: View {
         }
     }
 }
+
+/// Button that spends gold liras.
+struct GoldButton: View {
+    let title: String
+    let cost: Int
+    let enabled: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            VStack(spacing: 1) {
+                Text(title)
+                    .font(.system(size: 11, weight: .bold, design: .rounded))
+                    .opacity(0.85)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
+                Text("🪙 \(cost)")
+                    .font(.system(size: 14, weight: .heavy, design: .rounded))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.6)
+            }
+            .foregroundColor(enabled ? Color(hex: 0x2A1608) : Theme.muted.opacity(0.6))
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 7)
+            .background(
+                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    .fill(LinearGradient(colors: enabled ? [Color(hex: 0xFDE047), Color(hex: 0xEAB308)]
+                                                         : [Theme.disabled, Theme.disabled],
+                                         startPoint: .top, endPoint: .bottom))
+            )
+        }
+        .buttonStyle(PressableStyle())
+        .disabled(!enabled)
+    }
+}
+
+/// Plain call-to-action button with a solid color.
+struct ActionButton: View {
+    let title: String
+    var tint: Color = Color(hex: 0x22C55E)
+    var enabled: Bool = true
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Text(title)
+                .font(.system(size: 14, weight: .heavy, design: .rounded))
+                .foregroundColor(enabled ? .white : Theme.muted.opacity(0.6))
+                .lineLimit(1)
+                .minimumScaleFactor(0.6)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 10)
+                .background(RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    .fill(enabled ? tint : Theme.disabled))
+        }
+        .buttonStyle(PressableStyle())
+        .disabled(!enabled)
+    }
+}
+
+struct ProgressBar: View {
+    let value: Double
+    var tint: Color = Theme.gold
+    var height: CGFloat = 8
+
+    var body: some View {
+        GeometryReader { geo in
+            ZStack(alignment: .leading) {
+                Capsule().fill(Color.black.opacity(0.35))
+                Capsule()
+                    .fill(tint)
+                    .frame(width: max(height, geo.size.width * CGFloat(min(1, max(0, value)))))
+                    .opacity(value > 0 ? 1 : 0)
+            }
+        }
+        .frame(height: height)
+    }
+}
+
+/// Horizontal row of selectable chips, used as sub-tabs.
+struct SegmentChips<T: Hashable>: View {
+    let items: [T]
+    @Binding var selection: T
+    let title: (T) -> String
+    var badge: (T) -> Bool = { _ in false }
+    @EnvironmentObject var game: Game
+
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 6) {
+                ForEach(items, id: \.self) { item in
+                    chip(item)
+                }
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 4)
+        }
+    }
+
+    private func chip(_ item: T) -> some View {
+        let on = selection == item
+        return Button {
+            selection = item
+            if game.s.hapticsOn { Feedback.light() }
+        } label: {
+            Text(title(item))
+                .font(.system(size: 13, weight: .heavy, design: .rounded))
+                .foregroundColor(on ? Color(hex: 0x2A1608) : Theme.cream)
+                .padding(.horizontal, 13)
+                .padding(.vertical, 8)
+                .background(Capsule().fill(on ? Theme.gold : Color.white.opacity(0.07)))
+                .overlay(Group {
+                    if badge(item) {
+                        Circle().fill(Theme.red).frame(width: 8, height: 8).offset(x: -2, y: 2)
+                    }
+                }, alignment: .topTrailing)
+        }
+        .buttonStyle(PressableStyle())
+    }
+}
+
+/// A drawn treasure chest tinted by its kind.
+struct ChestIcon: View {
+    let kind: ChestKind
+    var size: CGFloat = 54
+    var open: Bool = false
+
+    var body: some View {
+        let tint = Color(hex: kind.tint)
+        ZStack {
+            RoundedRectangle(cornerRadius: size * 0.12, style: .continuous)
+                .fill(LinearGradient(colors: [tint, tint.opacity(0.55)], startPoint: .top, endPoint: .bottom))
+                .frame(width: size, height: size * 0.6)
+                .offset(y: size * 0.16)
+            RoundedRectangle(cornerRadius: size * 0.18, style: .continuous)
+                .fill(LinearGradient(colors: [tint.opacity(1), tint.opacity(0.75)], startPoint: .top, endPoint: .bottom))
+                .frame(width: size * 1.06, height: size * 0.34)
+                .rotationEffect(.degrees(open ? -24 : 0), anchor: .bottomLeading)
+                .offset(y: open ? -size * 0.36 : -size * 0.2)
+            Rectangle()
+                .fill(Color.black.opacity(0.22))
+                .frame(width: size * 0.13, height: size * 0.6)
+                .offset(y: size * 0.16)
+            Circle()
+                .fill(Theme.gold)
+                .frame(width: size * 0.2, height: size * 0.2)
+                .overlay(Circle().stroke(Color.black.opacity(0.35), lineWidth: 1))
+                .offset(y: size * 0.02)
+        }
+        .frame(width: size * 1.1, height: size)
+        .shadow(color: tint.opacity(0.55), radius: 8)
+    }
+}
+
+/// Small pill with the gold lira balance.
+struct LiraChip: View {
+    let amount: Int
+
+    var body: some View {
+        HStack(spacing: 4) {
+            Text("🪙").font(.system(size: 12))
+            Text(Fmt.number(Double(amount)))
+                .font(.system(size: 13, weight: .black, design: .rounded))
+                .foregroundColor(Theme.lira)
+        }
+        .padding(.horizontal, 9)
+        .padding(.vertical, 4)
+        .background(Capsule().fill(Theme.lira.opacity(0.12)))
+        .overlay(Capsule().stroke(Theme.lira.opacity(0.35), lineWidth: 1))
+    }
+}
+
+struct CardTitle: View {
+    let icon: String
+    let title: String
+    var trailing: String? = nil
+
+    var body: some View {
+        HStack(spacing: 8) {
+            Text(icon).font(.system(size: 20))
+            Text(title)
+                .font(.system(size: 16, weight: .black, design: .rounded))
+                .foregroundColor(Theme.cream)
+            Spacer()
+            if let t = trailing {
+                Text(t)
+                    .font(.system(size: 12, weight: .heavy, design: .rounded))
+                    .foregroundColor(Theme.gold)
+            }
+        }
+    }
+}
