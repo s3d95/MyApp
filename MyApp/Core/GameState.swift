@@ -28,6 +28,7 @@ struct GameState: Codable {
     var hapticsOn: Bool = true
     var notificationsOn: Bool = true
     var notificationsAsked: Bool = false
+    var whatsNewSeen: Int = 0
     var boostUntil: Date? = nil
     var boostFactor: Double = 1
     var megaBoostUntil: Date? = nil
@@ -72,7 +73,7 @@ struct GameState: Codable {
     enum CodingKeys: String, CodingKey {
         case money, lifetimeEarnings, lines, purchased, branchesOwned, tapLevel, autoLevel, shareLevel
         case totalSold, stallName, totalTaps, lastSaved, createdAt, soundOn, hapticsOn,
-             notificationsOn, notificationsAsked, boostUntil, boostFactor, megaBoostUntil
+             notificationsOn, notificationsAsked, whatsNewSeen, boostUntil, boostFactor, megaBoostUntil
         case stars, pastEarnings, prestigeCount
         case liras, lirasEarned, chests, chestsOpened, chefLevel, chefCards, research, achievements
         case loginDay, loginStreak, bestStreak, counterDay, daily, missions, missionBonusClaimed,
@@ -105,6 +106,7 @@ struct GameState: Codable {
         get(.hapticsOn, &d.hapticsOn)
         get(.notificationsOn, &d.notificationsOn)
         get(.notificationsAsked, &d.notificationsAsked)
+        get(.whatsNewSeen, &d.whatsNewSeen)
         d.boostUntil = try? c.decodeIfPresent(Date.self, forKey: .boostUntil)
         get(.boostFactor, &d.boostFactor)
         d.megaBoostUntil = try? c.decodeIfPresent(Date.self, forKey: .megaBoostUntil)

@@ -63,6 +63,8 @@ struct RootView: View {
 
             if game.showOffline {
                 OfflineView().transition(.opacity)
+            } else if game.showWhatsNew && !game.s.stallName.isEmpty {
+                WhatsNewView().transition(.opacity)
             } else if game.showLogin && !game.s.stallName.isEmpty {
                 LoginView().transition(.opacity)
             }

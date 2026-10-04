@@ -194,3 +194,50 @@ struct LoginTrack: View {
         }
     }
 }
+
+/// One-time tour of the 2.0 features for returning players.
+struct WhatsNewView: View {
+    @EnvironmentObject var game: Game
+
+    private let items: [(String, String, String)] = [
+        ("⭐", "نجوم الشهرة", "افتح من جديد واكسب نجوم بتزيد أرباحك للأبد"),
+        ("♾️", "بدون حدود", "بيّاعين بلا حد، 4 أقسام جديدة و36 فرع لحد طوكيو"),
+        ("🎁", "كل يوم إشي جديد", "مكافأة يومية، 3 مهام، دولاب حظ وطبق اليوم ×3"),
+        ("🧑‍🍳", "الطبّاخين", "جمّع 18 طبّاخ من الصناديق ورقّيهم"),
+        ("🥙", "طلبيات على السريع", "لعبة سرعة بتربّحك مصاري وليرات"),
+        ("📖", "وصفات ستّي", "تطويرات دايمة بالليرات الدهب"),
+        ("🏅", "100 إنجاز", "كل إنجاز +2% أرباح للأبد"),
+    ]
+
+    var body: some View {
+        ModalCard {
+            Text("🎉 نسخة 2.0")
+                .font(.system(size: 24, weight: .black, design: .rounded))
+                .foregroundColor(Theme.gold)
+            Text("الإمبراطورية كبرت! هاد الجديد:")
+                .font(.system(size: 14, weight: .semibold, design: .rounded))
+                .foregroundColor(Theme.muted)
+            VStack(alignment: .leading, spacing: 9) {
+                ForEach(items.indices, id: \.self) { k in
+                    HStack(alignment: .top, spacing: 10) {
+                        Text(items[k].0).font(.system(size: 22)).frame(width: 30)
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text(items[k].1)
+                                .font(.system(size: 14, weight: .heavy, design: .rounded))
+                                .foregroundColor(Theme.cream)
+                            Text(items[k].2)
+                                .font(.system(size: 11, weight: .medium, design: .rounded))
+                                .foregroundColor(Theme.muted)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                        Spacer(minLength: 0)
+                    }
+                }
+            }
+            Button { game.closeWhatsNew() } label: {
+                BigButtonLabel(text: "يلا نكبّرها! 🚀")
+            }
+            .buttonStyle(PressableStyle())
+        }
+    }
+}

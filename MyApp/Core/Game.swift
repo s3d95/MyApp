@@ -56,10 +56,13 @@ final class Game: ObservableObject {
     @Published var offlineDoubled = false
     @Published var autoBurst = AutoBurst(id: 0, amount: 0)
     @Published var showLogin = false
+    @Published var showWhatsNew = false
     @Published var showWheel = false
     @Published var showRush = false
     @Published var chestReveal: ChestReveal?
 
+    /// Bump to show the "what's new" screen once to returning players.
+    static let whatsNewVersion = 2
     static let spinCost = 15
     static let ticketCost = 10
     static let doubleOfflineCost = 15
@@ -88,6 +91,7 @@ final class Game: ObservableObject {
         } else {
             s = GameState.fresh()
         }
+        if !s.stallName.isEmpty && s.whatsNewSeen < Game.whatsNewVersion { showWhatsNew = true }
         resume()
     }
 
@@ -222,7 +226,7 @@ final class Game: ObservableObject {
         if let v = vip, now >= v.expires {
             withAnimation { vip = nil }
         }
-        if vip == nil, now >= nextVIPAt, st.totalSellers >= 5, !showOffline, !showLogin, !showRush, !st.stallName.isEmpty {
+        if vip == nil, now >= nextVIPAt, st.totalSellers >= 5, !showOffline, !showLogin, !showRush, !showWhatsNew, !st.stallName.isEmpty {
             withAnimation(.spring()) {
                 vip = VIP(x: CGFloat.random(in: 0.18...0.82),
                           y: CGFloat.random(in: 0.3...0.72),
@@ -691,12 +695,19 @@ final class Game: ObservableObject {
         guard !t.isEmpty else { return }
         let first = s.stallName.isEmpty
         s.stallName = String(t.prefix(24))
+        if first { s.whatsNewSeen = Game.whatsNewVersion }
         save()
         if first && s.loginPending(today: today) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { [weak self] in
                 withAnimation { self?.showLogin = true }
             }
         }
+    }
+
+    func closeWhatsNew() {
+        s.whatsNewSeen = Game.whatsNewVersion
+        withAnimation { showWhatsNew = false }
+        save()
     }
 
     func setNotifications(_ on: Bool) {
