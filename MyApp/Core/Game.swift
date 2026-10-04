@@ -109,6 +109,8 @@ final class Game: ObservableObject {
         }
 
         // Offline income shouldn't finish today's "earn" mission on its own.
+        // Roll the day first so yesterday's counter isn't carried into today.
+        rollDay(now)
         let earnedToday = s.daily.earned
         let before = s.money
         lastTick = now

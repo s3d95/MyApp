@@ -373,9 +373,10 @@ extension GameState {
     func maxAffordableSellers(_ i: Int) -> Int {
         let g = GameData.businesses[i].growth
         let first = firstSellerCost(i)
-        guard first.isFinite, first > 0, money >= first else { return 0 }
-        var k = Int(floor(log(money * (g - 1) / first + 1) / log(g)))
-        k = min(max(0, k), remainingSellers(i))
+        guard money.isFinite, first.isFinite, first > 0, money >= first else { return 0 }
+        let estimate = floor(log(money * (g - 1) / first + 1) / log(g))
+        guard estimate.isFinite else { return 0 }
+        var k = Int(min(max(0, estimate), Double(remainingSellers(i))))
         while k > 0 && sellerCost(i, count: k) > money { k -= 1 }
         return k
     }

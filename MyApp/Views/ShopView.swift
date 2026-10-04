@@ -245,7 +245,7 @@ struct MilestoneHint: View {
     var body: some View {
         let speed = next <= 50
         let prev = speed ? (GameData.milestones.last(where: { $0 <= owned }) ?? 0)
-                         : (next - GameData.profitStep)
+                         : max(next - GameData.profitStep, GameData.milestones.last ?? 0)
         let progress = Double(owned - prev) / Double(max(1, next - prev))
         VStack(alignment: .leading, spacing: 4) {
             Text(speed ? "⚡ لما يصيروا \(next) بيّاع، القسم بيصير أسرع 25%"
