@@ -1,0 +1,883 @@
+{
+ "version": 1,
+ "cosmetics": [
+  {
+   "id": "awningDefault",
+   "name": "مظلّة ستّي المقلّمة",
+   "slot": "awning",
+   "pattern": "stripes",
+   "colors": [
+    "#C8392B",
+    "#FFF4DE"
+   ],
+   "source": "default"
+  },
+  {
+   "id": "signDefault",
+   "name": "يافطة خشب",
+   "slot": "sign",
+   "pattern": "solid",
+   "colors": [
+    "#6B3A1C",
+    "#FFF4DE"
+   ],
+   "source": "default"
+  },
+  {
+   "id": "lightsDefault",
+   "name": "لمبات ملوّنة",
+   "slot": "lights",
+   "art": "ui_light_bulb",
+   "source": "default"
+  },
+  {
+   "id": "propDefault",
+   "name": "صندوق خضرة",
+   "slot": "prop",
+   "art": "food_tomato",
+   "source": "default"
+  },
+  {
+   "id": "frameDefault",
+   "name": "إطار خشب",
+   "slot": "frame",
+   "pattern": "solid",
+   "colors": [
+    "#6B3A1C",
+    "#9A5A2A"
+   ],
+   "source": "default"
+  },
+  {
+   "id": "awningOlive",
+   "name": "مظلّة زيتي",
+   "slot": "awning",
+   "pattern": "stripes",
+   "colors": [
+    "#5E7A2E",
+    "#F2EAD0"
+   ],
+   "source": "level"
+  },
+  {
+   "id": "propMint",
+   "name": "أصيص نعنع",
+   "slot": "prop",
+   "art": "food_herb",
+   "source": "level"
+  },
+  {
+   "id": "lightsLanterns",
+   "name": "إضاءة فوانيس",
+   "slot": "lights",
+   "art": "ui_lantern",
+   "source": "level"
+  },
+  {
+   "id": "signCopper",
+   "name": "يافطة نحاس",
+   "slot": "sign",
+   "pattern": "solid",
+   "colors": [
+    "#B8733A",
+    "#FFE2B0"
+   ],
+   "source": "level"
+  },
+  {
+   "id": "propCat",
+   "name": "قطّة الحارة",
+   "slot": "prop",
+   "art": "ani_cat",
+   "source": "level"
+  },
+  {
+   "id": "awningTatreez",
+   "name": "مظلّة تطريز",
+   "slot": "awning",
+   "pattern": "tatreez",
+   "colors": [
+    "#B0242C",
+    "#1A1A1A",
+    "#F2EAD0"
+   ],
+   "source": "level"
+  },
+  {
+   "id": "propBell",
+   "name": "جرس نحاس",
+   "slot": "prop",
+   "art": "ui_bellhop_bell",
+   "source": "level"
+  },
+  {
+   "id": "lightsStars",
+   "name": "إضاءة نجوم",
+   "slot": "lights",
+   "art": "ui_glowing_star",
+   "source": "level"
+  },
+  {
+   "id": "signCalligraphy",
+   "name": "يافطة خط عربي",
+   "slot": "sign",
+   "pattern": "solid",
+   "colors": [
+    "#1E2A44",
+    "#F9B233"
+   ],
+   "source": "level"
+  },
+  {
+   "id": "propSunflower",
+   "name": "دوّار الشمس",
+   "slot": "prop",
+   "art": "ui_sunflower",
+   "source": "level"
+  },
+  {
+   "id": "awningSky",
+   "name": "مظلّة سماوي",
+   "slot": "awning",
+   "pattern": "stripes",
+   "colors": [
+    "#4FA8D8",
+    "#FFFFFF"
+   ],
+   "source": "level"
+  },
+  {
+   "id": "propOliveTree",
+   "name": "شجرة زيتون صغيرة",
+   "slot": "prop",
+   "art": "bld_deciduous_tree",
+   "source": "level"
+  },
+  {
+   "id": "lightsCandles",
+   "name": "إضاءة شموع",
+   "slot": "lights",
+   "art": "ui_candle",
+   "source": "level"
+  },
+  {
+   "id": "signTiles",
+   "name": "يافطة قيشاني",
+   "slot": "sign",
+   "pattern": "solid",
+   "colors": [
+    "#1F6FA8",
+    "#FFFFFF"
+   ],
+   "source": "level"
+  },
+  {
+   "id": "propRooster",
+   "name": "ديك الحارة",
+   "slot": "prop",
+   "art": "ani_rooster",
+   "source": "level"
+  },
+  {
+   "id": "awningKeffiyeh",
+   "name": "مظلّة كوفيّة",
+   "slot": "awning",
+   "pattern": "keffiyeh",
+   "colors": [
+    "#1A1A1A",
+    "#FFFFFF"
+   ],
+   "source": "level"
+  },
+  {
+   "id": "propBouquet",
+   "name": "بوكيه ورد",
+   "slot": "prop",
+   "art": "ui_bouquet",
+   "source": "level"
+  },
+  {
+   "id": "lightsHearts",
+   "name": "إضاءة قلوب",
+   "slot": "lights",
+   "art": "ui_red_heart",
+   "source": "level"
+  },
+  {
+   "id": "signNeon",
+   "name": "يافطة نيون",
+   "slot": "sign",
+   "pattern": "solid",
+   "colors": [
+    "#14102A",
+    "#FF4FA8"
+   ],
+   "source": "level"
+  },
+  {
+   "id": "propTulips",
+   "name": "أصيص توليب",
+   "slot": "prop",
+   "art": "ui_tulip",
+   "source": "level"
+  },
+  {
+   "id": "awningLilac",
+   "name": "مظلّة ليلكي",
+   "slot": "awning",
+   "pattern": "stripes",
+   "colors": [
+    "#A88AD8",
+    "#FFFFFF"
+   ],
+   "source": "level"
+  },
+  {
+   "id": "propPalm",
+   "name": "نخلة صغيرة",
+   "slot": "prop",
+   "art": "bld_palm_tree",
+   "source": "level"
+  },
+  {
+   "id": "lightsBalloons",
+   "name": "بالونات",
+   "slot": "lights",
+   "art": "ui_balloon",
+   "source": "level"
+  },
+  {
+   "id": "awningSunset",
+   "name": "مظلّة الغروب",
+   "slot": "awning",
+   "pattern": "sunset",
+   "colors": [
+    "#33172E",
+    "#D9714A",
+    "#FFB36B"
+   ],
+   "source": "level"
+  },
+  {
+   "id": "propCactus",
+   "name": "صبّارة",
+   "slot": "prop",
+   "art": "bld_cactus",
+   "source": "level"
+  },
+  {
+   "id": "awningRoyal",
+   "name": "مظلّة ملكيّة",
+   "slot": "awning",
+   "pattern": "royal",
+   "colors": [
+    "#4A1A6A",
+    "#F9B233"
+   ],
+   "source": "level"
+  },
+  {
+   "id": "propClover",
+   "name": "برسيم الحظ",
+   "slot": "prop",
+   "art": "bld_four_leaf_clover",
+   "source": "level"
+  },
+  {
+   "id": "signGold",
+   "name": "يافطة ذهب",
+   "slot": "sign",
+   "pattern": "solid",
+   "colors": [
+    "#D9801A",
+    "#FFE38A"
+   ],
+   "source": "level"
+  },
+  {
+   "id": "frameOlive",
+   "name": "إطار زيتون",
+   "slot": "frame",
+   "pattern": "solid",
+   "colors": [
+    "#5E7A2E",
+    "#C9D88A"
+   ],
+   "source": "level"
+  },
+  {
+   "id": "frameGold",
+   "name": "إطار ذهبي",
+   "slot": "frame",
+   "pattern": "royal",
+   "colors": [
+    "#D9801A",
+    "#FFE38A"
+   ],
+   "source": "level"
+  },
+  {
+   "id": "awningSultan",
+   "name": "بسطة سلطان البسطات",
+   "slot": "awning",
+   "pattern": "royal",
+   "colors": [
+    "#F9B233",
+    "#FFE38A",
+    "#D9801A"
+   ],
+   "source": "level"
+  },
+  {
+   "id": "frameFlame",
+   "name": "إطار النار",
+   "slot": "frame",
+   "pattern": "solid",
+   "colors": [
+    "#D9411A",
+    "#FFB36B"
+   ],
+   "source": "streak"
+  },
+  {
+   "id": "propFlame",
+   "name": "نار المعلّم",
+   "slot": "prop",
+   "art": "ui_fire",
+   "source": "streak"
+  },
+  {
+   "id": "awningYear",
+   "name": "بسطة السنة",
+   "slot": "awning",
+   "pattern": "royal",
+   "colors": [
+    "#F9B233",
+    "#B0242C"
+   ],
+   "source": "streak"
+  },
+  {
+   "id": "lightsRamadan",
+   "name": "فوانيس رمضان",
+   "slot": "lights",
+   "art": "ui_lantern",
+   "source": "festival"
+  },
+  {
+   "id": "frameFirstGen",
+   "name": "من الجيل الأوّل",
+   "slot": "frame",
+   "pattern": "sunset",
+   "colors": [
+    "#33172E",
+    "#F9B233"
+   ],
+   "source": "legacy"
+  },
+  {
+   "id": "signCleanCert",
+   "name": "شهادة نظافة",
+   "slot": "sign",
+   "pattern": "solid",
+   "colors": [
+    "#FFFFFF",
+    "#2E8F4A"
+   ],
+   "source": "achievement"
+  },
+  {
+   "id": "frameSeasonChampion",
+   "name": "بطل الموسم",
+   "slot": "frame",
+   "pattern": "royal",
+   "colors": [
+    "#1E2A5E",
+    "#F9B233"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "lightsWedding",
+   "name": "زينة عرس",
+   "slot": "lights",
+   "art": "ui_balloon",
+   "source": "event"
+  },
+  {
+   "id": "lightsFlags",
+   "name": "أعلام ملوّنة",
+   "slot": "lights",
+   "art": "ui_confetti_ball",
+   "source": "event"
+  },
+  {
+   "id": "propOliveBasket",
+   "name": "سلّة قطف الزيتون",
+   "slot": "prop",
+   "art": "food_olive",
+   "source": "event"
+  },
+  {
+   "id": "signChalkboard",
+   "name": "يافطة طبشورة",
+   "slot": "sign",
+   "pattern": "solid",
+   "colors": [
+    "#1E3A2A",
+    "#FFFFFF"
+   ],
+   "source": "event"
+  },
+  {
+   "id": "propGrapevine",
+   "name": "عريشة عنب",
+   "slot": "prop",
+   "art": "food_grapes",
+   "source": "event"
+  },
+  {
+   "id": "goldTray",
+   "name": "صينيّة ذهب",
+   "slot": "prop",
+   "art": "food_pie",
+   "source": "event"
+  },
+  {
+   "id": "propFamilyTable",
+   "name": "سفرة العيلة",
+   "slot": "prop",
+   "art": "food_fork_knife_plate",
+   "source": "event"
+  },
+  {
+   "id": "propBeachUmbrella",
+   "name": "شمسيّة البحر",
+   "slot": "prop",
+   "art": "bld_beach_with_umbrella",
+   "source": "event"
+  },
+  {
+   "id": "propFalafelCup",
+   "name": "كاس الفلافل الذهبي",
+   "slot": "prop",
+   "art": "ui_trophy",
+   "source": "event"
+  },
+  {
+   "id": "propAnchor",
+   "name": "مرساة الميناء",
+   "slot": "prop",
+   "art": "veh_anchor",
+   "source": "event"
+  },
+  {
+   "id": "propClayOven",
+   "name": "طابون الطين",
+   "slot": "prop",
+   "art": "bld_hut",
+   "source": "event"
+  },
+  {
+   "id": "lightsCinema",
+   "name": "أضواء السينما",
+   "slot": "lights",
+   "art": "ui_film_projector",
+   "source": "event"
+  },
+  {
+   "id": "propCrescent",
+   "name": "هلال رمضان",
+   "slot": "prop",
+   "art": "ui_crescent_moon",
+   "source": "event"
+  },
+  {
+   "id": "lightsEidBalloons",
+   "name": "بالونات العيد",
+   "slot": "lights",
+   "art": "ui_balloon",
+   "source": "event"
+  },
+  {
+   "id": "lightsEid",
+   "name": "زينة العيد",
+   "slot": "lights",
+   "art": "ui_sparkles",
+   "source": "event"
+  },
+  {
+   "id": "propNativityStar",
+   "name": "نجمة الميلاد",
+   "slot": "prop",
+   "art": "ui_star",
+   "source": "event"
+  },
+  {
+   "id": "frameFestivalChampion",
+   "name": "بطل المهرجان",
+   "slot": "frame",
+   "pattern": "royal",
+   "colors": [
+    "#B0242C",
+    "#F9B233"
+   ],
+   "source": "event"
+  },
+  {
+   "id": "frameWinter",
+   "name": "إطار الشتويّة",
+   "slot": "frame",
+   "pattern": "solid",
+   "colors": [
+    "#1E2A5E",
+    "#C8D8FF"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "awningWinter",
+   "name": "مظلّة الشتا",
+   "slot": "awning",
+   "pattern": "stripes",
+   "colors": [
+    "#1E2A5E",
+    "#FFFFFF"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "propChestnutCart",
+   "name": "عربايّة كستنا",
+   "slot": "prop",
+   "art": "food_chestnut",
+   "source": "season"
+  },
+  {
+   "id": "frameSpring",
+   "name": "إطار الربيع",
+   "slot": "frame",
+   "pattern": "solid",
+   "colors": [
+    "#3E7A2E",
+    "#E8F5C8"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "awningSpring",
+   "name": "مظلّة الربيع",
+   "slot": "awning",
+   "pattern": "stripes",
+   "colors": [
+    "#6AB04A",
+    "#FFFFFF"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "propZaatarPot",
+   "name": "أصيص زعتر",
+   "slot": "prop",
+   "art": "bld_potted_plant",
+   "source": "season"
+  },
+  {
+   "id": "frameSea",
+   "name": "إطار البحر",
+   "slot": "frame",
+   "pattern": "solid",
+   "colors": [
+    "#1E7AA8",
+    "#C8F0FF"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "awningSea",
+   "name": "مظلّة البحر",
+   "slot": "awning",
+   "pattern": "stripes",
+   "colors": [
+    "#1E7AA8",
+    "#FFFFFF"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "propBoat",
+   "name": "فلوكة صغيرة",
+   "slot": "prop",
+   "art": "veh_sailboat",
+   "source": "season"
+  },
+  {
+   "id": "frameOliveSeason",
+   "name": "إطار الموسم",
+   "slot": "frame",
+   "pattern": "solid",
+   "colors": [
+    "#3E5A2A",
+    "#F2D88A"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "awningOliveSeason",
+   "name": "مظلّة موسم الزيتون",
+   "slot": "awning",
+   "pattern": "stripes",
+   "colors": [
+    "#3E5A2A",
+    "#F2D88A"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "propOilJar",
+   "name": "جرّة زيت",
+   "slot": "prop",
+   "art": "ui_droplet",
+   "source": "season"
+  },
+  {
+   "id": "frameNights",
+   "name": "إطار السهر",
+   "slot": "frame",
+   "pattern": "solid",
+   "colors": [
+    "#24204A",
+    "#C8B8FF"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "awningNights",
+   "name": "مظلّة السهر",
+   "slot": "awning",
+   "pattern": "stripes",
+   "colors": [
+    "#24204A",
+    "#8F7BFF"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "propStarryLamp",
+   "name": "قنديل السهرة",
+   "slot": "prop",
+   "art": "bld_night_with_stars",
+   "source": "season"
+  },
+  {
+   "id": "frameWedding",
+   "name": "إطار العرس",
+   "slot": "frame",
+   "pattern": "solid",
+   "colors": [
+    "#7A2E5A",
+    "#FFC2D8"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "awningWedding",
+   "name": "مظلّة العرس",
+   "slot": "awning",
+   "pattern": "stripes",
+   "colors": [
+    "#E0607E",
+    "#FFFFFF"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "propZaffeh",
+   "name": "طبلة الزفّة",
+   "slot": "prop",
+   "art": "ui_musical_notes",
+   "source": "season"
+  },
+  {
+   "id": "frameWorld",
+   "name": "إطار المسافر",
+   "slot": "frame",
+   "pattern": "solid",
+   "colors": [
+    "#16405E",
+    "#F9B233"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "awningWorld",
+   "name": "مظلّة الأسواق",
+   "slot": "awning",
+   "pattern": "stripes",
+   "colors": [
+    "#E07A2E",
+    "#2F8FC9",
+    "#FFFFFF"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "propGlobe",
+   "name": "كرة أرضيّة",
+   "slot": "prop",
+   "art": "bld_globe_meridians",
+   "source": "season"
+  },
+  {
+   "id": "frameSitti",
+   "name": "إطار ستّي",
+   "slot": "frame",
+   "pattern": "tatreez",
+   "colors": [
+    "#B0242C",
+    "#F2EAD0"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "awningSitti",
+   "name": "مظلّة ستّي",
+   "slot": "awning",
+   "pattern": "tatreez",
+   "colors": [
+    "#B0242C",
+    "#1A1A1A",
+    "#F2EAD0"
+   ],
+   "source": "season"
+  },
+  {
+   "id": "propHarisseh",
+   "name": "صدر هريسة",
+   "slot": "prop",
+   "art": "food_shortcake",
+   "source": "season"
+  },
+  {
+   "id": "awningCandy",
+   "name": "مظلّة حلاوة",
+   "slot": "awning",
+   "pattern": "stripes",
+   "colors": [
+    "#FF8FB1",
+    "#FFFFFF"
+   ],
+   "price": 150,
+   "source": "shop"
+  },
+  {
+   "id": "awningWatermelon",
+   "name": "مظلّة بطّيخ",
+   "slot": "awning",
+   "pattern": "stripes",
+   "colors": [
+    "#2E8F4A",
+    "#E8394A"
+   ],
+   "price": 200,
+   "source": "shop"
+  },
+  {
+   "id": "propDallah",
+   "name": "دلّة قهوة",
+   "slot": "prop",
+   "art": "food_teapot",
+   "price": 200,
+   "source": "shop"
+  },
+  {
+   "id": "signMosaic",
+   "name": "يافطة فسيفساء",
+   "slot": "sign",
+   "pattern": "solid",
+   "colors": [
+    "#1F6FA8",
+    "#F9B233"
+   ],
+   "price": 300,
+   "source": "shop"
+  },
+  {
+   "id": "lightsJasmine",
+   "name": "عقد ياسمين",
+   "slot": "lights",
+   "art": "ui_hibiscus",
+   "price": 250,
+   "source": "shop"
+  },
+  {
+   "id": "lightsFireflies",
+   "name": "ضو اليراعات",
+   "slot": "lights",
+   "art": "ui_sparkles",
+   "price": 300,
+   "source": "shop"
+  },
+  {
+   "id": "propLemonTree",
+   "name": "شجرة ليمون",
+   "slot": "prop",
+   "art": "food_lemon",
+   "price": 250,
+   "source": "shop"
+  },
+  {
+   "id": "propBicycle",
+   "name": "بسكليت الدليفري",
+   "slot": "prop",
+   "art": "veh_bicycle",
+   "price": 300,
+   "source": "shop"
+  },
+  {
+   "id": "propCamel",
+   "name": "جمل صغير",
+   "slot": "prop",
+   "art": "ani_camel",
+   "price": 450,
+   "source": "shop"
+  },
+  {
+   "id": "frameTatreez",
+   "name": "إطار تطريز",
+   "slot": "frame",
+   "pattern": "tatreez",
+   "colors": [
+    "#B0242C",
+    "#F2EAD0"
+   ],
+   "price": 350,
+   "source": "shop"
+  },
+  {
+   "id": "frameSunset",
+   "name": "إطار الغروب",
+   "slot": "frame",
+   "pattern": "sunset",
+   "colors": [
+    "#33172E",
+    "#D9714A",
+    "#FFB36B"
+   ],
+   "price": 400,
+   "source": "shop"
+  },
+  {
+   "id": "awningGoldStripes",
+   "name": "مظلّة مخطّطة ذهب",
+   "slot": "awning",
+   "pattern": "stripes",
+   "colors": [
+    "#F9B233",
+    "#3E1F10"
+   ],
+   "price": 600,
+   "source": "shop"
+  }
+ ]
+}

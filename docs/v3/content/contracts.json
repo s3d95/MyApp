@@ -1,0 +1,2975 @@
+{
+ "version": 1,
+ "schedule": {
+  "epoch": "2026-01-05",
+  "newWeekday": 2,
+  "rerunWeekdays": [
+   4,
+   6
+  ],
+  "availabilityDays": 7,
+  "boardMax": 3,
+  "rerunExclusionWeeks": 3
+ },
+ "slotsByLevel": [
+  {
+   "level": 14,
+   "slots": 1
+  },
+  {
+   "level": 30,
+   "slots": 2
+  }
+ ],
+ "partnerShareTotals": {
+  "2": 0.3,
+  "3": 0.4,
+  "4": 0.5
+ },
+ "contracts": [
+  {
+   "id": "hebronWedding",
+   "releaseOrder": 1,
+   "title": "عرس بالخليل",
+   "art": "bld_wedding",
+   "desc": "عرس ابن الحاج بالخليل، والمعازيم من كل البلاد. المنسف لازم يكفّي الكل!",
+   "durationHours": 72,
+   "stations": [
+    {
+     "key": "mansaf",
+     "name": "منسف",
+     "art": "food_cooked_rice",
+     "tier": 0,
+     "cuisine": "levantine",
+     "category": "dishes"
+    },
+    {
+     "key": "knafeh",
+     "name": "كنافة",
+     "art": "food_pie",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "sweets"
+    },
+    {
+     "key": "juice",
+     "name": "عصير",
+     "art": "food_tropical_drink",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "drinks",
+     "weather": "cold"
+    },
+    {
+     "key": "coffee",
+     "name": "قهوة سادة",
+     "art": "food_teapot",
+     "tier": 3,
+     "cuisine": "gulf",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "goalsBase": [
+    12100000000.0,
+    302000000000.0,
+    6050000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "matamAlKaram",
+     "art": "ppl_beard",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "mashawiAlSultan",
+     "art": "ppl_man_cook",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "knafehAlAseel",
+     "art": "food_pie",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [],
+   "twists": [],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "heritageCase",
+      "amount": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "birzeitGraduation",
+   "releaseOrder": 2,
+   "title": "تخرّج بيرزيت",
+   "art": "ui_scroll",
+   "desc": "دفعة الهندسة تخرّجت! الأهالي بدّهم ضيافة، والخرّيجين بدّهم بيتزا.",
+   "durationHours": 48,
+   "stations": [
+    {
+     "key": "cake",
+     "name": "كيك",
+     "art": "food_birthday_cake",
+     "tier": 0,
+     "cuisine": "world",
+     "category": "sweets"
+    },
+    {
+     "key": "pizza",
+     "name": "بيتزا",
+     "art": "food_pizza",
+     "tier": 1,
+     "cuisine": "world",
+     "category": "bakery"
+    },
+    {
+     "key": "juice",
+     "name": "عصير",
+     "art": "food_juice_box",
+     "tier": 2,
+     "cuisine": "world",
+     "category": "drinks",
+     "weather": "cold"
+    }
+   ],
+   "goalsBase": [
+    3200000000.0,
+    80000000000.0,
+    1600000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "kushkAlTalabeh",
+     "art": "ppl_woman",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "falafelAlMashi",
+     "art": "food_sandwich",
+     "share": 0.15,
+     "gamma": 0.7
+    }
+   ],
+   "rules": [
+    "fastCheap"
+   ],
+   "twists": [],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 3,
+      "id": "chefRami"
+     }
+    ]
+   }
+  },
+  {
+   "id": "gazaFishermen",
+   "releaseOrder": 3,
+   "title": "غدا صيّادين غزّة",
+   "art": "veh_motor_boat",
+   "desc": "المراكب رجعت مع الفجر، والصيّادين جوعانين. يلا عالطناجر!",
+   "durationHours": 72,
+   "stations": [
+    {
+     "key": "fish",
+     "name": "سمك مقلي",
+     "art": "ani_fish",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "seafood"
+    },
+    {
+     "key": "rice",
+     "name": "رز صيّاديّة",
+     "art": "food_cooked_rice",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "dishes"
+    },
+    {
+     "key": "salad",
+     "name": "سلطة غزّاويّة",
+     "art": "food_green_salad",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "dishes"
+    },
+    {
+     "key": "tea",
+     "name": "شاي",
+     "art": "food_tea",
+     "tier": 3,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "goalsBase": [
+    12100000000.0,
+    302000000000.0,
+    6050000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "matamAlMina",
+     "art": "ppl_old_man",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "bastetAlKheir",
+     "art": "ppl_woman_headscarf",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "sajAlBaraka",
+     "art": "food_tea",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [],
+   "twists": [
+    {
+     "type": "portShipments",
+     "params": {
+      "station": "fish"
+     }
+    }
+   ],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "heritageCase",
+      "amount": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "eidOrphans",
+   "releaseOrder": 4,
+   "title": "حلو العيد للأيتام",
+   "art": "ui_gift",
+   "desc": "الحارة كلها متّفقة: ولا ولد بيقضّي العيد بلا حلو وبلا ضحكة.",
+   "durationHours": 48,
+   "stations": [
+    {
+     "key": "kaak",
+     "name": "كعك",
+     "art": "food_cookie",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "bakery"
+    },
+    {
+     "key": "maamoul",
+     "name": "معمول",
+     "art": "food_moon_cake",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "sweets"
+    },
+    {
+     "key": "chocolate",
+     "name": "شوكولاتة",
+     "art": "food_chocolate_bar",
+     "tier": 2,
+     "cuisine": "world",
+     "category": "sweets"
+    }
+   ],
+   "goalsBase": [
+    3200000000.0,
+    80000000000.0,
+    1600000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "bastetAlKheir",
+     "art": "ppl_woman_headscarf",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "matamAlTayyibin",
+     "art": "ppl_man",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "matbakhSittAlDar",
+     "art": "ppl_woman_cook",
+     "share": 0.12,
+     "gamma": 1.5
+    },
+    {
+     "nameKey": "halawiyatAlSaa",
+     "art": "food_pie",
+     "share": 0.1,
+     "gamma": 1.0
+    }
+   ],
+   "rules": [],
+   "twists": [],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 1,
+      "rarity": "legendary"
+     }
+    ]
+   }
+  },
+  {
+   "id": "iftarSaim",
+   "releaseOrder": 5,
+   "title": "إفطار صايم",
+   "art": "ui_crescent_moon",
+   "desc": "موائد الإفطار بالساحة، وكل صايم إله صحن سخن. الأذان قرّب!",
+   "durationHours": 48,
+   "stations": [
+    {
+     "key": "soup",
+     "name": "شوربة عدس",
+     "art": "food_steaming_bowl",
+     "tier": 0,
+     "cuisine": "levantine",
+     "category": "dishes",
+     "weather": "hot"
+    },
+    {
+     "key": "maqluba",
+     "name": "مقلوبة",
+     "art": "food_maqluba_pan",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "dishes"
+    },
+    {
+     "key": "jallab",
+     "name": "جلّاب",
+     "art": "food_cup_with_straw",
+     "tier": 2,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "cold"
+    },
+    {
+     "key": "qatayef",
+     "name": "قطايف",
+     "art": "food_dumpling",
+     "tier": 3,
+     "cuisine": "levantine",
+     "category": "sweets"
+    }
+   ],
+   "goalsBase": [
+    5500000000.0,
+    138000000000.0,
+    2750000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "beitAlMaqluba",
+     "art": "ppl_old_woman",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "bastetAlKheir",
+     "art": "ppl_man",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "qahwetAlMukhtar",
+     "art": "ppl_beard",
+     "share": 0.12,
+     "gamma": 1.5
+    },
+    {
+     "nameKey": "knafehAlAseel",
+     "art": "food_pie",
+     "share": 0.1,
+     "gamma": 1.0
+    }
+   ],
+   "rules": [],
+   "twists": [
+    {
+     "type": "nightMarket",
+     "params": {
+      "stations": [],
+      "startHour": 18,
+      "endHour": 23,
+      "nightMult": 3
+     }
+    }
+   ],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "heritageCase",
+      "amount": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "canteenDuty",
+   "releaseOrder": 6,
+   "title": "مقصف المدرسة",
+   "art": "bld_school",
+   "desc": "الفرصة عشر دقايق بس، وكل الطلّاب بدّهم ساندويشة. بإيدك وبس، بلا معلّمين!",
+   "durationHours": 48,
+   "stations": [
+    {
+     "key": "manousheh",
+     "name": "منقوشة زعتر",
+     "art": "food_flatbread",
+     "tier": 0,
+     "cuisine": "levantine",
+     "category": "bakery"
+    },
+    {
+     "key": "falafelSandwich",
+     "name": "ساندويش فلافل",
+     "art": "food_sandwich",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "street"
+    },
+    {
+     "key": "juice",
+     "name": "عصير",
+     "art": "food_juice_box",
+     "tier": 2,
+     "cuisine": "world",
+     "category": "drinks",
+     "weather": "cold"
+    }
+   ],
+   "goalsBase": [
+    958000000.0,
+    24000000000.0,
+    479000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "kushkAlTalabeh",
+     "art": "ppl_teacher",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "manaqishWBass",
+     "art": "food_stuffed_flatbread",
+     "share": 0.15,
+     "gamma": 0.7
+    }
+   ],
+   "rules": [
+    "noManagers"
+   ],
+   "twists": [],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 3,
+      "rarity": "epic"
+     }
+    ]
+   }
+  },
+  {
+   "id": "builderLunch",
+   "releaseOrder": 7,
+   "title": "غدا عمّال البنا",
+   "art": "ppl_construction",
+   "desc": "العمارة الجديدة طالعة، والعمّال بدّهم فطور بيسند الظهر.",
+   "durationHours": 72,
+   "stations": [
+    {
+     "key": "ful",
+     "name": "فول مدمّس",
+     "art": "food_beans",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "dishes",
+     "weather": "hot"
+    },
+    {
+     "key": "hummus",
+     "name": "حمّص",
+     "art": "food_hummus_bowl",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "dishes"
+    },
+    {
+     "key": "tea",
+     "name": "شاي",
+     "art": "food_tea",
+     "tier": 2,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "hot"
+    },
+    {
+     "key": "bread",
+     "name": "خبز",
+     "art": "food_bread",
+     "tier": 3,
+     "cuisine": "palestinian",
+     "category": "bakery"
+    }
+   ],
+   "goalsBase": [
+    12100000000.0,
+    302000000000.0,
+    6050000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "fulAbuAlAbed",
+     "art": "ppl_older_person",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "hummusWaDaqqa",
+     "art": "food_hummus_bowl",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "tabounUmmIssa",
+     "art": "ppl_woman_headscarf",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [],
+   "twists": [],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "heritageCase",
+      "amount": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "hospitalNight",
+   "releaseOrder": 8,
+   "title": "مناوبة المستشفى",
+   "art": "bld_hospital",
+   "desc": "الدكاترة والممرّضين سهرانين عشانّا، خلّينا نسهر عشانهم.",
+   "durationHours": 48,
+   "stations": [
+    {
+     "key": "coffee",
+     "name": "قهوة",
+     "art": "food_coffee",
+     "tier": 0,
+     "cuisine": "world",
+     "category": "drinks",
+     "weather": "hot"
+    },
+    {
+     "key": "sandwich",
+     "name": "ساندويش",
+     "art": "food_sandwich",
+     "tier": 1,
+     "cuisine": "world",
+     "category": "street"
+    },
+    {
+     "key": "soup",
+     "name": "شوربة",
+     "art": "food_steaming_bowl",
+     "tier": 2,
+     "cuisine": "levantine",
+     "category": "dishes",
+     "weather": "hot"
+    }
+   ],
+   "goalsBase": [
+    3200000000.0,
+    80000000000.0,
+    1600000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "shawarmaAlSahra",
+     "art": "ppl_man_cook",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "snackAmmoSamir",
+     "art": "ppl_man",
+     "share": 0.15,
+     "gamma": 0.7
+    }
+   ],
+   "rules": [],
+   "twists": [
+    {
+     "type": "nightMarket",
+     "params": {
+      "stations": [],
+      "startHour": 22,
+      "endHour": 6,
+      "nightMult": 3
+     }
+    }
+   ],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 3,
+      "id": "sittElSham"
+     }
+    ]
+   }
+  },
+  {
+   "id": "haraTeam",
+   "releaseOrder": 9,
+   "title": "فريق الحارة",
+   "art": "bld_stadium",
+   "desc": "نهائي الدوري الشعبي! الجمهور جاي بالباصات، والجوع جاي معهم.",
+   "durationHours": 72,
+   "stations": [
+    {
+     "key": "fries",
+     "name": "بطاطا مقليّة",
+     "art": "food_french_fries",
+     "tier": 0,
+     "cuisine": "world",
+     "category": "fried"
+    },
+    {
+     "key": "shawarma",
+     "name": "شاورما",
+     "art": "food_shawarma_wrap",
+     "tier": 1,
+     "cuisine": "levantine",
+     "category": "street"
+    },
+    {
+     "key": "water",
+     "name": "مي باردة",
+     "art": "food_cup_with_straw",
+     "tier": 2,
+     "cuisine": "world",
+     "category": "drinks",
+     "weather": "cold"
+    },
+    {
+     "key": "iceCream",
+     "name": "بوظة",
+     "art": "food_ice_cream",
+     "tier": 3,
+     "cuisine": "world",
+     "category": "sweets",
+     "weather": "cold"
+    }
+   ],
+   "goalsBase": [
+    12100000000.0,
+    302000000000.0,
+    6050000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "sandwichatAlMadina",
+     "art": "food_shawarma_wrap",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "falafelAlSarukh",
+     "art": "food_falafel",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "kushkAlNajmeh",
+     "art": "ppl_man",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [],
+   "twists": [
+    {
+     "type": "busWaves",
+     "params": {}
+    }
+   ],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 1,
+      "rarity": "legendary"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hennaNight",
+   "releaseOrder": 10,
+   "title": "ليلة الحنّة",
+   "art": "ui_hibiscus",
+   "desc": "الصبايا بيغنّوا والعروس متحنّية. الحلو لازم يكون على قدّ الفرحة.",
+   "durationHours": 48,
+   "stations": [
+    {
+     "key": "muhallabia",
+     "name": "مهلبيّة",
+     "art": "food_custard",
+     "tier": 0,
+     "cuisine": "levantine",
+     "category": "sweets"
+    },
+    {
+     "key": "coffee",
+     "name": "قهوة سادة",
+     "art": "food_teapot",
+     "tier": 1,
+     "cuisine": "gulf",
+     "category": "drinks",
+     "weather": "hot"
+    },
+    {
+     "key": "fruit",
+     "name": "صحن فواكه",
+     "art": "food_grapes",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "street",
+     "weather": "cold"
+    }
+   ],
+   "goalsBase": [
+    3200000000.0,
+    80000000000.0,
+    1600000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "bastetAlYasmin",
+     "art": "ppl_woman",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "halawiyatAlSaa",
+     "art": "ppl_woman_cook",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "bastetAlFarah",
+     "art": "ppl_woman_headscarf",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [
+    "goldenHour"
+   ],
+   "twists": [],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "heritageCase",
+      "amount": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "scoutTrip",
+   "releaseOrder": 11,
+   "title": "رحلة الكشّافة",
+   "art": "bld_camping",
+   "desc": "مخيّم الكشّافة بالجبل، والطقس متقلّب زي مزاج القائد.",
+   "durationHours": 72,
+   "stations": [
+    {
+     "key": "corn",
+     "name": "ذرة مشويّة",
+     "art": "food_corn",
+     "tier": 0,
+     "cuisine": "levantine",
+     "category": "street"
+    },
+    {
+     "key": "sweetPotato",
+     "name": "بطاطا حلوة عالجمر",
+     "art": "food_roasted_sweet_potato",
+     "tier": 1,
+     "cuisine": "levantine",
+     "category": "street",
+     "weather": "hot"
+    },
+    {
+     "key": "fireTea",
+     "name": "شاي عالحطب",
+     "art": "food_teapot",
+     "tier": 2,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "hot"
+    },
+    {
+     "key": "sandwich",
+     "name": "ساندويش",
+     "art": "food_sandwich",
+     "tier": 3,
+     "cuisine": "world",
+     "category": "street"
+    }
+   ],
+   "goalsBase": [
+    12100000000.0,
+    302000000000.0,
+    6050000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "snackAlDayaa",
+     "art": "ppl_boy",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "zaatarWZeit",
+     "art": "ppl_woman_farmer",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "arabayetAbuZaid",
+     "art": "ppl_man",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [],
+   "twists": [
+    {
+     "type": "weatherSwing",
+     "params": {
+      "hotProb": 0.4,
+      "coldProb": 0.3,
+      "rainProb": 0.1,
+      "hotDayStations": [
+       "corn",
+       "sandwich"
+      ],
+      "coldDayStations": [
+       "fireTea",
+       "sweetPotato"
+      ],
+      "rainDayStations": [
+       "fireTea"
+      ],
+      "mult": 2.5
+     }
+    }
+   ],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 3,
+      "rarity": "epic"
+     }
+    ]
+   }
+  },
+  {
+   "id": "bookFair",
+   "releaseOrder": 12,
+   "title": "معرض الكتاب",
+   "art": "ui_books",
+   "desc": "الكتّاب بيوقّعوا والقرّاء بيقلّبوا الصفحات، والكل بدّه قهوة وكعكة.",
+   "durationHours": 96,
+   "stations": [
+    {
+     "key": "coffee",
+     "name": "قهوة",
+     "art": "food_coffee",
+     "tier": 0,
+     "cuisine": "world",
+     "category": "drinks",
+     "weather": "hot"
+    },
+    {
+     "key": "croissant",
+     "name": "كرواسون",
+     "art": "food_croissant",
+     "tier": 1,
+     "cuisine": "world",
+     "category": "bakery"
+    },
+    {
+     "key": "kaak",
+     "name": "كعك بسمسم",
+     "art": "food_bagel",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "bakery"
+    },
+    {
+     "key": "cake",
+     "name": "كيك",
+     "art": "food_shortcake",
+     "tier": 3,
+     "cuisine": "world",
+     "category": "sweets"
+    }
+   ],
+   "goalsBase": [
+    19800000000.0,
+    495000000000.0,
+    9900000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "qahwetAlMukhtar",
+     "art": "ppl_older_person",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "kaakAbuJamil",
+     "art": "food_tea",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "matamSama",
+     "art": "ppl_woman_office",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [],
+   "twists": [],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "heritageCase",
+      "amount": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "oliveCrew",
+   "releaseOrder": 13,
+   "title": "قطّيفة الزيتون",
+   "art": "food_olive",
+   "desc": "العيلة كلها عالكرم من الفجر، والقطّيفة بدّهم زوّادة دسمة.",
+   "durationHours": 96,
+   "stations": [
+    {
+     "key": "musakhan",
+     "name": "مسخّن",
+     "art": "food_stuffed_flatbread",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "dishes"
+    },
+    {
+     "key": "olives",
+     "name": "زيتون",
+     "art": "food_olive",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "street"
+    },
+    {
+     "key": "oilZaatar",
+     "name": "زيت وزعتر",
+     "art": "food_herb",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "bakery"
+    },
+    {
+     "key": "sageTea",
+     "name": "شاي بالميرميّة",
+     "art": "food_tea",
+     "tier": 3,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "goalsBase": [
+    19800000000.0,
+    495000000000.0,
+    9900000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "zaatarWZeit",
+     "art": "ppl_woman_farmer",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "tabounUmmIssa",
+     "art": "ppl_woman_headscarf",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "snackAlDayaa",
+     "art": "ppl_man_farmer",
+     "share": 0.12,
+     "gamma": 1.5
+    },
+    {
+     "nameKey": "sajAlBaraka",
+     "art": "food_stuffed_flatbread",
+     "share": 0.1,
+     "gamma": 1.0
+    }
+   ],
+   "rules": [],
+   "twists": [
+    {
+     "type": "productionChain",
+     "params": {
+      "inputStation": "olives",
+      "outputStation": "oilZaatar"
+     }
+    }
+   ],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "heritageCase",
+      "amount": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "mukhtarFeast",
+   "releaseOrder": 14,
+   "title": "عزومة المختار",
+   "art": "ppl_older_person",
+   "desc": "المختار عازم العشيرة كلها، وبدّه الشغل من إيدك إنت، بلا مساعدة طبّاخين.",
+   "durationHours": 72,
+   "stations": [
+    {
+     "key": "mansaf",
+     "name": "منسف",
+     "art": "food_cooked_rice",
+     "tier": 0,
+     "cuisine": "levantine",
+     "category": "dishes"
+    },
+    {
+     "key": "maqluba",
+     "name": "مقلوبة",
+     "art": "food_maqluba_pan",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "dishes"
+    },
+    {
+     "key": "knafeh",
+     "name": "كنافة",
+     "art": "food_pie",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "sweets"
+    },
+    {
+     "key": "coffee",
+     "name": "قهوة سادة",
+     "art": "food_teapot",
+     "tier": 3,
+     "cuisine": "gulf",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "goalsBase": [
+    12100000000.0,
+    302000000000.0,
+    6050000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "qahwetAlMukhtar",
+     "art": "ppl_older_person",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "matamAlKaram",
+     "art": "ppl_beard",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "beitAlMaqluba",
+     "art": "ppl_old_woman",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [
+    "chefsOff"
+   ],
+   "twists": [],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 1,
+      "rarity": "legendary"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dabkeSquare",
+   "releaseOrder": 15,
+   "title": "دبكة بالساحة",
+   "art": "ui_musical_notes",
+   "desc": "فرقة الدبكة نازلة عالساحة، والدبّيكة بيجوعوا بعد كل دبكة!",
+   "durationHours": 48,
+   "stations": [
+    {
+     "key": "shawarma",
+     "name": "شاورما",
+     "art": "food_shawarma_wrap",
+     "tier": 0,
+     "cuisine": "levantine",
+     "category": "street"
+    },
+    {
+     "key": "fries",
+     "name": "بطاطا",
+     "art": "food_french_fries",
+     "tier": 1,
+     "cuisine": "world",
+     "category": "fried"
+    },
+    {
+     "key": "juice",
+     "name": "عصير",
+     "art": "food_tropical_drink",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "drinks",
+     "weather": "cold"
+    }
+   ],
+   "goalsBase": [
+    3200000000.0,
+    80000000000.0,
+    1600000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "bastetAlFarah",
+     "art": "ppl_man",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "kushkAlHabayeb",
+     "art": "ppl_woman",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "awladAlAmm",
+     "art": "food_meat_on_bone",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [],
+   "twists": [
+    {
+     "type": "busWaves",
+     "params": {}
+    }
+   ],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 3,
+      "rarity": "epic"
+     }
+    ]
+   }
+  },
+  {
+   "id": "kgParty",
+   "releaseOrder": 16,
+   "title": "حفلة الروضة",
+   "art": "ui_balloon",
+   "desc": "تخرّج الروضة! أربعين طفل بتياب صغيرة وجوع كبير.",
+   "durationHours": 48,
+   "stations": [
+    {
+     "key": "cupcake",
+     "name": "كب كيك",
+     "art": "food_cupcake",
+     "tier": 0,
+     "cuisine": "world",
+     "category": "sweets"
+    },
+    {
+     "key": "juice",
+     "name": "عصير",
+     "art": "food_juice_box",
+     "tier": 1,
+     "cuisine": "world",
+     "category": "drinks",
+     "weather": "cold"
+    },
+    {
+     "key": "popcorn",
+     "name": "فشار",
+     "art": "food_popcorn",
+     "tier": 2,
+     "cuisine": "world",
+     "category": "street"
+    }
+   ],
+   "goalsBase": [
+    3200000000.0,
+    80000000000.0,
+    1600000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "arabayetAlSaada",
+     "art": "ppl_child",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "kushkAlNajmeh",
+     "art": "ppl_woman_cook",
+     "share": 0.15,
+     "gamma": 0.7
+    }
+   ],
+   "rules": [
+    "fastCheap"
+   ],
+   "twists": [],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 3,
+      "rarity": "epic"
+     }
+    ]
+   }
+  },
+  {
+   "id": "engagement",
+   "releaseOrder": 17,
+   "title": "حفلة خطوبة",
+   "art": "ui_two_hearts",
+   "desc": "أهل العريس طلبوا إيد العروس، والجواب: موافقين! هسّا دور الحلو والقهوة.",
+   "durationHours": 72,
+   "stations": [
+    {
+     "key": "knafeh",
+     "name": "كنافة",
+     "art": "food_pie",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "sweets"
+    },
+    {
+     "key": "chocolate",
+     "name": "شوكولاتة",
+     "art": "food_chocolate_bar",
+     "tier": 1,
+     "cuisine": "world",
+     "category": "sweets"
+    },
+    {
+     "key": "cake",
+     "name": "كيكة الخطوبة",
+     "art": "food_birthday_cake",
+     "tier": 2,
+     "cuisine": "world",
+     "category": "sweets"
+    },
+    {
+     "key": "coffee",
+     "name": "قهوة سادة",
+     "art": "food_teapot",
+     "tier": 3,
+     "cuisine": "gulf",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "goalsBase": [
+    12100000000.0,
+    302000000000.0,
+    6050000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "knafehAlAseel",
+     "art": "food_pie",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "bastetAlYasmin",
+     "art": "ppl_woman",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "matamSama",
+     "art": "ppl_man_cook",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [],
+   "twists": [],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "heritageCase",
+      "amount": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "bethlehemMarathon",
+   "releaseOrder": 18,
+   "title": "ماراثون بيت لحم",
+   "art": "ui_sports_medal",
+   "desc": "العدّائين طالعين من ساحة المهد، وبدّهم طاقة عالطريق.",
+   "durationHours": 48,
+   "stations": [
+    {
+     "key": "banana",
+     "name": "موز",
+     "art": "food_banana",
+     "tier": 0,
+     "cuisine": "world",
+     "category": "street"
+    },
+    {
+     "key": "water",
+     "name": "مي",
+     "art": "food_cup_with_straw",
+     "tier": 1,
+     "cuisine": "world",
+     "category": "drinks",
+     "weather": "cold"
+    },
+    {
+     "key": "sandwich",
+     "name": "ساندويش",
+     "art": "food_sandwich",
+     "tier": 2,
+     "cuisine": "world",
+     "category": "street"
+    },
+    {
+     "key": "oranges",
+     "name": "برتقال",
+     "art": "food_tangerine",
+     "tier": 3,
+     "cuisine": "palestinian",
+     "category": "street",
+     "weather": "cold"
+    }
+   ],
+   "goalsBase": [
+    5500000000.0,
+    138000000000.0,
+    2750000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "falafelAlSarukh",
+     "art": "ppl_man",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "sandwichatAlMadina",
+     "art": "ppl_woman",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "kushkAlNajmeh",
+     "art": "ppl_boy",
+     "share": 0.12,
+     "gamma": 1.5
+    },
+    {
+     "nameKey": "falafelAlMashi",
+     "art": "food_sandwich",
+     "share": 0.1,
+     "gamma": 1.0
+    }
+   ],
+   "rules": [],
+   "twists": [
+    {
+     "type": "busWaves",
+     "params": {}
+    }
+   ],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 1,
+      "rarity": "legendary"
+     }
+    ]
+   }
+  },
+  {
+   "id": "fridayMarket",
+   "releaseOrder": 19,
+   "title": "سوق الجمعة",
+   "art": "veh_shopping_bags",
+   "desc": "سوق الجمعة عجقة من الصبح، والبسطة بنص الدنيا.",
+   "durationHours": 96,
+   "stations": [
+    {
+     "key": "falafel",
+     "name": "فلافل",
+     "art": "food_falafel",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "fried"
+    },
+    {
+     "key": "kaak",
+     "name": "كعك بسمسم",
+     "art": "food_bagel",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "bakery"
+    },
+    {
+     "key": "sugarcane",
+     "name": "عصير قصب",
+     "art": "food_cup_with_straw",
+     "tier": 2,
+     "cuisine": "egyptian",
+     "category": "drinks",
+     "weather": "cold"
+    },
+    {
+     "key": "iceCream",
+     "name": "بوظة",
+     "art": "food_ice_cream",
+     "tier": 3,
+     "cuisine": "world",
+     "category": "sweets",
+     "weather": "cold"
+    }
+   ],
+   "goalsBase": [
+    19800000000.0,
+    495000000000.0,
+    9900000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "falafelAlAmana",
+     "art": "food_falafel",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "kaakAbuJamil",
+     "art": "ppl_old_man",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "malikAlTaamiyeh",
+     "art": "ppl_beard",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [],
+   "twists": [],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "heritageCase",
+      "amount": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "jaffaHisbeh",
+   "releaseOrder": 20,
+   "title": "حسبة يافا",
+   "art": "veh_ship",
+   "desc": "حسبة السمك فاتحة، والبواخر بدّها صناديق برتقال. يافا ما بتنام!",
+   "durationHours": 96,
+   "stations": [
+    {
+     "key": "fish",
+     "name": "سمك",
+     "art": "ani_fish",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "seafood"
+    },
+    {
+     "key": "shrimp",
+     "name": "قريدس",
+     "art": "food_fried_shrimp",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "seafood"
+    },
+    {
+     "key": "lemon",
+     "name": "ليمون بنعنع",
+     "art": "food_lemon",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "drinks",
+     "weather": "cold"
+    },
+    {
+     "key": "oranges",
+     "name": "برتقال يافاوي",
+     "art": "food_tangerine",
+     "tier": 3,
+     "cuisine": "palestinian",
+     "category": "street",
+     "weather": "cold"
+    }
+   ],
+   "goalsBase": [
+    19800000000.0,
+    495000000000.0,
+    9900000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "matamAlMina",
+     "art": "ppl_woman",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "abuShaker",
+     "art": "ppl_man_cook",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "falafelAlBadr",
+     "art": "food_falafel",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [],
+   "twists": [
+    {
+     "type": "portShipments",
+     "params": {
+      "station": "oranges"
+     }
+    }
+   ],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 3,
+      "id": "abuAliAlex"
+     }
+    ]
+   }
+  },
+  {
+   "id": "villageWedding",
+   "releaseOrder": 21,
+   "title": "عرس بالضيعة",
+   "art": "bld_house_with_garden",
+   "desc": "عرس تلات أيام بالضيعة! الدبكة ما بتوقف، والطناجر كمان.",
+   "durationHours": 120,
+   "stations": [
+    {
+     "key": "mansaf",
+     "name": "منسف",
+     "art": "food_cooked_rice",
+     "tier": 0,
+     "cuisine": "levantine",
+     "category": "dishes"
+    },
+    {
+     "key": "kubbeh",
+     "name": "كبّة مقليّة",
+     "art": "food_roasted_sweet_potato",
+     "tier": 1,
+     "cuisine": "levantine",
+     "category": "fried"
+    },
+    {
+     "key": "knafeh",
+     "name": "كنافة",
+     "art": "food_pie",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "sweets"
+    },
+    {
+     "key": "juice",
+     "name": "عصير",
+     "art": "food_tropical_drink",
+     "tier": 3,
+     "cuisine": "palestinian",
+     "category": "drinks",
+     "weather": "cold"
+    },
+    {
+     "key": "coffee",
+     "name": "قهوة سادة",
+     "art": "food_teapot",
+     "tier": 4,
+     "cuisine": "gulf",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "goalsBase": [
+    58400000000.0,
+    1460000000000.0,
+    29200000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "beitAlKubbeh",
+     "art": "food_meat_on_bone",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "mashawiAlKheimeh",
+     "art": "ppl_man_cook",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "bastetAlFarah",
+     "art": "ppl_woman",
+     "share": 0.12,
+     "gamma": 1.5
+    },
+    {
+     "nameKey": "matamAlKaram",
+     "art": "ppl_beard",
+     "share": 0.1,
+     "gamma": 1.0
+    }
+   ],
+   "rules": [],
+   "twists": [],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 1,
+      "rarity": "legendary"
+     }
+    ]
+   }
+  },
+  {
+   "id": "factoryShift",
+   "releaseOrder": 22,
+   "title": "ورديّة المصنع",
+   "art": "bld_factory",
+   "desc": "الوردية الليلية بتبلّش، والعمّال بدّهم شاي وفول يصحّيهم.",
+   "durationHours": 72,
+   "stations": [
+    {
+     "key": "tea",
+     "name": "شاي",
+     "art": "food_tea",
+     "tier": 0,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "hot"
+    },
+    {
+     "key": "ful",
+     "name": "فول",
+     "art": "food_beans",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "dishes",
+     "weather": "hot"
+    },
+    {
+     "key": "sandwich",
+     "name": "ساندويش",
+     "art": "food_sandwich",
+     "tier": 2,
+     "cuisine": "world",
+     "category": "street"
+    }
+   ],
+   "goalsBase": [
+    8700000000.0,
+    218000000000.0,
+    4350000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "fulAbuAlAbed",
+     "art": "ppl_older_person",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "shawarmaAlSahra",
+     "art": "food_shawarma_wrap",
+     "share": 0.15,
+     "gamma": 0.7
+    }
+   ],
+   "rules": [],
+   "twists": [
+    {
+     "type": "nightMarket",
+     "params": {
+      "stations": [],
+      "startHour": 22,
+      "endHour": 6,
+      "nightMult": 3
+     }
+    }
+   ],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "heritageCase",
+      "amount": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "hummusChallenge",
+   "releaseOrder": 23,
+   "title": "تحدّي الحمّص",
+   "art": "food_hummus_bowl",
+   "desc": "محطّة وحدة، صحن واحد، وتحدّي كبير: مين بيعمل أطيب حمّص بالبلد؟",
+   "durationHours": 48,
+   "stations": [
+    {
+     "key": "hummus",
+     "name": "حمّص بطحينة",
+     "art": "food_hummus_bowl",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "dishes"
+    }
+   ],
+   "goalsBase": [
+    160000000.0,
+    3990000000.0,
+    79800000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "hummusAlMalik",
+     "art": "food_hummus_bowl",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "beitAlHummus",
+     "art": "ppl_man_cook",
+     "share": 0.15,
+     "gamma": 0.7
+    }
+   ],
+   "rules": [
+    "oneStation"
+   ],
+   "twists": [],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 3,
+      "rarity": "epic"
+     }
+    ]
+   }
+  },
+  {
+   "id": "beachCamp",
+   "releaseOrder": 24,
+   "title": "مخيّم البحر",
+   "art": "bld_beach_with_umbrella",
+   "desc": "مخيّم صيفي عالشط، والشمس حامية. اللي عنده بطّيخ بارد بيربح!",
+   "durationHours": 96,
+   "stations": [
+    {
+     "key": "watermelon",
+     "name": "بطّيخ",
+     "art": "food_watermelon",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "street",
+     "weather": "cold"
+    },
+    {
+     "key": "corn",
+     "name": "ذرة",
+     "art": "food_corn",
+     "tier": 1,
+     "cuisine": "levantine",
+     "category": "street"
+    },
+    {
+     "key": "iceCream",
+     "name": "بوظة",
+     "art": "food_ice_cream",
+     "tier": 2,
+     "cuisine": "world",
+     "category": "sweets",
+     "weather": "cold"
+    },
+    {
+     "key": "lemonade",
+     "name": "ليموناضة",
+     "art": "food_lemon",
+     "tier": 3,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "cold"
+    }
+   ],
+   "goalsBase": [
+    19800000000.0,
+    495000000000.0,
+    9900000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "matamAlMina",
+     "art": "ppl_man_farmer",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "arabayetAlSaada",
+     "art": "ppl_girl",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "kushkAlHabayeb",
+     "art": "ppl_woman",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [],
+   "twists": [
+    {
+     "type": "weatherSwing",
+     "params": {
+      "hotProb": 0.6,
+      "coldProb": 0.0,
+      "rainProb": 0.0,
+      "hotDayStations": [
+       "watermelon",
+       "iceCream",
+       "lemonade"
+      ],
+      "mult": 2.5
+     }
+    }
+   ],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "heritageCase",
+      "amount": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "tawjihiResults",
+   "releaseOrder": 25,
+   "title": "حلوان التوجيهي",
+   "art": "ui_party_popper",
+   "desc": "نتايج التوجيهي طلعت! الزمامير بالشوارع، وكل بيت بدّه صدر كنافة.",
+   "durationHours": 48,
+   "stations": [
+    {
+     "key": "knafeh",
+     "name": "كنافة",
+     "art": "food_pie",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "sweets"
+    },
+    {
+     "key": "chocolate",
+     "name": "شوكولاتة",
+     "art": "food_chocolate_bar",
+     "tier": 1,
+     "cuisine": "world",
+     "category": "sweets"
+    },
+    {
+     "key": "juice",
+     "name": "عصير",
+     "art": "food_tropical_drink",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "drinks",
+     "weather": "cold"
+    }
+   ],
+   "goalsBase": [
+    3200000000.0,
+    80000000000.0,
+    1600000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "knafehAlAseel",
+     "art": "food_pie",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "halawiyatAlSaa",
+     "art": "ppl_woman_cook",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "kushkAlTalabeh",
+     "art": "ppl_boy",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [],
+   "twists": [
+    {
+     "type": "busWaves",
+     "params": {
+      "intervalMin": 15,
+      "waveMult": 4
+     }
+    }
+   ],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 3,
+      "rarity": "epic"
+     }
+    ]
+   }
+  },
+  {
+   "id": "wheatHarvest",
+   "releaseOrder": 26,
+   "title": "حصيدة القمح",
+   "art": "food_wheat",
+   "desc": "البيادر مليانة، والحصّادين بدّهم خبز طازة من قمحهم.",
+   "durationHours": 96,
+   "stations": [
+    {
+     "key": "sageTea",
+     "name": "شاي بالميرميّة",
+     "art": "food_tea",
+     "tier": 0,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "hot"
+    },
+    {
+     "key": "wheat",
+     "name": "قمح",
+     "art": "food_wheat",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "street"
+    },
+    {
+     "key": "taboon",
+     "name": "خبز طابون",
+     "art": "food_flatbread",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "bakery"
+    },
+    {
+     "key": "maftoul",
+     "name": "مفتول",
+     "art": "food_steaming_bowl",
+     "tier": 3,
+     "cuisine": "palestinian",
+     "category": "dishes"
+    }
+   ],
+   "goalsBase": [
+    19800000000.0,
+    495000000000.0,
+    9900000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "tabounUmmIssa",
+     "art": "ppl_woman_farmer",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "snackAlDayaa",
+     "art": "ppl_man_farmer",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "alTahouneh",
+     "art": "food_stuffed_flatbread",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [],
+   "twists": [
+    {
+     "type": "productionChain",
+     "params": {
+      "inputStation": "wheat",
+      "outputStation": "taboon"
+     }
+    }
+   ],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "heritageCase",
+      "amount": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "movingDay",
+   "releaseOrder": 27,
+   "title": "عزّال الجيران",
+   "art": "veh_truck",
+   "desc": "الجيران عزّلوا عالطابق الخامس وما في مصعد. أقلّ إشي نطعميهم!",
+   "durationHours": 48,
+   "stations": [
+    {
+     "key": "falafelSandwich",
+     "name": "ساندويش فلافل",
+     "art": "food_sandwich",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "street"
+    },
+    {
+     "key": "watermelon",
+     "name": "بطّيخ بارد",
+     "art": "food_watermelon",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "street",
+     "weather": "cold"
+    },
+    {
+     "key": "tea",
+     "name": "شاي",
+     "art": "food_tea",
+     "tier": 2,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "goalsBase": [
+    3200000000.0,
+    80000000000.0,
+    1600000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "snackAmmoSamir",
+     "art": "ppl_man",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "falafelAlaKeifak",
+     "art": "food_falafel",
+     "share": 0.15,
+     "gamma": 0.7
+    }
+   ],
+   "rules": [
+    "noUpgrades"
+   ],
+   "twists": [],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 3,
+      "rarity": "epic"
+     }
+    ]
+   }
+  },
+  {
+   "id": "parkPicnic",
+   "releaseOrder": 28,
+   "title": "شوي بالحرش",
+   "art": "bld_national_park",
+   "desc": "طلعة الجمعة عالحرش: فحم ومشاوي وأولاد بيركضوا. بس ديروا بالكم عالغيم!",
+   "durationHours": 72,
+   "stations": [
+    {
+     "key": "corn",
+     "name": "ذرة مشويّة",
+     "art": "food_corn",
+     "tier": 0,
+     "cuisine": "levantine",
+     "category": "street"
+    },
+    {
+     "key": "grill",
+     "name": "مشاوي",
+     "art": "food_meat_on_bone",
+     "tier": 1,
+     "cuisine": "levantine",
+     "category": "grill"
+    },
+    {
+     "key": "salad",
+     "name": "سلطة",
+     "art": "food_green_salad",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "dishes",
+     "weather": "cold"
+    },
+    {
+     "key": "fireTea",
+     "name": "شاي عالحطب",
+     "art": "food_teapot",
+     "tier": 3,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "goalsBase": [
+    12100000000.0,
+    302000000000.0,
+    6050000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "awladAlAmm",
+     "art": "food_meat_on_bone",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "mashawiAlKheimeh",
+     "art": "ppl_man_cook",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "kushkAlHabayeb",
+     "art": "ppl_woman",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [],
+   "twists": [
+    {
+     "type": "weatherSwing",
+     "params": {
+      "hotProb": 0.5,
+      "coldProb": 0.1,
+      "rainProb": 0.15,
+      "hotDayStations": [
+       "salad",
+       "corn"
+      ],
+      "coldDayStations": [
+       "fireTea"
+      ],
+      "rainDayStations": [
+       "fireTea"
+      ],
+      "mult": 2.5
+     }
+    }
+   ],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "heritageCase",
+      "amount": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "hakawatiNight",
+   "releaseOrder": 29,
+   "title": "سهرة الحكواتي",
+   "art": "ui_speech_balloon",
+   "desc": "الحكواتي بالقهوة القديمة بيحكي عن الزير سالم، والسهّيرة بدّهم سحلب وكعك.",
+   "durationHours": 72,
+   "stations": [
+    {
+     "key": "kaak",
+     "name": "كعك بسمسم",
+     "art": "food_bagel",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "bakery"
+    },
+    {
+     "key": "sahlab",
+     "name": "سحلب",
+     "art": "food_milk",
+     "tier": 1,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "hot"
+    },
+    {
+     "key": "harisseh",
+     "name": "هريسة",
+     "art": "food_shortcake",
+     "tier": 2,
+     "cuisine": "levantine",
+     "category": "sweets"
+    },
+    {
+     "key": "coffee",
+     "name": "قهوة سادة",
+     "art": "food_teapot",
+     "tier": 3,
+     "cuisine": "gulf",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "goalsBase": [
+    12100000000.0,
+    302000000000.0,
+    6050000000000.0
+   ],
+   "partners": [
+    {
+     "nameKey": "qahwetAlMukhtar",
+     "art": "ppl_older_person",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "nameKey": "kaakAbuJamil",
+     "art": "ppl_old_man",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "nameKey": "shawarmaAlSahra",
+     "art": "food_tea",
+     "share": 0.12,
+     "gamma": 1.5
+    }
+   ],
+   "rules": [],
+   "twists": [
+    {
+     "type": "nightMarket",
+     "params": {
+      "stations": [],
+      "startHour": 20,
+      "endHour": 1,
+      "nightMult": 3
+     }
+    }
+   ],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "chefCards",
+      "amount": 1,
+      "rarity": "legendary"
+     }
+    ]
+   }
+  },
+  {
+   "id": "sittiBirthday",
+   "releaseOrder": 30,
+   "title": "عيد ميلاد ستّي",
+   "art": "food_birthday_cake",
+   "desc": "ستّي صار عمرها تمانين، والعيلة كلها جاية مفاجأة. هِس! لا حدا يحكيلها.",
+   "durationHours": 48,
+   "stations": [
+    {
+     "key": "kaakAjweh",
+     "name": "كعك بعجوة",
+     "art": "food_cookie",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "bakery"
+    },
+    {
+     "key": "maqluba",
+     "name": "مقلوبة",
+     "art": "food_maqluba_pan",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "dishes"
+    },
+    {
+     "key": "cake",
+     "name": "كيكة العيلة",
+     "art": "food_birthday_cake",
+     "tier": 2,
+     "cuisine": "world",
+     "category": "sweets"
+    },
+    {
+     "key": "mintTea",
+     "name": "شاي بالنعنع",
+     "art": "food_tea",
+     "tier": 3,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "goalsBase": [
+    5500000000.0,
+    138000000000.0,
+    2750000000000.0
+   ],
+   "partners": [
+    {
+     "name": "عمّتك ريما",
+     "art": "ppl_woman",
+     "share": 0.15,
+     "gamma": 1.0
+    },
+    {
+     "name": "خالك سليم",
+     "art": "ppl_man",
+     "share": 0.13,
+     "gamma": 0.7
+    },
+    {
+     "name": "بنت خالتك ديما",
+     "art": "ppl_girl",
+     "share": 0.12,
+     "gamma": 1.5
+    },
+    {
+     "name": "جوز عمّتك أبو فادي",
+     "art": "ppl_beard",
+     "share": 0.1,
+     "gamma": 1.0
+    }
+   ],
+   "rules": [
+    "goldenHour"
+   ],
+   "twists": [],
+   "rewards": {
+    "goal1": [
+     {
+      "type": "gold",
+      "amount": 10
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "wood"
+     }
+    ],
+    "goal2": [
+     {
+      "type": "zaatar",
+      "amount": 1
+     }
+    ],
+    "goal3": [
+     {
+      "type": "heritageCase",
+      "amount": 1
+     }
+    ]
+   }
+  }
+ ]
+}

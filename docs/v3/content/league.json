@@ -1,0 +1,497 @@
+{
+ "version": 1,
+ "unlockLevel": 12,
+ "groupSize": 30,
+ "defaultBaseline": 1400,
+ "firstWeekQ": 0.35,
+ "sigma": 0.45,
+ "noiseDaily": 0.03,
+ "tiers": [
+  {
+   "id": 1,
+   "name": "بسطة",
+   "art": "bld_tent",
+   "promote": 15,
+   "demote": 0,
+   "q": 0.45
+  },
+  {
+   "id": 2,
+   "name": "عربايّة",
+   "art": "veh_shopping_cart",
+   "promote": 12,
+   "demote": 5,
+   "q": 0.75
+  },
+  {
+   "id": 3,
+   "name": "كشك",
+   "art": "bld_hut",
+   "promote": 10,
+   "demote": 5,
+   "q": 0.9
+  },
+  {
+   "id": 4,
+   "name": "دكّانة",
+   "art": "bld_convenience_store",
+   "promote": 8,
+   "demote": 5,
+   "q": 1.0
+  },
+  {
+   "id": 5,
+   "name": "مطعم",
+   "art": "food_fork_knife_plate",
+   "promote": 7,
+   "demote": 5,
+   "q": 1.05
+  },
+  {
+   "id": 6,
+   "name": "مطعم مشهور",
+   "art": "ui_glowing_star",
+   "promote": 6,
+   "demote": 5,
+   "q": 1.1
+  },
+  {
+   "id": 7,
+   "name": "سلسلة مطاعم",
+   "art": "bld_department_store",
+   "promote": 5,
+   "demote": 5,
+   "q": 1.15
+  },
+  {
+   "id": 8,
+   "name": "ماركة بالبلد",
+   "art": "ui_military_medal",
+   "promote": 5,
+   "demote": 5,
+   "q": 1.2
+  },
+  {
+   "id": 9,
+   "name": "أسطورة",
+   "art": "ui_trophy",
+   "promote": 4,
+   "demote": 5,
+   "q": 1.25
+  },
+  {
+   "id": 10,
+   "name": "سلطان الفلافل",
+   "art": "ui_crown",
+   "promote": 0,
+   "demote": 5,
+   "q": 1.3
+  }
+ ],
+ "archetypes": [
+  {
+   "id": "steady",
+   "weight": 0.4
+  },
+  {
+   "id": "earlyBird",
+   "weight": 0.15
+  },
+  {
+   "id": "weekendBurst",
+   "weight": 0.2
+  },
+  {
+   "id": "closer",
+   "weight": 0.15
+  },
+  {
+   "id": "sprinter",
+   "weight": 0.1
+  }
+ ],
+ "rewards": [
+  {
+   "fromRank": 1,
+   "toRank": 1,
+   "goldBase": 30,
+   "goldPerTier": 10,
+   "chest": "silver",
+   "chestFromTier6": "gold"
+  },
+  {
+   "fromRank": 2,
+   "toRank": 3,
+   "goldBase": 20,
+   "goldPerTier": 8,
+   "chest": "wood",
+   "chestFromTier6": "silver"
+  },
+  {
+   "fromRank": 4,
+   "toRank": 10,
+   "goldBase": 15,
+   "goldPerTier": 5
+  },
+  {
+   "fromRank": 11,
+   "toRank": 20,
+   "goldBase": 10,
+   "goldPerTier": 2
+  },
+  {
+   "fromRank": 21,
+   "toRank": 30,
+   "goldBase": 5,
+   "goldPerTier": 0
+  }
+ ],
+ "promotionRewards": [
+  {
+   "type": "chest",
+   "amount": 1,
+   "id": "wood"
+  }
+ ],
+ "repSources": {
+  "dailyOrder": 20,
+  "dailyBonus": 30,
+  "weeklyOrder": 60,
+  "weeklyBonus": 100,
+  "goalStar": 8,
+  "contractGoal1": 25,
+  "contractGoal2": 40,
+  "contractGoal3": 60,
+  "eventMilestone": 10,
+  "eventMilestoneFinal": 40,
+  "special": 2,
+  "choice": 5,
+  "rushRoundBase": 10,
+  "rushRoundScorePer": 500,
+  "supplyRun": 5,
+  "researchLevel": 5,
+  "inspectorPerPoint": 2,
+  "calendar": 10,
+  "graduation": 100
+ },
+ "names": {
+  "fixed": [
+   {
+    "key": "abuShaker",
+    "name": "مطعم أبو شاكر",
+    "archetype": "steady",
+    "bio": "جارك من القدس، بيحلف إنّ فلافله أطيب، وبيسلّم عليك كل صبح"
+   },
+   {
+    "key": "falafelAlAmana",
+    "name": "فلافل الأمانة",
+    "archetype": "steady",
+    "bio": "ما بيغشّ ولا بقرص، وبيرجّع الفراطة لآخر قرش"
+   },
+   {
+    "key": "hummusAlMalik",
+    "name": "حمّص الملك",
+    "archetype": "sprinter",
+    "bio": "بيلبس تاج من كرتون وبيقول الحمّص ملكه لحاله"
+   },
+   {
+    "key": "snackAlDayaa",
+    "name": "سناك الضيعة",
+    "archetype": "earlyBird",
+    "bio": "بيصحى قبل الديك، وبيخلّص شغله قبل ما تصحى إنت"
+   },
+   {
+    "key": "mashawiAlKheimeh",
+    "name": "مشاوي الخيمة",
+    "archetype": "weekendBurst",
+    "bio": "نارهم بتولع آخر الأسبوع، والدخنة بتوصل للقمر"
+   },
+   {
+    "key": "bastetAlFarah",
+    "name": "بسطة الفرح",
+    "archetype": "weekendBurst",
+    "bio": "كل زبون بيطلع من عندهم بيغنّي"
+   },
+   {
+    "key": "kushkAlNajmeh",
+    "name": "كشك النجمة",
+    "archetype": "sprinter",
+    "bio": "صغير بس نشيط، وبيحب يطلع بالصورة"
+   },
+   {
+    "key": "falafelAlaKeifak",
+    "name": "فلافل على كيفك",
+    "archetype": "steady",
+    "bio": "بيعملك القرص زي ما بدّك: صغير، كبير، أو مربّع!"
+   },
+   {
+    "key": "fulAbuAlAbed",
+    "name": "فول أبو العبد",
+    "archetype": "closer",
+    "bio": "قدرته على النار من الفجر، وما بيستعجل أبداً"
+   },
+   {
+    "key": "matamAlDawwar",
+    "name": "مطعم الدوّار",
+    "archetype": "steady",
+    "bio": "عالدوّار، وكل سيّارة بتلفّ لازم توقف عنده"
+   },
+   {
+    "key": "shawarmaAlSahra",
+    "name": "شاورما السهرة",
+    "archetype": "closer",
+    "bio": "بيفتح المسا وبيسكّر مع طلعة الضو"
+   },
+   {
+    "key": "knafehAlAseel",
+    "name": "كنافة الأصيل",
+    "archetype": "weekendBurst",
+    "bio": "صينيّته بتطلع مع العصر، والدور بيوصل للزاوية"
+   },
+   {
+    "key": "beitAlHummus",
+    "name": "بيت الحمّص",
+    "archetype": "steady",
+    "bio": "عندهم سبع أنواع حمّص، وبيحلفوا إنّ التامن جاي"
+   },
+   {
+    "key": "matbakhSittAlDar",
+    "name": "مطبخ ستّ الدار",
+    "archetype": "earlyBird",
+    "bio": "ستّ الدار بتطبخ وبتوزّع عالجيران قبل الزباين"
+   },
+   {
+    "key": "arabayetAbuZaid",
+    "name": "عربايّة أبو زيد",
+    "archetype": "sprinter",
+    "bio": "عربايته بتلفّ الحارات كلها، وبتوصل قبلك"
+   },
+   {
+    "key": "malikAlTaamiyeh",
+    "name": "ملك الطعميّة",
+    "archetype": "closer",
+    "bio": "جاي من مصر يتحدّى، وبيقول: طعميّة مش فلافل!"
+   },
+   {
+    "key": "falafelAlMashi",
+    "name": "فلافل عالماشي",
+    "archetype": "sprinter",
+    "bio": "بيعطيك السندويشة وإنت ماشي، ولا بيوقّفك دقيقة"
+   },
+   {
+    "key": "matamAlTayyibin",
+    "name": "مطعم الطيّبين",
+    "archetype": "steady",
+    "bio": "أطيب ناس بالدوري، بيهنّوك حتّى لو سبقتهم"
+   },
+   {
+    "key": "hummusWaDaqqa",
+    "name": "حمّص ودقّة",
+    "archetype": "earlyBird",
+    "bio": "دقّتهم بالهاون بتنسمع من آخر السوق"
+   },
+   {
+    "key": "bastetAlKheir",
+    "name": "بسطة الخير",
+    "archetype": "steady",
+    "bio": "بيطعموا كل محتاج ببلاش، والرزق بيزيد"
+   },
+   {
+    "key": "abuSalehFalafel",
+    "name": "أبو صالح للفلافل",
+    "archetype": "closer",
+    "bio": "ختيار عنيد، بيستنّى آخر الأسبوع وبيقلب الطاولة"
+   },
+   {
+    "key": "mashawiAlSultan",
+    "name": "مشاوي السلطان",
+    "archetype": "weekendBurst",
+    "bio": "بيعامل كل زبون زي السلطان، وبيطلب منك تقعد ساعة"
+   },
+   {
+    "key": "sandwichatAlMadina",
+    "name": "سندويشات المدينة",
+    "archetype": "sprinter",
+    "bio": "سريعين زي البرق وقت الغدا"
+   },
+   {
+    "key": "matamAlKaram",
+    "name": "مطعم الكرم",
+    "archetype": "steady",
+    "bio": "صحونهم مليانة لدرجة بدّك كيس توخذ الباقي"
+   },
+   {
+    "key": "kushkAlHabayeb",
+    "name": "كشك الحبايب",
+    "archetype": "weekendBurst",
+    "bio": "كل الحارة بتقعد عندهم تسولف"
+   },
+   {
+    "key": "fatayerUmmAli",
+    "name": "فطاير أم علي",
+    "archetype": "earlyBird",
+    "bio": "أم علي بتعجن بإيدين من ذهب"
+   },
+   {
+    "key": "manaqishWBass",
+    "name": "منقوشة وبس",
+    "archetype": "steady",
+    "bio": "ما بيعملوا غير منقوشة، بس بيعملوها صح"
+   },
+   {
+    "key": "beitAlKubbeh",
+    "name": "بيت الكبّة",
+    "archetype": "sprinter",
+    "bio": "كبّتهم مدبّبة من الطرفين زي الصاروخ"
+   },
+   {
+    "key": "matamSama",
+    "name": "مطعم سما",
+    "archetype": "closer",
+    "bio": "مطعم على سطح، والمنظر لحاله بيجيب زباين"
+   },
+   {
+    "key": "alTahouneh",
+    "name": "الطاحونة",
+    "archetype": "weekendBurst",
+    "bio": "بيطحنوا الحمّص الصبح، وبيطحنوا المنافسين آخر الأسبوع"
+   },
+   {
+    "key": "falafelAlBadr",
+    "name": "فلافل البدر",
+    "archetype": "closer",
+    "bio": "بيقولوا القرص عندهم مدوّر زيّ البدر بنص الشهر"
+   },
+   {
+    "key": "sajAlBaraka",
+    "name": "صاج البركة",
+    "archetype": "steady",
+    "bio": "الصاج عندهم ما بيبرد من الصبح للمسا"
+   },
+   {
+    "key": "kaakAbuJamil",
+    "name": "كعك أبو جميل",
+    "archetype": "earlyBird",
+    "bio": "بينادي: كعك بسمسم! وصوته بيوصل لآخر الحارة"
+   },
+   {
+    "key": "tabounUmmIssa",
+    "name": "طابون أم عيسى",
+    "archetype": "earlyBird",
+    "bio": "خبزها بيطلع منفّخ، وريحته بتصحّي الجيران"
+   },
+   {
+    "key": "qahwetAlMukhtar",
+    "name": "قهوة المختار",
+    "archetype": "steady",
+    "bio": "بيصبّوا القهوة وبيوزّعوا أخبار الحارة ببلاش"
+   },
+   {
+    "key": "halawiyatAlSaa",
+    "name": "حلويات الساعة",
+    "archetype": "sprinter",
+    "bio": "بيوقّتوا الكنافة عالساعة، ولا ثانية زيادة"
+   },
+   {
+    "key": "matamAlMina",
+    "name": "مطعم الميناء",
+    "archetype": "weekendBurst",
+    "bio": "سمكهم من البحر للصحن بنص ساعة"
+   },
+   {
+    "key": "snackAmmoSamir",
+    "name": "سناك عمّو سمير",
+    "archetype": "steady",
+    "bio": "عمّو سمير بيحكي نكت أكتر ما بيقلي"
+   },
+   {
+    "key": "kushkAlTalabeh",
+    "name": "كشك الطلبة",
+    "archetype": "closer",
+    "bio": "بيعرفوا كل الطلّاب بأساميهم، وبيدينوهم لآخر الشهر"
+   },
+   {
+    "key": "awladAlAmm",
+    "name": "أولاد العم للمشاوي",
+    "archetype": "weekendBurst",
+    "bio": "تلات أولاد عم، وكل واحد بيقول إنّه هو المعلّم"
+   },
+   {
+    "key": "falafelAlSarukh",
+    "name": "فلافل الصاروخ",
+    "archetype": "sprinter",
+    "bio": "توصيلهم أسرع من الصاروخ، والسندويشة بتوصل سخنة"
+   },
+   {
+    "key": "bastetAlYasmin",
+    "name": "بسطة الياسمين",
+    "archetype": "steady",
+    "bio": "ريحة الياسمين عندهم بتختلط بريحة الفلافل"
+   },
+   {
+    "key": "zaatarWZeit",
+    "name": "زعتر وزيت",
+    "archetype": "earlyBird",
+    "bio": "فطورهم بيفتح النفس، والزيت من كرم ستّهم"
+   },
+   {
+    "key": "beitAlMaqluba",
+    "name": "بيت المقلوبة",
+    "archetype": "closer",
+    "bio": "كل ما يقلبوا الطنجرة بتصفّق الحارة كلها"
+   },
+   {
+    "key": "arabayetAlSaada",
+    "name": "عربايّة السعادة",
+    "archetype": "weekendBurst",
+    "bio": "عربايّة صغيرة، بس الضحكة عندهم كبيرة"
+   }
+  ],
+  "prefixes": [
+   "فلافل",
+   "حمّص",
+   "مطعم",
+   "بسطة",
+   "كشك",
+   "مشاوي",
+   "شاورما",
+   "فطاير",
+   "كنافة",
+   "سناك"
+  ],
+  "suffixes": [
+   "الهنا",
+   "الوادي",
+   "الربيع",
+   "السعادة",
+   "الدار",
+   "الجبل",
+   "البلد",
+   "الجامعة",
+   "المحطّة",
+   "القمر",
+   "النجوم",
+   "الأصدقاء",
+   "الحارة",
+   "البحر"
+  ]
+ },
+ "avatars": [
+  "food_falafel",
+  "food_hummus_bowl",
+  "food_shawarma_wrap",
+  "food_pie",
+  "food_sandwich",
+  "food_stuffed_flatbread",
+  "food_meat_on_bone",
+  "food_tea",
+  "ppl_man_cook",
+  "ppl_woman_cook",
+  "ppl_cook",
+  "ppl_old_man",
+  "ppl_beard",
+  "ppl_woman_headscarf",
+  "ppl_man",
+  "ppl_woman"
+ ]
+}

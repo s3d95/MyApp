@@ -1,0 +1,468 @@
+{
+ "version": 1,
+ "unlockLevel": 13,
+ "perDay": {
+  "default": 1,
+  "friday": 2
+ },
+ "cooldownDays": 5,
+ "modifiers": [
+  {
+   "id": "doubleDay",
+   "name": "يوم الدبل",
+   "art": "ui_party_popper",
+   "desc": "دخل كل المطابخ ×2 اليوم كلّه",
+   "weight": 5,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "all"
+     },
+     "mult": 2,
+     "layer": "day"
+    }
+   ],
+   "festive": true
+  },
+  {
+   "id": "hummusDay",
+   "name": "يوم الحمّص",
+   "art": "food_hummus_bowl",
+   "desc": "الطبخات ×3 اليوم كلّه",
+   "weight": 8,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "category",
+      "value": "dishes"
+     },
+     "mult": 3,
+     "layer": "day"
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "friedFriday",
+   "name": "مقالي الجمعة",
+   "art": "food_falafel",
+   "desc": "المقالي ×3، بركة الجمعة",
+   "weight": 8,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "category",
+      "value": "fried"
+     },
+     "mult": 3,
+     "layer": "day"
+    }
+   ],
+   "weekdays": [
+    6
+   ],
+   "festive": false
+  },
+  {
+   "id": "sweetsDay",
+   "name": "يوم الحلو",
+   "art": "food_pie",
+   "desc": "الحلويات ×3 اليوم كلّه",
+   "weight": 8,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "category",
+      "value": "sweets"
+     },
+     "mult": 3,
+     "layer": "day"
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "drinksDay",
+   "name": "عصير وبس",
+   "art": "food_tropical_drink",
+   "desc": "المشروبات ×3 اليوم كلّه",
+   "weight": 8,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "category",
+      "value": "drinks"
+     },
+     "mult": 3,
+     "layer": "day"
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "bakeryDay",
+   "name": "خبز طازة",
+   "art": "food_bread",
+   "desc": "المخبوزات ×3 اليوم كلّه",
+   "weight": 8,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "category",
+      "value": "bakery"
+     },
+     "mult": 3,
+     "layer": "day"
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "grillDay",
+   "name": "ريحة شوي",
+   "art": "food_meat_on_bone",
+   "desc": "المشاوي ×3 اليوم كلّه",
+   "weight": 6,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "category",
+      "value": "grill"
+     },
+     "mult": 3,
+     "layer": "day"
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "seafoodDay",
+   "name": "سمك طازة",
+   "art": "ani_fish",
+   "desc": "أكل البحر ×3 اليوم كلّه",
+   "weight": 5,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "category",
+      "value": "seafood"
+     },
+     "mult": 3,
+     "layer": "day"
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "streetDay",
+   "name": "أكل الشارع",
+   "art": "food_shawarma_wrap",
+   "desc": "أكل الشارع ×3 اليوم كلّه",
+   "weight": 6,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "category",
+      "value": "street"
+     },
+     "mult": 3,
+     "layer": "day"
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "baladDay",
+   "name": "من خير البلد",
+   "art": "food_olive",
+   "desc": "الأكل الفلسطيني ×2 اليوم كلّه",
+   "weight": 5,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "cuisine",
+      "value": "palestinian"
+     },
+     "mult": 2,
+     "layer": "day"
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "worldDay",
+   "name": "أكلات العالم",
+   "art": "bld_globe_eu_africa",
+   "desc": "أكلات العالم ×3 اليوم كلّه",
+   "weight": 4,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "cuisine",
+      "value": "world"
+     },
+     "mult": 3,
+     "layer": "day"
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "managerSale",
+   "name": "خصم المعلّمين",
+   "art": "ppl_handshake",
+   "desc": "المعلّمين بنص السعر اليوم",
+   "weight": 6,
+   "effects": [
+    {
+     "type": "costMult",
+     "target": "manager",
+     "mult": 0.5
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "levelSale",
+   "name": "أوكازيون",
+   "art": "ui_label",
+   "desc": "مستويات المحطّات أرخص بالربع",
+   "weight": 6,
+   "effects": [
+    {
+     "type": "costMult",
+     "target": "stationLevel",
+     "mult": 0.75
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "researchSale",
+   "name": "بحث بنص السعر",
+   "art": "ui_notebook",
+   "desc": "أبحاث دفتر ستّي بنص السعر",
+   "weight": 6,
+   "effects": [
+    {
+     "type": "costMult",
+     "target": "research",
+     "mult": 0.5
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "researchFast",
+   "name": "دفتر سريع",
+   "art": "ui_hourglass",
+   "desc": "الأبحاث اللي بتبلّش اليوم أقصر بالربع",
+   "weight": 6,
+   "effects": [
+    {
+     "type": "durationMult",
+     "target": "research",
+     "mult": 0.75
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "supplyDouble",
+   "name": "رحلات دبل",
+   "art": "veh_pickup_truck",
+   "desc": "الرحلات اللي بتطلع اليوم بترجع بدبل اللقيات",
+   "weight": 5,
+   "effects": [
+    {
+     "type": "rollsMult",
+     "mult": 2
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "supplyFast",
+   "name": "طرق فاضية",
+   "art": "veh_tractor",
+   "desc": "الرحلات اللي بتطلع اليوم أقصر بالربع",
+   "weight": 6,
+   "effects": [
+    {
+     "type": "durationMult",
+     "target": "supply",
+     "mult": 0.75
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "specialRush",
+   "name": "زباين كتير",
+   "art": "ui_bellhop_bell",
+   "desc": "الزبون المميّز بيجي أسرع اليوم",
+   "weight": 6,
+   "effects": [
+    {
+     "type": "specialIntervalMult",
+     "mult": 0.6
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "ticketGift",
+   "name": "تذكرة ببلاش",
+   "art": "ui_admission_tickets",
+   "desc": "تذكرة هديّة أوّل ما تفتح",
+   "weight": 6,
+   "effects": [
+    {
+     "type": "reward",
+     "reward": {
+      "type": "tickets",
+      "amount": 1
+     }
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "vaultBoost",
+   "name": "خزنة كريمة",
+   "art": "ui_locked_with_key",
+   "desc": "الخزنة بتجمع +25% وإنت برّا",
+   "weight": 5,
+   "effects": [
+    {
+     "type": "vaultEffAdd",
+     "add": 0.25
+    }
+   ],
+   "festive": false
+  },
+  {
+   "id": "chefStallSale",
+   "name": "بسطة الطبّاخين بخصم",
+   "art": "ppl_cook",
+   "desc": "عروض الطبّاخين أرخص 30% اليوم",
+   "weight": 4,
+   "effects": [
+    {
+     "type": "costMult",
+     "target": "chefOffers",
+     "mult": 0.7
+    }
+   ],
+   "festive": false
+  }
+ ],
+ "weather": {
+  "types": [
+   {
+    "id": "sunny",
+    "name": "صحو",
+    "art": "ui_sun_behind_cloud",
+    "effects": []
+   },
+   {
+    "id": "hot",
+    "name": "شوب",
+    "art": "ui_sun",
+    "effects": [
+     {
+      "type": "incomeMult",
+      "scope": {
+       "kind": "weatherTag",
+       "value": "cold"
+      },
+      "mult": 1.15,
+      "layer": "day"
+     }
+    ]
+   },
+   {
+    "id": "cold",
+    "name": "برد",
+    "art": "ui_snowflake",
+    "effects": [
+     {
+      "type": "incomeMult",
+      "scope": {
+       "kind": "weatherTag",
+       "value": "hot"
+      },
+      "mult": 1.15,
+      "layer": "day"
+     }
+    ]
+   },
+   {
+    "id": "rainy",
+    "name": "شتا",
+    "art": "ui_cloud_with_rain",
+    "effects": [
+     {
+      "type": "specialIntervalMult",
+      "mult": 0.8
+     }
+    ]
+   }
+  ],
+  "seasons": [
+   {
+    "months": [
+     6,
+     7,
+     8
+    ],
+    "probs": {
+     "sunny": 0.55,
+     "hot": 0.4,
+     "cold": 0.0,
+     "rainy": 0.05
+    }
+   },
+   {
+    "months": [
+     12,
+     1,
+     2
+    ],
+    "probs": {
+     "sunny": 0.4,
+     "hot": 0.0,
+     "cold": 0.4,
+     "rainy": 0.2
+    }
+   },
+   {
+    "months": [
+     3,
+     4,
+     5,
+     9,
+     10,
+     11
+    ],
+    "probs": {
+     "sunny": 0.55,
+     "hot": 0.175,
+     "cold": 0.175,
+     "rainy": 0.1
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,622 @@
+{
+ "version": 1,
+ "strings": {
+  "app.name": "بسطة فلافل",
+  "tab.map": "الخريطة",
+  "tab.tasks": "المهام",
+  "tab.home": "البسطة",
+  "tab.chefs": "الطبّاخين",
+  "tab.shop": "الدكان",
+  "tab.locked": "مستوى {n}",
+  "tab.teaser": "بتفتح بمستوى {n}: {what}!",
+  "btn.collect": {
+   "m": "اجمع",
+   "f": "اجمعي"
+  },
+  "btn.claim": {
+   "m": "خذ",
+   "f": "خذي"
+  },
+  "btn.buy": "اشتري",
+  "btn.hire": {
+   "m": "وظّف",
+   "f": "وظّفي"
+  },
+  "btn.send": {
+   "m": "ابعت",
+   "f": "ابعتي"
+  },
+  "btn.skip": "تخطّي",
+  "btn.skipAll": "تخطّي الكل",
+  "btn.double": {
+   "m": "اجمع ×2",
+   "f": "اجمعي ×2"
+  },
+  "btn.open": {
+   "m": "افتح",
+   "f": "افتحي"
+  },
+  "btn.equip": {
+   "m": "حطّه",
+   "f": "حطّيه"
+  },
+  "btn.unequip": {
+   "m": "شيله",
+   "f": "شيليه"
+  },
+  "btn.upgrade": "رقّي",
+  "btn.levelUp": "رقّي الطبّاخ",
+  "btn.start": {
+   "m": "ابدأ",
+   "f": "ابدئي"
+  },
+  "btn.finishNow": {
+   "m": "خلّصها بـ {g}",
+   "f": "خلّصيها بـ {g}"
+  },
+  "btn.reroll": {
+   "m": "غيّر",
+   "f": "غيّري"
+  },
+  "btn.close": {
+   "m": "سكّر",
+   "f": "سكّري"
+  },
+  "btn.ok": "تمام",
+  "btn.yes": "أكيد",
+  "btn.no": "لأ",
+  "btn.later": "بعدين",
+  "btn.notNow": "مش هسّا",
+  "btn.go": "يلا",
+  "btn.play": {
+   "m": "العب",
+   "f": "العبي"
+  },
+  "btn.practice": "تدريب",
+  "btn.wrap": {
+   "m": "لفّ",
+   "f": "لفّي"
+  },
+  "btn.welcome": {
+   "m": "استقبل",
+   "f": "استقبلي"
+  },
+  "btn.load": {
+   "m": "حمّل الشحنة",
+   "f": "حمّلي الشحنة"
+  },
+  "btn.dispatch": {
+   "m": "ابعت",
+   "f": "ابعتي"
+  },
+  "btn.graduate": {
+   "m": "افتح فرع وانقل على {next}",
+   "f": "افتحي فرع وانقلي على {next}"
+  },
+  "btn.craft": {
+   "m": "اصنع",
+   "f": "اصنعي"
+  },
+  "btn.more": "المزيد",
+  "btn.back": "رجوع",
+  "btn.info": "شو هاد؟",
+  "btn.x1": "×1",
+  "btn.x10": "×10",
+  "btn.next": "التالي",
+  "btn.max": "أقصى",
+  "btn.ranking": "الترتيب",
+  "btn.eventShop": "دكّانة المهرجان",
+  "btn.upgrades": "ترقيات",
+  "btn.startContract": {
+   "m": "ابدأ الطلبيّة",
+   "f": "ابدئي الطلبيّة"
+  },
+  "btn.useWarp": {
+   "m": "استعمل",
+   "f": "استعملي"
+  },
+  "btn.goldSources": "من وين بجيب ذهب؟",
+  "hud.locked": "مستوى {n}",
+  "hud.perSec": "{v}/ث",
+  "hud.max": "مكتمل",
+  "hud.maxLevel": "أقصى مستوى",
+  "hud.stationLevel": "مستوى {n}/{cap}",
+  "hud.unlockFor": {
+   "m": "افتح بـ {cost}",
+   "f": "افتحي بـ {cost}"
+  },
+  "hud.eta": "بعد {t}",
+  "hud.hireManager": {
+   "m": "وظّف معلّم",
+   "f": "وظّفي معلّم"
+  },
+  "hud.tapToCook": {
+   "m": "دقّ للطبخ",
+   "f": "دقّي للطبخ"
+  },
+  "hud.stars": "★ {n}/{total}",
+  "hud.milestoneSpeed": "سرعة ×2",
+  "hud.milestoneProfit": "ربح ×2",
+  "hud.allStations": "كل المحطّات {n}: {x}/{y}",
+  "hud.frenzy": "عجقة زباين ×5",
+  "hud.rushChip": "×2",
+  "hud.paused": "متوقّف",
+  "hud.notEnough": "مش كافي",
+  "hud.chefBoost": "+{p}%",
+  "hud.managedBy": "المعلّم {name}",
+  "hud.deficit": "ناقص {x}%",
+  "hud.night": "سوق الليل ×{m}",
+  "hud.perfect": "مظبوطة!",
+  "hud.delivered": "انسلّم {p}%",
+  "hud.tokens": "{n} {token}",
+  "num.e3": "ألف",
+  "num.e6": "مليون",
+  "num.e9": "مليار",
+  "num.e12": "تريليون",
+  "num.e15": "كوادريليون",
+  "num.e18": "كوينتليون",
+  "num.e21": "سكستليون",
+  "num.e24": "سبتليون",
+  "num.e27": "أوكتليون",
+  "num.e30": "نونليون",
+  "num.e33": "ديسيليون",
+  "time.h": "س",
+  "time.m": "د",
+  "time.s": "ث",
+  "time.days": "{n} أيام",
+  "time.day": "يوم",
+  "time.oneDay": "يوم واحد",
+  "time.twoDays": "يومين",
+  "time.hours": "{n} ساعات",
+  "time.minutes": "{n} دقايق",
+  "time.now": "هسّا",
+  "time.left": "ضايل {t}",
+  "time.ago": "من {t}",
+  "notif.title": "بسطة فلافل",
+  "notif.streakRisk": "سلسلتك {n} يوم! طلب واحد بيحميها",
+  "notif.contractEnding": "طلبيّة «{title}» بتخلص بكرة، ضايل شوي!",
+  "notif.leagueResult": {
+   "m": "نتيجة الدوري طلعت! شوف وين صرت",
+   "f": "نتيجة الدوري طلعت! شوفي وين صرتي"
+  },
+  "notif.supplyBack": {
+   "m": "رجع {vehicle} ومعه إشي حلو! تعال شوف",
+   "f": "رجع {vehicle} ومعه إشي حلو! تعالي شوفي"
+  },
+  "notif.researchDone": "دفتر ستّي: خلص بحث «{node}»",
+  "notif.vaultFull": {
+   "m": "الخزنة تعبّت يا معلّم! تعال اجمعها",
+   "f": "الخزنة تعبّت يا معلّمة! تعالي اجمعيها"
+  },
+  "notif.winback3": "ستّي بتسأل عنك… البسطة مشتاقتلك",
+  "notif.winback7": "زباينك ناطرينك، وفي إشي جديد بالسوق",
+  "ceremony.kitchen.title": "البسطة",
+  "ceremony.kitchen.line": {
+   "m": "دقّ عالأكل واطبخ، وكل دقّة بتجيب مصاري",
+   "f": "دقّي عالأكل واطبخي، وكل دقّة بتجيب مصاري"
+  },
+  "ceremony.goals.title": "الأهداف والنجوم",
+  "ceremony.goals.line": {
+   "m": "خلّص الأهداف واجمع نجوم، النجوم بتفتح مدن جديدة",
+   "f": "خلّصي الأهداف واجمعي نجوم، النجوم بتفتح مدن جديدة"
+  },
+  "ceremony.managers.title": "المعلّمين",
+  "ceremony.managers.line": {
+   "m": "وظّف معلّم، بيطبخ عنك حتّى وإنت برّا",
+   "f": "وظّفي معلّم، بيطبخ عنك حتّى وإنتِ برّا"
+  },
+  "ceremony.specials.title": "الزبون المميّز",
+  "ceremony.specials.line": {
+   "m": "كل شوي بيمرق زبون مميّز، الحقه قبل ما يروح!",
+   "f": "كل شوي بيمرق زبون مميّز، الحقيه قبل ما يروح!"
+  },
+  "ceremony.upgrades.title": "الترقيات",
+  "ceremony.upgrades.line": "كل ترقية بتضرب ربح المحطّة ×3",
+  "ceremony.chefs.title": "الطبّاخين",
+  "ceremony.chefs.line": {
+   "m": "جمّع طبّاخين، كل واحد بيقوّي أكلات من مطبخه",
+   "f": "جمّعي طبّاخين، كل واحد بيقوّي أكلات من مطبخه"
+  },
+  "ceremony.chests.title": "الصناديق",
+  "ceremony.chests.line": {
+   "m": "افتح الصناديق ولاقي طبّاخين جداد",
+   "f": "افتحي الصناديق ولاقي طبّاخين جداد"
+  },
+  "ceremony.shop.title": "الدكّان",
+  "ceremony.shop.line": {
+   "m": "صناديق ورزم وقت وتذاكر وديكور، كله بالذهب اللي بتجمعه",
+   "f": "صناديق ورزم وقت وتذاكر وديكور، كله بالذهب اللي بتجمعيه"
+  },
+  "ceremony.rushHours.title": "ساعات الذروة",
+  "ceremony.rushHours.line": {
+   "m": "وقت الغدا والعشا الدخل دبل وإنت فاتح",
+   "f": "وقت الغدا والعشا الدخل دبل وإنتِ فاتحة"
+  },
+  "ceremony.vault.title": "الخزنة",
+  "ceremony.vault.line": {
+   "m": "الخزنة بتتعبّى لحالها وإنت برّا، ارجع اجمعها",
+   "f": "الخزنة بتتعبّى لحالها وإنتِ برّا، ارجعي اجمعيها"
+  },
+  "ceremony.map.title": "الخريطة",
+  "ceremony.map.line": {
+   "m": "مدن جديدة ناطرتك! كل مدينة بتخلّصها بتصير فرع",
+   "f": "مدن جديدة ناطرتك! كل مدينة بتخلّصيها بتصير فرع"
+  },
+  "ceremony.research.title": "دفتر ستّي",
+  "ceremony.research.line": "أسرار ستّي بالطبخ، كل بحث بيقوّيك للأبد",
+  "ceremony.supply.title": "رحلات التوريد",
+  "ceremony.supply.line": {
+   "m": "ابعت السيّارات تجيب تراث وطبّاخين وذهب",
+   "f": "ابعتي السيّارات تجيب تراث وطبّاخين وذهب"
+  },
+  "ceremony.heritage.title": "صندوق التراث",
+  "ceremony.heritage.line": {
+   "m": "جمّع قطع التراث، وكل مجموعة كاملة إلها بركة",
+   "f": "جمّعي قطع التراث، وكل مجموعة كاملة إلها بركة"
+  },
+  "ceremony.daily.title": "طلبات اليوم",
+  "ceremony.daily.line": "تلات طلبات كل يوم وتلاتة كل أسبوع، وإلهم جوايز حلوة",
+  "ceremony.calendar.title": "الروزنامة",
+  "ceremony.calendar.line": "كل يوم بتفتح فيه إلك هديّة، واليوم 28 فيه زعتر ذهبي",
+  "ceremony.streak.title": "السلسلة",
+  "ceremony.streak.line": {
+   "m": "خلّص طلب كل يوم، وخلّي النار مولّعة",
+   "f": "خلّصي طلب كل يوم، وخلّي النار مولّعة"
+  },
+  "ceremony.choices.title": "حكايات الحارة",
+  "ceremony.choices.line": {
+   "m": "أهل الحارة إلهم حكايات، وإنت بتقرّر",
+   "f": "أهل الحارة إلهم حكايات، وإنتِ بتقرّري"
+  },
+  "ceremony.newspaper.title": "جريدة الحارة",
+  "ceremony.newspaper.line": {
+   "m": "لما ترجع، الجريدة بتحكيلك شو صار وإنت برّا",
+   "f": "لما ترجعي، الجريدة بتحكيلك شو صار وإنتِ برّا"
+  },
+  "ceremony.rush.title": "طلبيات على السريع",
+  "ceremony.rush.line": {
+   "m": "لفّ السندويشات بسرعة، واربح ولعة ×2",
+   "f": "لفّي السندويشات بسرعة، واربحي ولعة ×2"
+  },
+  "ceremony.league.title": "الدوري",
+  "ceremony.league.line": {
+   "m": "نافس مطاعم الحارة كل أسبوع، واطلع درجة",
+   "f": "نافسي مطاعم الحارة كل أسبوع، واطلعي درجة"
+  },
+  "ceremony.market.title": "سوق اليوم والطقس",
+  "ceremony.market.line": "كل يوم إله عرض، والطقس بيغيّر شو بينباع",
+  "ceremony.contracts.title": "الطلبيات",
+  "ceremony.contracts.line": "عرس، تخرّج، عزومة… مطبخ جانبي وجوايز كبيرة",
+  "ceremony.events.title": "مهرجان الويكند",
+  "ceremony.events.line": "من الخميس للأحد: مهرجان جديد كل أسبوع",
+  "ceremony.season.title": "الموسم",
+  "ceremony.season.line": "خمسين درجة جوايز ببلاش، وطبّاخ خاص كل موسم",
+  "ceremony.branchUpgrades.title": "ترقية الفروع",
+  "ceremony.branchUpgrades.line": {
+   "m": "كبّر فروعك، بتعطيك ذهب أكتر ودخل أعلى",
+   "f": "كبّري فروعك، بتعطيكي ذهب أكتر ودخل أعلى"
+  },
+  "ceremony.inspector.title": "مفتّش البلديّة",
+  "ceremony.inspector.line": "المفتّش جاي يشوف البسطة، خلّيها تلمع!",
+  "ceremony.crafting.title": "صنعة التراث",
+  "ceremony.crafting.line": {
+   "m": "القطع الزيادة بتصير حِرفة، واصنع اللي ناقصك",
+   "f": "القطع الزيادة بتصير حِرفة، واصنعي اللي ناقصك"
+  },
+  "ceremony.chefSkills.title": "مهارات الطبّاخين",
+  "ceremony.chefSkills.line": {
+   "m": "الطبّاخين الكبار إلهم مهارات، دقّ عالوجه وشغّلها",
+   "f": "الطبّاخين الكبار إلهم مهارات، دقّي عالوجه وشغّليها"
+  },
+  "ceremony.timeWarpShop.title": "رزم الوقت",
+  "ceremony.timeWarpShop.line": "اشتري ساعات شغل جاهزة من الدكّان",
+  "ceremony.waitEvent": "المهرجان بيبلّش الخميس",
+  "ceremony.unlocked": "انفتح!",
+  "banner.rushHour": "ساعة الذروة! الدخل دبل",
+  "banner.frenzy": "عجقة زباين! الدخل ×5",
+  "banner.iftar": "ساعة الإفطار! الدخل ×5",
+  "banner.suhoor": "سحور! الدخل دبل",
+  "banner.inspector": "المفتّش جاي بعد {t}",
+  "banner.clock": "ساعة الجهاز رجعت لورا، الوقت موقّف لحد ما ترجع",
+  "banner.licence": {
+   "m": "الرخصة جاهزة! انقل على {city}",
+   "f": "الرخصة جاهزة! انقلي على {city}"
+  },
+  "banner.bus": "باص سيّاح وصل!",
+  "banner.ship": {
+   "m": "الباخرة رست! حمّل الشحنة قبل ما تطلع",
+   "f": "الباخرة رست! حمّلي الشحنة قبل ما تطلع"
+  },
+  "banner.festival": "{festival}! الدخل ×{m} اليوم",
+  "toast.freshDough": "عجينة طازة! دبل لمدّة {m} دقيقة",
+  "toast.tokensConverted": "حوّلنا {t} {token} لـ {g} ذهب",
+  "toast.vipTooSmall": "صالة كبار الزوار بدها تكبر",
+  "toast.levelUp": {
+   "m": "يا سلام! طلعت مستوى {n}",
+   "f": "يا سلام! طلعتي مستوى {n}"
+  },
+  "toast.saved": "انحفظ",
+  "toast.cardsToGold": "كروت زيادة صارت {g} ذهب",
+  "toast.walla": "ولعة ×2 لمدّة {m} دقيقة!",
+  "goals.title": "الأهداف",
+  "goals.claimed": "تمّ",
+  "goals.lockedSystem": "بتفتح بمستوى {n}",
+  "goals.threshold": "بدّك {n} نجمة لتنقل",
+  "goals.licence": "الرخصة بتطلع بعد {t}",
+  "goals.more": "و{n} كمان",
+  "graduate.confirm": {
+   "m": "رح تسكّر {city} وتصير فرع. الفرع بعطيك ذهب كل يوم و+10% دخل لكل المدن الجاية.",
+   "f": "رح تسكّري {city} وتصير فرع. الفرع بعطيكي ذهب كل يوم و+10% دخل لكل المدن الجاية."
+  },
+  "graduate.warnGoals": {
+   "m": "الأهداف اللي ما خلّصتها رح تروح (والتاج كمان).",
+   "f": "الأهداف اللي ما خلّصتيها رح تروح (والتاج كمان)."
+  },
+  "graduate.sign": "فرع",
+  "map.region.palestine": "فلسطين",
+  "map.region.arab": "الوطن العربي",
+  "map.region.world": "العالم",
+  "map.locked": "بدها رخصة ونجوم",
+  "map.branchGold": "{x} ذهب/يوم",
+  "map.safe": "خزنة الفروع",
+  "map.safeCap": "بتتعبّى بعد {t}",
+  "map.crowned": "متوّجة",
+  "branch.bonus": "+{p}% دخل لكل المدن",
+  "branch.level": "مستوى الفرع {n}/10",
+  "branch.upgrade": "رقّي الفرع بـ {g} ذهب",
+  "crown.title": "تاج {city}!",
+  "chefs.slots": "خانات الطبّاخين",
+  "chefs.slotLocked": "مستوى {n}",
+  "chefs.filterAll": "الكل",
+  "chefs.whereStrong": "وين بيقوّي؟",
+  "chefs.cards": "{x}/{y} كرت",
+  "chefs.skill": "مهارة: {name}",
+  "chefs.skillReady": "جاهزة!",
+  "chefs.skillCooldown": "بترجع بعد {t}",
+  "chefs.exclusive": "طبّاخ حصري",
+  "rarity.common": "عادي",
+  "rarity.rare": "نادر",
+  "rarity.epic": "ملحمي",
+  "rarity.legendary": "أسطوري",
+  "cuisine.palestinian": "فلسطيني",
+  "cuisine.levantine": "شامي",
+  "cuisine.egyptian": "مصري",
+  "cuisine.gulf": "خليجي",
+  "cuisine.iraqi": "عراقي",
+  "cuisine.maghrebi": "مغربي",
+  "cuisine.turkish": "تركي",
+  "cuisine.world": "عالمي",
+  "cuisine.any": "كل المطابخ",
+  "category.fried": "مقالي",
+  "category.grill": "مشاوي",
+  "category.bakery": "مخبوزات",
+  "category.sweets": "حلويات",
+  "category.drinks": "مشروبات",
+  "category.dishes": "طبخات",
+  "category.seafood": "أكل بحر",
+  "category.street": "أكل شارع",
+  "category.any": "كل الأصناف",
+  "chest.inventory": "صناديقك",
+  "chest.free": "صندوق هديّة!",
+  "chest.newChef": "طبّاخ جديد!",
+  "research.title": "دفتر ستّي",
+  "research.branch.kitchen": "المطبخ",
+  "research.branch.customers": "الزباين",
+  "research.branch.vault": "الخزنة والوقت",
+  "research.branch.empire": "الإمبراطوريّة",
+  "research.slotIdle": {
+   "m": "الدفتر فاضي، ابدأ بحث!",
+   "f": "الدفتر فاضي، ابدئي بحث!"
+  },
+  "research.maxed": "خلص للآخر",
+  "supply.title": "رحلات التوريد",
+  "supply.garage": "الكراج",
+  "supply.short": "مشوار قصير",
+  "supply.mid": "مشوار نصّ نصّ",
+  "supply.long": "مشوار طويل",
+  "supply.rolls": "{n} لقيات",
+  "supply.back": "رجعت الرحلة ومعها إشي حلو",
+  "supply.stars": "نجوم السيّارة",
+  "supply.segment.runs": "الرحلات",
+  "supply.segment.heritage": "صندوق التراث",
+  "heritage.title": "صندوق التراث",
+  "heritage.setBonus": "بركة المجموعة",
+  "heritage.craftPoints": "حِرفة: {n}",
+  "heritage.setDone": "المجموعة كملت!",
+  "tasks.today": "اليوم",
+  "tasks.week": "الأسبوع",
+  "tasks.calendar": "الروزنامة",
+  "tasks.season": "الموسم",
+  "tasks.achievements": "الإنجازات",
+  "orders.bonus": "صندوق المكافأة {x}/3",
+  "orders.reroll": {
+   "m": "غيّر الطلب",
+   "f": "غيّري الطلب"
+  },
+  "orders.rerollFree": "تغيير ببلاش",
+  "orders.allDone": {
+   "m": "خلّصت كل طلبات اليوم!",
+   "f": "خلّصتي كل طلبات اليوم!"
+  },
+  "calendar.day": "يوم {n}",
+  "calendar.claimed": "انستلم",
+  "calendar.cycle": "الدورة {n}",
+  "streak.count": "{n} يوم",
+  "streak.frozen": "تجمّدت السلسلة اليوم",
+  "streak.broken": {
+   "m": "السلسلة انقطعت… بس فيك ترجّعها",
+   "f": "السلسلة انقطعت… بس فيكي ترجّعيها"
+  },
+  "streak.repair": {
+   "m": "رجّع السلسلة: خلّص 6 طلبات يومية خلال يومين",
+   "f": "رجّعي السلسلة: خلّصي 6 طلبات يومية خلال يومين"
+  },
+  "streak.freezes": "تجميدات: {n}",
+  "season.title": "الموسم",
+  "season.daysLeft": "ضايل {n} يوم",
+  "season.tier": "درجة {n}",
+  "season.bonus": "صندوق إضافي كل 300 نقطة",
+  "achievements.next": "الجاي: {n}",
+  "league.title": "الدوري",
+  "league.endsIn": "بيخلص بعد {t}",
+  "league.trial": "أسبوع تجريبي",
+  "league.promote": "منطقة الطلوع",
+  "league.demote": "منطقة النزول",
+  "league.npcInfo": "مطعم وهمي من اللعبة. بيلعب بالدوري زيّك.",
+  "league.promoted": {
+   "m": "طلعت درجة! صرت بـ {tier}",
+   "f": "طلعتي درجة! صرتي بـ {tier}"
+  },
+  "league.stayed": {
+   "m": "ضلّيت بـ {tier}، الأسبوع الجاي إلك!",
+   "f": "ضلّيتي بـ {tier}، الأسبوع الجاي إلك!"
+  },
+  "league.demoted": {
+   "m": "نزلت لـ {tier}، ولا يهمّك، منرجع!",
+   "f": "نزلتي لـ {tier}، ولا يهمّك، منرجع!"
+  },
+  "league.rep": "سمعة",
+  "contract.title": "طلبيات",
+  "contract.new": "جديد",
+  "contract.rerun": "إعادة",
+  "contract.grade": "الدرجة: {g}",
+  "contract.slotFull": {
+   "m": "الخانات مليانة، خلّص طلبيّة أوّل",
+   "f": "الخانات مليانة، خلّصي طلبيّة أوّل"
+  },
+  "contract.deadline": "بتخلص بعد {t}",
+  "contract.partners": "الشركاء",
+  "contract.cash": "كاش الطلبيّة",
+  "contract.rule.noManagers": "بلا معلّمين: كله بإيدك",
+  "contract.rule.noUpgrades": "بلا ترقيات",
+  "contract.rule.chefsOff": "الطبّاخين بإجازة",
+  "contract.rule.fastCheap": "كل إشي أسرع وأرخص",
+  "contract.rule.goldenHour": "عجقة زباين كل ساعة",
+  "contract.rule.oneStation": "محطّة وحدة بس",
+  "contract.done": {
+   "m": "الطلبيّة كملت! يسلموا إيديك",
+   "f": "الطلبيّة كملت! يسلموا إيديكي"
+  },
+  "event.title": "مهرجان الويكند",
+  "event.startsIn": "بيبلّش بعد {t}",
+  "event.endsIn": "بيخلص بعد {t}",
+  "event.milestone": "مرحلة {n}",
+  "event.rank": "ترتيبك: {n}",
+  "event.shop": "دكّانة المهرجان",
+  "market.title": "سوق اليوم",
+  "market.friday": "فرحة الجمعة: عرضين اليوم",
+  "weather.title": "الطقس",
+  "newspaper.title": "جريدة الحارة",
+  "newspaper.vault": "الخزنة جمّعت",
+  "newspaper.whileAway": {
+   "m": "وإنت برّا…",
+   "f": "وإنتِ برّا…"
+  },
+  "newspaper.runsBack": "رجعت {n} رحلات",
+  "newspaper.researchDone": "خلص بحث «{node}»",
+  "newspaper.partners": "شركاء الطلبيّة سلّموا {p}%",
+  "newspaper.league": {
+   "m": "صرت بالمرتبة {n} بالدوري",
+   "f": "صرتي بالمرتبة {n} بالدوري"
+  },
+  "newspaper.licence": "رخصة {city} جاهزة!",
+  "newspaper.safeFull": "خزنة الفروع تعبّت",
+  "choice.hint.sure": "أكيد",
+  "choice.hint.luck": "حظّ",
+  "special.arrived": {
+   "m": "زبون مميّز وصل! الحقه قبل ما يروح",
+   "f": "زبون مميّز وصل! الحقيه قبل ما يروح"
+  },
+  "rush.title": "طلبيات على السريع",
+  "rush.combo": "×{c}",
+  "rush.urgent": "مستعجل!",
+  "rush.best": "أحسن نتيجة: {n}",
+  "rush.newBest": "رقم قياسي جديد!",
+  "rush.result": "ولعة ×2 لمدّة {m} دقيقة",
+  "rush.tickets": "تذاكر: {n}",
+  "inspector.title": "مفتّش البلديّة",
+  "inspector.score": "النتيجة: {s} من 15",
+  "inspector.cert": "شهادة نظافة!",
+  "inspector.tip": {
+   "m": "نصيحة المفتّش: وظّف معلّمين لكل المحطّات",
+   "f": "نصيحة المفتّش: وظّفي معلّمين لكل المحطّات"
+  },
+  "profile.title": {
+   "m": "ملفّ المعلّم",
+   "f": "ملفّ المعلّمة"
+  },
+  "profile.power": "قوّة الإمبراطوريّة ×{p}",
+  "profile.zaatar": "زعتر ذهبي: {n} (دخل ×{m})",
+  "profile.why": "ليش دخلي هيك؟",
+  "profile.titles": "الألقاب",
+  "title.L100": {
+   "m": "سلطان البسطات",
+   "f": "سلطانة البسطات"
+  },
+  "shop.chests": "الصناديق",
+  "shop.timeWarps": "رزم وقت",
+  "shop.tickets": "تذاكر",
+  "shop.freezes": "تجميد السلسلة",
+  "shop.chefStall": "بسطة الطبّاخين",
+  "shop.decor": "ديكور",
+  "shop.eventCurrency": "عملة المهرجان",
+  "shop.notEnough": {
+   "m": "الذهب مش كافي. بتجمعه من الطلبات والروزنامة والدوري والفروع",
+   "f": "الذهب مش كافي. بتجمعيه من الطلبات والروزنامة والدوري والفروع"
+  },
+  "shop.dailyLimit": "خلصت عروض اليوم",
+  "cosmetic.slot.awning": "مظلّة",
+  "cosmetic.slot.sign": "يافطة",
+  "cosmetic.slot.lights": "إضاءة",
+  "cosmetic.slot.prop": "إكسسوار",
+  "cosmetic.slot.frame": "إطار",
+  "festival.intro": "إجا {festival}!",
+  "festival.neutral": "أيام البركة",
+  "festival.dailyClaim": "هديّة اليوم",
+  "festival.eidiyya": "عيديّتك!",
+  "festival.lanterns": "فوانيس: {n}/30",
+  "legacy.title": "هديّة الجيل الأوّل",
+  "legacy.body": "شكراً إنّك معنا من الأوّل! ستّي خبّتلك هديّة",
+  "ftue.addressAsk": "كيف بدّك أناديك؟",
+  "ftue.addressM": "يا شب",
+  "ftue.addressF": "يا صبية",
+  "ftue.notifAsk": "بدّك أخبرك لما تتعبّى الخزنة؟",
+  "ftue.notifYes": "أكيد",
+  "ftue.notifNo": "مش هسّا",
+  "ftue.defaultStall": "بسطة ستّي",
+  "settings.title": "الإعدادات",
+  "settings.sfx": "الأصوات",
+  "settings.music": "الموسيقى",
+  "settings.haptics": "الاهتزاز",
+  "settings.notifications": "الإشعارات",
+  "settings.streakReminder": "تذكير السلسلة",
+  "settings.reduceMotion": "تقليل الحركة",
+  "settings.reduceMotion.auto": "تلقائي",
+  "settings.reduceMotion.always": "دايماً",
+  "settings.reduceMotion.never": "أبداً",
+  "settings.digits": "الأرقام",
+  "settings.festiveDecor": "زينة المواسم",
+  "settings.address": "طريقة المناداة",
+  "settings.replayTutorial": "أعيد الشرح",
+  "settings.about": "عن اللعبة",
+  "settings.reset": "ابدأ من جديد",
+  "settings.resetWord": "امسح",
+  "settings.stallName": "اسم البسطة",
+  "settings.resetConfirm": {
+   "m": "اكتب «امسح» عشان نبدأ من جديد. التقدّم كله رح يروح!",
+   "f": "اكتبي «امسح» عشان نبدأ من جديد. التقدّم كله رح يروح!"
+  },
+  "settings.resetSure": {
+   "m": "متأكّد؟ ما في رجعة",
+   "f": "متأكّدة؟ ما في رجعة"
+  },
+  "credits.developer": "Developer: Saad",
+  "credits.developerAr": "المطوّر: سعد",
+  "credits.fluent": "Fluent Emoji 3D — MIT License, Microsoft",
+  "credits.fonts": "Baloo Bhaijaan 2 · Cairo — SIL Open Font License 1.1",
+  "credits.version": "النسخة {v}",
+  "error.cantAfford": "المصاري مش كافية",
+  "error.slotsFull": "الخانات مليانة",
+  "error.locked": "لسّا مسكّر"
+ }
+}

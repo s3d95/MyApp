@@ -1,0 +1,340 @@
+{
+ "version": 1,
+ "cityTiers": [
+  {
+   "baseCost": 5,
+   "growth": 1.09,
+   "baseCycleSec": 1,
+   "baseRevenue": 1,
+   "managerMult": 200
+  },
+  {
+   "baseCost": 60,
+   "growth": 1.15,
+   "baseCycleSec": 3,
+   "baseRevenue": 60,
+   "managerMult": 200
+  },
+  {
+   "baseCost": 720,
+   "growth": 1.14,
+   "baseCycleSec": 6,
+   "baseRevenue": 540,
+   "managerMult": 120
+  },
+  {
+   "baseCost": 8640,
+   "growth": 1.13,
+   "baseCycleSec": 12,
+   "baseRevenue": 4320,
+   "managerMult": 60
+  },
+  {
+   "baseCost": 103680,
+   "growth": 1.12,
+   "baseCycleSec": 24,
+   "baseRevenue": 51840,
+   "managerMult": 15
+  },
+  {
+   "baseCost": 1244160,
+   "growth": 1.11,
+   "baseCycleSec": 96,
+   "baseRevenue": 622080,
+   "managerMult": 8
+  },
+  {
+   "baseCost": 14929920,
+   "growth": 1.1,
+   "baseCycleSec": 384,
+   "baseRevenue": 7464960,
+   "managerMult": 6
+  },
+  {
+   "baseCost": 179159040,
+   "growth": 1.09,
+   "baseCycleSec": 1536,
+   "baseRevenue": 89579520,
+   "managerMult": 4
+  }
+ ],
+ "sideTiers": [
+  {
+   "baseCost": 10,
+   "growth": 1.1,
+   "baseCycleSec": 2,
+   "baseRevenue": 2,
+   "managerMult": 20
+  },
+  {
+   "baseCost": 150,
+   "growth": 1.12,
+   "baseCycleSec": 8,
+   "baseRevenue": 60,
+   "managerMult": 20
+  },
+  {
+   "baseCost": 2500,
+   "growth": 1.13,
+   "baseCycleSec": 30,
+   "baseRevenue": 1500,
+   "managerMult": 15
+  },
+  {
+   "baseCost": 40000,
+   "growth": 1.14,
+   "baseCycleSec": 120,
+   "baseRevenue": 40000,
+   "managerMult": 10
+  },
+  {
+   "baseCost": 800000,
+   "growth": 1.15,
+   "baseCycleSec": 480,
+   "baseRevenue": 1200000,
+   "managerMult": 8
+  }
+ ],
+ "stationMilestones": [
+  10,
+  25,
+  50,
+  100,
+  150,
+  200,
+  250,
+  300,
+  350,
+  400
+ ],
+ "allStationMilestones": [
+  25,
+  50,
+  100,
+  150,
+  200,
+  250,
+  300,
+  400
+ ],
+ "sideStationMilestones": [
+  10,
+  25,
+  50,
+  75,
+  100,
+  125,
+  150
+ ],
+ "sideAllStationMilestones": [
+  25,
+  50,
+  100,
+  150
+ ],
+ "milestoneMult": 2,
+ "cycleFloorSec": 0.5,
+ "levelCaps": [
+  {
+   "fromCity": 1,
+   "toCity": 3,
+   "cap": 100
+  },
+  {
+   "fromCity": 4,
+   "toCity": 8,
+   "cap": 200
+  },
+  {
+   "fromCity": 9,
+   "toCity": 16,
+   "cap": 300
+  },
+  {
+   "fromCity": 17,
+   "toCity": 24,
+   "cap": 400
+  }
+ ],
+ "sideLevelCap": 150,
+ "upgradeBase": 250000,
+ "upgradeRatio": 20,
+ "upgradeMult": 3,
+ "sideUpgrades": {
+  "base": 20000,
+  "ratio": 30,
+  "count": 3,
+  "targets": [
+   "0",
+   "1",
+   "all"
+  ]
+ },
+ "cityStartCashBase": 50,
+ "sideStartCash": 20,
+ "offline": {
+  "baseCapHours": 3,
+  "maxCapHours": 16,
+  "baseEff": 0.5,
+  "minGapSec": 60,
+  "doubleGoldPerHour": 10,
+  "doubleMin": 5,
+  "doubleMax": 160
+ },
+ "freshDough": {
+  "minGapHours": 24,
+  "minutesPerDay": 30,
+  "maxDays": 3,
+  "mult": 2
+ },
+ "boosts": {
+  "rushHourMult": 2,
+  "rushHourAddPerLevel": 0.1,
+  "rushWindows": [
+   [
+    12,
+    14
+   ],
+   [
+    19,
+    22
+   ]
+  ],
+  "frenzyMult": 5,
+  "frenzySec": 60,
+  "frenzySecPerLevel": 6,
+  "wallaMult": 2,
+  "wallaMinMin": 5,
+  "wallaMaxMin": 30,
+  "wallaPerScore": 400,
+  "wallaBankMaxMin": 60,
+  "activeCap": 50,
+  "dayCap": 5
+ },
+ "timeWarpShop": {
+  "unlockLevel": 24,
+  "goldPerHour": 10,
+  "fourHourPrice": 36,
+  "maxPerDay": 3
+ },
+ "rushTickets": {
+  "regenHours": 3,
+  "cap": 3,
+  "capL35": 4,
+  "overflowMax": 9,
+  "goldPrice": 10,
+  "maxBuyPerDay": 3
+ },
+ "vaultDouble": {
+  "perDay": 1
+ },
+ "rushGoldPerMinute": 0.16666666666666666,
+ "branches": {
+  "goldPerDayBase": 0.5,
+  "goldPerLevel": 0.2,
+  "softcapKnee": 10,
+  "softcapCoef": 2,
+  "safeCapHours": 8,
+  "incomePerBranch": 0.1,
+  "incomePerLevel": 0.02,
+  "maxLevel": 10,
+  "upgradeCosts": [
+   20,
+   45,
+   80,
+   125,
+   180,
+   245,
+   320,
+   405,
+   500,
+   605
+  ]
+ },
+ "grades": [
+  {
+   "id": 1,
+   "name": "سهل",
+   "minLevel": 0,
+   "targetFactor": 1,
+   "goldMult": 1,
+   "xpMult": 1,
+   "goal1Chest": "wood"
+  },
+  {
+   "id": 2,
+   "name": "متوسط",
+   "minLevel": 20,
+   "targetFactor": 4,
+   "goldMult": 1.25,
+   "xpMult": 1.2,
+   "goal1Chest": "wood"
+  },
+  {
+   "id": 3,
+   "name": "صعب",
+   "minLevel": 35,
+   "targetFactor": 15,
+   "goldMult": 1.5,
+   "xpMult": 1.4,
+   "goal1Chest": "silver"
+  },
+  {
+   "id": 4,
+   "name": "صعب كتير",
+   "minLevel": 55,
+   "targetFactor": 60,
+   "goldMult": 1.75,
+   "xpMult": 1.6,
+   "goal1Chest": "silver"
+  },
+  {
+   "id": 5,
+   "name": "أسطوري",
+   "minLevel": 80,
+   "targetFactor": 250,
+   "goldMult": 2,
+   "xpMult": 1.8,
+   "goal1Chest": "gold"
+  }
+ ],
+ "xp": {
+  "perStar": 10,
+  "cityBonusPerIndex": 0.1,
+  "stationMilestone": 2,
+  "stationUnlock": 4,
+  "managerHire": 2,
+  "graduationPerIndex": 50,
+  "dailyOrder": 30,
+  "dailyBonus": 40,
+  "weeklyOrder": 120,
+  "weeklyBonus": 150,
+  "calendarClaim": 15,
+  "researchBase": 10,
+  "researchPerLevel": 2,
+  "supplyShort": 10,
+  "supplyMid": 20,
+  "supplyLong": 40,
+  "supplyPerVehicleTier": 0.25,
+  "contractGoal1": 50,
+  "contractGoal2": 100,
+  "contractGoal3": 200,
+  "eventMilestone": 30,
+  "eventMilestoneFinal": 100,
+  "leagueWeekBase": 50,
+  "leagueWeekPerTier": 10,
+  "leaguePromotion": 50,
+  "special": 2,
+  "choice": 5,
+  "rushRound": 10,
+  "inspectorPerPoint": 4,
+  "achievementTiers": [
+   20,
+   40,
+   80,
+   150,
+   250
+  ]
+ },
+ "priceScaleFormula": "max(1, M_k/3)"
+}

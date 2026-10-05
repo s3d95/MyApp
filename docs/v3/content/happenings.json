@@ -1,0 +1,4686 @@
+{
+ "version": 1,
+ "specials": {
+  "unlockLevel": 3,
+  "minSec": 300,
+  "rangeSec": 600,
+  "power": 5,
+  "forceSec": 900,
+  "onScreenSec": 15,
+  "outcomes": [
+   {
+    "id": "tip",
+    "name": "زبون كريم",
+    "art": "ui_money_bag",
+    "weight": 55,
+    "effects": [
+     {
+      "type": "reward",
+      "reward": {
+       "type": "incomeMin",
+       "amount": 15
+      }
+     }
+    ]
+   },
+   {
+    "id": "frenzy",
+    "name": "عجقة زباين",
+    "art": "ui_fire",
+    "weight": 25,
+    "effects": [
+     {
+      "type": "frenzy",
+      "mult": 5,
+      "durationSec": 60
+     }
+    ]
+   },
+   {
+    "id": "critic",
+    "name": "ناقد طعام",
+    "art": "ui_memo",
+    "weight": 8,
+    "effects": [
+     {
+      "type": "incomeMult",
+      "scope": {
+       "kind": "all"
+      },
+      "mult": 2,
+      "layer": "active",
+      "durationSec": 300
+     },
+     {
+      "type": "reward",
+      "reward": {
+       "type": "rep",
+       "amount": 15
+      }
+     }
+    ],
+    "eventReplacement": [
+     {
+      "type": "reward",
+      "reward": {
+       "type": "eventTokens",
+       "amount": 3
+      }
+     }
+    ]
+   },
+   {
+    "id": "bus",
+    "name": "باص رحلة",
+    "art": "veh_bus",
+    "weight": 7,
+    "effects": [
+     {
+      "type": "reward",
+      "reward": {
+       "type": "incomeMin",
+       "amount": 10
+      }
+     }
+    ]
+   },
+   {
+    "id": "collector",
+    "name": "جامع تراث",
+    "art": "ui_old_key",
+    "weight": 2.4,
+    "effects": [
+     {
+      "type": "reward",
+      "reward": {
+       "type": "heritageItem",
+       "amount": 1,
+       "rarity": "common"
+      }
+     }
+    ],
+    "condition": {
+     "minLevel": 8
+    },
+    "fallbackId": "tip",
+    "eventReplacement": [
+     {
+      "type": "reward",
+      "reward": {
+       "type": "eventTokens",
+       "amount": 4
+      }
+     }
+    ]
+   },
+   {
+    "id": "collectorRare",
+    "name": "جامع تراث",
+    "art": "ui_old_key",
+    "weight": 0.6,
+    "effects": [
+     {
+      "type": "reward",
+      "reward": {
+       "type": "heritageItem",
+       "amount": 1,
+       "rarity": "rare"
+      }
+     }
+    ],
+    "condition": {
+     "minLevel": 8
+    },
+    "fallbackId": "tip",
+    "eventReplacement": [
+     {
+      "type": "reward",
+      "reward": {
+       "type": "eventTokens",
+       "amount": 5
+      }
+     }
+    ]
+   },
+   {
+    "id": "visitingChef",
+    "name": "طبّاخ زائر",
+    "art": "ppl_cook",
+    "weight": 1.4,
+    "effects": [
+     {
+      "type": "reward",
+      "reward": {
+       "type": "chefCards",
+       "amount": 3,
+       "rarity": "common"
+      }
+     }
+    ],
+    "condition": {
+     "minLevel": 4
+    },
+    "fallbackId": "tip",
+    "eventReplacement": [
+     {
+      "type": "reward",
+      "reward": {
+       "type": "eventTokens",
+       "amount": 4
+      }
+     }
+    ]
+   },
+   {
+    "id": "visitingChefRare",
+    "name": "طبّاخ زائر",
+    "art": "ppl_cook",
+    "weight": 0.6,
+    "effects": [
+     {
+      "type": "reward",
+      "reward": {
+       "type": "chefCards",
+       "amount": 3,
+       "rarity": "rare"
+      }
+     }
+    ],
+    "condition": {
+     "minLevel": 4
+    },
+    "fallbackId": "tip",
+    "eventReplacement": [
+     {
+      "type": "reward",
+      "reward": {
+       "type": "eventTokens",
+       "amount": 5
+      }
+     }
+    ]
+   },
+   {
+    "id": "suhoorGuest",
+    "name": "زبون السحور",
+    "art": "ui_bell",
+    "weight": 4,
+    "effects": [
+     {
+      "type": "reward",
+      "reward": {
+       "type": "incomeMin",
+       "amount": 20
+      }
+     },
+     {
+      "type": "reward",
+      "reward": {
+       "type": "rep",
+       "amount": 5
+      }
+     }
+    ],
+    "condition": {
+     "festivalIds": [
+      "ramadan"
+     ]
+    },
+    "fallbackId": "tip"
+   },
+   {
+    "id": "eidFamily",
+    "name": "عيلة معيّدة",
+    "art": "ui_gift",
+    "weight": 5,
+    "effects": [
+     {
+      "type": "reward",
+      "reward": {
+       "type": "incomeMin",
+       "amount": 20
+      }
+     }
+    ],
+    "condition": {
+     "festivalIds": [
+      "eidFitr",
+      "eidAdha"
+     ]
+    },
+    "fallbackId": "tip"
+   },
+   {
+    "id": "oliveFarmer",
+    "name": "فلّاح الزيتون",
+    "art": "food_olive",
+    "weight": 4,
+    "effects": [
+     {
+      "type": "reward",
+      "reward": {
+       "type": "incomeMin",
+       "amount": 15
+      }
+     },
+     {
+      "type": "reward",
+      "reward": {
+       "type": "rep",
+       "amount": 5
+      }
+     }
+    ],
+    "condition": {
+     "festivalIds": [
+      "oliveHarvest"
+     ]
+    },
+    "fallbackId": "tip"
+   },
+   {
+    "id": "scoutParade",
+    "name": "استعراض الكشّافة",
+    "art": "ui_musical_notes",
+    "weight": 4,
+    "effects": [
+     {
+      "type": "frenzy",
+      "mult": 5,
+      "durationSec": 60
+     }
+    ],
+    "condition": {
+     "festivalIds": [
+      "bethlehemChristmas"
+     ]
+    },
+    "fallbackId": "tip"
+   },
+   {
+    "id": "student",
+    "name": "طالب مدرسة",
+    "art": "ui_notebook",
+    "weight": 4,
+    "effects": [
+     {
+      "type": "reward",
+      "reward": {
+       "type": "incomeMin",
+       "amount": 12
+      }
+     }
+    ],
+    "condition": {
+     "festivalIds": [
+      "backToSchool"
+     ]
+    },
+    "fallbackId": "tip"
+   }
+  ]
+ },
+ "choiceRules": {
+  "unlockLevel": 10,
+  "firstAfterPlayMin": 10,
+  "gapMinSec": 180,
+  "gapMaxSec": 360,
+  "maxPerDay": 4,
+  "cooldownDays": 7
+ },
+ "choices": [
+  {
+   "id": "neighborLoan",
+   "art": "ppl_man",
+   "title": "جارك بدّه دين",
+   "body": {
+    "m": "أبو العبد بدّه دين لآخر الشهر، بتدينه؟",
+    "f": "أبو العبد بدّه دين لآخر الشهر، بتدينيه؟"
+   },
+   "condition": {
+    "minLevel": 10
+   },
+   "choices": [
+    {
+     "label": "تفضّل",
+     "hint": "luck",
+     "outcomes": [
+      {
+       "p": 0.7,
+       "effects": [
+        {
+         "type": "stake",
+         "minutes": 5
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 15
+         }
+        },
+        {
+         "type": "karma",
+         "delta": 1
+        }
+       ],
+       "text": "رجّعلك الدين وزيادة!"
+      },
+      {
+       "p": 0.3,
+       "effects": [
+        {
+         "type": "stake",
+         "minutes": 5
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "heritageItem",
+          "amount": 1,
+          "rarity": "common"
+         }
+        },
+        {
+         "type": "karma",
+         "delta": 1
+        }
+       ],
+       "text": "رجّع جزء، وجابلك هديّة من دار أبوه"
+      }
+     ]
+    },
+    {
+     "label": "معلش هسّا لأ",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "ولا يهمّك، بفهم"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "weddingRush",
+   "art": "bld_wedding",
+   "title": "عرس فجأة!",
+   "body": "عرس بالحارة وبدّهم 100 سندويشة هسّا!",
+   "choices": [
+    {
+     "label": "يلا نشتغل",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "frenzy",
+         "mult": 5,
+         "durationSec": 60
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "الحارة كلها رقصت، والسندويشات خلصت!"
+      }
+     ]
+    },
+    {
+     "label": "مش قادرين",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "أهل العرس عذروك، وبعتولك صحن كنافة"
+      }
+     ]
+    }
+   ],
+   "offline": {
+    "allowed": true,
+    "autoChoice": 0,
+    "newsText": "عرس فجأة بالحارة! معلّمينك طلّعوا 100 سندويشة وإنت برّا"
+   }
+  },
+  {
+   "id": "powerCut",
+   "art": "ui_electric_plug",
+   "title": "الكهربا قطعت",
+   "body": "الكهربا قطعت! شو بنعمل؟",
+   "choices": [
+    {
+     "label": "عالغاز",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "all"
+         },
+         "mult": 2,
+         "layer": "active",
+         "durationSec": 180
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "ريحة القلي عالغاز جابت الحارة كلها!"
+      }
+     ]
+    },
+    {
+     "label": "بنستنّى",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "الزباين استنّوا، وتركولك بقشيش"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "celebrity",
+   "art": "ppl_singer",
+   "title": "مطرب مشهور",
+   "body": {
+    "m": "مطرب مشهور واقف عالدور! بتعزمه؟",
+    "f": "مطرب مشهور واقف عالدور! بتعزميه؟"
+   },
+   "choices": [
+    {
+     "label": "عالبيت",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 20
+         }
+        },
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "all"
+         },
+         "mult": 3,
+         "layer": "active",
+         "durationSec": 180
+        }
+       ],
+       "text": "صوّر ستوري، والدنيا كلها إجت!"
+      }
+     ]
+    },
+    {
+     "label": "زيّه زيّ الكل",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 15
+         }
+        }
+       ],
+       "text": "دفع واستنّى دوره، وترك بقشيش محترم"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tourGuide",
+   "art": "ppl_person_tipping_hand",
+   "title": "دليل سياحي",
+   "body": "دليل سياحي بدّه يجيب مجموعته عندك كل يوم",
+   "choices": [
+    {
+     "label": "أهلا وسهلا",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "spawnSpecial"
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "أوّل مجموعة وصلت، وفيهم زبون مميّز!"
+      }
+     ]
+    },
+    {
+     "label": "ما في مكان",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "اشتروا سندويشات عالطريق ومشيوا"
+      }
+     ]
+    }
+   ],
+   "offline": {
+    "allowed": true,
+    "autoChoice": 0,
+    "newsText": "دليل سياحي جاب مجموعته عالبسطة وإنت برّا"
+   }
+  },
+  {
+   "id": "students",
+   "art": "ppl_person_raising_hand",
+   "title": "طلّاب الجامعة",
+   "body": "طلّاب بيرزيت بدّهم خصم طلّاب",
+   "choices": [
+    {
+     "label": "خصم 50%",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        },
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": {
+        "m": "صرت حديث الكافتيريا كلها!",
+        "f": "صرتي حديث الكافتيريا كلها!"
+       }
+      }
+     ]
+    },
+    {
+     "label": "بالسعر العادي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "دفعوا، ووعدوا يرجعوا بعد الامتحانات"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lostChild",
+   "art": "ppl_child",
+   "title": "ولد ضايع",
+   "body": "ولد صغير ضايع وبيعيّط عند البسطة",
+   "choices": [
+    {
+     "label": "بنطعميه وبنستنّى أهله",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 2
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 20
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "heritageItem",
+          "amount": 1,
+          "rarity": "rare"
+         }
+        }
+       ],
+       "text": "إمّه وصلت وما عرفت كيف تشكرك، وأعطتك هديّة من ستّها"
+      }
+     ]
+    },
+    {
+     "label": "بنوصّله للشرطة",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "وصل لأهله بالسلامة"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "grannyRecipe",
+   "art": "ppl_old_woman",
+   "title": "وصفة قديمة",
+   "body": "ختيارة بتعرض عليك وصفة من زمان",
+   "choices": [
+    {
+     "label": "بجرّبها",
+     "hint": "luck",
+     "outcomes": [
+      {
+       "p": 0.6,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "chefCards",
+          "amount": 3,
+          "rarity": "rare"
+         }
+        }
+       ],
+       "text": "الوصفة زبطت! طبّاخين جداد بدّهم يتعلّموها"
+      },
+      {
+       "p": 0.4,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "ما زبطت متل ما بدّها، بس الزباين حبّوها"
+      }
+     ]
+    },
+    {
+     "label": "يسلموا إيديكي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "دعتلك من قلبها، والدعوة بتسوى الدنيا"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "rainStorm",
+   "art": "ui_umbrella_with_rain_drops",
+   "title": "شتوة قويّة",
+   "body": "الناس محشورة تحت المظلّة من الشتا",
+   "condition": {
+    "weather": [
+     "rainy",
+     "cold"
+    ]
+   },
+   "choices": [
+    {
+     "label": "شاي ببلاش",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        },
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "all"
+         },
+         "mult": 2,
+         "layer": "active",
+         "durationSec": 300
+        }
+       ],
+       "text": "الشاي دفّاهم، وما حدا روّح بلا سندويشة"
+      }
+     ]
+    },
+    {
+     "label": "بنعلّي الراديو",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "سهرة حلوة تحت الشتا"
+      }
+     ]
+    }
+   ],
+   "offline": {
+    "allowed": true,
+    "autoChoice": 0,
+    "newsText": "شتوة قويّة، والناس احتموا تحت مظلّة بسطتك وشربوا شاي"
+   }
+  },
+  {
+   "id": "foodBlogger",
+   "art": "ui_mobile_phone",
+   "title": "بلوغر أكل",
+   "body": "بلوغر أكل مشهور بدّه يصوّر صحن من عندك",
+   "choices": [
+    {
+     "label": "أحلى صحن عنّا",
+     "hint": "luck",
+     "outcomes": [
+      {
+       "p": 0.75,
+       "effects": [
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "all"
+         },
+         "mult": 3,
+         "layer": "active",
+         "durationSec": 300
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "الفيديو ضرب! الطابور واصل لآخر الشارع"
+      },
+      {
+       "p": 0.25,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 25
+         }
+        }
+       ],
+       "text": "الفيديو ما انتشر كتير، بس كتب عنك كلام حلو"
+      }
+     ]
+    },
+    {
+     "label": "لا شكراً",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "أكل وانبسط بهدوء"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "rivalBorrow",
+   "art": "ppl_man_cook",
+   "title": "الجار محتاج",
+   "body": {
+    "m": "{rival} خلصت عنده البندورة، بتسلّفه؟",
+    "f": "{rival} خلصت عنده البندورة، بتسلّفيه؟"
+   },
+   "choices": [
+    {
+     "label": "أكيد",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        },
+        {
+         "type": "setFlag",
+         "flag": "rivalFriend"
+        }
+       ],
+       "text": "{rival} قال: «ما بنساها إلك»"
+      }
+     ]
+    },
+    {
+     "label": "يدبّر حاله",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "دبّر حاله، والمنافسة منافسة"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "marketDeal",
+   "art": "veh_lorry",
+   "title": "عرض بالحسبة",
+   "body": "تاجر بيعرض خضرة بنص السعر",
+   "choices": [
+    {
+     "label": "بشتري",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "stake",
+         "minutes": 10
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 25
+         }
+        }
+       ],
+       "text": "الخضرة طازة، والربح دبل"
+      }
+     ]
+    },
+    {
+     "label": "عندي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "خلّيها لمرّة جاية"
+      }
+     ]
+    }
+   ],
+   "offline": {
+    "allowed": true,
+    "autoChoice": 0,
+    "newsText": "تاجر الحسبة باعك خضرة بنص السعر، وربحت فيها"
+   }
+  },
+  {
+   "id": "kidsBirthday",
+   "art": "food_birthday_cake",
+   "title": "عيد ميلاد",
+   "body": "أم بدّها فلافل لعيد ميلاد ابنها",
+   "choices": [
+    {
+     "label": "تكرم عينها",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 10
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "الأولاد غنّولك «سنة حلوة يا جميل»!"
+      }
+     ]
+    },
+    {
+     "label": "بخصم",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        }
+       ],
+       "text": "الأم دعتلك، والأولاد صاروا زباينك"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "radio",
+   "art": "ui_studio_microphone",
+   "title": "مقابلة إذاعة",
+   "body": "إذاعة محليّة بدّها مقابلة معك",
+   "choices": [
+    {
+     "label": "بحكي عن ستّي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 25
+         }
+        },
+        {
+         "type": "storyScene",
+         "sceneId": "choice_radio"
+        }
+       ],
+       "text": "ستّي سمعتك عالراديو وعيّطت من الفرحة"
+      }
+     ]
+    },
+    {
+     "label": "بحكي عن العروض",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "frenzy",
+         "mult": 5,
+         "durationSec": 60
+        }
+       ],
+       "text": "الإعلان اشتغل! الناس جاية ركض"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oudPlayer",
+   "art": "ui_musical_notes",
+   "title": "عازف عود",
+   "body": "عازف عود بدّه يعزف جنب البسطة",
+   "choices": [
+    {
+     "label": "أهلا فيه",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "all"
+         },
+         "mult": 2,
+         "layer": "active",
+         "durationSec": 300
+        }
+       ],
+       "text": "الطرب جاب الزباين من كل الحارات"
+      }
+     ]
+    },
+    {
+     "label": "سندويشة وشكراً",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "عزف لحن صغير وراح مبسوط"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oldFriend",
+   "art": "ppl_handshake",
+   "title": "صاحب قديم",
+   "body": {
+    "m": "صاحبك من المدرسة رجع من الغربة",
+    "f": "صاحبتك من المدرسة رجعت من الغربة"
+   },
+   "choices": [
+    {
+     "label": "عالحساب",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "heritageItem",
+          "amount": 1,
+          "rarity": "rare"
+         }
+        }
+       ],
+       "text": {
+        "m": "جابلك هديّة من البلاد اللي كان فيها",
+        "f": "جابتلك هديّة من البلاد اللي كانت فيها"
+       }
+      }
+     ]
+    },
+    {
+     "label": "بنسولف شوي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "سولفتوا عن أيام زمان، وضحكتوا من القلب"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "haraCat",
+   "art": "ani_cat",
+   "title": "قطّة الحارة",
+   "body": "قطّة الحارة قاعدة عند البسطة وبتطلّع فيك",
+   "condition": {
+    "flagsNone": [
+     "catFed1"
+    ]
+   },
+   "choices": [
+    {
+     "label": "بنطعميها",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "setFlag",
+         "flag": "catFed1"
+        }
+       ],
+       "text": "أكلت وغمّضت عيونها. شكلها رح ترجع!"
+      }
+     ]
+    },
+    {
+     "label": "بلطف بنبعدها",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 3
+         }
+        }
+       ],
+       "text": "راحت تتمشّى، وبتطلّع وراها"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lostWallet",
+   "art": "ui_money_bag",
+   "title": "محفظة ضايعة",
+   "body": {
+    "m": "لقيت محفظة فيها مصاري",
+    "f": "لقيتي محفظة فيها مصاري"
+   },
+   "choices": [
+    {
+     "label": "بدوّر على صاحبها",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 2
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 20
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "صاحبها أصرّ يعطيك مكافأة"
+      }
+     ]
+    },
+    {
+     "label": "للشرطة",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "وصلت لصاحبها، والأمانة ما بتضيع"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "officeOrder",
+   "art": "bld_office_building",
+   "title": "طلبيّة شركة",
+   "body": "شركة بدّها 50 صحن عالغدا",
+   "choices": [
+    {
+     "label": "بنوصّلها",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 20
+         }
+        }
+       ],
+       "text": "الموظّفين شبعوا، والمدير طلب رقمك"
+      }
+     ]
+    },
+    {
+     "label": "مش اليوم",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 3
+         }
+        }
+       ],
+       "text": "طلبوا سندويشات وبس"
+      }
+     ]
+    }
+   ],
+   "offline": {
+    "allowed": true,
+    "autoChoice": 0,
+    "newsText": "شركة طلبت 50 صحن غدا، ومعلّمينك وصّلوهم"
+   }
+  },
+  {
+   "id": "farmerFresh",
+   "art": "ppl_man_farmer",
+   "title": "حمّص بلدي",
+   "body": "فلّاح جايب حمّص بلدي طازة",
+   "choices": [
+    {
+     "label": "بشتري كلّه",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "stake",
+         "minutes": 5
+        },
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "cuisine",
+          "value": "palestinian"
+         },
+         "mult": 2,
+         "layer": "active",
+         "durationSec": 1800
+        }
+       ],
+       "text": "الطعم البلدي بيفرق! أكل البلد ×2 لنص ساعة"
+      }
+     ]
+    },
+    {
+     "label": "شوي بس",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "كيلو للبيت، وكيلو لستّي"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tvShow",
+   "art": "ui_television",
+   "title": "برنامج طبخ",
+   "body": "برنامج طبخ بدّه يستضيفك",
+   "choices": [
+    {
+     "label": "أكيد!",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 30
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "chefCards",
+          "amount": 3,
+          "rarity": "rare"
+         }
+        }
+       ],
+       "text": {
+        "m": "طلعت عالتلفزيون، وطبّاخين بدّهم يشتغلوا معك",
+        "f": "طلعتي عالتلفزيون، وطبّاخين بدّهم يشتغلوا معك"
+       }
+      }
+     ]
+    },
+    {
+     "label": "مش وقته",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "المذيعة وعدت ترجع الموسم الجاي"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "schoolBus",
+   "art": "bld_school",
+   "title": "رحلة مدرسة",
+   "body": "باص رحلة وقف قدّام البسطة",
+   "choices": [
+    {
+     "label": "سندويشات للكل",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 15
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "الأولاد غنّوا بالباص طول الطريق"
+      }
+     ]
+    },
+    {
+     "label": "عصير بس",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 8
+         }
+        },
+        {
+         "type": "karma",
+         "delta": 1
+        }
+       ],
+       "text": "عصير بارد، وضحكات أبرد"
+      }
+     ]
+    }
+   ],
+   "offline": {
+    "allowed": true,
+    "autoChoice": 0,
+    "newsText": "باص رحلة مدرسة وقف عالبسطة، وما ضلّت ولا سندويشة"
+   }
+  },
+  {
+   "id": "poet",
+   "art": "ui_scroll",
+   "title": "شاعر الحارة",
+   "body": "شاعر الحارة بدّه يكتب قصيدة عن فلافلك",
+   "choices": [
+    {
+     "label": "اسمعنا!",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 20
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 20
+         }
+        }
+       ],
+       "text": "«قرص الفلافل مدوّر زي القمر…» والحارة كلها صفّقت"
+      }
+     ]
+    },
+    {
+     "label": "بدّي نسخة",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "heritageItem",
+          "amount": 1,
+          "id": "grandpaLetter"
+         }
+        }
+       ],
+       "text": {
+        "m": "علّقتها جنب رسالة سيدي",
+        "f": "علّقتيها جنب رسالة سيدي"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eatChallenge",
+   "art": "ppl_flexed_biceps",
+   "title": "تحدّي أكل",
+   "body": "شب بيتحدّى ياكل 20 قرص فلافل",
+   "choices": [
+    {
+     "label": "إذا خلّصهم ببلاش",
+     "hint": "luck",
+     "outcomes": [
+      {
+       "p": 0.5,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 30
+         }
+        },
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "all"
+         },
+         "mult": 2,
+         "layer": "active",
+         "durationSec": 300
+        }
+       ],
+       "text": "خلّصهم! والجمهور طلب نفس التحدّي"
+      },
+      {
+       "p": 0.5,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 15
+         }
+        }
+       ],
+       "text": "وقف عند القرص 14، ودفع حقّهم كلهم"
+      }
+     ]
+    },
+    {
+     "label": "ممنوع التحدّي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "أكل خمسة ومشي مبسوط"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lanternMaker",
+   "art": "ui_lantern",
+   "title": "صانع فوانيس",
+   "body": "صانع فوانيس بيعرض فانوس للبسطة",
+   "weight": 2,
+   "condition": {
+    "festivalIds": [
+     "ramadan"
+    ]
+   },
+   "choices": [
+    {
+     "label": "بشتريه",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "stake",
+         "minutes": 5
+        },
+        {
+         "type": "collectibleBonus",
+         "collectibleId": "lantern",
+         "amount": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "الفانوس بيلمع، وفانوس اليوم صار دبل"
+      }
+     ]
+    },
+    {
+     "label": "بتفرّج بس",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "الفوانيس بتلمع، والحارة أحلى"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eidKids",
+   "art": "ppl_child",
+   "title": "أولاد العيد",
+   "body": "أولاد الحارة بدّهم عيديّة",
+   "weight": 2,
+   "condition": {
+    "festivalIds": [
+     "eidFitr",
+     "eidAdha"
+    ]
+   },
+   "choices": [
+    {
+     "label": "عيديّة لكل واحد",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 2
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 20
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 20
+         }
+        }
+       ],
+       "text": "الضحكات ملّت الشارع: «كل عام وإنت بخير!»"
+      }
+     ]
+    },
+    {
+     "label": "قطعة حلو",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "الحلو خلص بدقيقة"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oliveHelp",
+   "art": "food_olive",
+   "title": "قطف الزيتون",
+   "body": "جارك بدّه مساعدة بقطف الزيتون",
+   "weight": 2,
+   "condition": {
+    "festivalIds": [
+     "oliveHarvest"
+    ]
+   },
+   "choices": [
+    {
+     "label": "بروح أساعد",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 0.7,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "heritageItem",
+          "amount": 1,
+          "id": "woodOlive"
+         }
+        }
+       ],
+       "text": {
+        "m": "رجعت ريحتك زيت، ومعك زيتونة خشب هديّة",
+        "f": "رجعتي ريحتك زيت، ومعك زيتونة خشب هديّة"
+       }
+      },
+      {
+       "p": 0.3,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "heritageItem",
+          "amount": 1,
+          "id": "oliveBoard"
+         }
+        }
+       ],
+       "text": "أعطاك لوح زيتون من شجرة سيده"
+      }
+     ]
+    },
+    {
+     "label": "ببعتله أكل",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "القطّيفة أكلوا ودعولك"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "choir",
+   "art": "ui_musical_notes",
+   "title": "كورال الميلاد",
+   "body": "كورال بيغنّي بالساحة",
+   "weight": 2,
+   "condition": {
+    "festivalIds": [
+     "bethlehemChristmas"
+    ]
+   },
+   "choices": [
+    {
+     "label": "سحلب للكورال",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        },
+        {
+         "type": "frenzy",
+         "mult": 5,
+         "durationSec": 60
+        }
+       ],
+       "text": "غنّولك ترنيمة، والساحة كلها إجت"
+      }
+     ]
+    },
+    {
+     "label": "منسمع بس",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "صوتهم دفّى الساحة"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "heatWave",
+   "art": "ui_thermometer",
+   "title": "شوب!",
+   "body": "الدنيا شوب والناس بدّها إشي بارد",
+   "condition": {
+    "weather": [
+     "hot"
+    ]
+   },
+   "choices": [
+    {
+     "label": "مي ببلاش",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        },
+        {
+         "type": "karma",
+         "delta": 1
+        }
+       ],
+       "text": "الناس شكروك من قلبهم"
+      }
+     ]
+    },
+    {
+     "label": "عصير بسعر خاص",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "weatherTag",
+          "value": "cold"
+         },
+         "mult": 2,
+         "layer": "active",
+         "durationSec": 1800
+        }
+       ],
+       "text": "البارد طار! المشروبات الباردة ×2 لنص ساعة"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "snowDay",
+   "art": "ui_snowflake",
+   "title": "تلج!",
+   "body": "التلج نازل والمدينة واقفة",
+   "condition": {
+    "weather": [
+     "cold"
+    ]
+   },
+   "choices": [
+    {
+     "label": "سحلب للكل",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        },
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "weatherTag",
+          "value": "hot"
+         },
+         "mult": 2,
+         "layer": "active",
+         "durationSec": 1800
+        }
+       ],
+       "text": "السخن طار! الأكل السخن ×2 لنص ساعة"
+      }
+     ]
+    },
+    {
+     "label": "بنسكّر بكّير",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 10
+         }
+        }
+       ],
+       "text": {
+        "m": "رحت عالبيت وعملت رجل تلج",
+        "f": "رحتي عالبيت وعملتي رجل تلج"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "journalist",
+   "art": "ui_newspaper",
+   "title": "صحفي",
+   "body": "صحفي بيكتب عن أحسن البسطات",
+   "choices": [
+    {
+     "label": "بفرجيه المطبخ",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 25
+         }
+        }
+       ],
+       "text": "طلعت صورتك بالجريدة!"
+      }
+     ]
+    },
+    {
+     "label": "سندويشة وبس",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 8
+         }
+        }
+       ],
+       "text": "أكل ورجع طلب كمان وحدة"
+      }
+     ]
+    }
+   ],
+   "offline": {
+    "allowed": true,
+    "autoChoice": 0,
+    "newsText": "صحفي كتب عن بسطتك بجريدة الحارة!"
+   }
+  },
+  {
+   "id": "apprentice",
+   "art": "ppl_boy",
+   "title": "صبي متدرّب",
+   "body": "ولد بدّه يتعلّم الشغل بالصيف",
+   "choices": [
+    {
+     "label": "تعال تعلّم",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "chefCards",
+          "amount": 3,
+          "rarity": "common"
+         }
+        },
+        {
+         "type": "karma",
+         "delta": 1
+        }
+       ],
+       "text": "صار يقلّب الفلافل زي المعلّمين"
+      }
+     ]
+    },
+    {
+     "label": "بتساعد بالتنظيف",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "البسطة لمعت!"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tourPhoto",
+   "art": "ui_camera",
+   "title": "سايح بيصوّر",
+   "body": "سايح بدّه صورة مع البسطة",
+   "choices": [
+    {
+     "label": "أهلين!",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        },
+        {
+         "type": "spawnSpecial"
+        }
+       ],
+       "text": "نشر الصورة، وإجا زبون مميّز يسأل عنك"
+      }
+     ]
+    },
+    {
+     "label": "صوّرني كمان",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 10
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": {
+        "m": "صرت مشهور عالإنترنت شوي",
+        "f": "صرتي مشهورة عالإنترنت شوي"
+       }
+      }
+     ]
+    }
+   ],
+   "offline": {
+    "allowed": true,
+    "autoChoice": 0,
+    "newsText": "سايح نشر صورة بسطتك، وإجوا زباين جداد"
+   }
+  },
+  {
+   "id": "secretSpice",
+   "art": "food_herb",
+   "title": "بهار سرّي",
+   "body": "عطّار بيعرض بهار سرّي",
+   "choices": [
+    {
+     "label": "بجرّبه",
+     "hint": "luck",
+     "outcomes": [
+      {
+       "p": 0.6,
+       "effects": [
+        {
+         "type": "stake",
+         "minutes": 10
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 30
+         }
+        }
+       ],
+       "text": "البهار سحر! الكل بدّه نفس الطعمة"
+      },
+      {
+       "p": 0.4,
+       "effects": [
+        {
+         "type": "stake",
+         "minutes": 10
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 8
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "طلع بهار عادي، بس العطّار حكى عنك بالسوق"
+      }
+     ]
+    },
+    {
+     "label": "عالقديم",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "خلطة ستّي ما بتتغيّر"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "rivalRace",
+   "art": "ppl_man_cook",
+   "title": "تحدّي الجار",
+   "body": {
+    "m": "{rival} بيتحدّاك: مين أسرع ساندويشة؟",
+    "f": "{rival} بيتحدّاكي: مين أسرع ساندويشة؟"
+   },
+   "condition": {
+    "requiresSystem": "rush"
+   },
+   "choices": [
+    {
+     "label": "يلا!",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "freeRushRound"
+        }
+       ],
+       "text": "جولة على السريع ببلاش!"
+      }
+     ]
+    },
+    {
+     "label": "مرّة تانية",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 5
+         }
+        }
+       ],
+       "text": {
+        "m": "{rival} قال: «خايف؟» وضحك",
+        "f": "{rival} قال: «خايفة؟» وضحك"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "elderMeal",
+   "art": "ppl_older_person",
+   "title": "ختيار جوعان",
+   "body": "ختيار ما معه حقّ الأكل",
+   "choices": [
+    {
+     "label": "عالبيت يا حج",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 2
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 20
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "دعالك بالخير وراح مبسوط"
+      }
+     ]
+    },
+    {
+     "label": "بنص السعر",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "شكرك وأكل بهدوء"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cupWinners",
+   "art": "ui_trophy",
+   "title": "الأبطال!",
+   "body": "فريق الحارة ربح الكاس وجايين يحتفلوا",
+   "choices": [
+    {
+     "label": "أكلة على حسابي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 30
+         }
+        },
+        {
+         "type": "karma",
+         "delta": 1
+        }
+       ],
+       "text": "شالوك عالأكتاف!"
+      }
+     ]
+    },
+    {
+     "label": "خصم للأبطال",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 15
+         }
+        }
+       ],
+       "text": "أكلوا وغنّوا للفجر"
+      }
+     ]
+    }
+   ],
+   "offline": {
+    "allowed": true,
+    "autoChoice": 0,
+    "newsText": "فريق الحارة ربح الكاس واحتفلوا عند بسطتك"
+   }
+  },
+  {
+   "id": "nightGuard",
+   "art": "ppl_guard",
+   "title": "حارس الليل",
+   "body": "الحارس الليلي بدّه شاي وسندويشة",
+   "condition": {
+    "hours": [
+     22,
+     4
+    ]
+   },
+   "choices": [
+    {
+     "label": "بالهنا",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "قال: «البسطة بأمان الليلة»"
+      }
+     ]
+    },
+    {
+     "label": "بالحساب",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "دفع وكمّل دورته"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lostTourist",
+   "art": "ppl_woman",
+   "title": "سايحة ضايعة",
+   "body": "سايحة بتسأل عن الطريق",
+   "choices": [
+    {
+     "label": "بوصّلها",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        },
+        {
+         "type": "karma",
+         "delta": 1
+        }
+       ],
+       "text": "وصلت، ورجعت تاكل عندك"
+      }
+     ]
+    },
+    {
+     "label": "بشرحلها",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 5
+         }
+        }
+       ],
+       "text": {
+        "m": "رسمتلها خريطة على كيس الخبز",
+        "f": "رسمتيلها خريطة على كيس الخبز"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "grandmaCall",
+   "art": "ppl_old_woman",
+   "title": "تلفون من ستّي",
+   "body": "ستّي عالتلفون: «ابعتلي صحن من أكلك»",
+   "choices": [
+    {
+     "label": "أحلى صحن لستّي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 30
+         }
+        },
+        {
+         "type": "storyScene",
+         "sceneId": "choice_grandmaCall"
+        }
+       ],
+       "text": "ستّي ذاقت وقالت: «هاد طعم إيد سيدك»"
+      }
+     ]
+    },
+    {
+     "label": "بزورها بكرة",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "timeWarpMin",
+          "amount": 30
+         }
+        }
+       ],
+       "text": {
+        "m": "ستّي قالت: «ناطرتك، ولا تتأخّر»",
+        "f": "ستّي قالت: «ناطرتك، ولا تتأخّري»"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "haraCat2",
+   "art": "ani_cat",
+   "title": "القطّة رجعت!",
+   "body": "قطّة الحارة رجعت، وجايبة معها بنتها الصغيرة",
+   "weight": 2,
+   "condition": {
+    "flagsAll": [
+     "catFed1"
+    ],
+    "flagsNone": [
+     "catFed2"
+    ]
+   },
+   "choices": [
+    {
+     "label": "صحن حليب للتنتين",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "setFlag",
+         "flag": "catFed2"
+        }
+       ],
+       "text": "شربوا الحليب وناموا بفيّة المظلّة"
+      }
+     ]
+    },
+    {
+     "label": "بتفرّج عليهم وبضحك",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 3
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "البنت الصغيرة لحقت ذيل إمّها ساعة"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "haraCat3",
+   "art": "ani_cat",
+   "title": "القطّة اختارتك!",
+   "body": "قطّة الحارة صارت تنام كل يوم تحت البسطة. شكلها قرّرت تسكن عندك",
+   "weight": 2,
+   "condition": {
+    "flagsAll": [
+     "catFed2"
+    ],
+    "flagsNone": [
+     "catAdopted"
+    ]
+   },
+   "choices": [
+    {
+     "label": "أهلا بالموظّفة الجديدة!",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "cosmetic",
+          "amount": 1,
+          "id": "propCat"
+         }
+        },
+        {
+         "type": "setFlag",
+         "flag": "catAdopted"
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "صار عند البسطة قطّة رسميّة!"
+      }
+     ]
+    },
+    {
+     "label": "بعملّها بيت صغير",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "cosmetic",
+          "amount": 1,
+          "id": "propCat"
+         }
+        },
+        {
+         "type": "setFlag",
+         "flag": "catAdopted"
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "بيت كرتون صغير، وصارت حارسة البسطة"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "rivalThanks",
+   "art": "ppl_man_cook",
+   "title": "الجميلة ما بتنتسى",
+   "body": "{rival} بعتلك صينيّة هريسة مع ابنه: «هاي عشان البندورة!»",
+   "weight": 2,
+   "condition": {
+    "flagsAll": [
+     "rivalFriend"
+    ],
+    "flagsNone": [
+     "rivalThanked"
+    ]
+   },
+   "choices": [
+    {
+     "label": "بشكره من قلبي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        },
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 10
+         }
+        },
+        {
+         "type": "setFlag",
+         "flag": "rivalThanked"
+        }
+       ],
+       "text": "صرتوا جيران وحبايب"
+      }
+     ]
+    },
+    {
+     "label": "ببعتله صحن رجعة",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 2
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        },
+        {
+         "type": "setFlag",
+         "flag": "rivalThanked"
+        }
+       ],
+       "text": "الصحن راح ورجع مليان مرّتين!"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "taxiDriver",
+   "art": "veh_taxi",
+   "title": "سوّاق التكسي",
+   "body": "أبو العبد سوّاق التكسي بدّه يلزق إعلان بسطتك على سيّارته",
+   "choices": [
+    {
+     "label": "فكرة حلوة!",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "spawnSpecial"
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "أوّل مشوار جابلك زبون مميّز"
+      }
+     ]
+    },
+    {
+     "label": "سندويشة عالطريق",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        },
+        {
+         "type": "karma",
+         "delta": 1
+        }
+       ],
+       "text": "زمّرلك وهو ماشي"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "weddingCard",
+   "art": "ui_envelope",
+   "title": "كرت عرس",
+   "body": {
+    "m": "وصلك كرت عرس من {rival}! بتروح؟",
+    "f": "وصلك كرت عرس من {rival}! بتروحي؟"
+   },
+   "choices": [
+    {
+     "label": "أكيد بروح",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 20
+         }
+        },
+        {
+         "type": "karma",
+         "delta": 1
+        }
+       ],
+       "text": {
+        "m": "دبكت لحد ما تعبت، و{rival} طاير من الفرحة",
+        "f": "دبكتي لحد ما تعبتي، و{rival} طاير من الفرحة"
+       }
+      }
+     ]
+    },
+    {
+     "label": "ببعت صدر كنافة",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        }
+       ],
+       "text": "الكنافة وصلت قبل العريس!"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kidsFootball",
+   "art": "ppl_boy",
+   "title": "كورة الولاد",
+   "body": "كورة الولاد نطّت بين كراسي البسطة، والولاد واقفين خايفين",
+   "choices": [
+    {
+     "label": "برجّعلهم ياها وبضحك",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "وعدوا يشتروا عصير بعد الماتش"
+      }
+     ]
+    },
+    {
+     "label": "بنلعب معهم شوط",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 10
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": {
+        "m": "سجّلت هدف! والولاد صاروا يهتفوا باسم البسطة",
+        "f": "سجّلتي هدف! والولاد صاروا يهتفوا باسم البسطة"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "streetCleaning",
+   "art": "ppl_construction",
+   "title": "تنظيف الحارة",
+   "body": "البلديّة بتنظّف الشارع وبدّها مساعدة أصحاب المحلّات",
+   "choices": [
+    {
+     "label": "بشمّر وبساعد",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "الحارة لمعت، والكل شكرك"
+      }
+     ]
+    },
+    {
+     "label": "ببعتلهم شاي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        },
+        {
+         "type": "karma",
+         "delta": 1
+        }
+       ],
+       "text": "الشاي رفع المعنويّات"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oldRadioSong",
+   "art": "ui_musical_notes",
+   "title": "أغنية زمان",
+   "body": "الراديو بيغنّي أغنية من أيام ستّي، والزباين صاروا يدندنوا",
+   "choices": [
+    {
+     "label": "بعلّي الصوت",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "all"
+         },
+         "mult": 2,
+         "layer": "active",
+         "durationSec": 180
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "الحارة كلها صارت تغنّي معك"
+      }
+     ]
+    },
+    {
+     "label": "بغنّي معها",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 10
+         }
+        },
+        {
+         "type": "karma",
+         "delta": 1
+        }
+       ],
+       "text": "صوتك مش بطّال أبداً!"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mysteryCritic",
+   "art": "ppl_detective",
+   "title": "زبون غامض",
+   "body": "زبون لابس نظّارة سودا وبيكتب بدفتر صغير… ناقد؟",
+   "choices": [
+    {
+     "label": "بعطيه أحلى صحن",
+     "hint": "luck",
+     "outcomes": [
+      {
+       "p": 0.5,
+       "effects": [
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "all"
+         },
+         "mult": 2,
+         "layer": "active",
+         "durationSec": 300
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 25
+         }
+        }
+       ],
+       "text": "طلع ناقد! وكتب: «أطيب بسطة بالبلد»"
+      },
+      {
+       "p": 0.5,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "طلع بيكتب ليستة السوق، بس انبسط كتير"
+      }
+     ]
+    },
+    {
+     "label": "بعامله زي الكل",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "دفع وراح، وترك بقشيش حلو"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "rainbow",
+   "art": "ui_rainbow",
+   "title": "قوس قزح",
+   "body": "طلع قوس قزح فوق البسطة بعد الشتوة، والناس بتصوّر",
+   "weight": 2,
+   "condition": {
+    "weather": [
+     "rainy"
+    ]
+   },
+   "choices": [
+    {
+     "label": "صورة جماعيّة!",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        },
+        {
+         "type": "spawnSpecial"
+        }
+       ],
+       "text": "الصورة لفّت الحارة، وإجا زبون مميّز"
+      }
+     ]
+    },
+    {
+     "label": "عرض قوس قزح",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "all"
+         },
+         "mult": 2,
+         "layer": "active",
+         "durationSec": 300
+        }
+       ],
+       "text": "سبع ألوان وسبع سندويشات!"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "wrapLesson",
+   "art": "ppl_raising_hands",
+   "title": "درس لفّ",
+   "body": "مجموعة سيّاح بدّهم يتعلّموا كيف تنلفّ سندويشة الفلافل",
+   "condition": {
+    "requiresSystem": "rush"
+   },
+   "choices": [
+    {
+     "label": "دورة على السريع!",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "freeRushRound"
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "جولة ببلاش، والسيّاح صفّقولك"
+      }
+     ]
+    },
+    {
+     "label": "بلفّلهم أنا",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "أكلوا، وصوّروا، وطلبوا كمان"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hummusContest",
+   "art": "ppl_judge",
+   "title": "مسابقة الحمّص",
+   "body": {
+    "m": "مسابقة أطيب حمّص بالحي! بدّك تشارك؟",
+    "f": "مسابقة أطيب حمّص بالحي! بدّك تشاركي؟"
+   },
+   "choices": [
+    {
+     "label": "أكيد بشارك",
+     "hint": "luck",
+     "outcomes": [
+      {
+       "p": 0.4,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 40
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "chefCards",
+          "amount": 3,
+          "rarity": "rare"
+         }
+        }
+       ],
+       "text": "المرتبة الأولى! الكاس إلك"
+      },
+      {
+       "p": 0.6,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 15
+         }
+        }
+       ],
+       "text": {
+        "m": "طلعت التاني، والناس حبّوا صحنك",
+        "f": "طلعتي التانية، والناس حبّوا صحنك"
+       }
+      }
+     ]
+    },
+    {
+     "label": {
+      "m": "بكون حكَم",
+      "f": "بكون حكَمة"
+     },
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 20
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": {
+        "m": "حكَمت بالعدل، والكل احترمك",
+        "f": "حكَمتي بالعدل، والكل احترمك"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "generousTourist",
+   "art": "ppl_man_tuxedo",
+   "title": "بقشيش كبير",
+   "body": {
+    "m": "سايح ترك بقشيش كبير بالغلط وراح! بتلحقه؟",
+    "f": "سايح ترك بقشيش كبير بالغلط وراح! بتلحقيه؟"
+   },
+   "choices": [
+    {
+     "label": "بلحقه وبرجّعله",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 2
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        }
+       ],
+       "text": "انبسط من أمانتك، وكتب عنك بكل مكان"
+      }
+     ]
+    },
+    {
+     "label": "بحطّه بصندوق الخير",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "الصندوق رح يطعمي عيلة محتاجة"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nablusSoap",
+   "art": "food_butter",
+   "title": "المصبنة القديمة",
+   "body": "صاحب المصبنة بيعرض يفرجيك كيف بينطبخ صابون زيت الزيتون",
+   "weight": 2,
+   "condition": {
+    "cityIds": [
+     "nablus"
+    ]
+   },
+   "choices": [
+    {
+     "label": "بروح أتعلّم",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "heritageItem",
+          "amount": 1,
+          "id": "soapBar"
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 15
+         }
+        }
+       ],
+       "text": {
+        "m": "رجعت ومعك قالب صابون عليه ختمهم",
+        "f": "رجعتي ومعك قالب صابون عليه ختمهم"
+       }
+      }
+     ]
+    },
+    {
+     "label": "بشتري قالبين لستّي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "ستّي بتحب ريحة صابون نابلس"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hebronGlass",
+   "art": "ui_crystal_ball",
+   "title": "فرن الزجاج",
+   "body": "معلّم الزجاج بدّه يبدّل كرة زجاج زرقا بساندويشة",
+   "weight": 2,
+   "condition": {
+    "cityIds": [
+     "hebron"
+    ]
+   },
+   "choices": [
+    {
+     "label": "صفقة!",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "heritageItem",
+          "amount": 1,
+          "id": "blueBall"
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "كرة زرقا بتلمع زي البحر"
+      }
+     ]
+    },
+    {
+     "label": "الساندويشة هديّة",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": {
+        "m": "قال: «إيدك خضرا يا معلّم»",
+        "f": "قال: «إيدك خضرا يا معلّمة»"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "jaffaOranges",
+   "art": "food_tangerine",
+   "title": "برتقال زيادة",
+   "body": "تاجر البرتقال عنده صناديق زيادة قبل ما تطلع الباخرة",
+   "weight": 2,
+   "condition": {
+    "cityIds": [
+     "jaffa"
+    ]
+   },
+   "choices": [
+    {
+     "label": "بشتري وبعصر",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "stake",
+         "minutes": 5
+        },
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "all"
+         },
+         "mult": 2,
+         "layer": "active",
+         "durationSec": 900
+        }
+       ],
+       "text": "عصير برتقال يافاوي! الدخل ×2 لربع ساعة"
+      }
+     ]
+    },
+    {
+     "label": "حبّتين للبيت",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "البرتقال اليافاوي ما إله مثيل"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gazaSea",
+   "art": "ppl_old_man",
+   "title": "طلعة صيد",
+   "body": "الريّس عازمك على طلعة صيد مع الفجر",
+   "weight": 2,
+   "condition": {
+    "cityIds": [
+     "gaza"
+    ]
+   },
+   "choices": [
+    {
+     "label": "بطلع معه",
+     "hint": "luck",
+     "outcomes": [
+      {
+       "p": 0.6,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 25
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "الشبكة طلعت مليانة! سمك طازة للبسطة"
+      },
+      {
+       "p": 0.4,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "heritageItem",
+          "amount": 1,
+          "rarity": "common"
+         }
+        }
+       ],
+       "text": "ما صدتوا كتير، بس الريّس أعطاك هديّة حلوة"
+      }
+     ]
+    },
+    {
+     "label": "بنام شوي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 8
+         }
+        }
+       ],
+       "text": {
+        "m": "صحيت على ريحة سمك مقلي",
+        "f": "صحيتي على ريحة سمك مقلي"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ramallahNight",
+   "art": "ppl_raising_hands",
+   "title": "سهرة رام الله",
+   "body": "شباب طالعين من حفلة، وبدّهم أكل الساعة وحدة بالليل",
+   "weight": 2,
+   "condition": {
+    "cityIds": [
+     "ramallah"
+    ],
+    "hours": [
+     22,
+     3
+    ]
+   },
+   "choices": [
+    {
+     "label": "يلا نقلي!",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "frenzy",
+         "mult": 5,
+         "durationSec": 60
+        }
+       ],
+       "text": "الحفلة كمّلت عند البسطة!"
+      }
+     ]
+    },
+    {
+     "label": "آخر طلب",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 8
+         }
+        }
+       ],
+       "text": {
+        "m": "سكّرت مبسوط وتعبان",
+        "f": "سكّرتي مبسوطة وتعبانة"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cairoDebate",
+   "art": "ppl_man",
+   "title": "طعميّة ولا فلافل؟",
+   "body": "زبونين بيتجادلوا: طعميّة ولا فلافل؟ وطالبين رأيك",
+   "weight": 2,
+   "condition": {
+    "cityIds": [
+     "cairo"
+    ]
+   },
+   "choices": [
+    {
+     "label": "التنين أطيب من بعض!",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        },
+        {
+         "type": "karma",
+         "delta": 1
+        }
+       ],
+       "text": "ضحكوا وتصالحوا على صحن مشكّل"
+      }
+     ]
+    },
+    {
+     "label": "اللي بالبسطة أطيب!",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 10
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "طلبوا التنين ليقرّروا… والمصاري إلك"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tokyoBow",
+   "art": "ppl_bowing",
+   "title": "انحناءة",
+   "body": "زبون ياباني انحنالك شكراً عالفلافل",
+   "weight": 2,
+   "condition": {
+    "cityIds": [
+     "tokyo"
+    ]
+   },
+   "choices": [
+    {
+     "label": "بنحنيله كمان",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "انحنيتوا لبعض تلات مرّات!"
+      }
+     ]
+    },
+    {
+     "label": "بعلّمه «يسلموا»",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "صار يقول «يسلموا» لكل زبون"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "santiagoFamily",
+   "art": "ppl_old_man",
+   "title": "من ريحة البلاد",
+   "body": "ختيار من أصل فلسطيني بيحكي إنّ ستّه كانت من بيت جالا",
+   "weight": 2,
+   "condition": {
+    "cityIds": [
+     "santiago"
+    ]
+   },
+   "choices": [
+    {
+     "label": "بنحكي عن البلاد",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 20
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "heritageItem",
+          "amount": 1,
+          "id": "grandpaLetter"
+         }
+        }
+       ],
+       "text": "دمعت عينه، وأعطاك رسالة قديمة من عيلته"
+      }
+     ]
+    },
+    {
+     "label": "صحن على حسابي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 2
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "قال: «طعمه طعم البيت»"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "newYorkRush",
+   "art": "veh_taxi",
+   "title": "سوّاقين التكسي",
+   "body": "سوّاقين التكسي الصفر وقفوا صف طويل الساعة تلاتة بالليل",
+   "weight": 2,
+   "condition": {
+    "cityIds": [
+     "newYork"
+    ],
+    "hours": [
+     0,
+     4
+    ]
+   },
+   "choices": [
+    {
+     "label": "يلا يا شباب!",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "frenzy",
+         "mult": 5,
+         "durationSec": 60
+        }
+       ],
+       "text": "زمامير وضحك وفلافل للصبح"
+      }
+     ]
+    },
+    {
+     "label": "بسرعة بسرعة",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 10
+         }
+        }
+       ],
+       "text": {
+        "m": "خلّصت الصف بربع ساعة",
+        "f": "خلّصتي الصف بربع ساعة"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "musahharati",
+   "art": "ui_bell",
+   "title": "المسحّراتي",
+   "body": "المسحّراتي وقف عالبسطة: «اصحى يا نايم!» وبدّه سحور",
+   "weight": 2,
+   "condition": {
+    "festivalIds": [
+     "ramadan"
+    ],
+    "hours": [
+     1,
+     5
+    ]
+   },
+   "choices": [
+    {
+     "label": "سحور على حسابي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        }
+       ],
+       "text": "دعالك ودقّ عالطبلة لعند بيتك"
+      }
+     ]
+    },
+    {
+     "label": "بسحّر الحارة معه",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "all"
+         },
+         "mult": 2,
+         "layer": "active",
+         "durationSec": 600
+        }
+       ],
+       "text": "الحارة صحيت عالسحور، والطابور طوّل"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eidMaamoul",
+   "art": "food_moon_cake",
+   "title": "صحن العيد",
+   "body": "الجارة بعتتلك صحن معمول وكعك، والصحن لازم يرجع مليان",
+   "weight": 2,
+   "condition": {
+    "festivalIds": [
+     "eidFitr",
+     "eidAdha"
+    ]
+   },
+   "choices": [
+    {
+     "label": "برجّعه مليان فلافل",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 10
+         }
+        }
+       ],
+       "text": "رجع الصحن مليان، والمحبّة زادت"
+      }
+     ]
+    },
+    {
+     "label": "بعزمها عالقهوة",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 15
+         }
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 5
+         }
+        }
+       ],
+       "text": "سولفتوا ساعة، وعرفتوا كل أخبار الحارة"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "christmasTree",
+   "art": "ui_star",
+   "title": "شجرة الساحة",
+   "body": "شجرة الميلاد بالساحة بدّها زينة، والبلديّة بتطلب مساعدة المحلّات",
+   "weight": 2,
+   "condition": {
+    "festivalIds": [
+     "bethlehemChristmas"
+    ]
+   },
+   "choices": [
+    {
+     "label": "بنعلّق نجمة باسم البسطة",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 20
+         }
+        },
+        {
+         "type": "spawnSpecial"
+        }
+       ],
+       "text": "النجمة بتلمع، وإجا زبون مميّز يصوّرها"
+      }
+     ]
+    },
+    {
+     "label": "سحلب للمتطوّعين",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 8
+         }
+        }
+       ],
+       "text": "السحلب دفّى الإيدين والقلوب"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "schoolFirstDay",
+   "art": "ppl_child",
+   "title": "أوّل يوم مدرسة",
+   "body": "أوّل يوم مدرسة، والأولاد بيعيّطوا عباب المدرسة",
+   "weight": 2,
+   "condition": {
+    "festivalIds": [
+     "backToSchool"
+    ]
+   },
+   "choices": [
+    {
+     "label": "عروسة زعتر لكل ولد",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        }
+       ],
+       "text": "سكتوا كلهم وصاروا يضحكوا"
+      }
+     ]
+    },
+    {
+     "label": "سندويشات للأهالي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "incomeMin",
+          "amount": 12
+         }
+        }
+       ],
+       "text": "الأهالي كمان كانوا بدّهم مين يطبطب عليهم"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oliveOilFirst",
+   "art": "ui_droplet",
+   "title": "الزيت الجديد",
+   "body": "أوّل زيت نزل من المعصرة! أخضر وبيقرص بالحلق",
+   "weight": 2,
+   "condition": {
+    "festivalIds": [
+     "oliveHarvest"
+    ]
+   },
+   "choices": [
+    {
+     "label": "بغمّس للزباين",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        },
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "category",
+          "value": "bakery"
+         },
+         "mult": 2,
+         "layer": "active",
+         "durationSec": 900
+        }
+       ],
+       "text": "خبز وزيت جديد: المخبوزات ×2 لربع ساعة"
+      }
+     ]
+    },
+    {
+     "label": "جالون لستّي",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "xp",
+          "amount": 15
+         }
+        }
+       ],
+       "text": "ستّي ذاقت وقالت: «هاد زيت الخير»"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "summerNight",
+   "art": "bld_night_with_stars",
+   "title": "سهرة صيفيّة",
+   "body": "الناس طالعة تتمشّى بالليل من الشوب",
+   "weight": 2,
+   "condition": {
+    "festivalIds": [
+     "summer"
+    ],
+    "hours": [
+     20,
+     23
+    ]
+   },
+   "choices": [
+    {
+     "label": "بنطلّع كراسي عالرصيف",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "incomeMult",
+         "scope": {
+          "kind": "all"
+         },
+         "mult": 2,
+         "layer": "active",
+         "durationSec": 600
+        }
+       ],
+       "text": "الرصيف صار مطعم، والسهرة حلوة"
+      }
+     ]
+    },
+    {
+     "label": "بوظة للأولاد ببلاش",
+     "hint": "sure",
+     "outcomes": [
+      {
+       "p": 1,
+       "effects": [
+        {
+         "type": "karma",
+         "delta": 1
+        },
+        {
+         "type": "reward",
+         "reward": {
+          "type": "rep",
+          "amount": 15
+         }
+        }
+       ],
+       "text": "الأولاد لزّقوا إيديهم بالبوظة وضحكوا"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "offline": {
+  "minAwayMin": 60,
+  "maxPerReturn": 2,
+  "maxPerDay": 3
+ },
+ "rushHours": [
+  {
+   "id": "lunch",
+   "startHour": 12,
+   "endHour": 14,
+   "mult": 2
+  },
+  {
+   "id": "dinner",
+   "startHour": 19,
+   "endHour": 22,
+   "mult": 2
+  }
+ ],
+ "inspector": {
+  "unlockLevel": 18,
+  "intervalDays": [
+   4,
+   6,
+   8
+  ],
+  "hourRange": [
+   10,
+   20
+  ],
+  "warningHours": 12,
+  "checks": [
+   {
+    "id": "managers",
+    "name": "معلّمين",
+    "full": 2.5,
+    "partial": 1.5
+   },
+   {
+    "id": "chefs",
+    "name": "طبّاخين",
+    "full": 2.5,
+    "partial": 1.5
+   },
+   {
+    "id": "stall",
+    "name": "شكل البسطة",
+    "full": 2.5,
+    "partial": 1.5
+   },
+   {
+    "id": "customers",
+    "name": "الزباين",
+    "full": 2.5,
+    "partial": 1.5
+   },
+   {
+    "id": "vault",
+    "name": "الخزنة",
+    "full": 2.5,
+    "partial": 1.5
+   },
+   {
+    "id": "variety",
+    "name": "التنويع",
+    "full": 2.5,
+    "partial": 1.5
+   }
+  ],
+  "rewardBands": [
+   {
+    "minScore": 0,
+    "rewards": [
+     {
+      "type": "gold",
+      "amount": 5
+     }
+    ]
+   },
+   {
+    "minScore": 8,
+    "rewards": [
+     {
+      "type": "gold",
+      "amount": 10
+     }
+    ]
+   },
+   {
+    "minScore": 12,
+    "rewards": [
+     {
+      "type": "gold",
+      "amount": 20
+     },
+     {
+      "type": "cosmetic",
+      "amount": 1,
+      "id": "signCleanCert"
+     }
+    ]
+   }
+  ],
+  "xpPerPoint": 4,
+  "repPerPoint": 2
+ },
+ "karmaRewards": [
+  {
+   "karma": 5,
+   "rewards": [
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ]
+  },
+  {
+   "karma": 10,
+   "rewards": [
+    {
+     "type": "chefCards",
+     "amount": 3,
+     "rarity": "epic"
+    }
+   ]
+  },
+  {
+   "karma": 20,
+   "rewards": [
+    {
+     "type": "cosmetic",
+     "amount": 1,
+     "id": "propBouquet"
+    }
+   ]
+  }
+ ]
+}

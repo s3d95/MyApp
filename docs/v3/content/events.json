@@ -1,0 +1,1368 @@
+{
+ "version": 1,
+ "startWeekday": 5,
+ "durationHours": 96,
+ "rotation": [
+  "haraWedding",
+  "worldCupNight",
+  "oliveHarvest",
+  "schoolCanteen",
+  "grapeFestival",
+  "knafehFestival",
+  "fridayFamily",
+  "summerBeach",
+  "falafelCup",
+  "fishFestival",
+  "heritageVillage",
+  "rooftopCinema"
+ ],
+ "festivalOverrides": [
+  {
+   "festivalId": "ramadan",
+   "themeId": "ramadanNights"
+  },
+  {
+   "festivalId": "eidFitr",
+   "themeId": "eidSweets"
+  },
+  {
+   "festivalId": "eidAdha",
+   "themeId": "eidFeast"
+  },
+  {
+   "festivalId": "oliveHarvest",
+   "themeId": "oliveHarvest"
+  },
+  {
+   "festivalId": "bethlehemChristmas",
+   "themeId": "bethlehemChristmas"
+  },
+  {
+   "festivalId": "summer",
+   "themeId": "summerBeach"
+  }
+ ],
+ "milestones": [
+  {
+   "base": 10000.0,
+   "rewards": [
+    {
+     "type": "eventTokens",
+     "amount": 20
+    }
+   ]
+  },
+  {
+   "base": 1000000.0,
+   "rewards": [
+    {
+     "type": "eventTokens",
+     "amount": 20
+    },
+    {
+     "type": "gold",
+     "amount": 5
+    }
+   ]
+  },
+  {
+   "base": 100000000.0,
+   "rewards": [
+    {
+     "type": "eventTokens",
+     "amount": 30
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    }
+   ],
+   "unlocksStation": 3
+  },
+  {
+   "base": 3000000000.0,
+   "rewards": [
+    {
+     "type": "eventTokens",
+     "amount": 30
+    },
+    {
+     "type": "gold",
+     "amount": 5
+    }
+   ]
+  },
+  {
+   "base": 50000000000.0,
+   "rewards": [
+    {
+     "type": "eventTokens",
+     "amount": 40
+    },
+    {
+     "type": "chefCards",
+     "amount": 3,
+     "id": "themeChef"
+    }
+   ]
+  },
+  {
+   "base": 300000000000.0,
+   "rewards": [
+    {
+     "type": "eventTokens",
+     "amount": 40
+    },
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ]
+  },
+  {
+   "base": 1000000000000.0,
+   "rewards": [
+    {
+     "type": "eventTokens",
+     "amount": 40
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    }
+   ]
+  },
+  {
+   "base": 3000000000000.0,
+   "rewards": [
+    {
+     "type": "eventTokens",
+     "amount": 30
+    },
+    {
+     "type": "gold",
+     "amount": 10
+    },
+    {
+     "type": "heritageCase",
+     "amount": 1
+    }
+   ]
+  },
+  {
+   "base": 8000000000000.0,
+   "rewards": [
+    {
+     "type": "eventTokens",
+     "amount": 30
+    },
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ]
+  },
+  {
+   "base": 15000000000000.0,
+   "rewards": [
+    {
+     "type": "eventTokens",
+     "amount": 20
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "gold"
+    },
+    {
+     "type": "cosmetic",
+     "amount": 1,
+     "id": "themeDecoration"
+    }
+   ]
+  }
+ ],
+ "rankRewards": [
+  {
+   "fromRank": 1,
+   "toRank": 1,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "gold"
+    },
+    {
+     "type": "cosmetic",
+     "amount": 1,
+     "id": "frameFestivalChampion"
+    }
+   ]
+  },
+  {
+   "fromRank": 2,
+   "toRank": 3,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    }
+   ]
+  },
+  {
+   "fromRank": 4,
+   "toRank": 10,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    }
+   ]
+  },
+  {
+   "fromRank": 11,
+   "toRank": 21,
+   "rewards": [
+    {
+     "type": "chefCards",
+     "amount": 3,
+     "rarity": "rare"
+    }
+   ]
+  }
+ ],
+ "npcCount": 20,
+ "npcSigma": 0.6,
+ "tokenConversion": {
+  "tokensPerGold": 5,
+  "maxGold": 20
+ },
+ "shop": [
+  {
+   "id": "themeCards",
+   "reward": {
+    "type": "chefCards",
+    "amount": 3,
+    "id": "themeChef"
+   },
+   "price": 40,
+   "max": 5
+  },
+  {
+   "id": "epicCard",
+   "reward": {
+    "type": "chefCards",
+    "amount": 1,
+    "rarity": "epic"
+   },
+   "price": 60,
+   "max": 3
+  },
+  {
+   "id": "timeWarp",
+   "reward": {
+    "type": "timeWarpMin",
+    "amount": 60
+   },
+   "price": 30,
+   "max": 3
+  },
+  {
+   "id": "woodChest",
+   "reward": {
+    "type": "chest",
+    "amount": 1,
+    "id": "wood"
+   },
+   "price": 50,
+   "max": 2
+  },
+  {
+   "id": "heritageCase",
+   "reward": {
+    "type": "heritageCase",
+    "amount": 1
+   },
+   "price": 120,
+   "max": 1
+  },
+  {
+   "id": "decoration",
+   "reward": {
+    "type": "cosmetic",
+    "amount": 1,
+    "id": "themeDecoration"
+   },
+   "price": 150,
+   "max": 1
+  },
+  {
+   "id": "ticket",
+   "reward": {
+    "type": "tickets",
+    "amount": 1
+   },
+   "price": 15,
+   "max": 3
+  }
+ ],
+ "themes": [
+  {
+   "id": "haraWedding",
+   "name": "عرس بالحارة",
+   "art": "bld_wedding",
+   "palette": {
+    "skyTop": "#3A1530",
+    "skyMid": "#7A2E5A",
+    "sunset": "#E0607E",
+    "glow": "#FFC2A8",
+    "accent": "#FF8FB1"
+   },
+   "eventCash": {
+    "name": "مصاري العرس",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "ورود",
+    "art": "ui_bouquet"
+   },
+   "stations": [
+    {
+     "key": "mansaf",
+     "name": "منسف",
+     "art": "food_cooked_rice",
+     "tier": 0,
+     "cuisine": "levantine",
+     "category": "dishes"
+    },
+    {
+     "key": "knafeh",
+     "name": "كنافة",
+     "art": "food_pie",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "sweets"
+    },
+    {
+     "key": "juice",
+     "name": "عصير",
+     "art": "food_tropical_drink",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "drinks",
+     "weather": "cold"
+    },
+    {
+     "key": "coffee",
+     "name": "قهوة سادة",
+     "art": "food_teapot",
+     "tier": 3,
+     "cuisine": "gulf",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "twists": [],
+   "chefId": "sittElSham",
+   "decorationId": "lightsWedding",
+   "festivalOnly": false
+  },
+  {
+   "id": "worldCupNight",
+   "name": "سهرة المونديال",
+   "art": "bld_stadium",
+   "palette": {
+    "skyTop": "#0E2236",
+    "skyMid": "#1E4D6B",
+    "sunset": "#3FA36B",
+    "glow": "#B8F2C9",
+    "accent": "#4CD07D"
+   },
+   "eventCash": {
+    "name": "مصاري السهرة",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "كاسات",
+    "art": "ui_trophy"
+   },
+   "stations": [
+    {
+     "key": "fries",
+     "name": "بطاطا",
+     "art": "food_french_fries",
+     "tier": 0,
+     "cuisine": "world",
+     "category": "fried"
+    },
+    {
+     "key": "sandwich",
+     "name": "سندويش",
+     "art": "food_sandwich",
+     "tier": 1,
+     "cuisine": "world",
+     "category": "street"
+    },
+    {
+     "key": "popcorn",
+     "name": "فشار",
+     "art": "food_popcorn",
+     "tier": 2,
+     "cuisine": "world",
+     "category": "street"
+    },
+    {
+     "key": "juice",
+     "name": "عصير",
+     "art": "food_juice_box",
+     "tier": 3,
+     "cuisine": "world",
+     "category": "drinks",
+     "weather": "cold"
+    }
+   ],
+   "twists": [
+    {
+     "type": "busWaves",
+     "params": {
+      "intervalMin": 15
+     }
+    }
+   ],
+   "chefId": "muratGrill",
+   "decorationId": "lightsFlags",
+   "festivalOnly": false
+  },
+  {
+   "id": "oliveHarvest",
+   "name": "موسم الزيتون",
+   "art": "food_olive",
+   "palette": {
+    "skyTop": "#1E2A14",
+    "skyMid": "#3E5A2A",
+    "sunset": "#B08A3A",
+    "glow": "#F2D88A",
+    "accent": "#8FB04A"
+   },
+   "eventCash": {
+    "name": "مصاري الموسم",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "زيتونات",
+    "art": "food_olive"
+   },
+   "stations": [
+    {
+     "key": "musakhan",
+     "name": "مسخّن",
+     "art": "food_stuffed_flatbread",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "dishes"
+    },
+    {
+     "key": "olives",
+     "name": "زيتون",
+     "art": "food_olive",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "street"
+    },
+    {
+     "key": "oilZaatar",
+     "name": "زيت وزعتر",
+     "art": "food_herb",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "bakery"
+    },
+    {
+     "key": "sageTea",
+     "name": "شاي بالميرميّة",
+     "art": "food_tea",
+     "tier": 3,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "twists": [
+    {
+     "type": "productionChain",
+     "params": {
+      "inputStation": "olives",
+      "outputStation": "oilZaatar"
+     }
+    }
+   ],
+   "chefId": "abuAbedFul",
+   "decorationId": "propOliveBasket",
+   "festivalOnly": false,
+   "requiresFestival": "oliveHarvest"
+  },
+  {
+   "id": "schoolCanteen",
+   "name": "مقصف المدرسة",
+   "art": "bld_school",
+   "palette": {
+    "skyTop": "#16263F",
+    "skyMid": "#2F4F7A",
+    "sunset": "#E89A3C",
+    "glow": "#FFE0A0",
+    "accent": "#F2B33D"
+   },
+   "eventCash": {
+    "name": "مصروف",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "دفاتر",
+    "art": "ui_notebook"
+   },
+   "stations": [
+    {
+     "key": "manousheh",
+     "name": "منقوشة",
+     "art": "food_flatbread",
+     "tier": 0,
+     "cuisine": "levantine",
+     "category": "bakery"
+    },
+    {
+     "key": "falafelSandwich",
+     "name": "ساندويش فلافل",
+     "art": "food_sandwich",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "street"
+    },
+    {
+     "key": "cupcake",
+     "name": "كب كيك",
+     "art": "food_cupcake",
+     "tier": 2,
+     "cuisine": "world",
+     "category": "sweets"
+    },
+    {
+     "key": "juice",
+     "name": "عصير",
+     "art": "food_juice_box",
+     "tier": 3,
+     "cuisine": "world",
+     "category": "drinks",
+     "weather": "cold"
+    }
+   ],
+   "twists": [],
+   "chefId": "laylaStudent",
+   "decorationId": "signChalkboard",
+   "festivalOnly": false
+  },
+  {
+   "id": "grapeFestival",
+   "name": "مهرجان العنب",
+   "art": "food_grapes",
+   "palette": {
+    "skyTop": "#24122E",
+    "skyMid": "#4E2A5E",
+    "sunset": "#B04A7A",
+    "glow": "#F6C0D8",
+    "accent": "#A45BC8"
+   },
+   "eventCash": {
+    "name": "مصاري الكرم",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "عناقيد",
+    "art": "food_grapes"
+   },
+   "stations": [
+    {
+     "key": "grapeJuice",
+     "name": "عصير عنب",
+     "art": "food_juice_box",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "drinks",
+     "weather": "cold"
+    },
+    {
+     "key": "grapes",
+     "name": "عنب خليلي",
+     "art": "food_grapes",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "street"
+    },
+    {
+     "key": "dibs",
+     "name": "دبس",
+     "art": "food_honey",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "sweets"
+    },
+    {
+     "key": "malban",
+     "name": "ملبن",
+     "art": "food_candy",
+     "tier": 3,
+     "cuisine": "palestinian",
+     "category": "sweets"
+    }
+   ],
+   "twists": [
+    {
+     "type": "productionChain",
+     "params": {
+      "inputStation": "grapes",
+      "outputStation": "dibs"
+     }
+    }
+   ],
+   "chefId": "abuSalimSweets",
+   "decorationId": "propGrapevine",
+   "festivalOnly": false
+  },
+  {
+   "id": "knafehFestival",
+   "name": "مهرجان الكنافة",
+   "art": "food_pie",
+   "palette": {
+    "skyTop": "#2A1408",
+    "skyMid": "#6A3416",
+    "sunset": "#E07A2E",
+    "glow": "#FFD08A",
+    "accent": "#F9B233"
+   },
+   "eventCash": {
+    "name": "مصاري الكنافة",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "صواني",
+    "art": "food_pie"
+   },
+   "stations": [
+    {
+     "key": "qatayef",
+     "name": "قطايف",
+     "art": "food_dumpling",
+     "tier": 0,
+     "cuisine": "levantine",
+     "category": "sweets"
+    },
+    {
+     "key": "awwameh",
+     "name": "عوّامة",
+     "art": "food_doughnut",
+     "tier": 1,
+     "cuisine": "levantine",
+     "category": "sweets"
+    },
+    {
+     "key": "knafeh",
+     "name": "كنافة نابلسيّة",
+     "art": "food_pie",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "sweets"
+    },
+    {
+     "key": "tea",
+     "name": "شاي",
+     "art": "food_tea",
+     "tier": 3,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "twists": [
+    {
+     "type": "ovenTiming",
+     "params": {
+      "station": "knafeh",
+      "minCycleSec": 2
+     }
+    }
+   ],
+   "chefId": "ozanBaklava",
+   "decorationId": "goldTray",
+   "festivalOnly": false
+  },
+  {
+   "id": "fridayFamily",
+   "name": "عزومة الجمعة",
+   "art": "food_fork_knife_plate",
+   "palette": {
+    "skyTop": "#2E1A12",
+    "skyMid": "#5E3A22",
+    "sunset": "#D08A4A",
+    "glow": "#FFE2B0",
+    "accent": "#E8A15A"
+   },
+   "eventCash": {
+    "name": "مصاري العيلة",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "صحون",
+    "art": "food_fork_knife_plate"
+   },
+   "stations": [
+    {
+     "key": "maqluba",
+     "name": "مقلوبة",
+     "art": "food_maqluba_pan",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "dishes"
+    },
+    {
+     "key": "salad",
+     "name": "سلطة",
+     "art": "food_green_salad",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "dishes",
+     "weather": "cold"
+    },
+    {
+     "key": "laban",
+     "name": "لبن",
+     "art": "food_milk",
+     "tier": 2,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "cold"
+    },
+    {
+     "key": "tea",
+     "name": "شاي",
+     "art": "food_tea",
+     "tier": 3,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "twists": [],
+   "chefId": "hajjaUmmSubhi",
+   "decorationId": "propFamilyTable",
+   "festivalOnly": false
+  },
+  {
+   "id": "summerBeach",
+   "name": "صيفيّة عالبحر",
+   "art": "bld_beach_with_umbrella",
+   "palette": {
+    "skyTop": "#0B3A5A",
+    "skyMid": "#1E7AA8",
+    "sunset": "#FFB04A",
+    "glow": "#FFE6A8",
+    "accent": "#3EC6E0"
+   },
+   "eventCash": {
+    "name": "مصاري البحر",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "شموس",
+    "art": "ui_sun"
+   },
+   "stations": [
+    {
+     "key": "watermelon",
+     "name": "بطّيخ",
+     "art": "food_watermelon",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "street",
+     "weather": "cold"
+    },
+    {
+     "key": "corn",
+     "name": "ذرة",
+     "art": "food_corn",
+     "tier": 1,
+     "cuisine": "levantine",
+     "category": "street"
+    },
+    {
+     "key": "iceCream",
+     "name": "بوظة",
+     "art": "food_ice_cream",
+     "tier": 2,
+     "cuisine": "world",
+     "category": "sweets",
+     "weather": "cold"
+    },
+    {
+     "key": "lemonade",
+     "name": "ليموناضة",
+     "art": "food_lemon",
+     "tier": 3,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "cold"
+    }
+   ],
+   "twists": [
+    {
+     "type": "weatherSwing",
+     "params": {
+      "hotProb": 0.8,
+      "coldProb": 0.0,
+      "rainProb": 0.0,
+      "hotDayStations": [
+       "watermelon",
+       "iceCream",
+       "lemonade"
+      ],
+      "mult": 2.5
+     }
+    }
+   ],
+   "chefId": "khaledSea",
+   "decorationId": "propBeachUmbrella",
+   "festivalOnly": false,
+   "requiresFestival": "summer"
+  },
+  {
+   "id": "falafelCup",
+   "name": "كاس الفلافل",
+   "art": "food_falafel",
+   "palette": {
+    "skyTop": "#301A0C",
+    "skyMid": "#6A3A16",
+    "sunset": "#D9714A",
+    "glow": "#FFB36B",
+    "accent": "#F9B233"
+   },
+   "eventCash": {
+    "name": "مصاري البطولة",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "أقراص ذهب",
+    "art": "food_falafel"
+   },
+   "stations": [
+    {
+     "key": "falafel",
+     "name": "فلافل",
+     "art": "food_falafel",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "fried"
+    },
+    {
+     "key": "pickles",
+     "name": "مخلّلات",
+     "art": "food_cucumber",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "street"
+    },
+    {
+     "key": "eggplant",
+     "name": "باذنجان مقلي",
+     "art": "food_eggplant",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "fried"
+    },
+    {
+     "key": "hummus",
+     "name": "حمّص",
+     "art": "food_hummus_bowl",
+     "tier": 3,
+     "cuisine": "palestinian",
+     "category": "dishes"
+    }
+   ],
+   "twists": [
+    {
+     "type": "ovenTiming",
+     "params": {
+      "station": "eggplant",
+      "minCycleSec": 2
+     }
+    }
+   ],
+   "chefId": "chefRami",
+   "decorationId": "propFalafelCup",
+   "festivalOnly": false
+  },
+  {
+   "id": "fishFestival",
+   "name": "مهرجان السمك",
+   "art": "ani_fish",
+   "palette": {
+    "skyTop": "#0A2438",
+    "skyMid": "#165A7A",
+    "sunset": "#E2834A",
+    "glow": "#FFD2A0",
+    "accent": "#2FB5C9"
+   },
+   "eventCash": {
+    "name": "مصاري الميناء",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "سمكات ذهب",
+    "art": "ani_fish"
+   },
+   "stations": [
+    {
+     "key": "fishSandwich",
+     "name": "ساندويش سمك",
+     "art": "food_sandwich",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "seafood"
+    },
+    {
+     "key": "shrimp",
+     "name": "قريدس مقلي",
+     "art": "food_fried_shrimp",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "seafood"
+    },
+    {
+     "key": "sayadiyeh",
+     "name": "صيّاديّة",
+     "art": "food_cooked_rice",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "seafood"
+    },
+    {
+     "key": "lemonMint",
+     "name": "ليمون بنعنع",
+     "art": "food_lemon",
+     "tier": 3,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "cold"
+    }
+   ],
+   "twists": [
+    {
+     "type": "portShipments",
+     "params": {
+      "station": "shrimp"
+     }
+    }
+   ],
+   "chefId": "abuAliAlex",
+   "decorationId": "propAnchor",
+   "festivalOnly": false
+  },
+  {
+   "id": "heritageVillage",
+   "name": "قرية التراث",
+   "art": "bld_hut",
+   "palette": {
+    "skyTop": "#2A180E",
+    "skyMid": "#5A3A1E",
+    "sunset": "#C27A3A",
+    "glow": "#F6D2A2",
+    "accent": "#C9A15A"
+   },
+   "eventCash": {
+    "name": "مصاري القرية",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "غرزات",
+    "art": "ui_hibiscus"
+   },
+   "stations": [
+    {
+     "key": "taboon",
+     "name": "خبز طابون",
+     "art": "food_flatbread",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "bakery"
+    },
+    {
+     "key": "labneh",
+     "name": "لبنة بزيت",
+     "art": "food_jar",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "dishes"
+    },
+    {
+     "key": "maftoul",
+     "name": "مفتول",
+     "art": "food_steaming_bowl",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "dishes",
+     "weather": "hot"
+    },
+    {
+     "key": "zalabieh",
+     "name": "زلابية",
+     "art": "food_doughnut",
+     "tier": 3,
+     "cuisine": "palestinian",
+     "category": "sweets"
+    }
+   ],
+   "twists": [
+    {
+     "type": "busWaves",
+     "params": {
+      "intervalMin": 20,
+      "waveMult": 4
+     }
+    }
+   ],
+   "chefId": "hajjaUmmSubhi",
+   "decorationId": "propClayOven",
+   "festivalOnly": false
+  },
+  {
+   "id": "rooftopCinema",
+   "name": "سينما عالسطح",
+   "art": "ui_film_projector",
+   "palette": {
+    "skyTop": "#0C0A1E",
+    "skyMid": "#24204A",
+    "sunset": "#6A4AB0",
+    "glow": "#C8B8FF",
+    "accent": "#8F7BFF"
+   },
+   "eventCash": {
+    "name": "مصاري التذاكر",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "بكرات",
+    "art": "ui_clapper_board"
+   },
+   "stations": [
+    {
+     "key": "popcorn",
+     "name": "فشار",
+     "art": "food_popcorn",
+     "tier": 0,
+     "cuisine": "world",
+     "category": "street"
+    },
+    {
+     "key": "termos",
+     "name": "ترمس وبزر",
+     "art": "food_beans",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "street"
+    },
+    {
+     "key": "shawarma",
+     "name": "شاورما سهرة",
+     "art": "food_shawarma_wrap",
+     "tier": 2,
+     "cuisine": "levantine",
+     "category": "street"
+    },
+    {
+     "key": "nightCoffee",
+     "name": "قهوة ليل",
+     "art": "food_coffee",
+     "tier": 3,
+     "cuisine": "world",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "twists": [
+    {
+     "type": "nightMarket",
+     "params": {
+      "stations": [],
+      "startHour": 20,
+      "endHour": 1,
+      "nightMult": 3
+     }
+    }
+   ],
+   "chefId": "yukiStreet",
+   "decorationId": "lightsCinema",
+   "festivalOnly": false
+  },
+  {
+   "id": "ramadanNights",
+   "name": "ليالي رمضان",
+   "art": "ui_crescent_moon",
+   "palette": {
+    "skyTop": "#0E0F2E",
+    "skyMid": "#2A2460",
+    "sunset": "#7A4AA0",
+    "glow": "#FFD27A",
+    "accent": "#FFC94A"
+   },
+   "eventCash": {
+    "name": "مصاري الخيمة",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "فوانيس",
+    "art": "ui_lantern"
+   },
+   "stations": [
+    {
+     "key": "qatayef",
+     "name": "قطايف",
+     "art": "food_dumpling",
+     "tier": 0,
+     "cuisine": "levantine",
+     "category": "sweets"
+    },
+    {
+     "key": "jallab",
+     "name": "جلّاب",
+     "art": "food_cup_with_straw",
+     "tier": 1,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "cold"
+    },
+    {
+     "key": "lentilSoup",
+     "name": "شوربة عدس",
+     "art": "food_steaming_bowl",
+     "tier": 2,
+     "cuisine": "levantine",
+     "category": "dishes",
+     "weather": "hot"
+    },
+    {
+     "key": "milkDates",
+     "name": "حليب وتمر",
+     "art": "food_milk",
+     "tier": 3,
+     "cuisine": "gulf",
+     "category": "drinks"
+    }
+   ],
+   "twists": [
+    {
+     "type": "nightMarket",
+     "params": {
+      "stations": [],
+      "startHour": 18,
+      "endHour": 3,
+      "nightMult": 3
+     }
+    }
+   ],
+   "chefId": "reemCoffee",
+   "decorationId": "propCrescent",
+   "festivalOnly": true,
+   "requiresFestival": "ramadan"
+  },
+  {
+   "id": "eidSweets",
+   "name": "حلو العيد",
+   "art": "food_cookie",
+   "palette": {
+    "skyTop": "#2A0E26",
+    "skyMid": "#5E2252",
+    "sunset": "#E0609A",
+    "glow": "#FFD0E4",
+    "accent": "#FFB0D0"
+   },
+   "eventCash": {
+    "name": "عيديّة",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "عيديّات",
+    "art": "ui_envelope"
+   },
+   "stations": [
+    {
+     "key": "kaakEid",
+     "name": "كعك العيد",
+     "art": "food_cookie",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "bakery"
+    },
+    {
+     "key": "maamoul",
+     "name": "معمول",
+     "art": "food_moon_cake",
+     "tier": 1,
+     "cuisine": "palestinian",
+     "category": "sweets"
+    },
+    {
+     "key": "coffee",
+     "name": "قهوة سادة",
+     "art": "food_teapot",
+     "tier": 2,
+     "cuisine": "gulf",
+     "category": "drinks",
+     "weather": "hot"
+    },
+    {
+     "key": "chocolate",
+     "name": "شوكولاتة",
+     "art": "food_chocolate_bar",
+     "tier": 3,
+     "cuisine": "world",
+     "category": "sweets"
+    }
+   ],
+   "twists": [],
+   "chefId": "monaSweets",
+   "decorationId": "lightsEidBalloons",
+   "festivalOnly": true,
+   "requiresFestival": "eidFitr"
+  },
+  {
+   "id": "eidFeast",
+   "name": "عزومة الأضحى",
+   "art": "ani_sheep",
+   "palette": {
+    "skyTop": "#1A1E0E",
+    "skyMid": "#3E4A1E",
+    "sunset": "#C8923A",
+    "glow": "#FFE2A0",
+    "accent": "#E2B04A"
+   },
+   "eventCash": {
+    "name": "مصاري العزومة",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "خواريف",
+    "art": "ani_sheep"
+   },
+   "stations": [
+    {
+     "key": "fatteh",
+     "name": "فتّة",
+     "art": "food_steaming_bowl",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "dishes"
+    },
+    {
+     "key": "grill",
+     "name": "مشاوي",
+     "art": "food_meat_on_bone",
+     "tier": 1,
+     "cuisine": "levantine",
+     "category": "grill"
+    },
+    {
+     "key": "riceMeat",
+     "name": "رز ولحمة",
+     "art": "food_cooked_rice",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "dishes"
+    },
+    {
+     "key": "laban",
+     "name": "لبن",
+     "art": "food_milk",
+     "tier": 3,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "cold"
+    }
+   ],
+   "twists": [],
+   "chefId": "hassanGrill",
+   "decorationId": "lightsEid",
+   "festivalOnly": true,
+   "requiresFestival": "eidAdha"
+  },
+  {
+   "id": "bethlehemChristmas",
+   "name": "ميلاد بيت لحم",
+   "art": "ui_glowing_star",
+   "palette": {
+    "skyTop": "#0E1430",
+    "skyMid": "#1E2A5E",
+    "sunset": "#B0567A",
+    "glow": "#FFE38A",
+    "accent": "#FFD24A"
+   },
+   "eventCash": {
+    "name": "مصاري السوق",
+    "art": "ui_money_bag"
+   },
+   "tokens": {
+    "name": "نجوم",
+    "art": "ui_glowing_star"
+   },
+   "stations": [
+    {
+     "key": "chestnut",
+     "name": "كستنا",
+     "art": "food_chestnut",
+     "tier": 0,
+     "cuisine": "palestinian",
+     "category": "street",
+     "weather": "hot"
+    },
+    {
+     "key": "sahlab",
+     "name": "سحلب",
+     "art": "food_milk",
+     "tier": 1,
+     "cuisine": "levantine",
+     "category": "drinks",
+     "weather": "hot"
+    },
+    {
+     "key": "kaak",
+     "name": "كعك",
+     "art": "food_cookie",
+     "tier": 2,
+     "cuisine": "palestinian",
+     "category": "bakery"
+    },
+    {
+     "key": "hotChocolate",
+     "name": "شوكولاتة سخنة",
+     "art": "food_coffee",
+     "tier": 3,
+     "cuisine": "world",
+     "category": "drinks",
+     "weather": "hot"
+    }
+   ],
+   "twists": [
+    {
+     "type": "busWaves",
+     "params": {
+      "intervalMin": 20
+     }
+    }
+   ],
+   "chefId": "ummMohammad",
+   "decorationId": "propNativityStar",
+   "festivalOnly": true,
+   "requiresFestival": "bethlehemChristmas"
+  }
+ ]
+}

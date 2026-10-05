@@ -1,0 +1,725 @@
+{
+ "version": 1,
+ "unlockLevel": 16,
+ "epoch": "2026-01-05",
+ "lengthDays": 42,
+ "pointsPerTier": 140,
+ "tiers": [
+  {
+   "tier": 1,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ]
+  },
+  {
+   "tier": 2,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    }
+   ]
+  },
+  {
+   "tier": 3,
+   "rewards": [
+    {
+     "type": "tickets",
+     "amount": 2
+    }
+   ]
+  },
+  {
+   "tier": 4,
+   "rewards": [
+    {
+     "type": "timeWarpMin",
+     "amount": 60
+    }
+   ]
+  },
+  {
+   "tier": 5,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    }
+   ]
+  },
+  {
+   "tier": 6,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ]
+  },
+  {
+   "tier": 7,
+   "rewards": [
+    {
+     "type": "chefCards",
+     "amount": 3,
+     "rarity": "rare"
+    }
+   ]
+  },
+  {
+   "tier": 8,
+   "rewards": [
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ]
+  },
+  {
+   "tier": 9,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ]
+  },
+  {
+   "tier": 10,
+   "rewards": [
+    {
+     "type": "chefCards",
+     "amount": 1,
+     "id": "seasonChef"
+    },
+    {
+     "type": "cosmetic",
+     "amount": 1,
+     "id": "seasonCosmetic"
+    }
+   ]
+  },
+  {
+   "tier": 11,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    }
+   ]
+  },
+  {
+   "tier": 12,
+   "rewards": [
+    {
+     "type": "tickets",
+     "amount": 2
+    }
+   ]
+  },
+  {
+   "tier": 13,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ]
+  },
+  {
+   "tier": 14,
+   "rewards": [
+    {
+     "type": "timeWarpMin",
+     "amount": 60
+    }
+   ]
+  },
+  {
+   "tier": 15,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ]
+  },
+  {
+   "tier": 16,
+   "rewards": [
+    {
+     "type": "chefCards",
+     "amount": 3,
+     "rarity": "rare"
+    }
+   ]
+  },
+  {
+   "tier": 17,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    }
+   ]
+  },
+  {
+   "tier": 18,
+   "rewards": [
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ]
+  },
+  {
+   "tier": 19,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ]
+  },
+  {
+   "tier": 20,
+   "rewards": [
+    {
+     "type": "heritageCase",
+     "amount": 1
+    }
+   ]
+  },
+  {
+   "tier": 21,
+   "rewards": [
+    {
+     "type": "tickets",
+     "amount": 2
+    }
+   ]
+  },
+  {
+   "tier": 22,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ]
+  },
+  {
+   "tier": 23,
+   "rewards": [
+    {
+     "type": "timeWarpMin",
+     "amount": 120
+    }
+   ]
+  },
+  {
+   "tier": 24,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    }
+   ]
+  },
+  {
+   "tier": 25,
+   "rewards": [
+    {
+     "type": "chefCards",
+     "amount": 5,
+     "id": "seasonChef"
+    },
+    {
+     "type": "cosmetic",
+     "amount": 1,
+     "id": "seasonCosmetic"
+    }
+   ]
+  },
+  {
+   "tier": 26,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ]
+  },
+  {
+   "tier": 27,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    }
+   ]
+  },
+  {
+   "tier": 28,
+   "rewards": [
+    {
+     "type": "chefCards",
+     "amount": 3,
+     "rarity": "rare"
+    }
+   ]
+  },
+  {
+   "tier": 29,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ]
+  },
+  {
+   "tier": 30,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "gold"
+    }
+   ]
+  },
+  {
+   "tier": 31,
+   "rewards": [
+    {
+     "type": "tickets",
+     "amount": 2
+    }
+   ]
+  },
+  {
+   "tier": 32,
+   "rewards": [
+    {
+     "type": "timeWarpMin",
+     "amount": 120
+    }
+   ]
+  },
+  {
+   "tier": 33,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ]
+  },
+  {
+   "tier": 34,
+   "rewards": [
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "epic"
+    }
+   ]
+  },
+  {
+   "tier": 35,
+   "rewards": [
+    {
+     "type": "chefCards",
+     "amount": 4,
+     "id": "seasonChef"
+    }
+   ]
+  },
+  {
+   "tier": 36,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ]
+  },
+  {
+   "tier": 37,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    }
+   ]
+  },
+  {
+   "tier": 38,
+   "rewards": [
+    {
+     "type": "freezes",
+     "amount": 1
+    }
+   ]
+  },
+  {
+   "tier": 39,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ]
+  },
+  {
+   "tier": 40,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ]
+  },
+  {
+   "tier": 41,
+   "rewards": [
+    {
+     "type": "tickets",
+     "amount": 2
+    }
+   ]
+  },
+  {
+   "tier": 42,
+   "rewards": [
+    {
+     "type": "timeWarpMin",
+     "amount": 240
+    }
+   ]
+  },
+  {
+   "tier": 43,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    }
+   ]
+  },
+  {
+   "tier": 44,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ]
+  },
+  {
+   "tier": 45,
+   "rewards": [
+    {
+     "type": "chefCards",
+     "amount": 6,
+     "id": "seasonChef"
+    }
+   ]
+  },
+  {
+   "tier": 46,
+   "rewards": [
+    {
+     "type": "heritageCase",
+     "amount": 1
+    }
+   ]
+  },
+  {
+   "tier": 47,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ]
+  },
+  {
+   "tier": 48,
+   "rewards": [
+    {
+     "type": "chefCards",
+     "amount": 3,
+     "rarity": "epic"
+    }
+   ]
+  },
+  {
+   "tier": 49,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ]
+  },
+  {
+   "tier": 50,
+   "rewards": [
+    {
+     "type": "chefCards",
+     "amount": 5,
+     "rarity": "legendary"
+    },
+    {
+     "type": "cosmetic",
+     "amount": 1,
+     "id": "seasonCosmetic"
+    },
+    {
+     "type": "cosmetic",
+     "amount": 1,
+     "id": "frameSeasonChampion"
+    }
+   ]
+  }
+ ],
+ "overflow": {
+  "pointsPer": 300,
+  "rewards": [
+   {
+    "type": "chest",
+    "amount": 1,
+    "id": "wood"
+   }
+  ],
+  "max": 10
+ },
+ "lateJoinerMaxMult": 2,
+ "points": {
+  "dailyOrder": {
+   "amount": 10
+  },
+  "dailyBonus": {
+   "amount": 20
+  },
+  "weeklyOrder": {
+   "amount": 40
+  },
+  "weeklyBonus": {
+   "amount": 50
+  },
+  "calendar": {
+   "amount": 10
+  },
+  "goalStar": {
+   "amount": 2
+  },
+  "contractGoal1": {
+   "amount": 20
+  },
+  "contractGoal2": {
+   "amount": 30
+  },
+  "contractGoal3": {
+   "amount": 50
+  },
+  "eventMilestone": {
+   "amount": 15
+  },
+  "leagueWeek": {
+   "amount": 30
+  },
+  "leaguePromotion": {
+   "amount": 30
+  },
+  "researchLevel": {
+   "amount": 5
+  },
+  "supplyRun": {
+   "amount": 5,
+   "dailyCap": 25
+  },
+  "rushRound": {
+   "amount": 5,
+   "dailyCap": 15
+  },
+  "special": {
+   "amount": 1,
+   "dailyCap": 10
+  }
+ },
+ "themes": [
+  {
+   "index": 0,
+   "id": "winterChestnut",
+   "name": "شتويّة الكستنا",
+   "art": "food_chestnut",
+   "chefId": "sAbuJiries",
+   "cosmeticIds": [
+    "frameWinter",
+    "awningWinter",
+    "propChestnutCart"
+   ],
+   "eventTwist": {
+    "type": "nightMarket",
+    "params": {
+     "stations": [],
+     "startHour": 18,
+     "endHour": 23,
+     "nightMult": 2
+    }
+   }
+  },
+  {
+   "index": 1,
+   "id": "springZaatar",
+   "name": "ربيع الزعتر",
+   "art": "food_herb",
+   "chefId": "sUmmZaatar",
+   "cosmeticIds": [
+    "frameSpring",
+    "awningSpring",
+    "propZaatarPot"
+   ],
+   "eventTwist": {
+    "type": "busWaves",
+    "params": {
+     "intervalMin": 20,
+     "waveMult": 4
+    }
+   }
+  },
+  {
+   "index": 2,
+   "id": "summerSea",
+   "name": "صيفيّة البحر",
+   "art": "bld_beach_with_umbrella",
+   "chefId": "sRayyesBahri",
+   "cosmeticIds": [
+    "frameSea",
+    "awningSea",
+    "propBoat"
+   ],
+   "eventTwist": {
+    "type": "busWaves",
+    "params": {
+     "intervalMin": 15,
+     "waveMult": 3
+    }
+   }
+  },
+  {
+   "index": 3,
+   "id": "oliveSeason",
+   "name": "موسم الزيتون",
+   "art": "food_olive",
+   "chefId": "sAbuZeit",
+   "cosmeticIds": [
+    "frameOliveSeason",
+    "awningOliveSeason",
+    "propOilJar"
+   ],
+   "eventTwist": {
+    "type": "busWaves",
+    "params": {
+     "intervalMin": 25,
+     "waveMult": 4
+    }
+   }
+  },
+  {
+   "index": 4,
+   "id": "lateNights",
+   "name": "ليالي السهر",
+   "art": "bld_night_with_stars",
+   "chefId": "sSuhair",
+   "cosmeticIds": [
+    "frameNights",
+    "awningNights",
+    "propStarryLamp"
+   ],
+   "eventTwist": {
+    "type": "nightMarket",
+    "params": {
+     "stations": [],
+     "startHour": 20,
+     "endHour": 2,
+     "nightMult": 3
+    }
+   }
+  },
+  {
+   "index": 5,
+   "id": "haraWeddingSeason",
+   "name": "عرس الحارة",
+   "art": "bld_wedding",
+   "chefId": "sUmmAlArsan",
+   "cosmeticIds": [
+    "frameWedding",
+    "awningWedding",
+    "propZaffeh"
+   ],
+   "eventTwist": {
+    "type": "busWaves",
+    "params": {
+     "intervalMin": 25,
+     "waveMult": 5
+    }
+   }
+  },
+  {
+   "index": 6,
+   "id": "worldMarkets",
+   "name": "أسواق العالم",
+   "art": "bld_globe_eu_africa",
+   "chefId": "sRahhal",
+   "cosmeticIds": [
+    "frameWorld",
+    "awningWorld",
+    "propGlobe"
+   ],
+   "eventTwist": {
+    "type": "busWaves",
+    "params": {
+     "intervalMin": 20,
+     "waveMult": 4
+    }
+   }
+  },
+  {
+   "index": 7,
+   "id": "sittiSweets",
+   "name": "حلويات ستّي",
+   "art": "food_shortcake",
+   "chefId": "sBintSitti",
+   "cosmeticIds": [
+    "frameSitti",
+    "awningSitti",
+    "propHarisseh"
+   ],
+   "eventTwist": {
+    "type": "nightMarket",
+    "params": {
+     "stations": [],
+     "startHour": 19,
+     "endHour": 23,
+     "nightMult": 2
+    }
+   }
+  }
+ ]
+}

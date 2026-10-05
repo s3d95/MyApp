@@ -1,0 +1,207 @@
+{
+ "version": 1,
+ "slotsByLevel": [
+  {
+   "level": 8,
+   "slots": 1
+  },
+  {
+   "level": 10,
+   "slots": 2
+  },
+  {
+   "level": 16,
+   "slots": 3
+  },
+  {
+   "level": 90,
+   "slots": 4
+  }
+ ],
+ "starLaunches": [
+  4,
+  10,
+  25
+ ],
+ "starRollsPct": 0.15,
+ "star3CommonToEpic": 0.02,
+ "rollKinds": {
+  "heritage": 0.7,
+  "chefCards": 0.2,
+  "gold": 0.07,
+  "woodChest": 0.03
+ },
+ "cardsPerRarity": {
+  "common": 3,
+  "rare": 2,
+  "epic": 1,
+  "legendary": 1
+ },
+ "goldPerRarity": {
+  "common": 2,
+  "rare": 4,
+  "epic": 7,
+  "legendary": 10
+ },
+ "unownedItemWeight": 2,
+ "vehicles": [
+  {
+   "id": "tractor",
+   "name": "تراكتور أبو سليم",
+   "art": "veh_tractor",
+   "tier": 0,
+   "unlockLevel": 8,
+   "durationsMin": [
+    20,
+    60,
+    120
+   ],
+   "rolls": [
+    2,
+    3,
+    4
+   ],
+   "rarityWeights": {
+    "common": 75,
+    "rare": 22,
+    "epic": 3,
+    "legendary": 0
+   }
+  },
+  {
+   "id": "pickup",
+   "name": "البكم",
+   "art": "veh_pickup_truck",
+   "tier": 1,
+   "unlockLevel": 10,
+   "unlockAfter": {
+    "vehicleId": "tractor",
+    "launches": 4
+   },
+   "durationsMin": [
+    30,
+    90,
+    180
+   ],
+   "rolls": [
+    3,
+    4,
+    6
+   ],
+   "rarityWeights": {
+    "common": 68,
+    "rare": 26,
+    "epic": 5.5,
+    "legendary": 0.5
+   }
+  },
+  {
+   "id": "van",
+   "name": "الفان",
+   "art": "veh_minibus",
+   "tier": 2,
+   "unlockLevel": 13,
+   "unlockAfter": {
+    "vehicleId": "pickup",
+    "launches": 6
+   },
+   "durationsMin": [
+    90,
+    240,
+    480
+   ],
+   "rolls": [
+    4,
+    6,
+    9
+   ],
+   "rarityWeights": {
+    "common": 60,
+    "rare": 30,
+    "epic": 8.5,
+    "legendary": 1.5
+   }
+  },
+  {
+   "id": "lorry",
+   "name": "الشاحنة",
+   "art": "veh_lorry",
+   "tier": 3,
+   "unlockLevel": 18,
+   "unlockAfter": {
+    "vehicleId": "van",
+    "launches": 10
+   },
+   "durationsMin": [
+    240,
+    480,
+    720
+   ],
+   "rolls": [
+    6,
+    9,
+    12
+   ],
+   "rarityWeights": {
+    "common": 52,
+    "rare": 33,
+    "epic": 12,
+    "legendary": 3
+   }
+  },
+  {
+   "id": "ship",
+   "name": "سفينة يافا",
+   "art": "veh_ship",
+   "tier": 4,
+   "unlockLevel": 26,
+   "unlockAfter": {
+    "vehicleId": "lorry",
+    "launches": 15
+   },
+   "durationsMin": [
+    720,
+    1440,
+    2160
+   ],
+   "rolls": [
+    9,
+    13,
+    18
+   ],
+   "rarityWeights": {
+    "common": 45,
+    "rare": 35,
+    "epic": 15,
+    "legendary": 5
+   }
+  },
+  {
+   "id": "plane",
+   "name": "الطيّارة",
+   "art": "veh_airplane",
+   "tier": 5,
+   "unlockLevel": 36,
+   "unlockAfter": {
+    "vehicleId": "ship",
+    "launches": 20
+   },
+   "durationsMin": [
+    1440,
+    2880,
+    4320
+   ],
+   "rolls": [
+    12,
+    18,
+    26
+   ],
+   "rarityWeights": {
+    "common": 38,
+    "rare": 36,
+    "epic": 18,
+    "legendary": 8
+   }
+  }
+ ]
+}
