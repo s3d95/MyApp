@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>BalooBhaijaan2-ExtraBold.ttf</string>
+		<string>BalooBhaijaan2-Bold.ttf</string>
+		<string>Cairo-Bold.ttf</string>
+		<string>Cairo-SemiBold.ttf</string>
+	</array>
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>

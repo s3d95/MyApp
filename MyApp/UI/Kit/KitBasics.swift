@@ -4,9 +4,22 @@ import UIKit
 // MARK: - Typography
 
 extension Font {
-    /// The game's rounded, chunky type. Arabic falls back to SF Arabic at the same weight.
+    /// The game's chunky display type: Baloo Bhaijaan 2 (OFL) for headings, numbers and buttons,
+    /// Cairo (OFL) for lighter text. Both cover Arabic and Latin.
     static func game(_ size: CGFloat, _ weight: Font.Weight = .heavy) -> Font {
-        .system(size: size, weight: weight, design: .rounded)
+        switch weight {
+        case .black, .heavy:
+            return .custom("BalooBhaijaan2-ExtraBold", size: size)
+        case .bold, .semibold:
+            return .custom("BalooBhaijaan2-Bold", size: size)
+        default:
+            return .custom("Cairo-SemiBold", size: size)
+        }
+    }
+
+    /// Body copy (descriptions, dialogue).
+    static func body(_ size: CGFloat, bold: Bool = false) -> Font {
+        .custom(bold ? "Cairo-Bold" : "Cairo-SemiBold", size: size)
     }
 }
 
