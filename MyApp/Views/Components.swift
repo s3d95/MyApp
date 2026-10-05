@@ -65,10 +65,16 @@ struct BigButtonLabel: View {
             .padding(.vertical, 15)
             .background(
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(LinearGradient(colors: enabled ? [Color(hex: 0xFCD34D), Color(hex: 0xF59E0B)]
+                    .fill(LinearGradient(colors: enabled ? [Brand.goldLight, Brand.gold]
                                                          : [Theme.disabled, Theme.disabled],
                                          startPoint: .top, endPoint: .bottom))
             )
+            .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .stroke(enabled ? Brand.outline.opacity(0.7) : Color.clear, lineWidth: 2))
+            .background(RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(enabled ? Brand.goldDeep : Color.clear)
+                .offset(y: 4))
+            .padding(.bottom, 4)
     }
 }
 
@@ -125,7 +131,8 @@ struct SectionTitle: View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title)
                 .font(.system(size: 26, weight: .black, design: .rounded))
-                .foregroundColor(Theme.cream)
+                .foregroundStyle(Brand.titleFill)
+                .shadow(color: Brand.outline.opacity(0.9), radius: 0, x: 0, y: 2)
             Text(subtitle)
                 .font(.system(size: 13, weight: .medium, design: .rounded))
                 .foregroundColor(Theme.muted)

@@ -27,12 +27,17 @@ enum Tab: CaseIterable {
 struct RootView: View {
     @StateObject private var game = Game()
     @State private var tab: Tab = .shop
+    @State private var loading = true
     @Environment(\.scenePhase) private var phase
 
     var body: some View {
         ZStack {
             LinearGradient(colors: [Theme.bgTop, Theme.bgBottom], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
+            RadialGradient(colors: [Brand.sunset.opacity(0.22), Color.clear], center: .top,
+                           startRadius: 10, endRadius: 420)
+                .ignoresSafeArea()
+                .allowsHitTesting(false)
 
             VStack(spacing: 0) {
                 HeaderView()
@@ -81,6 +86,11 @@ struct RootView: View {
             }
             .padding(.top, 70)
             .allowsHitTesting(false)
+
+            if loading {
+                LoadingView { loading = false }
+                    .zIndex(10)
+            }
         }
         .environmentObject(game)
         .onChange(of: phase) { p in
