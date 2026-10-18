@@ -316,7 +316,7 @@ extension GameStore {
             let fresh = lib[w % lib.count]
             out.append(ReleaseInfo(id: "w\(w)-mon", contractId: fresh.id, isNew: true, day: monday))
             let older = lib.filter { $0.releaseOrder < fresh.releaseOrder }
-            let pool = older.isEmpty ? lib.filter { $0.id != fresh.id } : older
+            let pool = older.isEmpty ? lib.filter({ $0.id != fresh.id }) : older
             var r = Seed.rng("contract", ["\(w)"], player: s.meta.seed)
             var list = pool
             for (k, off) in [2, 4].enumerated() where !list.isEmpty {

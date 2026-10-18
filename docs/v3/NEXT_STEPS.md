@@ -1,28 +1,32 @@
 # v3 rebuild: status and next steps
 
 ## Done
-- Research: `research_brief.md` (synthesis) and `research_reports.json` (6 full reports).
-- Design: `GDD.md` (complete game design document) and `SCHEMA.md` (JSON content schemas).
-- Lead inputs and scope: `INPUTS.md`, `design_draft.md`.
-- Content: `content/*.json`; `design_tools/check_cities.py` passes (0 errors, 0 warnings).
-- `ARCHITECTURE.md`: Swift file plan and Phase I scope.
-- **Phase I is in the app** (2026-10-19, branch `v3-phase1`): the v2 game was replaced by the v3 core.
-  - Shipped content: `MyApp/Content/{economy,cities,levels,story,ftue}.json` (copies of `docs/v3/content`;
-    re-copy after editing the drafts).
-  - Engine: `MyApp/Engine` (catalog, kitchen, goals, branches, empire level, vault, specials, twists, FTUE,
-    feedback tiers, notifications). Screens: `MyApp/Screens`.
-  - Art: 215 Fluent 3D images installed in `MyApp/Assets.xcassets/Art` (`tools/install_art.py` now also scans
-    content JSON).
-  - CI: `.github/workflows/check.yml` compile-checks every non-main branch without making a release.
+- Research, design (`GDD.md`), schemas (`SCHEMA.md`), inputs, content drafts (`content/*.json`, checked by
+  `design_tools/check_cities.py`), `ARCHITECTURE.md`.
+- **Phase I** (released as build-12): kitchen engine, 24 cities with twists, goals, story, graduation, licences,
+  branches, empire level, vault + newspaper, special customers, rush hours, FTUE, settings, notifications.
+- **Polish + Phase II/III** (branch `v3-polish`):
+  - Root is left-to-right with right-to-left screens, so tutorial spotlight, anchors and flying effects line up.
+  - Fractions render as one unit in Arabic text; numbers have thousands separators.
+  - Chefs, chests (4-beat reveal), daily chef stall, shop, time warps, chef skills.
+  - Research (دفتر ستّي), supply runs + heritage box (crafting from L19).
+  - Daily/weekly orders, 28-day calendar, streak with freezes and repair, tickets.
+  - Choice events (حكايات الحارة), rush minigame (طلبيات على السريع).
+  - Weekly league, daily market + weather, season pass, achievements.
+  - Catering contracts and the weekend venue (side kitchens), real-calendar festivals, the inspector.
+  - CI (`.github/workflows/check.yml`): simulator build + screenshots of demo states (`Engine/Demo.swift`),
+    published with `status.txt`, `files.txt` and crash reports to the `ci-screens` pre-release.
 
-## Phase I known gaps
-- Economy not re-tuned against real play yet (simulator numbers only); watch session-1 pacing (GDD 8).
-- Goals of systems that are not built (chefs, research, supply, daily, contracts, events, rush, choices)
-  are hidden; chests/chef cards/heritage rewards are stored in `wallet.pending*` for Phase II.
-- Legacy gift gives the gold and the gold chest now; the exclusive chef comes with the chef system.
+## Shipped content
+`MyApp/Content/*.json` are copies of `docs/v3/content/*.json`. Re-copy after editing a draft.
 
-## Next (in order)
-1. Play-test Phase I on device; fix layout and pacing issues.
-2. Phase II: chefs and chests (deliver pending chests/cards), research "دفتر ستّي", supply runs + heritage,
-   daily/weekly orders, calendar and streak, choice events, rush minigame, daily market and weather.
-3. Phase III: contracts, weekend venue, league, season pass, festivals, inspector, achievements.
+## Known gaps
+- Side kitchens ignore twists declared on contracts/themes; the `goldenHour` rule is not implemented.
+- Cosmetics are recorded (`metrics["cosmetic.*"]`) but there is no cosmetics screen yet.
+- Festival decorations and the "زينة المواسم" setting are not implemented (numeric effects are).
+- Economy pacing is from the design simulator only; tune after play-testing.
+
+## Next
+1. Play-test on device; fix layout and pacing.
+2. Cosmetics screen and stall skins; festival decorations.
+3. Twists in side kitchens; season themes' event twists.
