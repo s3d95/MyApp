@@ -37,11 +37,11 @@ struct TutorialLayer: View {
     /// The overlay waits while a modal is up, except for the vault step inside the newspaper.
     private func allowed(_ step: FtueStepDef) -> Bool {
         if store.modals.isEmpty { return store.sheet == nil || anchorRect(step) != nil }
-        return step.anchors.contains("vault.collect") && store.newsInfo != nil
+        return store.ftueAnchors(step).contains("vault.collect") && store.newsInfo != nil
     }
 
     private func anchorRect(_ step: FtueStepDef) -> CGRect? {
-        for a in step.anchors.reversed() {
+        for a in store.ftueAnchors(step).reversed() {
             if let r = box.rects[a], r.width > 1, r.height > 1, r.maxY > 0, r.minY < size.height { return r }
         }
         return nil
@@ -81,7 +81,7 @@ struct TutorialLayer: View {
         var next: (() -> Void)? = nil
         if closable(step) { next = { store.closeFtueBubble() } }
         let asksNotifications = step.id == 14 && !store.s.ftue.bubbleClosed
-        let canSkip = !soft && Date().timeIntervalSince(stepShownAt) > 20
+        let canSkip = !soft && store.now() - store.s.ftue.startedAt > 20
         let interactive = next != nil || asksNotifications || canSkip
         return VStack(spacing: 6) {
             StoryBubble(character: "ppl_old_woman", name: "ستّي", text: store.ftueText(step), onNext: next)

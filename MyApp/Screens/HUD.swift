@@ -18,7 +18,7 @@ struct HUDBar: View {
                 CurrencyPill(icon: store.city.currency.art, text: Num.big(store.s.city.cash), anchor: "pill.cash")
                     .layoutPriority(2)
                 CurrencyPill(icon: "ui_coin", text: Num.int(store.s.wallet.gold), anchor: "pill.gold")
-                CurrencyPill(icon: "ui_star", text: Num.int(store.s.city.stars) + "/" + Num.int(store.starsNeeded),
+                CurrencyPill(icon: "ui_star", text: Num.frac(store.s.city.stars, store.starsNeeded),
                              anchor: "pill.stars")
             }
             .frame(maxWidth: .infinity)
@@ -59,7 +59,7 @@ struct TabButton: View {
     let tab: GameTab
 
     private var isOpen: Bool { store.unlocked(tab.system) }
-    private var isBuilt: Bool { tab == .home || tab == .map }
+    private var isBuilt: Bool { tab != .tasks }
 
     var body: some View {
         let selected = store.tab == tab
@@ -117,6 +117,7 @@ struct TabButton: View {
         switch tab {
         case .home: return store.tab != .home && store.claimableGoals > 0
         case .map: return isOpen && (store.canGraduate || (!store.s.branches.isEmpty && store.safeFill >= 0.5))
+        case .chefs: return isOpen && store.tab != .chefs && (store.chestCount > 0 || store.anyChefCanLevel)
         default: return false
         }
     }

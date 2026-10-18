@@ -49,9 +49,17 @@ extension GameStore {
 
     var zaatarMult: Double { pow(1.05, Double(s.wallet.zaatar)) }
 
-    var permMult: Double { branchMult * zaatarMult }
+    /// Categories 5–8: branches, research, Golden Za'atar, heritage.
+    var permMult: Double {
+        branchMult * (1 + researchValue("cityIncomePct")) * zaatarMult * (1 + heritageBonus("cityIncomePct"))
+    }
 
-    func speedMult(_ i: Int) -> Double { pow(econ.milestoneMult, Double(stationMilestones(i))) }
+    func speedMult(_ i: Int) -> Double {
+        pow(econ.milestoneMult, Double(stationMilestones(i))) * (1 + researchValue("speedPct"))
+    }
+
+    /// Price scale for station levels (research "مورّد أمين", floor 0.5).
+    var stationCostScale: Double { scale * max(0.5, 1 - researchValue("stationCostPct")) }
 
     func effCycle(_ i: Int) -> Double {
         max(econ.cycleFloorSec, row(i).baseCycleSec / speedMult(i))
@@ -60,13 +68,18 @@ extension GameStore {
     /// Rush hour, frenzy, fresh dough and other foreground boosts (category 11), capped.
     var activeMult: Double {
         var m = 1.0
-        for b in s.boosts where b.left > 0 { m *= b.mult }
-        if isRushHour { m *= econ.boosts.rushHourMult }
+        for b in s.boosts where b.left > 0 && b.scope.isEmpty { m *= b.mult }
+        if isRushHour { m *= econ.boosts.rushHourMult + researchValue("rushHourAdd") }
         return min(econ.boosts.activeCap, m)
     }
 
     func activeMult(for i: Int) -> Double {
-        min(econ.boosts.activeCap, activeMult * twistActive(i))
+        var m = activeMult * twistActive(i)
+        let d = city.stations[i]
+        for b in s.boosts where b.left > 0 && !b.scope.isEmpty {
+            if b.scope == "cat:" + d.category || b.scope == "cui:" + d.cuisine { m *= b.mult }
+        }
+        return min(econ.boosts.activeCap, m)
     }
 
     var isRushHour: Bool {
@@ -76,7 +89,7 @@ extension GameStore {
     }
 
     func profitMult(_ i: Int, at t: Double, active: Bool) -> Double {
-        var m = upgradeMult(i) * pow(econ.milestoneMult, Double(allMilestones)) * permMult * twistProfit(i, at: t)
+        var m = upgradeMult(i) * pow(econ.milestoneMult, Double(allMilestones)) * permMult * twistProfit(i, at: t) * chefMult(i)
         if active { m *= activeMult(for: i) }
         return m
     }
@@ -185,6 +198,7 @@ extension GameStore {
     func buyPlan(_ i: Int) -> BuyPlan {
         let st = s.city.stations[i]
         let r = row(i)
+        let scale = stationCostScale
         if st.level == 0 {
             let c = Rules.cost(r, scale: scale, level: 0, count: 1)
             return BuyPlan(count: 1, cost: c, affordable: s.city.cash >= c, atCap: false)
@@ -245,7 +259,7 @@ extension GameStore {
 
     func managerCost(_ i: Int) -> Double {
         let r = row(i)
-        return scale * r.baseCost * r.managerMult
+        return scale * r.baseCost * r.managerMult * (1 - min(0.9, researchValue("managerCostPct")))
     }
 
     func managerName(_ i: Int) -> String {

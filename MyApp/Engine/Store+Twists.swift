@@ -276,7 +276,7 @@ extension GameStore {
 
     func loadShipment() {
         guard let p = twist(.portShipments), portReady else { return }
-        let reward = p.rewardMin * 60 * totalIncome(active: false)
+        let reward = p.rewardMin * 60 * totalIncome(active: false) * (1 + researchValue("happeningRewardPct"))
         s.city.twist.portLoaded = true
         s.city.counters["shipmentsDelivered", default: 0] += 1
         credit(reward, station: nil, at: now())
@@ -302,7 +302,7 @@ extension GameStore {
         if s.city.twist.deliveryOut.contains(where: { $0 <= t }) {
             let back = s.city.twist.deliveryOut.filter { $0 <= t }.count
             s.city.twist.deliveryOut.removeAll { $0 <= t }
-            let reward = Double(back) * p.rewardMin * 60 * totalIncome(active: false)
+            let reward = Double(back) * p.rewardMin * 60 * totalIncome(active: false) * (1 + researchValue("happeningRewardPct"))
             s.city.counters["deliveriesDone", default: 0] += Double(back)
             credit(reward, station: nil, at: t)
             Feedback.play(.t1, fromAnchor: "twist.delivery", art: city.currency.art, to: "pill.cash", amount: reward,

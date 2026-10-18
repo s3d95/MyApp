@@ -2,9 +2,11 @@ import Foundation
 
 /// Resume, clock guard, offline vault and newspaper (GDD 2.10, 7.3).
 extension GameStore {
-    var vaultCapHours: Double { min(econ.offline.maxCapHours, econ.offline.baseCapHours) }
+    var vaultCapHours: Double {
+        min(econ.offline.maxCapHours, econ.offline.baseCapHours + researchValue("vaultCapHours") + heritageBonus("vaultCapHours"))
+    }
 
-    var vaultEff: Double { min(1, econ.offline.baseEff) }
+    var vaultEff: Double { min(1, econ.offline.baseEff + researchValue("vaultEffPct")) }
 
     /// Called at launch and on every return to the foreground.
     func resume(launch: Bool) {

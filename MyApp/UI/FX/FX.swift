@@ -133,7 +133,9 @@ struct FXOverlay: View {
     @ObservedObject var fx = FX.shared
 
     var body: some View {
-        ZStack {
+        // Top-leading so every flying item starts at the origin; CurveMove then places it absolutely.
+        ZStack(alignment: .topLeading) {
+            Color.clear
             ForEach(fx.flying) { item in
                 FlyingItemView(item: item)
             }
@@ -144,6 +146,7 @@ struct FXOverlay: View {
                 ConfettiCanvas(bursts: fx.bursts)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .allowsHitTesting(false)
         .ignoresSafeArea()
     }

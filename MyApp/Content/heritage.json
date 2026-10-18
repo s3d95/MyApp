@@ -1,0 +1,410 @@
+{
+ "version": 1,
+ "copiesToLevel": [
+  2,
+  3,
+  4,
+  5
+ ],
+ "maxLevel": 5,
+ "setLevelFactor": 0.5,
+ "craft": {
+  "unlockLevel": 19,
+  "salvage": {
+   "common": 1,
+   "rare": 3,
+   "epic": 8,
+   "legendary": 20
+  },
+  "cost": {
+   "common": 10,
+   "rare": 30,
+   "epic": 80,
+   "legendary": 200
+  }
+ },
+ "case": {
+  "rolls": 3,
+  "rarityFloor": "rare"
+ },
+ "sets": [
+  {
+   "id": "glass",
+   "name": "زجاج الخليل",
+   "art": "ui_crystal_ball",
+   "bonus": {
+    "type": "cityIncomePct",
+    "base": 0.1
+   },
+   "itemIds": [
+    "blueBall",
+    "glassJar",
+    "blueBead",
+    "glassLamp"
+   ]
+  },
+  {
+   "id": "soap",
+   "name": "صابون نابلس",
+   "art": "food_butter",
+   "bonus": {
+    "type": "vaultCapHours",
+    "base": 1
+   },
+   "itemIds": [
+    "soapBar",
+    "oliveOil",
+    "soapFoam",
+    "factoryStamp"
+   ]
+  },
+  {
+   "id": "tatreez",
+   "name": "تطريز فلّاحي",
+   "art": "ui_hibiscus",
+   "bonus": {
+    "type": "chefBonusPct",
+    "base": 0.1
+   },
+   "itemIds": [
+    "stitchFlower",
+    "stitchCarnation",
+    "threadColors",
+    "bridalPanel"
+   ]
+  },
+  {
+   "id": "pearl",
+   "name": "صدف بيت لحم",
+   "art": "ui_star",
+   "bonus": {
+    "type": "specialRewardPct",
+    "base": 0.2
+   },
+   "itemIds": [
+    "pearlStar",
+    "pearlRosary",
+    "pearlBox",
+    "pearlNativity"
+   ]
+  },
+  {
+   "id": "pottery",
+   "name": "فخّار غزّة",
+   "art": "food_pot",
+   "bonus": {
+    "type": "supplyTimePct",
+    "base": 0.05
+   },
+   "itemIds": [
+    "clayPot",
+    "clayJug",
+    "clayOven",
+    "honeyJar"
+   ]
+  },
+  {
+   "id": "oliveWood",
+   "name": "خشب الزيتون",
+   "art": "bld_wood",
+   "bonus": {
+    "type": "researchTimePct",
+    "base": 0.05
+   },
+   "itemIds": [
+    "woodOlive",
+    "oliveBoard",
+    "oliveBeads",
+    "romanTree"
+   ]
+  },
+  {
+   "id": "copper",
+   "name": "نحاس وقهوة",
+   "art": "food_teapot",
+   "bonus": {
+    "type": "sideIncomePct",
+    "base": 0.15
+   },
+   "itemIds": [
+    "coffeeCup",
+    "copperDallah",
+    "copperBell",
+    "brassScale"
+   ]
+  },
+  {
+   "id": "memories",
+   "name": "صندوق الذكريات",
+   "art": "ui_old_key",
+   "bonus": {
+    "type": "branchGoldPct",
+    "base": 0.15
+   },
+   "itemIds": [
+    "grandpaLetter",
+    "familyPhoto",
+    "oldDeed",
+    "houseKey"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "blueBall",
+   "setId": "glass",
+   "name": "كرة زجاج زرقا",
+   "art": "ui_crystal_ball",
+   "rarity": "common",
+   "desc": "نفخها معلّم الزجاج بنَفَس واحد، ولونها لون بحر يافا"
+  },
+  {
+   "id": "glassJar",
+   "setId": "glass",
+   "name": "مرطبان زجاج",
+   "art": "food_jar",
+   "rarity": "common",
+   "desc": "ستّي كانت تخبّي فيه الملبّس للضيوف"
+  },
+  {
+   "id": "blueBead",
+   "setId": "glass",
+   "name": "خرزة زرقا",
+   "art": "ui_gem",
+   "rarity": "rare",
+   "desc": "بيعلّقوها على باب الدكّان، «عشان العين»"
+  },
+  {
+   "id": "glassLamp",
+   "setId": "glass",
+   "name": "قنديل زجاج",
+   "art": "ui_lantern",
+   "rarity": "epic",
+   "desc": "قنديل أزرق من أفران الخليل، ضوّه بيدفّي السهرة"
+  },
+  {
+   "id": "soapBar",
+   "setId": "soap",
+   "name": "قالب صابون",
+   "art": "food_butter",
+   "rarity": "common",
+   "desc": "صابون زيت زيتون، عليه ختم المصبنة وريحة البلد"
+  },
+  {
+   "id": "oliveOil",
+   "setId": "soap",
+   "name": "زيت زيتون",
+   "art": "ui_droplet",
+   "rarity": "common",
+   "desc": "أوّل عصرة، أخضر وحادّ بيقرص بالحلق"
+  },
+  {
+   "id": "soapFoam",
+   "setId": "soap",
+   "name": "رغوة الصابون",
+   "art": "ui_sparkles",
+   "rarity": "rare",
+   "desc": "رغوة بيضا ناعمة، سرّها بالطبخة الطويلة"
+  },
+  {
+   "id": "factoryStamp",
+   "setId": "soap",
+   "name": "ختم المصبنة",
+   "art": "ui_label",
+   "rarity": "epic",
+   "desc": "ختم نحاس قديم، كل قالب بيحمل اسم العيلة"
+  },
+  {
+   "id": "stitchFlower",
+   "setId": "tatreez",
+   "name": "وردة مطرّزة",
+   "art": "ui_hibiscus",
+   "rarity": "common",
+   "desc": "غرزة صليب حمرا، طرّزتها ستّي وهي بتسولف"
+  },
+  {
+   "id": "stitchCarnation",
+   "setId": "tatreez",
+   "name": "قرنفلة",
+   "art": "ui_tulip",
+   "rarity": "common",
+   "desc": "قرنفلة على طرف الكم، من ثوب صبية من الضيعة"
+  },
+  {
+   "id": "threadColors",
+   "setId": "tatreez",
+   "name": "خيطان ملوّنة",
+   "art": "ui_artist_palette",
+   "rarity": "rare",
+   "desc": "خيطان حرير بألوان البيادر والبحر والسما"
+  },
+  {
+   "id": "bridalPanel",
+   "setId": "tatreez",
+   "name": "قبّة ثوب العرس",
+   "art": "ui_bouquet",
+   "rarity": "epic",
+   "desc": "قبّة مشغولة شهور، كل غرزة فيها دعوة حلوة"
+  },
+  {
+   "id": "pearlStar",
+   "setId": "pearl",
+   "name": "نجمة صدف",
+   "art": "ui_star",
+   "rarity": "common",
+   "desc": "نجمة صغيرة بتلمع، من سوق ساحة المهد"
+  },
+  {
+   "id": "pearlRosary",
+   "setId": "pearl",
+   "name": "مسبحة صدف",
+   "art": "ui_shooting_star",
+   "rarity": "common",
+   "desc": "حبّاتها بتلمع مثل قطرات الندى"
+  },
+  {
+   "id": "pearlBox",
+   "setId": "pearl",
+   "name": "علبة صدف",
+   "art": "ui_dizzy",
+   "rarity": "rare",
+   "desc": "علبة مطعّمة صدف، كانت تخبّي فيها ستّي الذهب"
+  },
+  {
+   "id": "pearlNativity",
+   "setId": "pearl",
+   "name": "مغارة الصدف",
+   "art": "ui_glowing_star",
+   "rarity": "epic",
+   "desc": "شغل إيدين معلّم من بيت ساحور، أخذ منه سنة"
+  },
+  {
+   "id": "clayPot",
+   "setId": "pottery",
+   "name": "قدرة فخّار",
+   "art": "food_pot",
+   "rarity": "common",
+   "desc": "قدرة الصيّاديّة، بتطلع من الفرن وريحتها بتسبقها"
+  },
+  {
+   "id": "clayJug",
+   "setId": "pottery",
+   "name": "إبريق فخّار",
+   "art": "ui_alembic",
+   "rarity": "rare",
+   "desc": "إبريق بيبرّد المي بعزّ الصيف"
+  },
+  {
+   "id": "clayOven",
+   "setId": "pottery",
+   "name": "فرن الطين",
+   "art": "bld_hut",
+   "rarity": "epic",
+   "desc": "فرن طين بالحوش، الخبز فيه بيطلع بطعم زمان"
+  },
+  {
+   "id": "honeyJar",
+   "setId": "pottery",
+   "name": "جرّة عسل قديمة",
+   "art": "food_honey",
+   "rarity": "legendary",
+   "desc": "جرّة من أيام جدّ جدّك، لسّا ريحة العسل فيها"
+  },
+  {
+   "id": "woodOlive",
+   "setId": "oliveWood",
+   "name": "زيتونة خشب",
+   "art": "food_olive",
+   "rarity": "common",
+   "desc": "زيتونة محفورة من غصن انكسر بالقطفة"
+  },
+  {
+   "id": "oliveBoard",
+   "setId": "oliveWood",
+   "name": "لوح زيتون",
+   "art": "bld_wood",
+   "rarity": "rare",
+   "desc": "لوح تقطيع من خشب الزيتون، عروقه زي الخريطة"
+  },
+  {
+   "id": "oliveBeads",
+   "setId": "oliveWood",
+   "name": "مسبحة زيتون",
+   "art": "ui_link",
+   "rarity": "epic",
+   "desc": "حبّات خشب ريحتها زيت، بتطقطق فيها وإنت مرتاح عالكرسي"
+  },
+  {
+   "id": "romanTree",
+   "setId": "oliveWood",
+   "name": "الزيتونة الروميّة",
+   "art": "bld_deciduous_tree",
+   "rarity": "legendary",
+   "desc": "زيتونة عمرها أكبر من كل حكايات الحارة"
+  },
+  {
+   "id": "coffeeCup",
+   "setId": "copper",
+   "name": "فنجان قهوة",
+   "art": "food_coffee",
+   "rarity": "common",
+   "desc": "فنجان صغير بلا إذن، للقهوة السادة بالأفراح"
+  },
+  {
+   "id": "copperDallah",
+   "setId": "copper",
+   "name": "دلّة نحاس",
+   "art": "food_teapot",
+   "rarity": "rare",
+   "desc": "دلّة مبيّضة، لمعتها من إيد أبو ناصر"
+  },
+  {
+   "id": "copperBell",
+   "setId": "copper",
+   "name": "جرس نحاس",
+   "art": "ui_bellhop_bell",
+   "rarity": "epic",
+   "desc": "جرس بائع العرق سوس، صوته بيرجّعك صغير"
+  },
+  {
+   "id": "brassScale",
+   "setId": "copper",
+   "name": "ميزان نحاس",
+   "art": "ui_balance_scale",
+   "rarity": "legendary",
+   "desc": "ميزان دكّان جدّك: ولا مرّة غشّ ولا بدرهم"
+  },
+  {
+   "id": "grandpaLetter",
+   "setId": "memories",
+   "name": "رسالة من سيدي",
+   "art": "ui_envelope",
+   "rarity": "common",
+   "desc": "رسالة بخطّ إيده: «البسطة أمانة، والزبون ضيف»"
+  },
+  {
+   "id": "familyPhoto",
+   "setId": "memories",
+   "name": "صورة العيلة",
+   "art": "ui_camera",
+   "rarity": "rare",
+   "desc": "صورة أبيض وأسود قدّام البسطة، والكل بيضحك"
+  },
+  {
+   "id": "oldDeed",
+   "setId": "memories",
+   "name": "ورقة الدار القديمة",
+   "art": "ui_scroll",
+   "rarity": "epic",
+   "desc": "ورقة صفرا مطويّة، ستّي بتحطّها تحت المخدّة"
+  },
+  {
+   "id": "houseKey",
+   "setId": "memories",
+   "name": "مفتاح دار سيدي",
+   "art": "ui_old_key",
+   "rarity": "legendary",
+   "desc": "سيدي كان يحكي: المفتاح بيضل معنا"
+  }
+ ]
+}

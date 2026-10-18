@@ -37,6 +37,21 @@ extension GameStore {
         s.ftue.done = true
         s.settings.addressAsked = true
         s.happenings.nextSpecialAt = 99999
+        s.city.scenesSeen = cat.chapter(cityId: city.id)?.scenes.map { $0.id } ?? []
+    }
+
+    func demoChefs() {
+        for (id, lv, cards) in [("samiFryer", 3, 9), ("ummMohammad", 2, 3), ("hajjaUmmSubhi", 2, 1), ("chefRami", 3, 2),
+                                ("chefMaher", 1, 0), ("muratGrill", 1, 1)] {
+            var o = ChefOwn()
+            o.level = lv
+            o.cards = cards
+            s.chefs.owned[id] = o
+        }
+        s.chefs.equipped = ["samiFryer", "chefRami"]
+        s.chefs.chests = ["wood": 2, "silver": 1]
+        s.chefs.ftueChestGiven = true
+        s.chefs.ftueChestOpened = true
     }
 
     func demoKitchen() {
@@ -175,6 +190,74 @@ extension GameStore {
             demoCity(8, levels: [60, 50, 40, 30, 25, 10, 0], managed: 6, claimed: 8, cash: 5e9, level: 15)
         case "dubai":
             demoCity(15, levels: [90, 70, 60, 50, 40, 30, 20, 0], managed: 7, claimed: 8, cash: 5e14, level: 30)
+        case "chefs":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e6, level: 9)
+            demoChefs()
+            tab = .chefs
+        case "chests":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e6, level: 9)
+            demoChefs()
+            tab = .chefs
+        case "chestopen":
+            demoKitchen()
+            addChest("silver")
+            openChest("silver")
+        case "chefdetail":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e6, level: 9)
+            demoChefs()
+            tab = .chefs
+            sheet = .chef("chefRami")
+        case "shop":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e6, level: 9)
+            s.wallet.gold = 320
+            tab = .shop
+        case "tut12":
+            demoCity(1, levels: [30, 20, 10, 0, 0, 0], managed: 2, claimed: 5, cash: 300_000, level: 4)
+            s.ftue.done = false
+            s.ftue.step = 12
+        case "research":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e8, level: 12)
+            s.research.levels = ["secretBlend": 3, "biggerVault": 2, "happyCustomer": 1]
+            var sl = ResearchSlot()
+            sl.nodeId = "loyalManagers"
+            sl.level = 1
+            sl.startAt = now() - 120
+            sl.endAt = now() + 480
+            s.research.slots = [sl]
+            sheet = .research
+        case "supply":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e8, level: 12)
+            s.supply.launches = ["tractor": 5, "pickup": 1]
+            var run = SupplySlot()
+            run.runId = "demo"
+            run.vehicleId = "tractor"
+            run.sentAt = now() - 300
+            run.endAt = now() + 900
+            s.supply.slots = [run]
+            sheet = .supply
+        case "heritage":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e8, level: 20)
+            for (k, item) in cat.heritage.items.enumerated() where k % 3 != 2 { s.supply.heritage[item.id] = 1 + k % 6 }
+            sheet = .supply
+        case "supplyreveal":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e8, level: 12)
+            var run = SupplySlot()
+            run.runId = "demo"
+            run.vehicleId = "pickup"
+            run.durationIdx = 1
+            run.sentAt = now() - 3000
+            run.endAt = now() - 1
+            s.supply.slots = [run]
+            claimRun("demo")
+        case "tut17":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e7, level: 7)
+            s.ftue.done = false
+            s.ftue.step = 17
+        case "tut18":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e7, level: 8)
+            s.ftue.done = false
+            s.ftue.step = 18
+            sheet = .supply
         case "anchors", "fx":
             demoKitchen()
             spawnSpecial(forced: .tip)

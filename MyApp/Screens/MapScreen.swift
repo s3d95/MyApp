@@ -60,7 +60,7 @@ struct SafeCard: View {
                             .foregroundColor(Brand.cream.opacity(0.8))
                     } else {
                         FancyBar(value: store.safeFill, tint: Brand.gold, height: 13,
-                                 label: Num.int(Int(store.s.branchSafe.stored)) + "/" + Num.int(Int(store.safeCap)))
+                                 label: Num.frac(Int(store.s.branchSafe.stored), Int(store.safeCap)))
                         Text(String(format: "%.1f", store.branchGoldPerDay) + " ذهب/يوم · " + Num.int(store.s.branches.count) + " فروع")
                             .font(.body(11, bold: true))
                             .foregroundColor(Brand.cream.opacity(0.75))
@@ -182,7 +182,7 @@ struct CityNode: View {
             let perDay = store.econ.branches.goldPerDayBase * (1 + store.econ.branches.goldPerLevel * Double(b.level))
             return "فرع · " + String(format: "%.1f", perDay) + " ذهب/يوم"
         case .current:
-            return "★ " + Num.int(store.s.city.stars) + "/" + Num.int(store.starsNeeded)
+            return "★ " + Num.frac(store.s.city.stars, store.starsNeeded)
         case .next:
             if store.licenceLeft > 0 { return "الرخصة بعد " + Num.dur(store.licenceLeft) }
             return "بدها " + Num.int(store.starsNeeded) + " نجمة"

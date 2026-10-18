@@ -6,7 +6,8 @@ extension GameStore {
     static let builtGoalTypes: Set<String> = [
         "unlockStation", "stationLevel", "allStationsLevel", "hireManager", "managersCount", "earnCash",
         "incomeRate", "buyUpgrades", "customersServed", "tapCook", "specialCustomers", "collectVault",
-        "branchCollect", "twistMetric",
+        "branchCollect", "twistMetric", "equipChefs", "chefTagMatch", "startResearch", "researchLevels",
+        "sendSupplyRun", "supplyReturns", "heritageItems",
     ]
 
     func goalSupported(_ g: GoalDef) -> Bool { GameStore.builtGoalTypes.contains(g.type) }
@@ -26,7 +27,8 @@ extension GameStore {
     func goalScope(_ g: GoalDef) -> String {
         if let sc = g.scope { return sc }
         switch g.type {
-        case "collectVault", "branchCollect": return "slot"
+        case "collectVault", "branchCollect", "startResearch", "researchLevels", "sendSupplyRun", "supplyReturns",
+             "heritageItems": return "slot"
         default: return "city"
         }
     }
@@ -35,6 +37,11 @@ extension GameStore {
         switch type {
         case "collectVault": return Double(s.stats.vaultCollects)
         case "branchCollect": return Double(s.stats.branchCollects)
+        case "startResearch": return Double(s.research.started)
+        case "researchLevels": return Double(s.research.completed)
+        case "sendSupplyRun": return Double(s.supply.sent)
+        case "supplyReturns": return Double(s.supply.returned)
+        case "heritageItems": return Double(s.supply.newItems)
         default: return 0
         }
     }
@@ -67,9 +74,15 @@ extension GameStore {
             return (s.city.counters["tapCook"] ?? 0, Double(p.count ?? 1))
         case "specialCustomers":
             return (s.city.counters["specials"] ?? 0, Double(p.count ?? 1))
-        case "collectVault", "branchCollect":
+        case "collectVault", "branchCollect", "startResearch", "researchLevels", "sendSupplyRun", "supplyReturns",
+             "heritageItems":
             let base = s.city.goalBaselines[g.id] ?? slotMetric(g.type)
             return (max(0, slotMetric(g.type) - base), Double(p.count ?? 1))
+        case "equipChefs":
+            return (Double(s.chefs.equipped.count), Double(p.count ?? 1))
+        case "chefTagMatch":
+            let n = s.chefs.equipped.filter { !chefStations($0).isEmpty }.count
+            return (Double(n), Double(p.count ?? 1))
         case "twistMetric":
             return (s.city.counters[p.metric ?? ""] ?? 0, p.amount ?? 1)
         default:
@@ -110,15 +123,15 @@ extension GameStore {
         case "unlockStation", "hireManager":
             return goalDone(g) ? "✓" : ""
         case "earnCash", "incomeRate":
-            return Num.big(min(pr.cur, pr.target) * scale) + " / " + Num.big(pr.target * scale)
+            return Num.fracBig(min(pr.cur, pr.target) * scale, pr.target * scale)
         case "twistMetric":
             let metric = g.params.metric ?? ""
             if metric.hasSuffix("Base") {
-                return Num.big(min(pr.cur, pr.target) * scale) + " / " + Num.big(pr.target * scale)
+                return Num.fracBig(min(pr.cur, pr.target) * scale, pr.target * scale)
             }
-            return Num.big(min(pr.cur, pr.target)) + " / " + Num.big(pr.target)
+            return Num.fracBig(min(pr.cur, pr.target), pr.target)
         default:
-            return Num.big(min(pr.cur, pr.target)) + " / " + Num.big(pr.target)
+            return Num.fracBig(min(pr.cur, pr.target), pr.target)
         }
     }
 
@@ -141,6 +154,10 @@ extension GameStore {
         case "specialCustomers": return "ui_glowing_star"
         case "collectVault": return "ui_money_bag"
         case "branchCollect": return "bld_classical_building"
+        case "equipChefs", "chefTagMatch": return "ppl_cook"
+        case "startResearch", "researchLevels": return "ui_notebook"
+        case "sendSupplyRun", "supplyReturns": return "veh_tractor"
+        case "heritageItems": return "ui_old_key"
         case "twistMetric":
             for d in city.twists { return twistArt(d.type) }
             return "ui_sparkles"
@@ -309,6 +326,8 @@ extension GameStore {
         if !cs.stations.isEmpty { cs.stations[0].level = 1 }
         cs.cash = econ.cityStartCashBase * c.priceScale
         cs.openedAt = t
+        let head = min(cs.stations.count, Int(researchValue("startStations")))
+        for k in 0..<head { cs.stations[k].level = max(cs.stations[k].level, 10) }
         cs.twist.chainStock = Array(repeating: 0, count: c.twists.filter { $0.type == .productionChain }.count)
         s.city = cs
         cityCache = c
@@ -332,10 +351,13 @@ extension GameStore {
     // MARK: Branches and the branch safe
 
     var branchGoldPerDay: Double {
-        Rules.branchGoldPerDay(levels: s.branches.values.map { $0.level }, def: econ.branches)
+        let base = s.branches.values.reduce(0.0) { $0 + econ.branches.goldPerDayBase * (1 + econ.branches.goldPerLevel * Double($1.level)) }
+        let total = base * (1 + researchValue("branchGoldPct")) * (1 + heritageBonus("branchGoldPct"))
+        let b = econ.branches
+        return total <= b.softcapKnee ? total : b.softcapKnee + b.softcapCoef * sqrt(total - b.softcapKnee)
     }
 
-    var safeCap: Double { branchGoldPerDay / 24 * econ.branches.safeCapHours }
+    var safeCap: Double { branchGoldPerDay / 24 * (econ.branches.safeCapHours + researchValue("branchCapHours")) }
 
     var safeFill: Double {
         guard safeCap > 0 else { return 0 }

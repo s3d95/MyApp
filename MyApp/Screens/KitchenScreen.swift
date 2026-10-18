@@ -6,7 +6,7 @@ struct KitchenScreen: View {
     var body: some View {
         VStack(spacing: 8) {
             StageView()
-                .frame(height: 196)
+                .frame(height: 214)
                 .padding(.horizontal, 10)
             if store.goalStripVisible {
                 GoalStrip()
@@ -141,25 +141,109 @@ struct BoostChips: View {
     }
 }
 
-/// Appointment rail: vault and branch safe.
+/// Appointment rail (GDD 1.6): research, supply runs, vault and branch safe; the next locked item shows as "?".
 struct LeftRail: View {
     @EnvironmentObject var store: GameStore
 
     var body: some View {
-        VStack(spacing: 6) {
-            Spacer(minLength: 34)
-            SideButton(icon: "ui_money_bag", label: Num.dur(store.vaultCapHours * 3600)) {
+        VStack(spacing: 4) {
+            if store.unlocked("research") {
+                RailButton(icon: "ui_notebook", label: researchLabel, dot: researchDot) {
+                    store.sheet = .research
+                }
+                .fxAnchor("rail.research")
+            }
+            if store.unlocked("supply") {
+                RailButton(icon: "veh_tractor", label: supplyLabel, dot: supplyDot) {
+                    store.sheet = .supply
+                }
+                .fxAnchor("rail.supply")
+            }
+            RailButton(icon: "ui_money_bag", label: Num.dur(store.vaultCapHours * 3600), dot: false) {
                 store.showToast("الخزنة بتجمع دخل المعلّمين لحد " + Num.dur(store.vaultCapHours * 3600) + " وإنت برّا", art: "ui_money_bag")
             }
             .fxAnchor("rail.vault")
             if !store.s.branches.isEmpty {
-                SideButton(icon: "bld_classical_building", label: Num.percent(store.safeFill), badge: store.safeFill >= 0.5) {
+                RailButton(icon: "bld_classical_building", label: Num.percent(store.safeFill), dot: store.safeFill >= 0.5) {
                     store.collectSafe()
                 }
                 .fxAnchor("safe.collect")
+            } else if let next = nextLocked {
+                RailButton(icon: nil, label: "مستوى " + Num.int(next.1), dot: false) {
+                    store.showToast(next.0 + " بتفتح بمستوى " + Num.int(next.1), art: "ui_locked")
+                }
             }
-            Spacer()
+            Spacer(minLength: 0)
         }
+        .padding(.top, 4)
+    }
+
+    private var nextLocked: (String, Int)? {
+        if !store.unlocked("research") { return ("دفتر ستّي", store.unlockLevel("research")) }
+        if !store.unlocked("supply") { return ("رحلات التوريد", store.unlockLevel("supply")) }
+        return nil
+    }
+
+    private var researchLabel: String {
+        if store.researchReady { return "خلص!" }
+        if let e = store.nextResearchEnd { return Num.dur(max(0, e - store.now())) }
+        return "فاضي"
+    }
+
+    private var researchDot: Bool {
+        store.researchReady || store.freeResearchSlots > 0
+    }
+
+    private var supplyLabel: String {
+        if store.runsReady > 0 { return "رجعت!" }
+        if let e = store.nextRunEnd { return Num.dur(max(0, e - store.now())) }
+        return "فاضي"
+    }
+
+    private var supplyDot: Bool { store.runsReady > 0 || store.freeSupplySlots > 0 }
+}
+
+/// Compact round rail button with a label chip and a red dot.
+struct RailButton: View {
+    let icon: String?
+    let label: String
+    var dot = false
+    let action: () -> Void
+
+    var body: some View {
+        Button {
+            Feedback.play(.t0)
+            action()
+        } label: {
+            ZStack(alignment: .bottom) {
+                Circle()
+                    .fill(Color.black.opacity(0.5))
+                    .frame(width: 42, height: 42)
+                    .overlay(Circle().stroke(Brand.gold.opacity(0.6), lineWidth: 1.5))
+                Group {
+                    if let i = icon {
+                        ArtIcon(i, size: 28)
+                    } else {
+                        Image(systemName: "questionmark")
+                            .font(.system(size: 18, weight: .black))
+                            .foregroundColor(Brand.cream.opacity(0.6))
+                    }
+                }
+                .frame(width: 42, height: 42)
+                Text(label)
+                    .font(.game(9, .black))
+                    .foregroundColor(.white)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.6)
+                    .padding(.horizontal, 4)
+                    .frame(minWidth: 34, maxWidth: 52)
+                    .background(Capsule().fill(Brand.outline.opacity(0.92)))
+                    .offset(y: 7)
+            }
+            .frame(width: 52, height: 50)
+            .overlay(Group { if dot { RedDot().offset(x: -2, y: 0) } }, alignment: .topTrailing)
+        }
+        .buttonStyle(PressScaleStyle())
     }
 }
 
@@ -234,7 +318,7 @@ struct ActionBar: View {
             } label: {
                 HStack(spacing: 4) {
                     ArtIcon("ui_star", size: 22, shadow: false)
-                    Text(Num.int(store.s.city.stars) + "/" + Num.int(store.supportedStars))
+                    Text(Num.frac(store.s.city.stars, store.supportedStars))
                         .font(.game(14, .black).monospacedDigit())
                 }
                 .frame(maxWidth: .infinity)

@@ -78,7 +78,7 @@ struct TwistRow: View {
             return "الباخرة الجاية بعد " + Num.dur(st.nextIn)
         case .deliveryRuns:
             return "طلبات: " + Num.int(store.s.city.twist.deliveryQueue) + " · موتورات: "
-                + Num.int(store.scootersFree) + "/" + Num.int(store.scootersTotal)
+                + Num.frac(store.scootersFree, store.scootersTotal)
         case .weatherSwing:
             guard let w = store.cityWeather(day: Clock.gameDay(t)) else { return "" }
             let names = store.weatherStations(w).map { store.t(store.city.stations[$0].name) }

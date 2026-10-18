@@ -1,0 +1,356 @@
+{
+ "version": 1,
+ "baseMinutes": 10,
+ "growth": 1.5,
+ "capHours": 24,
+ "costFloorFracOfFinal": 1e-06,
+ "slotsByLevel": [
+  {
+   "level": 7,
+   "slots": 1
+  },
+  {
+   "level": 20,
+   "slots": 2
+  },
+  {
+   "level": 70,
+   "slots": 3
+  }
+ ],
+ "nodes": [
+  {
+   "id": "secretBlend",
+   "name": "خلطة ستّي",
+   "branch": "kitchen",
+   "art": "food_herb",
+   "effect": {
+    "type": "cityIncomePct",
+    "perLevel": 0.05
+   },
+   "maxLevel": 40,
+   "unlockLevel": 7,
+   "timeMult": 1.0,
+   "costMin": 4,
+   "desc": "دخل كل المدن +{v}، والجاي +{next}"
+  },
+  {
+   "id": "loyalManagers",
+   "name": "معلّمين أوفياء",
+   "branch": "kitchen",
+   "art": "ppl_handshake",
+   "effect": {
+    "type": "managerCostPct",
+    "perLevel": 0.05
+   },
+   "maxLevel": 10,
+   "unlockLevel": 7,
+   "timeMult": 0.5,
+   "costMin": 2,
+   "desc": "المعلّمين أرخص بـ {v}، والجاي {next}"
+  },
+  {
+   "id": "honestSupplier",
+   "name": "مورّد أمين",
+   "branch": "kitchen",
+   "art": "ui_balance_scale",
+   "effect": {
+    "type": "stationCostPct",
+    "perLevel": 0.02
+   },
+   "maxLevel": 15,
+   "unlockLevel": 12,
+   "requires": [
+    {
+     "nodeId": "loyalManagers",
+     "level": 2
+    }
+   ],
+   "timeMult": 1.0,
+   "costMin": 3,
+   "desc": "مستويات المحطّات أرخص بـ {v}، والجاي {next}"
+  },
+  {
+   "id": "gentleFire",
+   "name": "نار هادية",
+   "branch": "kitchen",
+   "art": "ui_fire",
+   "effect": {
+    "type": "speedPct",
+    "perLevel": 0.02
+   },
+   "maxLevel": 30,
+   "unlockLevel": 20,
+   "requires": [
+    {
+     "nodeId": "secretBlend",
+     "level": 5
+    }
+   ],
+   "timeMult": 1.5,
+   "costMin": 4,
+   "desc": "كل المحطّات أسرع بـ {v}، والجاي {next}"
+  },
+  {
+   "id": "happyCustomer",
+   "name": "زبون مبسوط",
+   "branch": "customers",
+   "art": "ui_bellhop_bell",
+   "effect": {
+    "type": "specialRewardPct",
+    "perLevel": 0.1
+   },
+   "maxLevel": 10,
+   "unlockLevel": 7,
+   "timeMult": 0.8,
+   "costMin": 2,
+   "desc": "هدايا الزبون المميّز +{v}، والجاي +{next}"
+  },
+  {
+   "id": "longerRush",
+   "name": "عجقة أطول",
+   "branch": "customers",
+   "art": "ui_stopwatch",
+   "effect": {
+    "type": "frenzySec",
+    "perLevel": 6
+   },
+   "maxLevel": 10,
+   "unlockLevel": 10,
+   "requires": [
+    {
+     "nodeId": "happyCustomer",
+     "level": 1
+    }
+   ],
+   "timeMult": 0.8,
+   "costMin": 2,
+   "desc": "عجقة الزباين بتطوّل {v} ثانية زيادة، والجاي {next}"
+  },
+  {
+   "id": "peakHour",
+   "name": "ساعة الذروة",
+   "branch": "customers",
+   "art": "ui_alarm_clock",
+   "effect": {
+    "type": "rushHourAdd",
+    "perLevel": 0.1
+   },
+   "maxLevel": 10,
+   "unlockLevel": 12,
+   "timeMult": 1.0,
+   "costMin": 3,
+   "desc": "ساعة الذروة بتعطي +{v} فوق الدبل، والجاي +{next}"
+  },
+  {
+   "id": "sweetTalk",
+   "name": "كلمة حلوة",
+   "branch": "customers",
+   "art": "ui_speech_balloon",
+   "effect": {
+    "type": "happeningRewardPct",
+    "perLevel": 0.1
+   },
+   "maxLevel": 10,
+   "unlockLevel": 14,
+   "requires": [
+    {
+     "nodeId": "happyCustomer",
+     "level": 3
+    }
+   ],
+   "timeMult": 1.0,
+   "costMin": 3,
+   "desc": "جوائز الحكايات والمفتّش والضيوف الكبار والتوصيل والميناء +{v}، والجاي +{next}"
+  },
+  {
+   "id": "biggerVault",
+   "name": "خزنة أكبر",
+   "branch": "vault",
+   "art": "ui_locked_with_key",
+   "effect": {
+    "type": "vaultCapHours",
+    "perLevel": 1
+   },
+   "maxLevel": 9,
+   "unlockLevel": 7,
+   "timeMult": 0.6,
+   "costMin": 3,
+   "desc": "الخزنة بتوسع {v} ساعات زيادة، والجاي {next}"
+  },
+  {
+   "id": "tightHarvest",
+   "name": "ضبّ الغلّة",
+   "branch": "vault",
+   "art": "ui_money_bag",
+   "effect": {
+    "type": "vaultEffPct",
+    "perLevel": 0.05
+   },
+   "maxLevel": 10,
+   "unlockLevel": 8,
+   "requires": [
+    {
+     "nodeId": "biggerVault",
+     "level": 1
+    }
+   ],
+   "timeMult": 0.8,
+   "costMin": 3,
+   "desc": "الخزنة بتجمع +{v} من الدخل وإنت برّا، والجاي +{next}"
+  },
+  {
+   "id": "shortcuts",
+   "name": "طرق مختصرة",
+   "branch": "vault",
+   "art": "bld_compass",
+   "effect": {
+    "type": "supplyTimePct",
+    "perLevel": 0.03
+   },
+   "maxLevel": 10,
+   "unlockLevel": 10,
+   "timeMult": 1.0,
+   "costMin": 2,
+   "desc": "رحلات التوريد أقصر بـ {v}، والجاي {next}"
+  },
+  {
+   "id": "tidyNotebook",
+   "name": "دفتر مرتّب",
+   "branch": "vault",
+   "art": "ui_bookmark_tabs",
+   "effect": {
+    "type": "researchTimePct",
+    "perLevel": 0.02
+   },
+   "maxLevel": 15,
+   "unlockLevel": 16,
+   "requires": [
+    {
+     "nodeId": "biggerVault",
+     "level": 3
+    }
+   ],
+   "timeMult": 1.2,
+   "costMin": 3,
+   "desc": "أبحاث الدفتر أسرع بـ {v}، والجاي {next}"
+  },
+  {
+   "id": "smartBranches",
+   "name": "فروع شاطرة",
+   "branch": "empire",
+   "art": "bld_department_store",
+   "effect": {
+    "type": "branchGoldPct",
+    "perLevel": 0.1
+   },
+   "maxLevel": 10,
+   "unlockLevel": 17,
+   "timeMult": 1.0,
+   "costMin": 3,
+   "desc": "ذهب الفروع +{v}، والجاي +{next}"
+  },
+  {
+   "id": "branchSafe",
+   "name": "خزنة الفروع",
+   "branch": "empire",
+   "art": "ui_key",
+   "effect": {
+    "type": "branchCapHours",
+    "perLevel": 1
+   },
+   "maxLevel": 8,
+   "unlockLevel": 17,
+   "timeMult": 0.8,
+   "costMin": 2,
+   "desc": "خزنة الفروع بتوسع {v} ساعات زيادة، والجاي {next}"
+  },
+  {
+   "id": "cateringCrew",
+   "name": "شغل طلبيات",
+   "branch": "empire",
+   "art": "ui_clipboard",
+   "effect": {
+    "type": "contractIncomePct",
+    "perLevel": 0.15
+   },
+   "maxLevel": 30,
+   "unlockLevel": 14,
+   "timeMult": 1.2,
+   "costMin": 3,
+   "desc": "دخل مطابخ الطلبيات +{v}، والجاي +{next}"
+  },
+  {
+   "id": "festivalSpirit",
+   "name": "روح المهرجان",
+   "branch": "empire",
+   "art": "ui_party_popper",
+   "effect": {
+    "type": "eventIncomePct",
+    "perLevel": 0.15
+   },
+   "maxLevel": 30,
+   "unlockLevel": 15,
+   "timeMult": 1.2,
+   "costMin": 3,
+   "desc": "دخل مهرجان الويكند +{v}، والجاي +{next}"
+  },
+  {
+   "id": "cookingSchool",
+   "name": "مدرسة الطبخ",
+   "branch": "empire",
+   "art": "ppl_cook",
+   "effect": {
+    "type": "chefBonusPct",
+    "perLevel": 0.03
+   },
+   "maxLevel": 30,
+   "unlockLevel": 20,
+   "timeMult": 1.5,
+   "costMin": 4,
+   "desc": "قوّة الطبّاخين +{v}، والجاي +{next}"
+  },
+  {
+   "id": "strongStart",
+   "name": "بداية قويّة",
+   "branch": "empire",
+   "art": "ui_high_voltage",
+   "effect": {
+    "type": "startStations",
+    "perLevel": 1
+   },
+   "maxLevel": 5,
+   "unlockLevel": 25,
+   "requires": [
+    {
+     "nodeId": "secretBlend",
+     "level": 10
+    }
+   ],
+   "timeMult": 4.0,
+   "costMin": 5,
+   "desc": "كل مطبخ جديد بيفتح وأوّل {v} محطّات على مستوى 10، والجاي {next}"
+  },
+  {
+   "id": "expertEye",
+   "name": "عين خبيرة",
+   "branch": "empire",
+   "art": "ui_search",
+   "effect": {
+    "type": "supplyRarityUpPct",
+    "perLevel": 0.04
+   },
+   "maxLevel": 10,
+   "unlockLevel": 22,
+   "requires": [
+    {
+     "nodeId": "shortcuts",
+     "level": 3
+    }
+   ],
+   "timeMult": 1.0,
+   "costMin": 3,
+   "desc": "كل لقية بالرحلة إلها فرصة {v} تطلع أندر، والجاي {next}"
+  }
+ ]
+}

@@ -25,6 +25,8 @@ struct ModalLayer: View {
         case .legacy: LegacyModal()
         case .graduateConfirm: GraduateConfirmModal()
         case .graduation(let from, let to): GraduationSequence(fromId: from, toId: to)
+        case .chest(let r): ChestRevealModal(result: r)
+        case .supply(let r): SupplyRevealModal(result: r)
         }
     }
 }
@@ -169,7 +171,7 @@ struct StoryModal: View {
                     }
                     .id(line)
                     .transition(.move(edge: .bottom).combined(with: .opacity))
-                    Text(Num.int(line + 1) + "/" + Num.int(lines.count))
+                    Text(Num.frac(line + 1, lines.count))
                         .font(.body(11, bold: true))
                         .foregroundColor(Brand.cream.opacity(0.6))
                 }

@@ -13,6 +13,8 @@ enum Num {
         f.locale = Locale(identifier: "en_US_POSIX")
         f.numberStyle = .decimal
         f.groupingSeparator = ","
+        f.usesGroupingSeparator = true
+        f.groupingSize = 3
         f.maximumFractionDigits = 0
         return f
     }()
@@ -47,6 +49,23 @@ enum Num {
         let idx = exp3 - 2
         guard idx >= 0, idx < scaleWords.count else { return iso(String(format: "%.2e", v)) }
         return iso(sig3(scaled)) + " " + scaleWords[idx]
+    }
+
+    /// "12/40" kept together as one left-to-right unit inside Arabic text.
+    static func frac(_ a: Int, _ b: Int) -> String {
+        iso(plain(a) + "/" + plain(b))
+    }
+
+    private static func plain(_ v: Int) -> String { grouped.string(from: NSNumber(value: v)) ?? "\(v)" }
+
+    /// Progress like "1,200/3,000" (one unit) or "1.2 مليون / 3 مليار" for big values.
+    static func fracBig(_ a: Double, _ b: Double) -> String {
+        if abs(a) < 1_000_000 && abs(b) < 1_000_000 {
+            let pa = grouped.string(from: NSNumber(value: a.rounded(.down))) ?? "\(Int(a))"
+            let pb = grouped.string(from: NSNumber(value: b.rounded(.down))) ?? "\(Int(b))"
+            return iso(pa + "/" + pb)
+        }
+        return big(a) + " / " + big(b)
     }
 
     /// Integers (gold, stars, XP) with grouping.

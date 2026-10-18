@@ -222,6 +222,8 @@ struct WalletSave: Codable {
     var pendingChefCards = 0
     var pendingHeritage = 0
     var vaultDoubleDay = 0
+    var warpDay = 0
+    var warpBuys = 0
 }
 
 extension WalletSave {
@@ -235,6 +237,8 @@ extension WalletSave {
         pendingChefCards = c.int("pendingChefCards", pendingChefCards)
         pendingHeritage = c.int("pendingHeritage", pendingHeritage)
         vaultDoubleDay = c.int("vaultDoubleDay", vaultDoubleDay)
+        warpDay = c.int("warpDay", warpDay)
+        warpBuys = c.int("warpBuys", warpBuys)
     }
 }
 
@@ -272,6 +276,8 @@ struct BoostSave: Codable, Identifiable {
     var kind = ""
     var mult: Double = 1
     var left: Double = 0
+    /// "" = every station; "cat:<category>" or "cui:<cuisine>" = matching stations only.
+    var scope = ""
 
     var id: String { kind }
 }
@@ -283,6 +289,7 @@ extension BoostSave {
         kind = c.v("kind", kind)
         mult = c.dbl("mult", mult)
         left = c.dbl("left", left)
+        scope = c.v("scope", scope)
     }
 }
 
@@ -348,6 +355,142 @@ extension NotifSave {
     }
 }
 
+struct ChefOwn: Codable {
+    var level = 1
+    var cards = 0
+}
+
+extension ChefOwn {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        level = c.int("level", level)
+        cards = c.int("cards", cards)
+    }
+}
+
+struct ChefsSave: Codable {
+    var owned: [String: ChefOwn] = [:]
+    var equipped: [String] = []
+    var chests: [String: Int] = [:]
+    var openCounter = 0
+    var pityLegend = 0
+    var pitySilverEpic = 0
+    var revealViews = 0
+    var skillReadyAt: [String: Double] = [:]
+    var stallDay = 0
+    var stallBought: [Int] = []
+    var ftueChestGiven = false
+    var ftueChestOpened = false
+    var cardCounter = 0
+}
+
+extension ChefsSave {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        owned = c.v("owned", owned)
+        equipped = c.v("equipped", equipped)
+        chests = c.v("chests", chests)
+        openCounter = c.int("openCounter", openCounter)
+        pityLegend = c.int("pityLegend", pityLegend)
+        pitySilverEpic = c.int("pitySilverEpic", pitySilverEpic)
+        revealViews = c.int("revealViews", revealViews)
+        skillReadyAt = c.v("skillReadyAt", skillReadyAt)
+        stallDay = c.int("stallDay", stallDay)
+        stallBought = c.v("stallBought", stallBought)
+        ftueChestGiven = c.v("ftueChestGiven", ftueChestGiven)
+        ftueChestOpened = c.v("ftueChestOpened", ftueChestOpened)
+        cardCounter = c.int("cardCounter", cardCounter)
+    }
+}
+
+struct ResearchSlot: Codable {
+    var nodeId = ""
+    var level = 1
+    var startAt: Double = 0
+    var endAt: Double = 0
+    var applied = false
+}
+
+extension ResearchSlot {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        nodeId = c.v("nodeId", nodeId)
+        level = c.int("level", level)
+        startAt = c.dbl("startAt", startAt)
+        endAt = c.dbl("endAt", endAt)
+        applied = c.v("applied", applied)
+    }
+}
+
+struct ResearchSave: Codable {
+    var levels: [String: Int] = [:]
+    var slots: [ResearchSlot] = []
+    var started = 0
+    var completed = 0
+}
+
+extension ResearchSave {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        levels = c.v("levels", levels)
+        slots = c.v("slots", slots)
+        started = c.int("started", started)
+        completed = c.int("completed", completed)
+    }
+}
+
+struct SupplySlot: Codable {
+    var runId = ""
+    var vehicleId = ""
+    var durationIdx = 0
+    var sentAt: Double = 0
+    var endAt: Double = 0
+    var seed = 0
+}
+
+extension SupplySlot {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        runId = c.v("runId", runId)
+        vehicleId = c.v("vehicleId", vehicleId)
+        durationIdx = c.int("durationIdx", durationIdx)
+        sentAt = c.dbl("sentAt", sentAt)
+        endAt = c.dbl("endAt", endAt)
+        seed = c.int("seed", seed)
+    }
+}
+
+struct SupplySave: Codable {
+    var launches: [String: Int] = [:]
+    var slots: [SupplySlot] = []
+    var heritage: [String: Int] = [:]
+    var craftPoints = 0
+    var runCounter = 0
+    var sent = 0
+    var returned = 0
+    var newItems = 0
+}
+
+extension SupplySave {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        launches = c.v("launches", launches)
+        slots = c.v("slots", slots)
+        heritage = c.v("heritage", heritage)
+        craftPoints = c.int("craftPoints", craftPoints)
+        runCounter = c.int("runCounter", runCounter)
+        sent = c.int("sent", sent)
+        returned = c.int("returned", returned)
+        newItems = c.int("newItems", newItems)
+    }
+}
+
 struct GameSave: Codable {
     var meta = MetaSave()
     var settings = SettingsSave()
@@ -362,6 +505,9 @@ struct GameSave: Codable {
     var stats = StatsSave()
     var legacy = LegacySave()
     var notif = NotifSave()
+    var chefs = ChefsSave()
+    var research = ResearchSave()
+    var supply = SupplySave()
 
     static let key = "basta.save.v3"
     static let backupKey = "basta.save.v3.bak"
@@ -385,6 +531,9 @@ extension GameSave {
         stats = c.v("stats", stats)
         legacy = c.v("legacy", legacy)
         notif = c.v("notif", notif)
+        chefs = c.v("chefs", chefs)
+        research = c.v("research", research)
+        supply = c.v("supply", supply)
     }
 
     static func load() -> GameSave? {

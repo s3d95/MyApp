@@ -60,7 +60,8 @@ enum BuyMode: Int {
 }
 
 enum Sheet: Identifiable, Equatable {
-    case upgrades, goals, profile, settings, branch(String), teaser(GameTab), twist
+    case upgrades, goals, profile, settings, branch(String), teaser(GameTab), twist, chef(String), chefPicker
+    case research, supply
 
     var id: String {
         switch self {
@@ -71,6 +72,10 @@ enum Sheet: Identifiable, Equatable {
         case .branch(let c): return "branch." + c
         case .teaser(let t): return "teaser.\(t.rawValue)"
         case .twist: return "twist"
+        case .chef(let c): return "chef." + c
+        case .chefPicker: return "chefPicker"
+        case .research: return "research"
+        case .supply: return "supply"
         }
     }
 }
@@ -110,6 +115,8 @@ enum Modal: Identifiable {
     case legacy
     case graduateConfirm
     case graduation(from: String, to: String)
+    case chest(ChestResult)
+    case supply(SupplyResult)
 
     var id: String {
         switch self {
@@ -121,6 +128,8 @@ enum Modal: Identifiable {
         case .legacy: return "legacy"
         case .graduateConfirm: return "gradConfirm"
         case .graduation(let a, let b): return "grad." + a + b
+        case .chest(let r): return "chest." + r.id.uuidString
+        case .supply(let r): return "supply." + r.id.uuidString
         }
     }
 }
@@ -207,6 +216,7 @@ final class GameStore: ObservableObject {
         normalizeCity()
         applySettings()
         if !GameStore.isDemo { checkLegacy() }
+        migratePendingRewards()
         resume(launch: true)
         start()
         if let d = GameStore.demoName { applyDemo(d) }
@@ -343,6 +353,7 @@ final class GameStore: ObservableObject {
         tickBoosts(dt: dt)
         tickSpecials(dt: dt, at: t)
         if !s.meta.clockFrozen { accrueBranchSafe(until: t) }
+        tickResearch(at: t)
 
         if let o = oven, t >= o.deadline { collectOven(perfect: false) }
         if toastClock > 0 {

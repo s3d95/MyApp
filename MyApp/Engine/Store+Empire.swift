@@ -4,7 +4,8 @@ import Foundation
 extension GameStore {
     /// Systems that exist in this build (their unlocks are announced at level-up).
     static let builtSystems: Set<String> = ["kitchen", "goals", "managers", "specials", "upgrades", "rushHours",
-                                            "vault", "map", "branchUpgrades"]
+                                            "vault", "map", "branchUpgrades", "chefs", "chests", "shop", "chefSkills",
+                                            "research", "supply", "heritage", "crafting", "timeWarpShop"]
 
     func systemName(_ id: String) -> String {
         switch id {
@@ -75,13 +76,7 @@ extension GameStore {
         save()
     }
 
-    func chestArt(_ kind: String) -> String {
-        switch kind {
-        case "gold": return "ui_crown"
-        case "silver": return "ui_gift"
-        default: return "veh_package"
-        }
-    }
+    func chestArt(_ kind: String) -> String { "ui_gift" }
 
     func chestName(_ kind: String) -> String {
         switch kind {
@@ -104,14 +99,23 @@ extension GameStore {
             return RewardLine(art: "food_herb", amount: "+" + Num.int(n), caption: "زعتر ذهبي")
         case "chest":
             let kind = r.id ?? "wood"
-            s.wallet.pendingChests[kind, default: 0] += max(1, n)
+            addChest(kind, max(1, n))
             return RewardLine(art: chestArt(kind), amount: "×" + Num.int(max(1, n)), caption: chestName(kind))
         case "timeWarpMin":
             s.wallet.timeWarps.append(n)
             return RewardLine(art: "ui_hourglass", amount: Num.dur(Double(n) * 60), caption: "رزمة وقت")
         case "chefCards":
-            s.wallet.pendingChefCards += max(1, n)
-            return RewardLine(art: "ppl_cook", amount: "+" + Num.int(max(1, n)), caption: "كروت طبّاخين")
+            let count = max(1, n)
+            if let id = r.id, let c = cat.chef(id) {
+                addCards(id, count)
+                return RewardLine(art: c.art, amount: "+" + Num.int(count), caption: t(c.name))
+            }
+            if unlocked("chefs"), let id = grantRandomCards(rarity: Rarity(rawValue: r.rarity ?? "common") ?? .common, count: count),
+               let c = cat.chef(id) {
+                return RewardLine(art: c.art, amount: "+" + Num.int(count), caption: t(c.name))
+            }
+            s.wallet.pendingChefCards += count
+            return RewardLine(art: "ppl_cook", amount: "+" + Num.int(count), caption: "كروت طبّاخين")
         case "heritageItem", "heritageCase":
             s.wallet.pendingHeritage += max(1, n)
             return RewardLine(art: "ui_old_key", amount: "+" + Num.int(max(1, n)), caption: "قطعة تراث")
@@ -124,5 +128,5 @@ extension GameStore {
         }
     }
 
-    var pendingChestCount: Int { s.wallet.pendingChests.values.reduce(0, +) }
+    var pendingChestCount: Int { chestCount }
 }

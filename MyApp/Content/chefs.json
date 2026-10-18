@@ -1,0 +1,755 @@
+{
+ "version": 1,
+ "chefs": [
+  {
+   "id": "samiFryer",
+   "name": "سامي القلّاي",
+   "rarity": "common",
+   "art": "ppl_man_cook",
+   "cuisine": "palestinian",
+   "category": "fried",
+   "source": "chest",
+   "bio": "بيقلي الفلافل وهو مغمّض، وبيعرف القرص استوى من صوته"
+  },
+  {
+   "id": "ummMohammad",
+   "name": "أم محمد",
+   "rarity": "common",
+   "art": "ppl_woman_headscarf",
+   "cuisine": "palestinian",
+   "category": "bakery",
+   "source": "chest",
+   "bio": "طابونها بيصحّي الحارة كلها على ريحة الخبز السخن"
+  },
+  {
+   "id": "abuAbedFul",
+   "name": "أبو العبد الفوّال",
+   "rarity": "common",
+   "art": "ppl_older_person",
+   "cuisine": "palestinian",
+   "category": "dishes",
+   "source": "chest",
+   "bio": "قدرة الفول عنده من أيام أبوه، وما بتنطفي ولا يوم"
+  },
+  {
+   "id": "laylaStudent",
+   "name": "ليلى طالبة بيرزيت",
+   "rarity": "common",
+   "art": "ppl_woman",
+   "cuisine": "levantine",
+   "category": "drinks",
+   "source": "chest",
+   "bio": "بتدرس هندسة، وبتعمل أطيب ليموناضة بالجامعة كلها"
+  },
+  {
+   "id": "abuSalimSweets",
+   "name": "أبو سليم الحلونجي",
+   "rarity": "common",
+   "art": "ppl_old_man",
+   "cuisine": "levantine",
+   "category": "sweets",
+   "source": "chest",
+   "bio": "بيوزن القطر بعينه، وما بيغلط ولا نقطة"
+  },
+  {
+   "id": "hassanGrill",
+   "name": "حسن الشوّا",
+   "rarity": "common",
+   "art": "ppl_man",
+   "cuisine": "levantine",
+   "category": "grill",
+   "source": "chest",
+   "bio": "بيقلّب السيخ وبيغنّي، والفحم بيرقص معه"
+  },
+  {
+   "id": "nadiaCairo",
+   "name": "نادية المصريّة",
+   "rarity": "common",
+   "art": "ppl_woman_cook",
+   "cuisine": "egyptian",
+   "category": "street",
+   "source": "chest",
+   "bio": "بتقول عنها طعميّة مش فلافل، وإحنا ساكتين عشان الطعم بيجنّن"
+  },
+  {
+   "id": "mustafaKoshari",
+   "name": "مصطفى الكشري",
+   "rarity": "common",
+   "art": "ppl_beard",
+   "cuisine": "egyptian",
+   "category": "dishes",
+   "source": "chest",
+   "bio": "صحن الكشري عنده طبقات أكتر من عمارة"
+  },
+  {
+   "id": "khaledSea",
+   "name": "خالد البحري",
+   "rarity": "common",
+   "art": "ppl_man_farmer",
+   "cuisine": "palestinian",
+   "category": "seafood",
+   "source": "chest",
+   "bio": "بيعرف السمكة الطازة من لمعة عينها"
+  },
+  {
+   "id": "fatimaMaghreb",
+   "name": "فاطمة المغربيّة",
+   "rarity": "common",
+   "art": "ppl_woman_headscarf",
+   "cuisine": "maghrebi",
+   "category": "dishes",
+   "source": "chest",
+   "bio": "طنجرة الطاجين عندها بتحكي حكايات مراكش"
+  },
+  {
+   "id": "muratGrill",
+   "name": "مراد التركي",
+   "rarity": "common",
+   "art": "ppl_man_cook",
+   "cuisine": "turkish",
+   "category": "grill",
+   "source": "chest",
+   "bio": "بيحلف إنّ الكباب اختراع تركي، وإحنا منضحك ومنوكل"
+  },
+  {
+   "id": "yukiStreet",
+   "name": "يوكي",
+   "rarity": "common",
+   "art": "ppl_woman",
+   "cuisine": "world",
+   "category": "street",
+   "source": "chest",
+   "bio": "جاية من طوكيو تتعلّم الفلافل، وصارت تقول «يا عمّي» أحسن منّا"
+  },
+  {
+   "id": "hajjaUmmSubhi",
+   "name": "الحجّة أم صبحي",
+   "rarity": "rare",
+   "art": "ppl_old_woman",
+   "cuisine": "palestinian",
+   "category": "dishes",
+   "source": "chest",
+   "bio": "بتقلب المقلوبة وما بتوقع ولا حبّة رز"
+  },
+  {
+   "id": "abuGeorgeHalabi",
+   "name": "أبو جورج الحلبي",
+   "rarity": "rare",
+   "art": "ppl_beard",
+   "cuisine": "levantine",
+   "category": "grill",
+   "source": "chest",
+   "bio": "كبابه حلبي أصلي، والبهارات سرّ ما بيحكيه لحدا"
+  },
+  {
+   "id": "reemCoffee",
+   "name": "ريم القهوجيّة",
+   "rarity": "rare",
+   "art": "ppl_woman_office",
+   "cuisine": "gulf",
+   "category": "drinks",
+   "source": "chest",
+   "bio": "دلّتها ما بتبرد، وفنجانها بيصحّي النايم"
+  },
+  {
+   "id": "abuFahdKabsa",
+   "name": "أبو فهد",
+   "rarity": "rare",
+   "art": "ppl_turban",
+   "cuisine": "gulf",
+   "category": "dishes",
+   "source": "chest",
+   "bio": "صينيّة الكبسة عنده بتكفّي الحارة والضيوف وزيادة"
+  },
+  {
+   "id": "monaSweets",
+   "name": "منى الحلوانيّة",
+   "rarity": "rare",
+   "art": "ppl_woman_cook",
+   "cuisine": "egyptian",
+   "category": "sweets",
+   "source": "chest",
+   "bio": "البسبوسة عندها بتدوب بالتمّ قبل ما تبلعها"
+  },
+  {
+   "id": "karimBaghdadi",
+   "name": "كريم البغدادي",
+   "rarity": "rare",
+   "art": "ppl_man",
+   "cuisine": "iraqi",
+   "category": "bakery",
+   "source": "chest",
+   "bio": "الصمّون عنده طالع من الفرن منفوخ زي الغيمة"
+  },
+  {
+   "id": "aminaMsemen",
+   "name": "أمينة",
+   "rarity": "rare",
+   "art": "ppl_woman_headscarf",
+   "cuisine": "maghrebi",
+   "category": "bakery",
+   "source": "chest",
+   "bio": "المسمّن عندها طبقات طبقات، وكل طبقة أطيب من اللي قبلها"
+  },
+  {
+   "id": "ozanBaklava",
+   "name": "أوزان",
+   "rarity": "rare",
+   "art": "ppl_man_cook",
+   "cuisine": "turkish",
+   "category": "sweets",
+   "source": "chest",
+   "bio": "بيعدّ طبقات البقلاوة: أربعين بالتمام والكمال"
+  },
+  {
+   "id": "mariaChile",
+   "name": "ماريا",
+   "rarity": "rare",
+   "art": "ppl_woman",
+   "cuisine": "world",
+   "category": "street",
+   "source": "chest",
+   "bio": "من سانتياغو، ستّها من بيت جالا، وبتعمل إمبانادا بالزعتر"
+  },
+  {
+   "id": "chefRami",
+   "name": "الشيف رامي، ملك الفلافل",
+   "rarity": "epic",
+   "art": "ppl_man_cook",
+   "cuisine": "palestinian",
+   "category": "fried",
+   "source": "chest",
+   "skill": {
+    "type": "categoryBoost",
+    "value": "fried",
+    "magnitude": 5,
+    "durationSec": 180,
+    "cooldownMin": 45,
+    "name": "نار الصاج"
+   },
+   "bio": "قرص الفلافل عنده بيطلع مدوّر زيّ القمر"
+  },
+  {
+   "id": "sittElSham",
+   "name": "ستّ الشام",
+   "rarity": "epic",
+   "art": "ppl_woman_cook",
+   "cuisine": "levantine",
+   "category": "dishes",
+   "source": "chest",
+   "skill": {
+    "type": "cuisineBoost",
+    "value": "levantine",
+    "magnitude": 4,
+    "durationSec": 240,
+    "cooldownMin": 50,
+    "name": "نَفَس الشام"
+   },
+   "bio": "بتلفّ ورق العنب وبتحكي حكايات، والحكاية أطيب من المحشي"
+  },
+  {
+   "id": "abuAliAlex",
+   "name": "أبو علي الإسكندراني",
+   "rarity": "epic",
+   "art": "ppl_older_person",
+   "cuisine": "egyptian",
+   "category": "seafood",
+   "source": "chest",
+   "skill": {
+    "type": "instantIncome",
+    "magnitude": 20,
+    "durationSec": 0,
+    "cooldownMin": 60,
+    "name": "صيدة اليوم"
+   },
+   "bio": "بيرمي الشبكة مرّة وحدة، وبيطلّع رزق أسبوع"
+  },
+  {
+   "id": "chefNoura",
+   "name": "الشيف نورة",
+   "rarity": "epic",
+   "art": "ppl_woman_headscarf",
+   "cuisine": "gulf",
+   "category": "sweets",
+   "source": "chest",
+   "skill": {
+    "type": "spawnSpecial",
+    "magnitude": 1,
+    "durationSec": 0,
+    "cooldownMin": 30,
+    "name": "ريحة اللقيمات"
+   },
+   "bio": "لقيماتها بتجيب الزباين من آخر الشارع"
+  },
+  {
+   "id": "chefHakim",
+   "name": "الشيف حكيم",
+   "rarity": "epic",
+   "art": "ppl_man",
+   "cuisine": "maghrebi",
+   "category": "grill",
+   "source": "chest",
+   "skill": {
+    "type": "categoryBoost",
+    "value": "grill",
+    "magnitude": 5,
+    "durationSec": 180,
+    "cooldownMin": 45,
+    "name": "جمر مراكش"
+   },
+   "bio": "مشاويه على طريقة مراكش، والدخنة بتعمل دعاية لحالها"
+  },
+  {
+   "id": "chefHiro",
+   "name": "الشيف هيرو",
+   "rarity": "epic",
+   "art": "ppl_man_cook",
+   "cuisine": "world",
+   "category": "seafood",
+   "source": "chest",
+   "skill": {
+    "type": "frenzy",
+    "magnitude": 5,
+    "durationSec": 60,
+    "cooldownMin": 40,
+    "name": "تقطيع البرق"
+   },
+   "bio": "بيقطّع الخيارة بثانية، وبيسلّم عالزبون بانحناءة"
+  },
+  {
+   "id": "chefMaher",
+   "name": "الشيف ماهر «رايح جاي»",
+   "rarity": "legendary",
+   "art": "ppl_person_with_crown",
+   "cuisine": "world",
+   "category": "street",
+   "source": "chest",
+   "skill": {
+    "type": "allBoost",
+    "magnitude": 3,
+    "durationSec": 300,
+    "cooldownMin": 60,
+    "name": "لفّة الدنيا"
+   },
+   "bio": "لفّ الدنيا بعربايته، ورجع يقول: ما في أطيب من أكل البلد"
+  },
+  {
+   "id": "abuNasser",
+   "name": "المعلّم أبو ناصر",
+   "rarity": "legendary",
+   "art": "ppl_old_man",
+   "cuisine": "levantine",
+   "category": "grill",
+   "source": "chest",
+   "skill": {
+    "type": "allBoost",
+    "magnitude": 2,
+    "durationSec": 600,
+    "cooldownMin": 90,
+    "name": "كلمة المعلّم"
+   },
+   "bio": "خمسين سنة عالمنقل، والناس بتوقف بالدور بس لتسلّم عليه"
+  },
+  {
+   "id": "sultanaLama",
+   "name": "السلطانة لمى",
+   "rarity": "legendary",
+   "art": "ppl_princess",
+   "cuisine": "gulf",
+   "category": "drinks",
+   "source": "chest",
+   "skill": {
+    "type": "instantIncome",
+    "magnitude": 60,
+    "durationSec": 0,
+    "cooldownMin": 120,
+    "name": "كرم السلطانة"
+   },
+   "bio": "بتضيّف المدينة كلها قهوة وتمر، وبتقول: الكرم ما بيخلص"
+  },
+  {
+   "id": "sittiUmmKhalil",
+   "name": "ستّي أم خليل",
+   "rarity": "legendary",
+   "art": "ppl_old_woman",
+   "cuisine": "palestinian",
+   "category": "any",
+   "source": "story",
+   "skill": {
+    "type": "allBoost",
+    "magnitude": 3,
+    "durationSec": 300,
+    "cooldownMin": 60,
+    "name": "عزومة ستّي"
+   },
+   "bio": "صاحبة الوصفة الأصليّة، وصاحبة أحلى ضحكة بالحارة"
+  },
+  {
+   "id": "abuSubhiOG",
+   "name": "أبو صبحي الأوّلاني",
+   "rarity": "legendary",
+   "art": "ppl_older_person",
+   "cuisine": "palestinian",
+   "category": "fried",
+   "source": "legacy",
+   "skill": {
+    "type": "categoryBoost",
+    "value": "fried",
+    "magnitude": 6,
+    "durationSec": 240,
+    "cooldownMin": 45,
+    "name": "قلية زمان"
+   },
+   "bio": "كان معك من أوّل بسطة، وما نسي ولا زبون"
+  },
+  {
+   "id": "sAbuJiries",
+   "name": "أبو جريس الشتوي",
+   "rarity": "epic",
+   "art": "ppl_beard",
+   "cuisine": "palestinian",
+   "category": "street",
+   "source": "season",
+   "seasonThemeIndex": 0,
+   "skill": {
+    "type": "cuisineBoost",
+    "value": "palestinian",
+    "magnitude": 4,
+    "durationSec": 240,
+    "cooldownMin": 50,
+    "name": "كانون الشتا"
+   },
+   "bio": "الكستنا عنده بتفرقع عالنار، وبتدفّي القلب قبل الإيدين"
+  },
+  {
+   "id": "sUmmZaatar",
+   "name": "أم زعتر",
+   "rarity": "epic",
+   "art": "ppl_woman_farmer",
+   "cuisine": "levantine",
+   "category": "bakery",
+   "source": "season",
+   "seasonThemeIndex": 1,
+   "skill": {
+    "type": "categoryBoost",
+    "value": "bakery",
+    "magnitude": 5,
+    "durationSec": 180,
+    "cooldownMin": 45,
+    "name": "زعتر الجبل"
+   },
+   "bio": "بتقطف الزعتر مع طلعة الشمس، وبتخبز قبل ما تصحى الحارة"
+  },
+  {
+   "id": "sRayyesBahri",
+   "name": "الريّس بحري",
+   "rarity": "epic",
+   "art": "ppl_old_man",
+   "cuisine": "palestinian",
+   "category": "seafood",
+   "source": "season",
+   "seasonThemeIndex": 2,
+   "skill": {
+    "type": "instantIncome",
+    "magnitude": 20,
+    "durationSec": 0,
+    "cooldownMin": 60,
+    "name": "شبكة الريّس"
+   },
+   "bio": "بيقرا البحر زي الجريدة، وبيعرف وين السمك مخبّى"
+  },
+  {
+   "id": "sAbuZeit",
+   "name": "أبو زيت",
+   "rarity": "epic",
+   "art": "ppl_man_farmer",
+   "cuisine": "palestinian",
+   "category": "dishes",
+   "source": "season",
+   "seasonThemeIndex": 3,
+   "skill": {
+    "type": "categoryBoost",
+    "value": "dishes",
+    "magnitude": 5,
+    "durationSec": 180,
+    "cooldownMin": 45,
+    "name": "أوّل عصرة"
+   },
+   "bio": "زيته من الشجر الرومي، وكل نقطة فيها حكاية"
+  },
+  {
+   "id": "sSuhair",
+   "name": "سهير",
+   "rarity": "epic",
+   "art": "ppl_singer",
+   "cuisine": "levantine",
+   "category": "drinks",
+   "source": "season",
+   "seasonThemeIndex": 4,
+   "skill": {
+    "type": "frenzy",
+    "magnitude": 5,
+    "durationSec": 60,
+    "cooldownMin": 40,
+    "name": "موّال السهرة"
+   },
+   "bio": "بتغنّي عالبسطة، والناس بتوقف تسمع وبتطلب كمان"
+  },
+  {
+   "id": "sUmmAlArsan",
+   "name": "أم العرسان",
+   "rarity": "epic",
+   "art": "ppl_woman_headscarf",
+   "cuisine": "levantine",
+   "category": "sweets",
+   "source": "season",
+   "seasonThemeIndex": 5,
+   "skill": {
+    "type": "categoryBoost",
+    "value": "sweets",
+    "magnitude": 5,
+    "durationSec": 180,
+    "cooldownMin": 45,
+    "name": "زغرودة"
+   },
+   "bio": "ما في عرس بالحارة بدونها وبدون صدر الكنافة تبعها"
+  },
+  {
+   "id": "sRahhal",
+   "name": "رحّال",
+   "rarity": "epic",
+   "art": "ppl_pilot",
+   "cuisine": "world",
+   "category": "street",
+   "source": "season",
+   "seasonThemeIndex": 6,
+   "skill": {
+    "type": "spawnSpecial",
+    "magnitude": 1,
+    "durationSec": 0,
+    "cooldownMin": 30,
+    "name": "طيّارة زباين"
+   },
+   "bio": "بيجيب زباين من كل مطارات الدنيا لبسطتك"
+  },
+  {
+   "id": "sBintSitti",
+   "name": "بنت ستّي",
+   "rarity": "epic",
+   "art": "ppl_girl",
+   "cuisine": "palestinian",
+   "category": "sweets",
+   "source": "season",
+   "seasonThemeIndex": 7,
+   "skill": {
+    "type": "cuisineBoost",
+    "value": "palestinian",
+    "magnitude": 4,
+    "durationSec": 240,
+    "cooldownMin": 50,
+    "name": "دلع ستّي"
+   },
+   "bio": "تعلّمت الحلو على إيدين ستّي، وصارت تنافسها"
+  }
+ ],
+ "chests": [
+  {
+   "id": "wood",
+   "name": "صندوق خشب",
+   "art": "ui_gift",
+   "stacks": 3,
+   "cards": 8,
+   "goldMin": 2,
+   "goldMax": 5,
+   "odds": {
+    "common": 0.8,
+    "rare": 0.18,
+    "epic": 0.02,
+    "legendary": 0.0
+   },
+   "price": 50
+  },
+  {
+   "id": "silver",
+   "name": "صندوق فضّة",
+   "art": "ui_gift",
+   "stacks": 4,
+   "cards": 20,
+   "goldMin": 8,
+   "goldMax": 20,
+   "odds": {
+    "common": 0.62,
+    "rare": 0.3,
+    "epic": 0.075,
+    "legendary": 0.005
+   },
+   "guarantee": "rare",
+   "price": 150
+  },
+  {
+   "id": "gold",
+   "name": "صندوق ذهب",
+   "art": "ui_gift",
+   "stacks": 5,
+   "cards": 45,
+   "goldMin": 25,
+   "goldMax": 50,
+   "odds": {
+    "common": 0.45,
+    "rare": 0.37,
+    "epic": 0.15,
+    "legendary": 0.03
+   },
+   "guarantee": "epic",
+   "price": 400
+  }
+ ],
+ "rules": {
+  "rarityBase": {
+   "common": 0.25,
+   "rare": 0.5,
+   "epic": 1.0,
+   "legendary": 2.0
+  },
+  "perLevel": 0.25,
+  "maxLevel": 10,
+  "bothMatchFactor": 1.5,
+  "cardsToLevel": {
+   "common": [
+    2,
+    4,
+    8,
+    15,
+    25,
+    40,
+    60,
+    90,
+    130
+   ],
+   "rare": [
+    2,
+    3,
+    6,
+    10,
+    16,
+    25,
+    36,
+    50,
+    70
+   ],
+   "epic": [
+    1,
+    2,
+    4,
+    6,
+    9,
+    13,
+    18,
+    24,
+    32
+   ],
+   "legendary": [
+    1,
+    1,
+    2,
+    3,
+    4,
+    6,
+    8,
+    10,
+    13
+   ]
+  },
+  "goldToLevel": [
+   5,
+   10,
+   20,
+   35,
+   50,
+   75,
+   100,
+   150,
+   200
+  ],
+  "surplusGold": {
+   "common": 1,
+   "rare": 3,
+   "epic": 8,
+   "legendary": 20
+  },
+  "slotsByLevel": [
+   {
+    "level": 4,
+    "slots": 1
+   },
+   {
+    "level": 8,
+    "slots": 2
+   },
+   {
+    "level": 15,
+    "slots": 3
+   },
+   {
+    "level": 25,
+    "slots": 4
+   },
+   {
+    "level": 40,
+    "slots": 5
+   },
+   {
+    "level": 60,
+    "slots": 6
+   }
+  ],
+  "pity": {
+   "legendaryAfterChests": 12,
+   "epicAfterSilver": 5
+  },
+  "newChefStackChance": 0.35,
+  "stackWeights": {
+   "common": 1.0,
+   "rare": 0.5,
+   "epic": 0.2,
+   "legendary": 0.08
+  },
+  "dailyStall": [
+   {
+    "slot": 1,
+    "rarity": "common",
+    "cards": 10,
+    "price": 20
+   },
+   {
+    "slot": 2,
+    "rarity": "rare",
+    "cards": 5,
+    "price": 40
+   },
+   {
+    "slot": 3,
+    "rarity": "epic",
+    "cards": 2,
+    "price": 80,
+    "weekdays": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     7
+    ]
+   },
+   {
+    "slot": 3,
+    "rarity": "legendary",
+    "cards": 1,
+    "price": 150,
+    "weekdays": [
+     6
+    ]
+   }
+  ]
+ }
+}

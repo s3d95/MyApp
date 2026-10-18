@@ -3,7 +3,7 @@ import Foundation
 /// Data-driven first-time experience (GDD 6.18, ftue.json).
 extension GameStore {
     /// Steps whose systems exist in this build; the others are skipped.
-    static let ftueSupported: Set<Int> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 14, 15, 16, 19]
+    static let ftueSupported: Set<Int> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19]
 
     var ftueStep: FtueStepDef? {
         guard !s.ftue.done else { return nil }
@@ -33,6 +33,10 @@ extension GameStore {
                 vaultCollectedFlag = false
                 if let f = step.forceSpecialOutcome, let o = SpecialOutcome(rawValue: f), special == nil {
                     spawnSpecial(forced: o)
+                }
+                if step.complete.type == "chefEquipped" && !s.chefs.ftueChestGiven {
+                    s.chefs.ftueChestGiven = true
+                    addChest("wood")
                 }
             }
             guard ftueCompleteMet(step) else { return }
@@ -66,7 +70,7 @@ extension GameStore {
             return s.city.cash >= v
         case "cashForNextLevel":
             guard let i = ftueStation(c.id) else { return true }
-            return s.city.cash >= Rules.cost(row(i), scale: scale, level: s.city.stations[i].level, count: 1)
+            return s.city.cash >= Rules.cost(row(i), scale: stationCostScale, level: s.city.stations[i].level, count: 1)
         case "levelReached":
             return level >= Int(v)
         case "managerAffordable":
@@ -121,9 +125,26 @@ extension GameStore {
             return tab == .map && s.ftue.bubbleClosed
         case "graduated":
             return s.stats.graduations > 0
+        case "researchStarted":
+            let id = c.id ?? ""
+            return s.research.started > 0 || researchLevel(id) > 0 || nodeBusy(id)
+        case "runSent":
+            return s.supply.sent > 0
+        case "chefEquipped":
+            return isEquipped(c.id ?? "") || (!s.chefs.equipped.isEmpty && s.chefs.ftueChestOpened)
         default:
             return true
         }
+    }
+
+    /// Anchors for steps that walk through several screens (the chef step), else the step's own list.
+    func ftueAnchors(_ step: FtueStepDef) -> [String] {
+        guard step.complete.type == "chefEquipped" else { return step.anchors }
+        let id = step.complete.id ?? "samiFryer"
+        if tab != .chefs && sheet == nil && modals.isEmpty { return ["tab.chefs"] }
+        if !s.chefs.ftueChestOpened { return ["chest.free"] }
+        if case .chefPicker? = sheet { return ["chef.pick." + id] }
+        return ["chef.slot.0"]
     }
 
     /// True when the step only shows a bubble (no blocking overlay).

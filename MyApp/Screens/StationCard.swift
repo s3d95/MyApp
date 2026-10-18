@@ -51,7 +51,7 @@ struct OpenStationCard: View {
                     }
                     TwistChips(i: i)
                 }
-                Text("مستوى " + Num.int(st.level) + "/" + Num.int(store.cap))
+                Text("مستوى " + Num.frac(st.level, store.cap))
                     .font(.body(11, bold: true))
                     .foregroundColor(Brand.cream.opacity(0.75))
                 milestoneBar(st: st)
@@ -80,7 +80,7 @@ struct OpenStationCard: View {
         let label: String
         if let n = next {
             frac = Double(st.level - prev) / Double(max(1, n - prev))
-            label = Num.int(st.level) + "/" + Num.int(n) + " " + (store.milestoneIsSpeed(i, count: store.stationMilestones(i) + 1) ? "سرعة ×2" : "ربح ×2")
+            label = Num.frac(st.level, n) + " " + (store.milestoneIsSpeed(i, count: store.stationMilestones(i) + 1) ? "سرعة ×2" : "ربح ×2")
         } else {
             frac = 1
             label = "كل المراحل"

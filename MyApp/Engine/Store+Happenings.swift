@@ -10,16 +10,18 @@ extension GameStore {
         if s.boosts.contains(where: { $0.left <= 0 }) { s.boosts.removeAll { $0.left <= 0 } }
     }
 
-    func addBoost(_ kind: String, mult: Double, seconds: Double) {
+    func addBoost(_ kind: String, mult: Double, seconds: Double, scope: String = "") {
         if let i = s.boosts.firstIndex(where: { $0.kind == kind }) {
             s.boosts[i].left = max(s.boosts[i].left, seconds)
             s.boosts[i].mult = mult
+            s.boosts[i].scope = scope
         } else {
-            s.boosts.append(BoostSave(kind: kind, mult: mult, left: seconds))
+            s.boosts.append(BoostSave(kind: kind, mult: mult, left: seconds, scope: scope))
         }
     }
 
     func boostName(_ kind: String) -> String {
+        if kind.hasPrefix("skill."), let c = cat.chef(String(kind.dropFirst(6))) { return t(c.name) }
         switch kind {
         case "frenzy": return "عجقة زباين"
         case "critic": return "ناقد طعام"
@@ -29,6 +31,7 @@ extension GameStore {
     }
 
     func boostArt(_ kind: String) -> String {
+        if kind.hasPrefix("skill."), let c = cat.chef(String(kind.dropFirst(6))) { return c.art }
         switch kind {
         case "frenzy": return "ui_fire"
         case "critic": return "ui_memo"
@@ -38,6 +41,11 @@ extension GameStore {
     }
 
     // MARK: Special customers
+
+    /// Research "زبون مبسوط" and the Bethlehem mother-of-pearl set.
+    var specialRewardMult: Double {
+        (1 + researchValue("specialRewardPct")) * (1 + heritageBonus("specialRewardPct"))
+    }
 
     var specialAllowed: Bool {
         unlocked("specials") && (s.ftue.done || s.ftue.step > 10)
@@ -96,11 +104,11 @@ extension GameStore {
         s.stats.specials += 1
         specialTappedFlag = true
         addXP(econ.xp.special)
-        let inc = totalIncome(active: false)
+        let inc = totalIncome(active: false) * specialRewardMult
         if sp.vipTier > 0, let p = twist(.vipLounge) {
             let lv = loungeIndex.map { s.city.stations[$0].level } ?? 0
             if lv >= sp.vipTier * p.levelPerTier {
-                let amount = p.vipTipMin * Double(sp.vipTier) * 60 * inc
+                let amount = p.vipTipMin * Double(sp.vipTier) * 60 * inc * (1 + researchValue("happeningRewardPct"))
                 credit(amount, station: nil, at: now())
                 s.city.counters["vipServed", default: 0] += 1
                 Feedback.play(.t1, fromAnchor: "special", art: city.currency.art, to: "pill.cash", amount: amount,
@@ -118,7 +126,7 @@ extension GameStore {
             Feedback.play(.t1, fromAnchor: "special", art: city.currency.art, to: "pill.cash", amount: amount,
                           label: "زبون كريم! +" + Num.big(amount))
         case .frenzy:
-            addBoost("frenzy", mult: econ.boosts.frenzyMult, seconds: econ.boosts.frenzySec)
+            addBoost("frenzy", mult: econ.boosts.frenzyMult, seconds: econ.boosts.frenzySec + researchValue("frenzySec"))
             Feedback.play(.t2)
             showToast("عجقة زباين! الدخل " + Num.mult(econ.boosts.frenzyMult), art: "ui_fire")
         case .critic:

@@ -24,6 +24,10 @@ struct SheetLayer: View {
         case .branch(let id): BranchSheet(cityId: id)
         case .teaser(let tab): TeaserSheet(tab: tab)
         case .twist: TwistSheet()
+        case .chef(let id): ChefDetailSheet(chefId: id)
+        case .chefPicker: ChefPickerSheet()
+        case .research: ResearchSheet()
+        case .supply: SupplySheet()
         }
     }
 }
@@ -105,7 +109,7 @@ struct GoalsSheet: View {
         GameModal(title: "أهداف " + store.t(store.city.name), onClose: { closeSheet(store) }) {
             VStack(spacing: 4) {
                 FancyBar(value: Double(store.s.city.stars) / Double(max(1, store.starsNeeded)), tint: Brand.gold, height: 16,
-                         label: "★ " + Num.int(store.s.city.stars) + " / " + Num.int(store.starsNeeded) + " للفرع")
+                         label: "★ " + Num.frac(store.s.city.stars, store.starsNeeded) + " للفرع")
                 if let n = store.nextCity {
                     Text(licenceText(n))
                         .font(.body(11, bold: true))
@@ -195,7 +199,7 @@ struct ProfileSheet: View {
                                 .font(.game(18, .black))
                                 .foregroundColor(Brand.goldLight)
                             FancyBar(value: store.xpProgress, tint: Brand.teal, height: 14,
-                                     label: Num.int(store.s.empire.xp) + "/" + Num.int(store.xpNeed(store.level)) + " خبرة")
+                                     label: Num.frac(store.s.empire.xp, store.xpNeed(store.level)) + " خبرة")
                         }
                     }
                     statsGrid
@@ -461,7 +465,7 @@ struct BranchSheet: View {
                 ArtIcon(c?.landmarkArt ?? "bld_mosque", size: 76)
                 if b.crowned { ArtIcon("ui_crown", size: 36).offset(y: -58) }
             }
-            Text("مستوى الفرع " + Num.int(b.level) + "/" + Num.int(store.econ.branches.maxLevel))
+            Text("مستوى الفرع " + Num.frac(b.level, store.econ.branches.maxLevel))
                 .font(.game(18, .black))
                 .foregroundColor(Brand.goldLight)
             VStack(spacing: 3) {

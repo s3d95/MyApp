@@ -37,9 +37,8 @@ struct GoalChip: View {
                     .font(.body(10, bold: true))
                     .foregroundColor(Brand.cream)
                     .lineLimit(2)
-                    .minimumScaleFactor(0.75)
-                    .fixedSize(horizontal: false, vertical: true)
-                Spacer(minLength: 0)
+                    .minimumScaleFactor(0.7)
+                    .frame(maxWidth: .infinity, minHeight: 30, alignment: .leading)
             }
             if done {
                 Button {
@@ -67,7 +66,7 @@ struct GoalChip: View {
             }
         }
         .padding(6)
-        .frame(maxWidth: .infinity, minHeight: 64)
+        .frame(maxWidth: .infinity, minHeight: 70)
         .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Color.black.opacity(0.35)))
         .overlay(RoundedRectangle(cornerRadius: 12, style: .continuous)
             .stroke(done ? Brand.gold : Brand.gold.opacity(0.2), lineWidth: done ? 2 : 1))

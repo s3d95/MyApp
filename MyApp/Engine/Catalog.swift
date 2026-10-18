@@ -267,11 +267,13 @@ struct Reward: Decodable {
     var id: String? = nil
     var amount: Double = 1
     var value: Double? = nil
+    var rarity: String? = nil
 
-    init(type: String, id: String? = nil, amount: Double = 1) {
+    init(type: String, id: String? = nil, amount: Double = 1, rarity: String? = nil) {
         self.type = type
         self.id = id
         self.amount = amount
+        self.rarity = rarity
     }
 
     init(from decoder: Decoder) throws {
@@ -280,6 +282,7 @@ struct Reward: Decodable {
         id = c.opt("id")
         amount = c.dbl("amount", 1)
         value = c.dblOpt("value")
+        rarity = c.opt("rarity")
     }
 }
 
@@ -795,11 +798,24 @@ final class Catalog {
     let levels: LevelsDef
     let story: StoryDef
     let ftue: FtueDef
+    let chefs: ChefsFile
+    let research: ResearchFile
+    let vehicles: VehiclesFile
+    let heritage: HeritageFile
     private let scenesById: [String: SceneDef]
+    private let chefsById: [String: ChefDef]
     private let castById: [String: CastDef]
 
-    init(economy: EconomyDef, cities: [CityDef], levels: LevelsDef, story: StoryDef, ftue: FtueDef) {
+    init(economy: EconomyDef, cities: [CityDef], levels: LevelsDef, story: StoryDef, ftue: FtueDef, chefs: ChefsFile,
+         research: ResearchFile, vehicles: VehiclesFile, heritage: HeritageFile) {
         self.economy = economy
+        self.chefs = chefs
+        self.research = research
+        self.vehicles = vehicles
+        self.heritage = heritage
+        var byId: [String: ChefDef] = [:]
+        for c in chefs.chefs { byId[c.id] = c }
+        chefsById = byId
         self.cities = cities.sorted { $0.index < $1.index }
         self.levels = levels
         self.story = story
@@ -821,7 +837,12 @@ final class Catalog {
         let levels: LevelsDef = decode("levels") ?? LevelsDef()
         let story: StoryDef = decode("story") ?? StoryDef()
         let ftue: FtueDef = decode("ftue") ?? FtueDef()
-        return Catalog(economy: economy, cities: cities.cities, levels: levels, story: story, ftue: ftue)
+        let chefs: ChefsFile = decode("chefs") ?? ChefsFile()
+        let research: ResearchFile = decode("research") ?? ResearchFile()
+        let vehicles: VehiclesFile = decode("vehicles") ?? VehiclesFile()
+        let heritage: HeritageFile = decode("heritage") ?? HeritageFile()
+        return Catalog(economy: economy, cities: cities.cities, levels: levels, story: story, ftue: ftue, chefs: chefs,
+                       research: research, vehicles: vehicles, heritage: heritage)
     }
 
     private static func decode<T: Decodable>(_ name: String) -> T? {
@@ -841,6 +862,16 @@ final class Catalog {
     func chapter(cityId: String) -> ChapterDef? { story.chapters.first { $0.cityId == cityId } }
 
     func levelRow(_ level: Int) -> LevelRow? { levels.levels.first { $0.level == level } }
+
+    func chef(_ id: String) -> ChefDef? { chefsById[id] }
+
+    func chest(_ id: String) -> ChestDef? { chefs.chests.first { $0.id == id } }
+
+    func node(_ id: String) -> ResearchNodeDef? { research.nodes.first { $0.id == id } }
+
+    func vehicle(_ id: String) -> VehicleDef? { vehicles.vehicles.first { $0.id == id } }
+
+    func item(_ id: String) -> HeritageItemDef? { heritage.items.first { $0.id == id } }
 }
 
 struct CitiesFile: Decodable {
@@ -861,5 +892,182 @@ extension Color {
         if s.hasPrefix("#") { s.removeFirst() }
         let v = UInt32(s, radix: 16) ?? 0x33172E
         self.init(hex: v)
+    }
+}
+
+// MARK: - Chefs and chests (chefs.json)
+
+enum Rarity: String, CaseIterable {
+    case common, rare, epic, legendary
+
+    var rank: Int {
+        switch self {
+        case .common: return 0
+        case .rare: return 1
+        case .epic: return 2
+        case .legendary: return 3
+        }
+    }
+
+    var name: String {
+        switch self {
+        case .common: return "عادي"
+        case .rare: return "نادر"
+        case .epic: return "ملحمي"
+        case .legendary: return "أسطوري"
+        }
+    }
+}
+
+struct SkillDef: Decodable {
+    var type = ""
+    var value: String? = nil
+    var magnitude: Double = 2
+    var durationSec: Double = 180
+    var cooldownMin: Double = 45
+    var name = GText("")
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        type = c.v("type", "")
+        value = c.opt("value")
+        magnitude = c.dbl("magnitude", magnitude)
+        durationSec = c.dbl("durationSec", durationSec)
+        cooldownMin = c.dbl("cooldownMin", cooldownMin)
+        name = c.v("name", GText(""))
+    }
+}
+
+struct ChefDef: Decodable, Identifiable {
+    var id = ""
+    var name = GText("")
+    var rarityRaw = "common"
+    var art = "ppl_cook"
+    var cuisine = ""
+    var category = ""
+    var source = "chest"
+    var skill: SkillDef? = nil
+    var bio = GText("")
+
+    var rarity: Rarity { Rarity(rawValue: rarityRaw) ?? .common }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        id = c.v("id", "")
+        name = c.v("name", GText(id))
+        rarityRaw = c.v("rarity", "common")
+        art = c.v("art", art)
+        cuisine = c.v("cuisine", "")
+        category = c.v("category", "")
+        source = c.v("source", "chest")
+        skill = c.opt("skill")
+        bio = c.v("bio", GText(""))
+    }
+}
+
+struct ChestDef: Decodable, Identifiable {
+    var id = "wood"
+    var name = GText("صندوق")
+    var art = "ui_gift"
+    var stacks = 3
+    var cards = 8
+    var goldMin = 2
+    var goldMax = 5
+    var odds: [String: Double] = [:]
+    var guarantee: String? = nil
+    var price = 50
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        id = c.v("id", id)
+        name = c.v("name", name)
+        art = c.v("art", art)
+        stacks = c.int("stacks", stacks)
+        cards = c.int("cards", cards)
+        goldMin = c.int("goldMin", goldMin)
+        goldMax = c.int("goldMax", goldMax)
+        odds = c.v("odds", odds)
+        guarantee = c.opt("guarantee")
+        price = c.int("price", price)
+    }
+}
+
+struct StallOfferDef: Decodable {
+    var slot = 1
+    var rarity = "common"
+    var cards = 10
+    var price = 20
+    var weekdays: [Int] = []
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        slot = c.int("slot", slot)
+        rarity = c.v("rarity", rarity)
+        cards = c.int("cards", cards)
+        price = c.int("price", price)
+        weekdays = c.v("weekdays", [])
+    }
+}
+
+struct SlotRow: Decodable {
+    var level = 4
+    var slots = 1
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        level = c.int("level", level)
+        slots = c.int("slots", slots)
+    }
+}
+
+struct ChefRulesDef: Decodable {
+    var rarityBase: [String: Double] = ["common": 0.25, "rare": 0.5, "epic": 1, "legendary": 2]
+    var perLevel: Double = 0.25
+    var maxLevel = 10
+    var bothMatchFactor: Double = 1.5
+    var cardsToLevel: [String: [Int]] = [:]
+    var goldToLevel: [Int] = [5, 10, 20, 35, 50, 75, 100, 150, 200]
+    var surplusGold: [String: Int] = ["common": 1, "rare": 3, "epic": 8, "legendary": 20]
+    var slotsByLevel: [SlotRow] = []
+    var pityLegendary = 12
+    var pityEpicSilver = 5
+    var newChefStackChance: Double = 0.35
+    var stackWeights: [String: Double] = ["common": 1, "rare": 0.5, "epic": 0.2, "legendary": 0.08]
+    var dailyStall: [StallOfferDef] = []
+
+    init() {}
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        rarityBase = c.v("rarityBase", rarityBase)
+        perLevel = c.dbl("perLevel", perLevel)
+        maxLevel = c.int("maxLevel", maxLevel)
+        bothMatchFactor = c.dbl("bothMatchFactor", bothMatchFactor)
+        cardsToLevel = c.v("cardsToLevel", cardsToLevel)
+        goldToLevel = c.v("goldToLevel", goldToLevel)
+        surplusGold = c.v("surplusGold", surplusGold)
+        slotsByLevel = c.v("slotsByLevel", [])
+        if let pity = try? c.nestedContainer(keyedBy: AnyKey.self, forKey: AnyKey("pity")) {
+            pityLegendary = pity.int("legendaryAfterChests", pityLegendary)
+            pityEpicSilver = pity.int("epicAfterSilver", pityEpicSilver)
+        }
+        newChefStackChance = c.dbl("newChefStackChance", newChefStackChance)
+        stackWeights = c.v("stackWeights", stackWeights)
+        dailyStall = c.v("dailyStall", [])
+    }
+}
+
+struct ChefsFile: Decodable {
+    var chefs: [ChefDef] = []
+    var chests: [ChestDef] = []
+    var rules = ChefRulesDef()
+
+    init() {}
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        chefs = c.v("chefs", [])
+        chests = c.v("chests", [])
+        rules = c.v("rules", ChefRulesDef())
     }
 }
