@@ -40,6 +40,9 @@ struct TasksScreen: View {
     private var today: some View {
         VStack(spacing: 10) {
             StreakCard()
+            ForEach(store.activeFestivals) { f in
+                FestivalCard(festival: f)
+            }
             if store.marketOn {
                 MarketCard()
             }

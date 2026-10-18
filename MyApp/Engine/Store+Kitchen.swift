@@ -70,6 +70,7 @@ extension GameStore {
         var m = 1.0
         for b in s.boosts where b.left > 0 && b.scope.isEmpty { m *= b.mult }
         if isRushHour { m *= econ.boosts.rushHourMult + researchValue("rushHourAdd") }
+        m *= festivalActiveMult
         return min(econ.boosts.activeCap, m)
     }
 
@@ -85,7 +86,8 @@ extension GameStore {
     var isRushHour: Bool {
         guard unlocked("rushHours") else { return false }
         let h = Clock.hourMinute(now()).h
-        return econ.boosts.rushWindows.contains { $0.count == 2 && h >= $0[0] && h < $0[1] }
+        let skipDinner = ramadan
+        return econ.boosts.rushWindows.contains { $0.count == 2 && h >= $0[0] && h < $0[1] && !(skipDinner && $0[0] >= 17) }
     }
 
     func profitMult(_ i: Int, at t: Double, active: Bool) -> Double {

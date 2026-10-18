@@ -280,6 +280,10 @@ struct HappeningsSave: Codable {
     var karmaClaimed: [Int] = []
     var flags: [String] = []
     var playSeconds: Double = 0
+    var inspectorAt: Double = 0
+    var inspectorVisits = 0
+    var specialTimes: [Double] = []
+    var lastVaultCollect: Double = 0
 }
 
 struct LeagueSave: Codable {
@@ -326,6 +330,76 @@ extension SeasonSave {
     }
 }
 
+struct SideKitchenSave: Codable {
+    var defId = ""
+    var kind = "contract"
+    var stations: [StationState] = []
+    var cash: Double = 20
+    var lifetime: Double = 0
+    var upgrades: [Int] = []
+    var startAt: Double = 0
+    var endAt: Double = 0
+    var grade = 1
+    var reached = 0
+}
+
+extension SideKitchenSave {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        defId = c.v("defId", defId)
+        kind = c.v("kind", kind)
+        stations = c.v("stations", stations)
+        cash = c.dbl("cash", cash)
+        lifetime = c.dbl("lifetime", lifetime)
+        upgrades = c.v("upgrades", upgrades)
+        startAt = c.dbl("startAt", startAt)
+        endAt = c.dbl("endAt", endAt)
+        grade = c.int("grade", grade)
+        reached = c.int("reached", reached)
+    }
+}
+
+struct ContractsSave: Codable {
+    var active: [SideKitchenSave] = []
+    var startedReleases: [String] = []
+    var zaatarIds: [String] = []
+}
+
+extension ContractsSave {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        active = c.v("active", active)
+        startedReleases = c.v("startedReleases", startedReleases)
+        zaatarIds = c.v("zaatarIds", zaatarIds)
+    }
+}
+
+struct EventSave: Codable {
+    var week = 0
+    var themeId = ""
+    var kitchen: SideKitchenSave? = nil
+    var tokens = 0
+    var shop: [String: Int] = [:]
+    var finals: [Double] = []
+    var finishedWeek = -1
+}
+
+extension EventSave {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        week = c.int("week", week)
+        themeId = c.v("themeId", themeId)
+        kitchen = c.opt("kitchen")
+        tokens = c.int("tokens", tokens)
+        shop = c.v("shop", shop)
+        finals = c.v("finals", finals)
+        finishedWeek = c.int("finishedWeek", finishedWeek)
+    }
+}
+
 struct RushSave: Codable {
     var best: [String: Int] = [:]
     var rounds = 0
@@ -359,6 +433,10 @@ extension HappeningsSave {
         karmaClaimed = c.v("karmaClaimed", karmaClaimed)
         flags = c.v("flags", flags)
         playSeconds = c.dbl("playSeconds", playSeconds)
+        inspectorAt = c.dbl("inspectorAt", inspectorAt)
+        inspectorVisits = c.int("inspectorVisits", inspectorVisits)
+        specialTimes = c.v("specialTimes", specialTimes)
+        lastVaultCollect = c.dbl("lastVaultCollect", lastVaultCollect)
     }
 }
 
@@ -628,6 +706,7 @@ struct DailySave: Codable {
     var repairProgress = 0
     var orderCounter = 0
     var marketGiftDay = 0
+    var festivalClaims: [String: Int] = [:]
 }
 
 extension DailySave {
@@ -654,6 +733,7 @@ extension DailySave {
         repairProgress = c.int("repairProgress", repairProgress)
         orderCounter = c.int("orderCounter", orderCounter)
         marketGiftDay = c.int("marketGiftDay", marketGiftDay)
+        festivalClaims = c.v("festivalClaims", festivalClaims)
     }
 }
 
@@ -679,6 +759,8 @@ struct GameSave: Codable {
     var rush = RushSave()
     var league = LeagueSave()
     var season = SeasonSave()
+    var contracts = ContractsSave()
+    var event = EventSave()
     var achievements: [String: Int] = [:]
 
     static let key = "basta.save.v3"
@@ -711,6 +793,8 @@ extension GameSave {
         rush = c.v("rush", rush)
         league = c.v("league", league)
         season = c.v("season", season)
+        contracts = c.v("contracts", contracts)
+        event = c.v("event", event)
         achievements = c.v("achievements", achievements)
     }
 

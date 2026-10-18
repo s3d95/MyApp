@@ -291,6 +291,47 @@ extension GameStore {
             s.daily.lastRolledDay = dayNum
             dailyRollover()
             tab = .tasks
+        case "contracts":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e8, level: 15)
+            sheet = .contracts
+        case "contract":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e8, level: 15)
+            if let rel = board.first { startContract(rel) }
+            if var k = s.contracts.active.first {
+                k.stations[0].level = 40
+                k.stations[0].managed = true
+                if k.stations.count > 1 { k.stations[1].level = 12 }
+                k.cash = 5_000
+                k.lifetime = 9e9
+                k.reached = 0
+                setSide(.contract(k.defId), k)
+                sheet = .side(.contract(k.defId))
+            }
+        case "event":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e8, level: 16)
+            if let th = themeFor(week: weekNum) {
+                s.event.week = weekNum
+                s.event.themeId = th.id
+                var k = newSideKitchen(defId: th.id, kind: "event", stations: th.stations.count, hours: 72)
+                k.stations[0].level = 30
+                k.stations[0].managed = true
+                k.lifetime = 2e6
+                k.reached = 2
+                s.event.kitchen = k
+                s.event.tokens = 40
+                sheet = .side(.event)
+            }
+        case "inspector":
+            demoKitchen()
+            s.empire.level = 18
+            let res = inspect()
+            modals = [.inspector(score: res.score, lines: res.lines, checks: res.checks.map { $0.name + ": " + String(format: "%.1f", $0.points) })]
+        case "festival":
+            demoKitchen()
+            s.empire.level = 12
+            s.daily.lastRolledDay = dayNum
+            dailyRollover()
+            tab = .tasks
         case "league":
             demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e8, level: 13)
             leagueRollover()

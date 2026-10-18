@@ -46,6 +46,8 @@ extension GameStore {
             guard let u = nextUpgrades.first else { return false }
             return upgradePrice(u) <= 30 * 60 * max(1, totalIncome(active: false))
         case "chefUpgradable": return anyChefCanLevel
+        case "activeContract": return !s.contracts.active.isEmpty
+        case "eventLive": return s.event.kitchen != nil
         case "starsRemaining": return supportedStars - s.city.stars >= 5
         default: return false
         }

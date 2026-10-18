@@ -96,8 +96,34 @@ struct RightRail: View {
                 }
                 .fxAnchor("rail.league")
             }
+            if store.unlocked("contracts") {
+                RailButton(icon: "ui_clipboard", label: contractsLabel, dot: store.contractsDot) {
+                    store.sheet = .contracts
+                }
+                .fxAnchor("rail.contracts")
+            }
+            if store.unlocked("events") {
+                RailButton(icon: eventArt, label: Num.dur(store.eventCountdown), dot: store.s.event.kitchen != nil) {
+                    if store.s.event.kitchen != nil {
+                        store.sheet = .side(.event)
+                    } else {
+                        store.showToast("مهرجان الويكند بيبلّش الخميس", art: "ui_party_popper")
+                    }
+                }
+                .fxAnchor("rail.event")
+            }
             Spacer(minLength: 0)
         }
         .padding(.top, 34)
+    }
+
+    private var contractsLabel: String {
+        if let k = store.s.contracts.active.first { return Num.frac(k.reached, 3) }
+        return "طلبيات"
+    }
+
+    private var eventArt: String {
+        if let th = store.cat.theme(store.s.event.themeId), store.s.event.kitchen != nil { return th.art }
+        return store.themeFor(week: store.weekNum)?.art ?? "ui_party_popper"
     }
 }

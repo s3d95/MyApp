@@ -143,14 +143,15 @@ extension GameStore {
 
     /// Category 10 for station i: market income modifiers × weather, capped ×5.
     func dayMult(_ i: Int) -> Double {
-        guard marketOn else { return 1 }
         let d = city.stations[i]
+        guard marketOn else { return min(econ.boosts.dayCap, festivalDayMult(d)) }
         var m = 1.0
         for e in marketEffects("incomeMult") where scopeMatches(e, d) { m *= e.mult }
         if twist(.weatherSwing) == nil, let w = globalWeather {
             if w == .hot && d.weather == "cold" { m *= 1.15 }
             if w == .cold && d.weather == "hot" { m *= 1.15 }
         }
+        m *= festivalDayMult(d)
         return min(econ.boosts.dayCap, m)
     }
 

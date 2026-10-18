@@ -30,6 +30,8 @@ struct SheetLayer: View {
         case .supply: SupplySheet()
         case .rushIntro: RushIntroSheet()
         case .league: LeagueSheet()
+        case .contracts: ContractsSheet()
+        case .side(let r): SideKitchenSheet(ref: r)
         }
     }
 }

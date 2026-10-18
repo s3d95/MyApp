@@ -61,7 +61,8 @@ enum BuyMode: Int {
 
 enum Sheet: Identifiable, Equatable {
     case upgrades, goals, profile, settings, branch(String), teaser(GameTab), twist, chef(String), chefPicker
-    case research, supply, rushIntro, league
+    case research, supply, rushIntro, league, contracts
+    case side(SideRef)
 
     var id: String {
         switch self {
@@ -78,6 +79,12 @@ enum Sheet: Identifiable, Equatable {
         case .supply: return "supply"
         case .rushIntro: return "rushIntro"
         case .league: return "league"
+        case .contracts: return "contracts"
+        case .side(let r):
+            switch r {
+            case .contract(let id): return "side.c." + id
+            case .event: return "side.event"
+            }
         }
     }
 }
@@ -118,6 +125,7 @@ enum Modal: Identifiable {
     case graduateConfirm
     case graduation(from: String, to: String)
     case chest(ChestResult)
+    case inspector(score: Double, lines: [RewardLine], checks: [String])
     case supply(SupplyResult)
     case rewards(title: String, lines: [RewardLine])
     case choice(String)
@@ -134,6 +142,7 @@ enum Modal: Identifiable {
         case .graduateConfirm: return "gradConfirm"
         case .graduation(let a, let b): return "grad." + a + b
         case .chest(let r): return "chest." + r.id.uuidString
+        case .inspector: return "inspector"
         case .supply(let r): return "supply." + r.id.uuidString
         case .rewards(let title, _): return "rewards." + title
         case .choice(let id): return "choice." + id
@@ -202,6 +211,8 @@ final class GameStore: ObservableObject {
     var chainSigma: [Double] = []
     var marketCacheDay = -1
     var marketCache: [MarketModDef] = []
+    var festCacheDay = -1
+    var festCache: [FestivalDef] = []
     var deliveryPaidFeedback: Double = 0
 
     init() {
@@ -365,6 +376,7 @@ final class GameStore: ObservableObject {
         tickChoices(dt: dt)
         if !s.meta.clockFrozen { accrueBranchSafe(until: t) }
         tickResearch(at: t)
+        advanceSides(dt: dt, foreground: true)
         tickTickets(at: t)
 
         if let o = oven, t >= o.deadline { collectOven(perfect: false) }
@@ -382,6 +394,10 @@ final class GameStore: ObservableObject {
             dailyRollover()
             leagueRollover()
             seasonRollover()
+            checkContracts()
+            eventTick()
+            checkEvent()
+            tickInspector()
             evaluateFtue()
             flushLevelUp()
         }

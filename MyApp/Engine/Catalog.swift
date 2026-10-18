@@ -830,6 +830,11 @@ final class Catalog {
     let market: MarketFile
     let season: SeasonFile
     let achievements: AchievementsFile
+    let contracts: ContractsFile
+    let events: EventsFile
+    let side: SideEconomyDef
+    let festivals: FestivalsFile
+    let inspector: InspectorFile
     private let scenesById: [String: SceneDef]
     private let chefsById: [String: ChefDef]
     private let castById: [String: CastDef]
@@ -837,8 +842,14 @@ final class Catalog {
     init(economy: EconomyDef, cities: [CityDef], levels: LevelsDef, story: StoryDef, ftue: FtueDef, chefs: ChefsFile,
          research: ResearchFile, vehicles: VehiclesFile, heritage: HeritageFile, quests: QuestsFile, calendar: CalendarFile,
          happenings: HappeningsFile, league: LeagueFile, market: MarketFile, season: SeasonFile,
-         achievements: AchievementsFile) {
+         achievements: AchievementsFile, contracts: ContractsFile, events: EventsFile, side: SideEconomyDef,
+         festivals: FestivalsFile, inspector: InspectorFile) {
         self.economy = economy
+        self.festivals = festivals
+        self.inspector = inspector
+        self.contracts = contracts
+        self.events = events
+        self.side = side
         self.season = season
         self.achievements = achievements
         self.market = market
@@ -885,10 +896,16 @@ final class Catalog {
         let market: MarketFile = decode("market") ?? MarketFile()
         let season: SeasonFile = decode("season") ?? SeasonFile()
         let achievements: AchievementsFile = decode("achievements") ?? AchievementsFile()
+        let contracts: ContractsFile = decode("contracts") ?? ContractsFile()
+        let events: EventsFile = decode("events") ?? EventsFile()
+        let side: SideEconomyDef = decode("economy") ?? SideEconomyDef()
+        let festivals: FestivalsFile = decode("festivals") ?? FestivalsFile()
+        let inspector: InspectorFile = decode("happenings") ?? InspectorFile()
         return Catalog(economy: economy, cities: cities.cities, levels: levels, story: story, ftue: ftue, chefs: chefs,
                        research: research, vehicles: vehicles, heritage: heritage, quests: quests, calendar: calendar,
                        happenings: happenings, league: league, market: market, season: season,
-                       achievements: achievements)
+                       achievements: achievements, contracts: contracts, events: events, side: side,
+                       festivals: festivals, inspector: inspector)
     }
 
     private static func decode<T: Decodable>(_ name: String) -> T? {
@@ -914,6 +931,10 @@ final class Catalog {
     func chest(_ id: String) -> ChestDef? { chefs.chests.first { $0.id == id } }
 
     func node(_ id: String) -> ResearchNodeDef? { research.nodes.first { $0.id == id } }
+
+    func contract(_ id: String) -> ContractDef? { contracts.contracts.first { $0.id == id } }
+
+    func theme(_ id: String) -> EventThemeDef? { events.themes.first { $0.id == id } }
 
     func vehicle(_ id: String) -> VehicleDef? { vehicles.vehicles.first { $0.id == id } }
 

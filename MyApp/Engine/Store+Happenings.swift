@@ -106,6 +106,8 @@ extension GameStore {
         s.stats.specials += 1
         bump("specials")
         rep("special")
+        s.happenings.specialTimes.append(now())
+        if s.happenings.specialTimes.count > 10 { s.happenings.specialTimes.removeFirst() }
         seasonPoint("special")
         specialTappedFlag = true
         addXP(econ.xp.special)

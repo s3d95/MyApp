@@ -67,6 +67,7 @@ extension GameStore {
         special = nil
         let window = min(gap, vaultCapHours * 3600)
         let vault = offlineIntegrate(start: start, window: window)
+        let sideLines = sideOffline(window: window)
         if let p = twist(.deliveryRuns) {
             s.city.twist.deliveryQueue = max(s.city.twist.deliveryQueue, min(3, p.queueMax))
         }
@@ -83,6 +84,7 @@ extension GameStore {
         if gap > window { lines.append("الخزنة بتوسع " + Num.dur(vaultCapHours * 3600) + " بس") }
         if canGraduate { lines.append("الرخصة جاهزة! فيك تفتح فرع وتنقل على " + t(nextCity?.name ?? GText(""))) }
         if !s.branches.isEmpty && safeFill >= 0.5 { lines.append("خزنة الفروع فيها " + Num.int(Int(s.branchSafe.stored)) + " ذهب") }
+        lines += sideLines
         let info = NewsInfo(away: gap, vault: vault, cityName: t(city.name), currency: currencyName,
                             doubleCost: cost, canDouble: vault > 0 && s.wallet.vaultDoubleDay != gameDay,
                             lines: lines, freshDoughMin: doughMin)
@@ -152,6 +154,7 @@ extension GameStore {
             amount *= 2
         }
         credit(amount, station: nil, at: now())
+        s.happenings.lastVaultCollect = now()
         if info.away >= 1800 {
             s.stats.vaultCollects += 1
             bump("vaultCollects")

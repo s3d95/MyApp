@@ -89,6 +89,10 @@ struct BannerLine: View {
         Group {
             if store.s.meta.clockFrozen {
                 banner("ساعة الجهاز رجعت لورا، الوقت موقّف لحد ما ترجع", color: Brand.red, art: "ui_alarm_clock")
+            } else if store.iftarNow {
+                banner("ساعة الإفطار! الدخل ×5", color: Brand.teal, art: "ui_crescent_moon")
+            } else if store.inspectorWarning {
+                banner("مفتّش البلدية جاي بعد " + Num.dur(store.s.happenings.inspectorAt - store.now()), color: Brand.wood, art: "ui_clipboard")
             } else if store.busWaiting {
                 banner("باص سيّاح وصل! استقبله من تحت", color: Brand.teal, art: "veh_bus")
             } else if store.isRushHour {

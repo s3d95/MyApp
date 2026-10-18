@@ -26,6 +26,7 @@ struct ModalLayer: View {
         case .graduateConfirm: GraduateConfirmModal()
         case .graduation(let from, let to): GraduationSequence(fromId: from, toId: to)
         case .chest(let r): ChestRevealModal(result: r)
+        case .inspector(let score, let lines, let checks): InspectorModal(score: score, lines: lines, checks: checks)
         case .supply(let r): SupplyRevealModal(result: r)
         case .rewards(let title, let lines): RewardsModal(title: title, lines: lines)
         case .choice(let id): ChoiceModal(rowId: id)

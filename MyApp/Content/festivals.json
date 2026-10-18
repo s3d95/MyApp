@@ -1,0 +1,317 @@
+{
+ "version": 1,
+ "sunsetRef": {
+  "lat": 31.78,
+  "lon": 35.23
+ },
+ "quietDates": [
+  "05-15"
+ ],
+ "festivals": [
+  {
+   "id": "ramadan",
+   "name": "رمضان",
+   "neutralName": "أيام البركة",
+   "art": "ui_crescent_moon",
+   "calendar": "hijri",
+   "start": {
+    "month": 9,
+    "day": 1
+   },
+   "end": {
+    "month": 9,
+    "day": 30
+   },
+   "eveDays": 1,
+   "extraEndDays": 0,
+   "effects": [],
+   "activeWindows": [
+    {
+     "kind": "iftar",
+     "startOffsetMin": -10,
+     "endOffsetMin": 80,
+     "mult": 5,
+     "replacesRushHour": "dinner"
+    },
+    {
+     "kind": "suhoor",
+     "startHour": 2,
+     "endHour": 4.5,
+     "mult": 2
+    }
+   ],
+   "collectible": {
+    "id": "lantern",
+    "name": "فانوس",
+    "art": "ui_lantern",
+    "count": 30,
+    "milestones": [
+     {
+      "count": 10,
+      "rewards": [
+       {
+        "type": "chest",
+        "amount": 1,
+        "id": "silver"
+       }
+      ]
+     },
+     {
+      "count": 20,
+      "rewards": [
+       {
+        "type": "gold",
+        "amount": 30
+       }
+      ]
+     },
+     {
+      "count": 30,
+      "rewards": [
+       {
+        "type": "cosmetic",
+        "amount": 1,
+        "id": "lightsRamadan"
+       }
+      ]
+     }
+    ]
+   },
+   "eventThemeId": "ramadanNights",
+   "happeningTag": "ramadan",
+   "storySceneId": "fest_ramadan",
+   "notificationQuiet": {
+    "start": "23:30",
+    "end": "10:00",
+    "streakRiskAt": "21:30"
+   }
+  },
+  {
+   "id": "eidFitr",
+   "name": "عيد الفطر",
+   "neutralName": "أيام البركة",
+   "art": "food_cookie",
+   "calendar": "hijri",
+   "start": {
+    "month": 10,
+    "day": 1
+   },
+   "end": {
+    "month": 10,
+    "day": 3
+   },
+   "eveDays": 1,
+   "extraEndDays": 1,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "all"
+     },
+     "mult": 1.5,
+     "layer": "day"
+    }
+   ],
+   "dailyClaim": [
+    {
+     "type": "gold",
+     "amount": 15
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    }
+   ],
+   "eventThemeId": "eidSweets",
+   "happeningTag": "eidFitr",
+   "storySceneId": "fest_eidFitr"
+  },
+  {
+   "id": "eidAdha",
+   "name": "عيد الأضحى",
+   "neutralName": "أيام البركة",
+   "art": "ani_sheep",
+   "calendar": "hijri",
+   "start": {
+    "month": 12,
+    "day": 10
+   },
+   "end": {
+    "month": 12,
+    "day": 13
+   },
+   "eveDays": 1,
+   "extraEndDays": 1,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "all"
+     },
+     "mult": 1.5,
+     "layer": "day"
+    }
+   ],
+   "dailyClaim": [
+    {
+     "type": "gold",
+     "amount": 15
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    }
+   ],
+   "eventThemeId": "eidFeast",
+   "happeningTag": "eidAdha",
+   "storySceneId": "fest_eidAdha"
+  },
+  {
+   "id": "oliveHarvest",
+   "name": "موسم الزيتون",
+   "neutralName": "أيام البركة",
+   "art": "food_olive",
+   "calendar": "gregorian",
+   "start": {
+    "month": 10,
+    "day": 15
+   },
+   "end": {
+    "month": 11,
+    "day": 30
+   },
+   "eveDays": 0,
+   "extraEndDays": 0,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "cuisine",
+      "value": "palestinian"
+     },
+     "mult": 1.25,
+     "layer": "day"
+    }
+   ],
+   "eventThemeId": "oliveHarvest",
+   "happeningTag": "oliveHarvest",
+   "storySceneId": "fest_oliveHarvest"
+  },
+  {
+   "id": "summer",
+   "name": "الصيفيّة",
+   "neutralName": "أيام البركة",
+   "art": "ui_sun",
+   "calendar": "gregorian",
+   "start": {
+    "month": 7,
+    "day": 1
+   },
+   "end": {
+    "month": 8,
+    "day": 31
+   },
+   "eveDays": 0,
+   "extraEndDays": 0,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "weatherTag",
+      "value": "cold"
+     },
+     "mult": 1.25,
+     "layer": "day"
+    }
+   ],
+   "eventThemeId": "summerBeach",
+   "happeningTag": "summer",
+   "storySceneId": "fest_summer"
+  },
+  {
+   "id": "backToSchool",
+   "name": "رجعة المدارس",
+   "neutralName": "أيام البركة",
+   "art": "bld_school",
+   "calendar": "gregorian",
+   "start": {
+    "month": 9,
+    "day": 1
+   },
+   "end": {
+    "month": 9,
+    "day": 10
+   },
+   "eveDays": 0,
+   "extraEndDays": 0,
+   "effects": [],
+   "dailyClaim": [
+    {
+     "type": "gold",
+     "amount": 2
+    }
+   ],
+   "happeningTag": "backToSchool",
+   "storySceneId": "fest_backToSchool"
+  },
+  {
+   "id": "bethlehemChristmas",
+   "name": "ميلاد بيت لحم",
+   "neutralName": "أيام البركة",
+   "art": "ui_glowing_star",
+   "calendar": "gregorian",
+   "start": {
+    "month": 12,
+    "day": 20
+   },
+   "end": {
+    "month": 1,
+    "day": 7
+   },
+   "eveDays": 0,
+   "extraEndDays": 0,
+   "effects": [
+    {
+     "type": "incomeMult",
+     "scope": {
+      "kind": "weatherTag",
+      "value": "hot"
+     },
+     "mult": 1.25,
+     "layer": "day"
+    }
+   ],
+   "eventThemeId": "bethlehemChristmas",
+   "happeningTag": "bethlehemChristmas",
+   "storySceneId": "fest_bethlehemChristmas"
+  },
+  {
+   "id": "mothersDay",
+   "name": "عيد الأم",
+   "neutralName": "يوم العيلة",
+   "art": "ui_bouquet",
+   "calendar": "gregorian",
+   "start": {
+    "month": 3,
+    "day": 21
+   },
+   "end": {
+    "month": 3,
+    "day": 21
+   },
+   "eveDays": 0,
+   "extraEndDays": 0,
+   "effects": [],
+   "dailyClaim": [
+    {
+     "type": "chefCards",
+     "amount": 1,
+     "id": "sittiUmmKhalil"
+    }
+   ],
+   "storySceneId": "fest_mothersDay"
+  }
+ ]
+}

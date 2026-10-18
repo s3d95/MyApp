@@ -8,6 +8,7 @@ extension GameStore {
         "incomeRate", "buyUpgrades", "customersServed", "tapCook", "specialCustomers", "collectVault",
         "branchCollect", "twistMetric", "equipChefs", "chefTagMatch", "startResearch", "researchLevels",
         "sendSupplyRun", "supplyReturns", "heritageItems", "choiceEvents", "rushRounds", "dailyOrders", "leagueRep",
+        "contractGoals", "eventMilestones",
     ]
 
     func goalSupported(_ g: GoalDef) -> Bool { GameStore.builtGoalTypes.contains(g.type) }
@@ -28,7 +29,7 @@ extension GameStore {
         if let sc = g.scope { return sc }
         switch g.type {
         case "collectVault", "branchCollect", "startResearch", "researchLevels", "sendSupplyRun", "supplyReturns",
-             "heritageItems", "choiceEvents", "rushRounds", "dailyOrders", "leagueRep": return "slot"
+             "heritageItems", "choiceEvents", "rushRounds", "dailyOrders", "leagueRep", "contractGoals", "eventMilestones": return "slot"
         default: return "city"
         }
     }
@@ -46,6 +47,8 @@ extension GameStore {
         case "rushRounds": return metric("rushRounds")
         case "dailyOrders": return metric("dailyOrders")
         case "leagueRep": return metric("rep")
+        case "contractGoals": return metric("contractGoals")
+        case "eventMilestones": return metric("eventMilestones")
         default: return 0
         }
     }
@@ -79,7 +82,7 @@ extension GameStore {
         case "specialCustomers":
             return (s.city.counters["specials"] ?? 0, Double(p.count ?? 1))
         case "collectVault", "branchCollect", "startResearch", "researchLevels", "sendSupplyRun", "supplyReturns",
-             "heritageItems", "choiceEvents", "rushRounds", "dailyOrders", "leagueRep":
+             "heritageItems", "choiceEvents", "rushRounds", "dailyOrders", "leagueRep", "contractGoals", "eventMilestones":
             let base = s.city.goalBaselines[g.id] ?? slotMetric(g.type)
             return (max(0, slotMetric(g.type) - base), p.amount ?? Double(p.count ?? 1))
         case "equipChefs":

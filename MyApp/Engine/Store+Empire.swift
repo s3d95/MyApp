@@ -6,7 +6,8 @@ extension GameStore {
     static let builtSystems: Set<String> = ["kitchen", "goals", "managers", "specials", "upgrades", "rushHours",
                                             "vault", "map", "branchUpgrades", "chefs", "chests", "shop", "chefSkills",
                                             "research", "supply", "heritage", "crafting", "timeWarpShop",
-                                            "daily", "calendar", "streak", "choices", "newspaper", "rush", "league", "market", "season"]
+                                            "daily", "calendar", "streak", "choices", "newspaper", "rush", "league", "market", "season",
+                                            "contracts", "events", "inspector"]
 
     func systemName(_ id: String) -> String {
         switch id {
@@ -24,6 +25,9 @@ extension GameStore {
         case "league": return "الدوري"
         case "market": return "سوق اليوم والطقس"
         case "season": return "الموسم"
+        case "contracts": return "الطلبيات"
+        case "events": return "مهرجان الويكند"
+        case "inspector": return "مفتّش البلدية"
         case "streak": return "السلسلة"
         case "heritage": return "صندوق التراث"
         case "crafting": return "صنع التراث"

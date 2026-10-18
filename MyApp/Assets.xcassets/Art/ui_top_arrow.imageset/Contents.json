@@ -1,0 +1,13 @@
+{
+  "images": [
+    {
+      "filename": "ui_top_arrow.png",
+      "idiom": "universal",
+      "scale": "3x"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}

@@ -429,6 +429,8 @@ struct ChefDetailSheet: View {
                 Text("المهارات بتفتح بمستوى " + Num.int(store.unlockLevel("chefSkills")))
                     .font(.body(10, bold: true))
                     .foregroundColor(Brand.glow)
+            } else if store.isEquipped(c.id) {
+                SkillButton(chef: c)
             }
         }
         .padding(8)
