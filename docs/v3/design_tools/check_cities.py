@@ -9,7 +9,7 @@ import json, math, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONTENT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(HERE), "content")
-ART_FILE = "/home/user/MyApp/tools/art_keys.txt"
+ART_FILE = os.path.join(HERE, "..", "..", "..", "tools", "art_keys.txt")
 
 errors, warnings = [], []
 def err(where, msg): errors.append(f"ERROR {where}: {msg}")

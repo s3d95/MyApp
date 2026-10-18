@@ -1,0 +1,595 @@
+{
+ "version": 1,
+ "steps": [
+  {
+   "id": 1,
+   "start": {
+    "type": "firstFrame"
+   },
+   "anchors": [
+    "station.0.cook"
+   ],
+   "text": {
+    "m": "أهلا يا حبيبي! دقّ عالفلافل عشان تقلي أوّل قرص",
+    "f": "أهلا يا حبيبتي! دقّي عالفلافل عشان تقلي أوّل قرص"
+   },
+   "complete": {
+    "type": "tapCook",
+    "value": 1,
+    "id": "jerusalem.falafel"
+   },
+   "feedback": "t1"
+  },
+  {
+   "id": 2,
+   "start": {
+    "type": "stepDone"
+   },
+   "anchors": [
+    "station.0.cook"
+   ],
+   "soft": true,
+   "text": "كمان! كل دقّة بتجيب مصاري",
+   "complete": {
+    "type": "cashAtLeast",
+    "value": 6
+   },
+   "feedback": "t1"
+  },
+  {
+   "id": 3,
+   "start": {
+    "type": "cashForNextLevel",
+    "id": "jerusalem.falafel"
+   },
+   "anchors": [
+    "station.0.buy"
+   ],
+   "text": "اشتري مستوى كمان، الزباين بستنّوا!",
+   "complete": {
+    "type": "stationLevel",
+    "value": 2,
+    "id": "jerusalem.falafel"
+   },
+   "feedback": "t0"
+  },
+  {
+   "id": 4,
+   "start": {
+    "type": "stepDone"
+   },
+   "soft": true,
+   "text": {
+    "m": "كل ما تكبّر الفلافل بتربح أكتر",
+    "f": "كل ما تكبّري الفلافل بتربحي أكتر"
+   },
+   "complete": {
+    "type": "stationLevel",
+    "value": 10,
+    "id": "jerusalem.falafel"
+   },
+   "feedback": "t1"
+  },
+  {
+   "id": 5,
+   "start": {
+    "type": "cashAtLeast",
+    "value": 60
+   },
+   "anchors": [
+    "station.1.card"
+   ],
+   "text": {
+    "m": "صار معك مصاري! افتح محطّة الحمّص",
+    "f": "صار معك مصاري! افتحي محطّة الحمّص"
+   },
+   "complete": {
+    "type": "stationUnlocked",
+    "id": "jerusalem.hummus"
+   },
+   "feedback": "t1"
+  },
+  {
+   "id": 6,
+   "start": {
+    "type": "stepDone"
+   },
+   "anchors": [
+    "station.1.cook"
+   ],
+   "text": "الحمّص بدّه دقّة كمان",
+   "complete": {
+    "type": "tapCook",
+    "value": 1,
+    "id": "jerusalem.hummus"
+   },
+   "feedback": "t0"
+  },
+  {
+   "id": 7,
+   "start": {
+    "type": "stepDone"
+   },
+   "anchors": [
+    "goal.0.claim"
+   ],
+   "text": {
+    "m": "خلّصت أوّل هدف! خذ نجمتك",
+    "f": "خلّصتي أوّل هدف! خذي نجمتك"
+   },
+   "complete": {
+    "type": "goalClaimed",
+    "id": "jerusalem.g01"
+   },
+   "feedback": "t2"
+  },
+  {
+   "id": 8,
+   "start": {
+    "type": "managerAffordable",
+    "id": "jerusalem.falafel"
+   },
+   "anchors": [
+    "station.0.manager"
+   ],
+   "text": {
+    "m": "وظّف معلّم للفلافل، بيقلي عنك وإنت مش هون",
+    "f": "وظّفي معلّم للفلافل، بيقلي عنك وإنتِ مش هون"
+   },
+   "complete": {
+    "type": "managerHired",
+    "id": "jerusalem.falafel"
+   },
+   "feedback": "t1"
+  },
+  {
+   "id": 9,
+   "start": {
+    "type": "stepDone"
+   },
+   "anchors": [
+    "buyMode"
+   ],
+   "text": {
+    "m": "جرّب ×10، أسرع بكتير!",
+    "f": "جرّبي ×10، أسرع بكتير!"
+   },
+   "complete": {
+    "type": "buyMode",
+    "value": 10
+   },
+   "feedback": "t0"
+  },
+  {
+   "id": 10,
+   "start": {
+    "type": "levelReached",
+    "value": 3
+   },
+   "anchors": [
+    "special"
+   ],
+   "text": {
+    "m": "زبون مميّز وصل! الحقه قبل ما يروح",
+    "f": "زبون مميّز وصل! الحقيه قبل ما يروح"
+   },
+   "complete": {
+    "type": "specialTapped"
+   },
+   "feedback": "t2",
+   "script": {
+    "forceSpecialOutcome": "frenzy"
+   }
+  },
+  {
+   "id": 11,
+   "start": {
+    "type": "upgradeAffordable"
+   },
+   "anchors": [
+    "upgrades",
+    "upgrade.0.buy"
+   ],
+   "text": {
+    "m": "الترقيات بتضرب الربح ×3، جرّب وحدة!",
+    "f": "الترقيات بتضرب الربح ×3، جرّبي وحدة!"
+   },
+   "complete": {
+    "type": "upgradeBought"
+   },
+   "feedback": "t1"
+  },
+  {
+   "id": 12,
+   "start": {
+    "type": "levelReached",
+    "value": 4
+   },
+   "anchors": [
+    "tab.chefs",
+    "chest.free",
+    "chef.slot.0",
+    "tab.home"
+   ],
+   "text": {
+    "m": "ستّي بعتتلك صندوق! افتحه وحطّ سامي بالمطبخ، بيقوّي الفلافل",
+    "f": "ستّي بعتتلك صندوق! افتحيه وحطّي سامي بالمطبخ، بيقوّي الفلافل"
+   },
+   "complete": {
+    "type": "chefEquipped",
+    "id": "samiFryer"
+   },
+   "feedback": "t2",
+   "script": {
+    "scriptedChest": {
+     "chest": "wood",
+     "chefId": "samiFryer"
+    }
+   }
+  },
+  {
+   "id": 13,
+   "start": {
+    "type": "afterSec",
+    "value": 120
+   },
+   "soft": true,
+   "text": "في ضيف جاي يسلّم عليك…",
+   "complete": {
+    "type": "bubbleClosed"
+   },
+   "script": {
+    "storyScene": "ch01_rival"
+   }
+  },
+  {
+   "id": 14,
+   "start": {
+    "type": "levelReached",
+    "value": 5
+   },
+   "anchors": [
+    "rail.vault"
+   ],
+   "text": {
+    "m": "الخزنة بتتعبّى لحالها وإنت برّا، لحد 3 ساعات. ارجعلي بعد ساعتين، بفرجيك مدينة جديدة!",
+    "f": "الخزنة بتتعبّى لحالها وإنتِ برّا، لحد 3 ساعات. ارجعيلي بعد ساعتين، بفرجيكي مدينة جديدة!"
+   },
+   "complete": {
+    "type": "bubbleClosed"
+   },
+   "feedback": "t2",
+   "script": {
+    "askNotifications": true
+   }
+  },
+  {
+   "id": 15,
+   "start": {
+    "type": "relaunchAway",
+    "value": 1800
+   },
+   "anchors": [
+    "vault.collect"
+   ],
+   "text": {
+    "m": "أهلين! شوف قدّيش جمّعت الخزنة",
+    "f": "أهلين! شوفي قدّيش جمّعت الخزنة"
+   },
+   "complete": {
+    "type": "vaultCollected"
+   },
+   "feedback": "t1"
+  },
+  {
+   "id": 16,
+   "start": {
+    "type": "levelReached",
+    "value": 6
+   },
+   "anchors": [
+    "tab.map",
+    "map.next"
+   ],
+   "text": {
+    "m": "هاي الخريطة! بيت لحم بتفتح لما تجمع 25 نجمة",
+    "f": "هاي الخريطة! بيت لحم بتفتح لما تجمعي 25 نجمة"
+   },
+   "complete": {
+    "type": "screenViewed",
+    "id": "map"
+   },
+   "feedback": "t2"
+  },
+  {
+   "id": 17,
+   "start": {
+    "type": "levelReached",
+    "value": 7
+   },
+   "anchors": [
+    "rail.research",
+    "research.node.biggerVault"
+   ],
+   "text": {
+    "m": "دفتر ستّي فيه أسرار. ابدأ أوّل بحث",
+    "f": "دفتر ستّي فيه أسرار. ابدئي أوّل بحث"
+   },
+   "complete": {
+    "type": "researchStarted",
+    "id": "biggerVault"
+   },
+   "feedback": "t2"
+  },
+  {
+   "id": 18,
+   "start": {
+    "type": "levelReached",
+    "value": 8
+   },
+   "anchors": [
+    "rail.supply",
+    "supply.vehicle.tractor",
+    "supply.duration.0"
+   ],
+   "text": {
+    "m": "ابعت التراكتور يجيب أغراض من البلد",
+    "f": "ابعتي التراكتور يجيب أغراض من البلد"
+   },
+   "complete": {
+    "type": "runSent",
+    "id": "tractor"
+   },
+   "feedback": "t2"
+  },
+  {
+   "id": 19,
+   "start": {
+    "type": "graduationReady"
+   },
+   "anchors": [
+    "goalStrip.graduate"
+   ],
+   "text": {
+    "m": "جاهز! افتح فرع بالقدس وانقل على بيت لحم",
+    "f": "جاهزة! افتحي فرع بالقدس وانقلي على بيت لحم"
+   },
+   "complete": {
+    "type": "graduated"
+   },
+   "feedback": "t3"
+  }
+ ],
+ "unlockSpotlights": [
+  {
+   "systemId": "rushHours",
+   "steps": [
+    {
+     "anchor": "banner.rushHour",
+     "text": {
+      "m": "وقت الغدا والعشا الدخل دبل، خلّيك فاتح!",
+      "f": "وقت الغدا والعشا الدخل دبل، خلّيكي فاتحة!"
+     }
+    }
+   ]
+  },
+  {
+   "systemId": "shop",
+   "steps": [
+    {
+     "anchor": "tab.shop",
+     "text": "هون الدكّان: صناديق ورزم وقت وديكور بالذهب"
+    }
+   ]
+  },
+  {
+   "systemId": "heritage",
+   "steps": [
+    {
+     "anchor": "supply.segment.heritage",
+     "text": "كل قطعة تراث بترجع من الرحلات بتنحط هون"
+    },
+    {
+     "anchor": "heritage.shelf.0",
+     "text": {
+      "m": "كمّل المجموعة الأربعة، وبتاخد بركتها للأبد",
+      "f": "كمّلي المجموعة الأربعة، وبتاخدي بركتها للأبد"
+     }
+    }
+   ]
+  },
+  {
+   "systemId": "daily",
+   "steps": [
+    {
+     "anchor": "tab.tasks",
+     "text": {
+      "m": "طلبات اليوم وصلت! خلّصها وخذ ذهب",
+      "f": "طلبات اليوم وصلت! خلّصيها وخذي ذهب"
+     }
+    },
+    {
+     "anchor": "orders.card.0",
+     "text": {
+      "m": "ما عجبك الطلب؟ غيّره مرّة ببلاش كل يوم",
+      "f": "ما عجبك الطلب؟ غيّريه مرّة ببلاش كل يوم"
+     }
+    }
+   ]
+  },
+  {
+   "systemId": "calendar",
+   "steps": [
+    {
+     "anchor": "calendar.today",
+     "text": "كل يوم بتفتح فيه إلك هديّة، واليوم 28 زعتر ذهبي"
+    }
+   ]
+  },
+  {
+   "systemId": "streak",
+   "steps": [
+    {
+     "anchor": "streak.flame",
+     "text": {
+      "m": "خلّص طلب واحد كل يوم وخلّي النار مولّعة",
+      "f": "خلّصي طلب واحد كل يوم وخلّي النار مولّعة"
+     }
+    }
+   ]
+  },
+  {
+   "systemId": "choices",
+   "steps": [
+    {
+     "anchor": "choice.modal",
+     "text": "أهل الحارة إلهم حكايات، وكل جواب إله نتيجة"
+    }
+   ]
+  },
+  {
+   "systemId": "newspaper",
+   "steps": [
+    {
+     "anchor": "rail.newspaper",
+     "text": {
+      "m": "جريدة الحارة بتحكيلك شو صار وإنت برّا",
+      "f": "جريدة الحارة بتحكيلك شو صار وإنتِ برّا"
+     }
+    }
+   ]
+  },
+  {
+   "systemId": "rush",
+   "steps": [
+    {
+     "anchor": "rail.tickets",
+     "text": {
+      "m": "جرّب طلبيات على السريع! كل جولة بتولّع الدخل",
+      "f": "جرّبي طلبيات على السريع! كل جولة بتولّع الدخل"
+     }
+    },
+    {
+     "anchor": "rush.practice",
+     "text": {
+      "m": "التدريب ببلاش دايماً، جرّب قبل التذكرة",
+      "f": "التدريب ببلاش دايماً، جرّبي قبل التذكرة"
+     }
+    }
+   ]
+  },
+  {
+   "systemId": "league",
+   "steps": [
+    {
+     "anchor": "rail.league",
+     "text": "دوري المطاعم بلّش! السمعة بتطلّعك درجة كل أسبوع"
+    },
+    {
+     "anchor": "league.zone.promote",
+     "text": {
+      "m": "خلّيك بالأخضر لآخر الأسبوع وبتطلع درجة",
+      "f": "خلّيكي بالأخضر لآخر الأسبوع وبتطلعي درجة"
+     }
+    }
+   ]
+  },
+  {
+   "systemId": "market",
+   "steps": [
+    {
+     "anchor": "market.card",
+     "text": {
+      "m": "شوف عرض اليوم والطقس، وكبّر المحطّات اللي بتربح",
+      "f": "شوفي عرض اليوم والطقس، وكبّري المحطّات اللي بتربح"
+     }
+    }
+   ]
+  },
+  {
+   "systemId": "contracts",
+   "steps": [
+    {
+     "anchor": "rail.contracts",
+     "text": "وصلتك طلبيّة! مطبخ جانبي بجوايز كبيرة"
+    },
+    {
+     "anchor": "contracts.card.0",
+     "text": {
+      "m": "تلات أهداف قبل ما يخلص الوقت، وشركاءك بيساعدوك",
+      "f": "تلات أهداف قبل ما يخلص الوقت، وشركاءك بيساعدوكي"
+     }
+    }
+   ]
+  },
+  {
+   "systemId": "events",
+   "steps": [
+    {
+     "anchor": "rail.events",
+     "text": "مهرجان الويكند! من الخميس للأحد، كل أسبوع شكل"
+    }
+   ]
+  },
+  {
+   "systemId": "season",
+   "steps": [
+    {
+     "anchor": "rail.season",
+     "text": "الموسم بلّش: 50 درجة جوايز وطبّاخ خاص"
+    }
+   ]
+  },
+  {
+   "systemId": "branchUpgrades",
+   "steps": [
+    {
+     "anchor": "map.branch.0",
+     "text": "فرعك بالقدس بيقدر يكبر! كل مستوى ذهب ودخل أكتر"
+    }
+   ]
+  },
+  {
+   "systemId": "inspector",
+   "steps": [
+    {
+     "anchor": "rail.inspector",
+     "text": "المفتّش جاي! خلّي المعلّمين والطبّاخين جاهزين"
+    }
+   ]
+  },
+  {
+   "systemId": "crafting",
+   "steps": [
+    {
+     "anchor": "heritage.craft",
+     "text": {
+      "m": "القطع الزيادة صارت حِرفة، اصنع فيها اللي ناقصك",
+      "f": "القطع الزيادة صارت حِرفة، اصنعي فيها اللي ناقصك"
+     }
+    }
+   ]
+  },
+  {
+   "systemId": "chefSkills",
+   "steps": [
+    {
+     "anchor": "action.chefSkill",
+     "text": {
+      "m": "دقّ على وجه الطبّاخ الكبير وشغّل مهارته",
+      "f": "دقّي على وجه الطبّاخ الكبير وشغّلي مهارته"
+     }
+    }
+   ]
+  },
+  {
+   "systemId": "timeWarpShop",
+   "steps": [
+    {
+     "anchor": "shop.timeWarps",
+     "text": "رزم الوقت صارت بالدكّان: ساعة شغل بكبسة"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+  "images": [
+    {
+      "filename": "food_fork_knife_plate.png",
+      "idiom": "universal",
+      "scale": "3x"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}

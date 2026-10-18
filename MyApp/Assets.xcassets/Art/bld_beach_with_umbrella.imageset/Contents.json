@@ -1,0 +1,13 @@
+{
+  "images": [
+    {
+      "filename": "bld_beach_with_umbrella.png",
+      "idiom": "universal",
+      "scale": "3x"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}

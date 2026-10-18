@@ -1,0 +1,4553 @@
+{
+ "version": 1,
+ "cast": [
+  {
+   "id": "sitti",
+   "name": "ستّي أم خليل",
+   "art": "ppl_old_woman"
+  },
+  {
+   "id": "abuAlAbed",
+   "name": "أبو العبد، سوّاق التكسي",
+   "art": "ppl_man"
+  },
+  {
+   "id": "lina",
+   "name": "لينا بنت الجيران",
+   "art": "ppl_girl"
+  },
+  {
+   "id": "samer",
+   "name": "سامر ابن عمّك",
+   "art": "ppl_man_office"
+  },
+  {
+   "id": "abuShaker",
+   "name": "أبو شاكر",
+   "art": "ppl_man_cook"
+  },
+  {
+   "id": "guideIssa",
+   "name": "الدليل عيسى",
+   "art": "ppl_person_tipping_hand"
+  },
+  {
+   "id": "soapMaker",
+   "name": "أبو نضال الصابونجي",
+   "art": "ppl_older_person"
+  },
+  {
+   "id": "glassSaeed",
+   "name": "سعيد الزجّاج",
+   "art": "ppl_man"
+  },
+  {
+   "id": "portGuard",
+   "name": "أبو عمر حارس الميناء",
+   "art": "ppl_guard"
+  },
+  {
+   "id": "riderMajd",
+   "name": "مجد الديليفري",
+   "art": "ppl_boy"
+  },
+  {
+   "id": "hammouda",
+   "name": "حمّودة",
+   "art": "ppl_child"
+  },
+  {
+   "id": "yazan",
+   "name": "يزن طالب الجامعة",
+   "art": "ppl_person_raising_hand"
+  },
+  {
+   "id": "groomFather",
+   "name": "أبو صالح، أبو العريس",
+   "art": "ppl_older_person"
+  },
+  {
+   "id": "singerRita",
+   "name": "ريتا المغنّية",
+   "art": "ppl_singer"
+  },
+  {
+   "id": "hakawati",
+   "name": "الحكواتي أبو راشد",
+   "art": "ppl_older_person"
+  },
+  {
+   "id": "bawwab",
+   "name": "عم حسنين البوّاب",
+   "art": "ppl_old_man"
+  },
+  {
+   "id": "ustazNawfal",
+   "name": "الأستاذ نوفل",
+   "art": "ppl_teacher"
+  },
+  {
+   "id": "saad",
+   "name": "سعد صاحب المخيّم",
+   "art": "ppl_man_farmer"
+  },
+  {
+   "id": "mira",
+   "name": "ميرا البلوغر",
+   "art": "ppl_woman"
+  },
+  {
+   "id": "idris",
+   "name": "إدريس بيّاع العصير",
+   "art": "ppl_man"
+  },
+  {
+   "id": "ayse",
+   "name": "عائشة بيّاعة الشاي",
+   "art": "ppl_woman_headscarf"
+  },
+  {
+   "id": "yannis",
+   "name": "يانيس الصيّاد",
+   "art": "ppl_old_man"
+  },
+  {
+   "id": "auntSuha",
+   "name": "خالتك سهى",
+   "art": "ppl_woman_headscarf"
+  },
+  {
+   "id": "claire",
+   "name": "كلير الناقدة",
+   "art": "ppl_woman_office"
+  },
+  {
+   "id": "uncleJamil",
+   "name": "عمّك جميل",
+   "art": "ppl_older_person"
+  },
+  {
+   "id": "uncleElias",
+   "name": "عمّو إلياس",
+   "art": "ppl_old_man"
+  },
+  {
+   "id": "mariana",
+   "name": "ماريانا",
+   "art": "ppl_raising_hands"
+  },
+  {
+   "id": "haruto",
+   "name": "هاروتو",
+   "art": "ppl_bowing"
+  }
+ ],
+ "chapters": [
+  {
+   "id": "ch01_jerusalem",
+   "cityId": "jerusalem",
+   "scenes": [
+    {
+     "id": "ch01_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "هاي بسطة جدّك أبو خليل، الله يرحمه. صارت إلك يا حبيبي.",
+        "f": "هاي بسطة جدّك أبو خليل، الله يرحمه. صارت إلك يا حبيبتي."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "والله يا ستّي ما رح أخذلك."
+      },
+      {
+       "speaker": "sitti",
+       "text": "يلا، الزيت حامي والقدس صاحية بكّير."
+      }
+     ]
+    },
+    {
+     "id": "ch01_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "أهلين بالجار الجديد! فلافلي أطيب فلافل بالقدس… بس منشوف.",
+        "f": "أهلين بالجارة الجديدة! فلافلي أطيب فلافل بالقدس… بس منشوف."
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "لا تخاف منه، قلبه طيّب، بسّ بموت بالمنافسة.",
+        "f": "لا تخافي منه، قلبه طيّب، بسّ بموت بالمنافسة."
+       }
+      },
+      {
+       "speaker": "rival",
+       "text": "إذا وصلت الفلافل لمستوى 25، بعزمك على كاسة شاي."
+      }
+     ]
+    },
+    {
+     "id": "ch01_g12",
+     "trigger": "manual",
+     "triggerParam": "goal:jerusalem.g12",
+     "lines": [
+      {
+       "speaker": "abuAlAbed",
+       "text": "يا جماعة! سوّاقين التكسي صاروا يوقفوا عندك بالدور."
+      },
+      {
+       "speaker": "abuAlAbed",
+       "text": "أنا أبو العبد، أوّل زبون بالصبح وآخر زبون بالليل."
+      },
+      {
+       "speaker": "player",
+       "text": "أهلا أبو العبد، السندويشة الأولى على حسابي!"
+      },
+      {
+       "speaker": "abuAlAbed",
+       "text": "الله يخلّيك! من اليوم التكسي تحت أمرك، لوين ما بدّك."
+      }
+     ]
+    },
+    {
+     "id": "ch01_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": "سمعت إنّه الطابور واصل لباب العامود!"
+      },
+      {
+       "speaker": "player",
+       "text": "كلّه من وصفتك يا ستّي."
+      },
+      {
+       "speaker": "sitti",
+       "text": "الوصفة نصّ الشغل، والنصّ التاني ابتسامتك."
+      }
+     ]
+    },
+    {
+     "id": "ch01_g16",
+     "trigger": "manual",
+     "triggerParam": "goal:jerusalem.g16",
+     "lines": [
+      {
+       "speaker": "lina",
+       "text": {
+        "m": "عمّو! ماما بتقول فلافلك أطيب من فلافل أبو شاكر.",
+        "f": "خالتو! ماما بتقول فلافلك أطيب من فلافل أبو شاكر."
+       }
+      },
+      {
+       "speaker": "rival",
+       "text": "سمعتك يا لينا! بكرة بجيبلك قرص ببلاش."
+      },
+      {
+       "speaker": "lina",
+       "text": "طب أنا بحبّ الاتنين… بسّ الحمّص هون أطيب!"
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "شايف؟ الولاد ما بكذبوا. يلا كمّل.",
+        "f": "شايفة؟ الولاد ما بكذبوا. يلا كمّلي."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch01_g19",
+     "trigger": "manual",
+     "triggerParam": "goal:jerusalem.g19",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "يا جار، وعد الحرّ دين. تفضّل كاسة شاي بالنعنع.",
+        "f": "يا جارة، وعد الحرّ دين. تفضّلي كاسة شاي بالنعنع."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "تسلم إيدك يا أبو شاكر. شايك ولا أطيب."
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "بيني وبينك… سرّ فلافلي كمّون محمّص. لا تقول لحدا!",
+        "f": "بيني وبينك… سرّ فلافلي كمّون محمّص. لا تقولي لحدا!"
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "شفت؟ المنافسة الحلوة بتعمل جيران أحلى.",
+        "f": "شفتي؟ المنافسة الحلوة بتعمل جيران أحلى."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch01_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "والله طلعت قدّها! البسطة صارت فرع، وأنا ضلّيت جارك.",
+        "f": "والله طلعتي قدّها! البسطة صارت فرع، وأنا ضلّيت جارك."
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "بيت لحم ناطرتك، هناك الكستنا والسحلب وناس بتحب الضيف."
+      },
+      {
+       "speaker": "abuAlAbed",
+       "text": "التكسي جاهز! يلا عبيت لحم، الطريق عليّ."
+      },
+      {
+       "speaker": "player",
+       "text": "يلا عبيت لحم!"
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "ummMohammad",
+       "amount": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch02_bethlehem",
+   "cityId": "bethlehem",
+   "scenes": [
+    {
+     "id": "ch02_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "abuAlAbed",
+       "text": {
+        "m": "وصلنا ساحة المهد! شامم ريحة الكستنا؟",
+        "f": "وصلنا ساحة المهد! شامّة ريحة الكستنا؟"
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "بيت لحم بتستقبل الدنيا كلّها. خلّي بابك مفتوح."
+      },
+      {
+       "speaker": "player",
+       "text": "رح أعمل أطيب كستنا وشوربة عدس بالساحة!"
+      }
+     ]
+    },
+    {
+     "id": "ch02_g06",
+     "trigger": "manual",
+     "triggerParam": "goal:bethlehem.g06",
+     "lines": [
+      {
+       "speaker": "guideIssa",
+       "text": "أنا عيسى، دليل سياحي. كل شوي بجيب باص سيّاح!"
+      },
+      {
+       "speaker": "guideIssa",
+       "text": {
+        "m": "لما يوصل الباص، استقبله بسرعة قبل ما يكمّل طريقه.",
+        "f": "لما يوصل الباص، استقبليه بسرعة قبل ما يكمّل طريقه."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "أهلا وسهلا بالضيوف! الكستنا سخنة والسحلب جاهز."
+      }
+     ]
+    },
+    {
+     "id": "ch02_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "كستنا جريس هون بالساحة من أيّام جدّي، يا ابني.",
+        "f": "كستنا جريس هون بالساحة من أيّام جدّي، يا بنتي."
+       }
+      },
+      {
+       "speaker": "rival",
+       "text": "بسّ بحبّ المنافسة الشريفة. منشوف مين بيدفّي السيّاح أكتر."
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "جريس كان صاحب جدّك. اتعلّم منه، ما بتخسر.",
+        "f": "جريس كان صاحب جدّك. اتعلّمي منه، ما بتخسري."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch02_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:bethlehem.g13",
+     "lines": [
+      {
+       "speaker": "guideIssa",
+       "text": "الجماعة اللي من البرازيل بدّهم سحلب كمان!"
+      },
+      {
+       "speaker": "player",
+       "text": "سحلب بالقرفة والجوز، على أصوله."
+      },
+      {
+       "speaker": "guideIssa",
+       "text": "قالولي: أطيب إشي أكلناه بكل الرحلة!"
+      }
+     ]
+    },
+    {
+     "id": "ch02_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": "سمعت إنّه السيّاح صاروا يصوّروا بسطتك!"
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "تذكّر: الضيف ضيف الله، أكرمه بيوسع رزقك.",
+        "f": "تذكّري: الضيف ضيف الله، أكرميه بيوسع رزقك."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "حاضر يا ستّي، الشوربة دايماً سخنة."
+      }
+     ]
+    },
+    {
+     "id": "ch02_g16",
+     "trigger": "manual",
+     "triggerParam": "goal:bethlehem.g16",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "اليوم السيّاح وقفوا عندك قبلي… أوّل مرّة من أربعين سنة!"
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "مبروك. بسّ الكستنا تبعتي لسّا أطيب، ما تزعل.",
+        "f": "مبروك. بسّ الكستنا تبعتي لسّا أطيب، ما تزعلي."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "صفقة يا خواجة: سحلب منّي وكستنا منّك؟"
+      },
+      {
+       "speaker": "rival",
+       "text": "صفقة! هيك بتصير الساحة أحلى."
+      }
+     ]
+    },
+    {
+     "id": "ch02_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "بكل عيد ميلاد، إلك كاسة سحلب عندي ببلاش."
+      },
+      {
+       "speaker": "sitti",
+       "text": "نابلس ناطرتك، والكنافة هناك بدها إيد حلوة وصبر."
+      },
+      {
+       "speaker": "player",
+       "text": "يلا على نابلس، دمشق الصغرى!"
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "abuSalimSweets",
+       "amount": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch03_nablus",
+   "cityId": "nablus",
+   "scenes": [
+    {
+     "id": "ch03_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "abuAlAbed",
+       "text": "نابلس! بين جبلين، وريحة الكنافة من أوّل الشارع."
+      },
+      {
+       "speaker": "sitti",
+       "text": "هون تعلّمت أعمل الكنافة لما كنت عروس."
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "بسّ انتبه، النابلسيّة بيعرفوا الكنافة من نظرة.",
+        "f": "بسّ انتبهي، النابلسيّة بيعرفوا الكنافة من نظرة."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch03_g06",
+     "trigger": "manual",
+     "triggerParam": "goal:nablus.g06",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "أنا أبو حمدي. الكنافة يا بتطلع مظبوطة يا بلاش."
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "لما تلمع الصينيّة، دقّ عليها فوراً. ثانية بتفرق!",
+        "f": "لما تلمع الصينيّة، دقّي عليها فوراً. ثانية بتفرق!"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "خمس صواني مظبوطة! شو رأيك يا معلّم؟"
+      },
+      {
+       "speaker": "rival",
+       "text": "مش بطّال… للمبتدئين."
+      }
+     ]
+    },
+    {
+     "id": "ch03_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "صوانيك صارت تلمع… بسّ الكنافة مش بسّ توقيت."
+      },
+      {
+       "speaker": "rival",
+       "text": "سرّ الكنافة النابلسيّة بالجبنة، والجبنة سرّها بالنقع."
+      },
+      {
+       "speaker": "sitti",
+       "text": "أبو حمدي بيحكي قاسي، بسّ بيعطي السرّ للي بيستاهله."
+      }
+     ]
+    },
+    {
+     "id": "ch03_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:nablus.g13",
+     "lines": [
+      {
+       "speaker": "soapMaker",
+       "text": "أنا أبو نضال، صابونجي من أربعين سنة."
+      },
+      {
+       "speaker": "soapMaker",
+       "text": {
+        "m": "بتعرف شو بيشبه الصابون والكنافة؟ الصبر.",
+        "f": "بتعرفي شو بيشبه الصابون والكنافة؟ الصبر."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "والزيت البلدي كمان!"
+      },
+      {
+       "speaker": "soapMaker",
+       "text": {
+        "m": "صح! خذ هالصابونة، ريحتها زيت زيتون.",
+        "f": "صح! خذي هالصابونة، ريحتها زيت زيتون."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch03_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": "قالولي أبو حمدي أكل من كنافتك وما حكى ولا كلمة."
+      },
+      {
+       "speaker": "player",
+       "text": "يعني منيح ولا عاطل يا ستّي؟"
+      },
+      {
+       "speaker": "sitti",
+       "text": "عند أبو حمدي، السكوت يعني مدح كبير!"
+      }
+     ]
+    },
+    {
+     "id": "ch03_g16",
+     "trigger": "manual",
+     "triggerParam": "goal:nablus.g16",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "أربعين صينيّة مظبوطة؟ والله صرت كنفاني!",
+        "f": "أربعين صينيّة مظبوطة؟ والله صرتي كنفانيّة!"
+       }
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "تعال، بفرجيك كيف بتنقع الجبنة بالليل.",
+        "f": "تعالي، بفرجيكي كيف بتنقعي الجبنة بالليل."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "شرف إلي يا معلّم!"
+      }
+     ]
+    },
+    {
+     "id": "ch03_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "الكنافة إلها إيدين بنابلس هلّق: إيدي وإيدك."
+      },
+      {
+       "speaker": "sitti",
+       "text": "الخليل ناطرتك، موسم العنب بلّش والدبس بدّه صبر."
+      },
+      {
+       "speaker": "player",
+       "text": {
+        "m": "يلا عالخليل، أنا جاي يا عنب!",
+        "f": "يلا عالخليل، أنا جاية يا عنب!"
+       }
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "abuAbedFul",
+       "amount": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch04_hebron",
+   "cityId": "hebron",
+   "scenes": [
+    {
+     "id": "ch04_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "abuAlAbed",
+       "text": "الخليل! ريحة العنب واصلة لآخر الطريق."
+      },
+      {
+       "speaker": "sitti",
+       "text": "أهل الخليل كرماء، والقدرة عندهم بتنطبخ بفرن الحارة."
+      },
+      {
+       "speaker": "player",
+       "text": "جبت الفلافل معي… وبدّي أتعلّم القدرة!"
+      }
+     ]
+    },
+    {
+     "id": "ch04_g05",
+     "trigger": "manual",
+     "triggerParam": "goal:hebron.g05",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "أنا أبو العز. الدبس ما بيجي من الهوا، بدّه عنب."
+      },
+      {
+       "speaker": "rival",
+       "text": "كل ما زاد العنب، زاد الدبس وزاد الربح."
+      },
+      {
+       "speaker": "player",
+       "text": "يعني العنب ما بينباع؟ كلّه للدبس؟"
+      },
+      {
+       "speaker": "rival",
+       "text": "العنب بيشتغل للدبس، والدبس بيشتغل لجيبتك!"
+      }
+     ]
+    },
+    {
+     "id": "ch04_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "دبس أبو العز معروف من الخليل لعمّان."
+      },
+      {
+       "speaker": "rival",
+       "text": "إذا دبسك طلع أطيب من دبسي، ببوس راسك."
+      },
+      {
+       "speaker": "sitti",
+       "text": "أبو العز بيحلف بالعنب، وعنبه بيستاهل."
+      }
+     ]
+    },
+    {
+     "id": "ch04_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:hebron.g13",
+     "lines": [
+      {
+       "speaker": "glassSaeed",
+       "text": {
+        "m": "أنا سعيد، بنفخ زجاج خليلي. شوف هالأزرق!",
+        "f": "أنا سعيد، بنفخ زجاج خليلي. شوفي هالأزرق!"
+       }
+      },
+      {
+       "speaker": "glassSaeed",
+       "text": "عملتلك كاسات للبسطة، الشاي فيها بيصير أحلى."
+      },
+      {
+       "speaker": "player",
+       "text": "يا سلام! ألوانها زيّ غروب الخليل."
+      }
+     ]
+    },
+    {
+     "id": "ch04_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "سمعت إنّك صرت تطبخ قدرة بفرن الحارة!",
+        "f": "سمعت إنّك صرتي تطبخي قدرة بفرن الحارة!"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "أهل الخليل علّموني، والطابور بيلفّ الحارة."
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "اللي بدّه يعمل جمّال بعلّي باب داره. كبّر بسطتك!",
+        "f": "اللي بدّه يعمل جمّال بعلّي باب داره. كبّري بسطتك!"
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch04_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:hebron.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "ذقت دبسك اليوم… وعدتك أبوس راسك؟"
+      },
+      {
+       "speaker": "rival",
+       "text": "رح أبوس راسك وإيديك كمان! والله أطيب من دبسي."
+      },
+      {
+       "speaker": "player",
+       "text": "كلّه من عنبك يا أبو العز."
+      }
+     ]
+    },
+    {
+     "id": "ch04_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "خذ تنكة دبس للطريق، وسلّملي على البحر.",
+        "f": "خذي تنكة دبس للطريق، وسلّميلي على البحر."
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "يافا ناطرتك، البرتقال والبحر والسفن، وأم يوسف كمان."
+      },
+      {
+       "speaker": "player",
+       "text": "يلا على يافا، عروس البحر!"
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "khaledSea",
+       "amount": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch05_jaffa",
+   "cityId": "jaffa",
+   "scenes": [
+    {
+     "id": "ch05_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "abuAlAbed",
+       "text": "يافا، عروس البحر! البيّارات يمين والبحر شمال."
+      },
+      {
+       "speaker": "sitti",
+       "text": "برتقال يافا كان يسافر عالدنيا كلّها بالسفن."
+      },
+      {
+       "speaker": "player",
+       "text": "وهلّق رح يسافر من بسطتنا!"
+      }
+     ]
+    },
+    {
+     "id": "ch05_g05",
+     "trigger": "manual",
+     "triggerParam": "goal:jaffa.g05",
+     "lines": [
+      {
+       "speaker": "portGuard",
+       "text": "أنا أبو عمر، حارس الميناء. السفينة رست، بدها برتقال!"
+      },
+      {
+       "speaker": "portGuard",
+       "text": "عبّي الصندوق برتقال قبل ما تطلع السفينة."
+      },
+      {
+       "speaker": "player",
+       "text": "أوّل شحنة طلعت! يا عيني على البرتقال."
+      }
+     ]
+    },
+    {
+     "id": "ch05_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "أنا أم يوسف، ريّسة مطبخ الميناء. السمك عندي من البحر للصحن."
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "إنت فلافلي… شو بتعرف عن الصيّاديّة؟",
+        "f": "إنتِ فلافليّة… شو بتعرفي عن الصيّاديّة؟"
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "أم يوسف قويّة، بسّ قلبها أبيض زيّ الملح."
+      }
+     ]
+    },
+    {
+     "id": "ch05_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:jaffa.g13",
+     "lines": [
+      {
+       "speaker": "portGuard",
+       "text": "البحّارة صاروا يطلبوا سندويشاتك قبل ما ينزلوا!"
+      },
+      {
+       "speaker": "player",
+       "text": "سمك مقلي وعصير برتقال، أحلى ترويقة."
+      },
+      {
+       "speaker": "portGuard",
+       "text": {
+        "m": "بكرة بجيبلك قبطان السفينة الكبيرة، حضّرله صحن.",
+        "f": "بكرة بجيبلك قبطان السفينة الكبيرة، حضّريله صحن."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch05_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": "قالولي أم يوسف صارت تبعتلك زباينها!"
+      },
+      {
+       "speaker": "player",
+       "text": "والله يا ستّي، صرنا نتبادل السمك والفلافل."
+      },
+      {
+       "speaker": "sitti",
+       "text": "البحر واسع، بيساع كل الصيّادين."
+      }
+     ]
+    },
+    {
+     "id": "ch05_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:jaffa.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "أربع شحنات! السفن صارت تستنّى برتقالك."
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "اسمع، تعال اطبخ معي الصيّاديّة، بعلّمك سرّها.",
+        "f": "اسمعي، تعالي اطبخي معي الصيّاديّة، بعلّمك سرّها."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "وأنا بعلّمك سرّ الفلافل… نصّ بنصّ!"
+      }
+     ]
+    },
+    {
+     "id": "ch05_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "يافا فتحتلك قلبها. السفينة الجاي، إلك صندوق برتقال هديّة."
+      },
+      {
+       "speaker": "sitti",
+       "text": "حيفا على الكرمل ناطرتك، ونزار هناك سريع كتير."
+      },
+      {
+       "speaker": "player",
+       "text": "يلا على حيفا، بسّ البحر رح يضلّ معي!"
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "hassanGrill",
+       "amount": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch06_haifa",
+   "cityId": "haifa",
+   "scenes": [
+    {
+     "id": "ch06_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "abuAlAbed",
+       "text": "حيفا! الكرمل فوق والبحر تحت، والسكوترات بكل مكان."
+      },
+      {
+       "speaker": "sitti",
+       "text": "أهل حيفا مستعجلين، بدّهم الأكل يوصلهم لعند الباب."
+      },
+      {
+       "speaker": "player",
+       "text": "منيح، منوصّلهم الأكل لحدّ الباب!"
+      }
+     ]
+    },
+    {
+     "id": "ch06_g06",
+     "trigger": "manual",
+     "triggerParam": "goal:haifa.g06",
+     "lines": [
+      {
+       "speaker": "riderMajd",
+       "text": "أنا مجد! عندي سكوتر وبعرف كل درج بالكرمل."
+      },
+      {
+       "speaker": "riderMajd",
+       "text": {
+        "m": "لما يجي طلب، ابعتني وأنا بطير فيه.",
+        "f": "لما يجي طلب، ابعتيني وأنا بطير فيه."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "تلات طلبات وصلت سخنة! برافو يا مجد."
+      }
+     ]
+    },
+    {
+     "id": "ch06_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "نزار الشاورماتي! أسرع شاورما بحيفا، بتوصل قبل ما تطلبها."
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "الطابور موضة قديمة. المستقبل للدليفري يا صاحبي.",
+        "f": "الطابور موضة قديمة. المستقبل للدليفري يا صاحبتي."
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "نزار شاطر، بسّ الأكل الطيّب بيوصل حتى لو مشي."
+      }
+     ]
+    },
+    {
+     "id": "ch06_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:haifa.g13",
+     "lines": [
+      {
+       "speaker": "riderMajd",
+       "text": "طلعت درج الكرمل كلّه… والفلافل لسّا سخنة!"
+      },
+      {
+       "speaker": "player",
+       "text": "يعطيك العافية! خذ صحن بطاطا على حسابي."
+      },
+      {
+       "speaker": "riderMajd",
+       "text": "وبدّي قهوة الكرمل كمان، بتصحّي الميّت!"
+      }
+     ]
+    },
+    {
+     "id": "ch06_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": "شو؟ صار عندك سكوترات كمان؟ جدّك كان عنده حمار!"
+      },
+      {
+       "speaker": "player",
+       "text": "والحمار كان أسرع من سكوترات نزار، صح؟"
+      },
+      {
+       "speaker": "sitti",
+       "text": "الله يرحمه، كان يسابق التكسيات فيه."
+      }
+     ]
+    },
+    {
+     "id": "ch06_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:haifa.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "عشرين طلب وصلوا قبل طلباتي؟ مش معقول!"
+      },
+      {
+       "speaker": "rival",
+       "text": "ماشي، بعترف: شاورمتي سريعة، بسّ كبّتك أطيب."
+      },
+      {
+       "speaker": "player",
+       "text": "شو رأيك نعمل صحن مشترك؟ كبّة وشاورما."
+      },
+      {
+       "speaker": "rival",
+       "text": "فكرة مجنونة… بحبّها!"
+      }
+     ]
+    },
+    {
+     "id": "ch06_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "حيفا رح تشتاقلك. ومجد بيقول بدّه يوصّل طلباتك لغزّة!"
+      },
+      {
+       "speaker": "sitti",
+       "text": "غزّة ناطرتك، البحر والشمس وأبو رامي الصيّاد."
+      },
+      {
+       "speaker": "player",
+       "text": "يلا على غزّة، البحر بيستنّانا!"
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "hajjaUmmSubhi",
+       "amount": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch07_gaza",
+   "cityId": "gaza",
+   "scenes": [
+    {
+     "id": "ch07_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "abuAlAbed",
+       "text": {
+        "m": "غزّة! شوف البحر قدّيش أزرق، والعيل قاعدة عالرملة.",
+        "f": "غزّة! شوفي البحر قدّيش أزرق، والعيل قاعدة عالرملة."
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "أهل غزّة بحبّوا الأكل الحرّاق والقلب الكبير."
+      },
+      {
+       "speaker": "player",
+       "text": "جبت معي شطّة، وجبت قلبي كمان!"
+      }
+     ]
+    },
+    {
+     "id": "ch07_g05",
+     "trigger": "manual",
+     "triggerParam": "goal:gaza.g05",
+     "lines": [
+      {
+       "speaker": "hammouda",
+       "text": "أنا حمّودة! لما تشوب الدنيا، الكل بيركض عالبطّيخ!"
+      },
+      {
+       "speaker": "hammouda",
+       "text": "ولما تبرد، بدّهم سمّاقيّة وزبديّة سخنة."
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "راقب الطقس كل يوم، وغيّر عروضك عليه.",
+        "f": "راقبي الطقس كل يوم، وغيّري عروضك عليه."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch07_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "أنا أبو رامي، صيّاد من وأنا بعمر حمّودة."
+      },
+      {
+       "speaker": "rival",
+       "text": "الدقّة الغزّاويّة بدها شطّة وثوم وليمون… وجرأة!"
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "بتقدر توكل ملعقة دقّة بدون مي؟",
+        "f": "بتقدري توكلي ملعقة دقّة بدون مي؟"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "مي! بسرعة مي!"
+      }
+     ]
+    },
+    {
+     "id": "ch07_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:gaza.g13",
+     "lines": [
+      {
+       "speaker": "hammouda",
+       "text": {
+        "m": "عمّو، ممكن شقفة بطّيخ؟ مصرياتي خلصوا…",
+        "f": "خالتو، ممكن شقفة بطّيخ؟ مصرياتي خلصوا…"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "تعال يا بطل، البطّيخة كلّها على حسابي."
+      },
+      {
+       "speaker": "hammouda",
+       "text": {
+        "m": "لما أكبر بدّي أصير طبّاخ زيّك!",
+        "f": "لما أكبر بدّي أصير طبّاخ زيّك يا خالتو!"
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch07_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": "قالولي أبو رامي صار يجيبلك أحسن سمك عنده."
+      },
+      {
+       "speaker": "player",
+       "text": "بيقول سمكه بيستاهل إيد بتعرف تشويه."
+      },
+      {
+       "speaker": "sitti",
+       "text": "اللي بيشكر الصيّاد، البحر بيكرمه."
+      }
+     ]
+    },
+    {
+     "id": "ch07_g16",
+     "trigger": "manual",
+     "triggerParam": "goal:gaza.g16",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "اليوم طلعت بالفلوكة الصبح، وأوّل سمكة إلك."
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "صرت من أهل البحر يا ابني.",
+        "f": "صرتي من أهل البحر يا بنتي."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "وإنت صرت عمّي يا أبو رامي."
+      }
+     ]
+    },
+    {
+     "id": "ch07_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "ارجع زورنا بالصيف، البحر رح يسأل عنك.",
+        "f": "ارجعي زورينا بالصيف، البحر رح يسأل عنك."
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "رام الله ناطرتك، مدينة ما بتنام، وسلمى هناك."
+      },
+      {
+       "speaker": "sitti",
+       "text": "وأنا كمان رح أجي… عندي مفاجأة."
+      },
+      {
+       "speaker": "player",
+       "text": "مفاجأة؟ يلا على رام الله بسرعة!"
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "laylaStudent",
+       "amount": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch08_ramallah",
+   "cityId": "ramallah",
+   "scenes": [
+    {
+     "id": "ch08_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "abuAlAbed",
+       "text": "رام الله! الساعة عشرة بالليل والدوّار لسّا مليان."
+      },
+      {
+       "speaker": "sitti",
+       "text": "رام الله شابّة، بتحبّ القهوة والسهر والموسيقى."
+      },
+      {
+       "speaker": "player",
+       "text": "يعني لازم أفتح لنصّ الليل؟"
+      },
+      {
+       "speaker": "sitti",
+       "text": "لنصّ الليل وأكتر، يا قلبي."
+      }
+     ]
+    },
+    {
+     "id": "ch08_g06",
+     "trigger": "manual",
+     "triggerParam": "goal:ramallah.g06",
+     "lines": [
+      {
+       "speaker": "yazan",
+       "text": "أنا يزن، طالب جامعة. منقعد ندرس… ومنجوع الساعة 11!"
+      },
+      {
+       "speaker": "yazan",
+       "text": "بالليل الكل بيطلب صحن شاورما وكنافة بالكاسة."
+      },
+      {
+       "speaker": "player",
+       "text": "تمام، سوق الليل فتح! والأسعار حلوة للطلّاب."
+      }
+     ]
+    },
+    {
+     "id": "ch08_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "أنا سلمى، صاحبة كافيه سلمى. الكابتشينو عندي فنّ."
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "إنت فلافلي… بتعرف شو يعني رسمة عالقهوة؟",
+        "f": "إنتِ فلافليّة… بتعرفي شو يعني رسمة عالقهوة؟"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "بعرف أرسم قلب بالطحينة، بيكفّي؟"
+      },
+      {
+       "speaker": "rival",
+       "text": "ماشي! منشوف مين بيسهّر رام الله."
+      }
+     ]
+    },
+    {
+     "id": "ch08_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:ramallah.g13",
+     "lines": [
+      {
+       "speaker": "yazan",
+       "text": "نجحت بالامتحان! كلّه من سندويشات الفلافل بالليل."
+      },
+      {
+       "speaker": "player",
+       "text": "مبروك يا دكتور! السندويشة اليوم ببلاش."
+      },
+      {
+       "speaker": "yazan",
+       "text": "ونصّ الدفعة جاي يحتفل عندك الليلة!"
+      }
+     ]
+    },
+    {
+     "id": "ch08_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "بتعرف إنّي كنت أبيع عرق سوس بالمنارة زمان؟",
+        "f": "بتعرفي إنّي كنت أبيع عرق سوس بالمنارة زمان؟"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "إنتِ يا ستّي؟ بالمنارة؟"
+      },
+      {
+       "speaker": "sitti",
+       "text": "كان صوتي يوصل لبيرزيت: سوس… سوس بارد!"
+      }
+     ]
+    },
+    {
+     "id": "ch08_g16",
+     "trigger": "manual",
+     "triggerParam": "goal:ramallah.g16",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "اسمع، شو رأيك نعمل سوق ليل مشترك؟ قهوتي وأكلك.",
+        "f": "اسمعي، شو رأيك نعمل سوق ليل مشترك؟ قهوتي وأكلك."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "فكرة حلوة! الناس بتتعشّى عنّا وبتتحلّى عندك."
+      },
+      {
+       "speaker": "rival",
+       "text": "اتّفقنا. رام الله أحلى لما نشتغل سوا."
+      }
+     ]
+    },
+    {
+     "id": "ch08_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "بسطتك صارت جزء من ليل رام الله. رح نشتاقلك."
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "لفّيت فلسطين كلّها يا عمري. أنا فخورة فيك.",
+        "f": "لفّيتي فلسطين كلّها يا عمري. أنا فخورة فيكي."
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "والمفاجأة؟ أنا جاية معك! حطّني بالمطبخ.",
+        "f": "والمفاجأة؟ أنا جاية معك! حطّيني بالمطبخ."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "ستّي بالفريق؟ يا سلام! يلا على عمّان!"
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "sittiUmmKhalil",
+       "amount": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch09_amman",
+   "cityId": "amman",
+   "scenes": [
+    {
+     "id": "ch09_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "samer",
+       "text": "أهلين بعمّان! أنا سامر ابن عمّك، رح أرتّبلك كل الأوراق."
+      },
+      {
+       "speaker": "sitti",
+       "text": "عمّان مدينة الجبال السبعة، وأهلها أهلنا."
+      },
+      {
+       "speaker": "player",
+       "text": "أوّل مدينة برّا فلسطين… قلبي بيدقّ!"
+      }
+     ]
+    },
+    {
+     "id": "ch09_g05",
+     "trigger": "manual",
+     "triggerParam": "goal:amman.g05",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "أنا أبو عودة. المنسف بدّه جميد، والجميد بدّه حليب."
+      },
+      {
+       "speaker": "rival",
+       "text": "الحليب بيصير جميد، والجميد بيصير منسف. ولا خطوة بتنطّ!"
+      },
+      {
+       "speaker": "player",
+       "text": "يعني سلسلة من تلات محطّات؟ تحدّي!"
+      }
+     ]
+    },
+    {
+     "id": "ch09_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "عرس ابن أبو صالح الشهر الجاي: خمسمية ضيف ومنسف للكل."
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "إذا طبخت المنسف معي، بتصير منّا وفينا.",
+        "f": "إذا طبختي المنسف معي، بتصيري منّا وفينا."
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "المنسف بالإيد اليمين، والكرم بالإيدين التنتين."
+      }
+     ]
+    },
+    {
+     "id": "ch09_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:amman.g13",
+     "lines": [
+      {
+       "speaker": "groomFather",
+       "text": "أنا أبو صالح، أبو العريس. بدّي أحلى منسف بعمّان!"
+      },
+      {
+       "speaker": "groomFather",
+       "text": "خمسمية ضيف، والكل لازم يطلع مبسوط."
+      },
+      {
+       "speaker": "player",
+       "text": "على راسي يا عمّ! الجميد كركي والرز مفلفل."
+      }
+     ]
+    },
+    {
+     "id": "ch09_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "samer",
+       "text": "خلّصت أوراق الفرع، وسجّلت البسطة بدفتر البلديّة."
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "ابن عمّك سامر ذهب، بيرتّب الدنيا وإنت بتطبخ.",
+        "f": "ابن عمّك سامر ذهب، بيرتّب الدنيا وإنتِ بتطبخي."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "الشغل العيلي أحلى شغل!"
+      }
+     ]
+    },
+    {
+     "id": "ch09_g17",
+     "trigger": "manual",
+     "triggerParam": "goal:amman.g17",
+     "lines": [
+      {
+       "speaker": "groomFather",
+       "text": "العرس كان أسطورة! الناس لسّا بتحكي عن المنسف."
+      },
+      {
+       "speaker": "rival",
+       "text": "والله يا جماعة، المنسف كان أطيب من منسفي… شوي."
+      },
+      {
+       "speaker": "player",
+       "text": "شوي بس؟ ماشي يا أبو عودة، بقبلها!"
+      }
+     ]
+    },
+    {
+     "id": "ch09_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "إلك دار بعمّان. كل ما تمرق، القهوة جاهزة.",
+        "f": "إلك دار بعمّان. كل ما تمرقي، القهوة جاهزة."
+       }
+      },
+      {
+       "speaker": "samer",
+       "text": "بيروت جاهزة، حجزتلك محلّ عالكورنيش."
+      },
+      {
+       "speaker": "sitti",
+       "text": "بيروت بتحبّ الحياة، وطوني هناك ما بينام."
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "abuGeorgeHalabi",
+       "amount": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch10_beirut",
+   "cityId": "beirut",
+   "scenes": [
+    {
+     "id": "ch10_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "samer",
+       "text": {
+        "m": "بيروت! الكورنيش هون، والبحر بيسلّم عليك.",
+        "f": "بيروت! الكورنيش هون، والبحر بيسلّم عليكِ."
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "اللبنانيّة بيحبّوا الترويقة: منقوشة زعتر وكاسة شاي."
+      },
+      {
+       "speaker": "player",
+       "text": "والزعتر عنّا من جبال فلسطين، أكيد رح يعجبهم!"
+      }
+     ]
+    },
+    {
+     "id": "ch10_g05",
+     "trigger": "manual",
+     "triggerParam": "goal:beirut.g05",
+     "lines": [
+      {
+       "speaker": "singerRita",
+       "text": "أنا ريتا، بغنّي عالكورنيش كل ليلة."
+      },
+      {
+       "speaker": "singerRita",
+       "text": "بعد الساعة تسعة، الناس بتنزل وبتجوع… كتير!"
+      },
+      {
+       "speaker": "player",
+       "text": "إذن سوق الليل فتح، والغنيّة علينا!"
+      }
+     ]
+    },
+    {
+     "id": "ch10_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "أهلا بالجار! أنا طوني، ملك الصفيحة ببيروت.",
+        "f": "أهلا بالجارة! أنا طوني، ملك الصفيحة ببيروت."
+       }
+      },
+      {
+       "speaker": "rival",
+       "text": "منقوشتك حلوة، بسّ صفيحتي بتخلّي الناس تغنّي."
+      },
+      {
+       "speaker": "rival",
+       "text": "الساعة وحدة بالليل، منشوف الناس عند مين واقفة."
+      }
+     ]
+    },
+    {
+     "id": "ch10_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:beirut.g13",
+     "lines": [
+      {
+       "speaker": "singerRita",
+       "text": "كتبت غنيّة عن بسطتك! اسمها: يا زعتر يا حبيبي."
+      },
+      {
+       "speaker": "player",
+       "text": "يا سلام! غنّيها الليلة، والحلاوة علينا."
+      },
+      {
+       "speaker": "singerRita",
+       "text": {
+        "m": "صار عندك معجبين، انتبه عالطابور!",
+        "f": "صار عندك معجبين، انتبهي عالطابور!"
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch10_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": "قالولي الناس عالكورنيش صاروا يرقصوا عند بسطتك!"
+      },
+      {
+       "speaker": "player",
+       "text": "ريتا بتغنّي وأنا بخبز، صارت حفلة كل ليلة."
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "الأكل الطيّب بدّه مزاج حلو. كمّل يا فنّان.",
+        "f": "الأكل الطيّب بدّه مزاج حلو. كمّلي يا فنّانة."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch10_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:beirut.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "الساعة وحدة، والطابور عندك أطول من عندي…"
+      },
+      {
+       "speaker": "rival",
+       "text": "ماشي! من بكرة منعمل صحن مشترك: نصّ منقوشة ونصّ صفيحة."
+      },
+      {
+       "speaker": "player",
+       "text": "واسمه رح يكون: صفيوشة!"
+      }
+     ]
+    },
+    {
+     "id": "ch10_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "بيروت ما بتودّع، بتقول: لنشوفك قريب!"
+      },
+      {
+       "speaker": "samer",
+       "text": "الشام جاهزة، والسوق القديم بيستنّاك."
+      },
+      {
+       "speaker": "sitti",
+       "text": "الشام قلب العرب، وهناك أطيب بوظة بالدنيا."
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "abuSalimSweets",
+       "amount": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch11_damascus",
+   "cityId": "damascus",
+   "scenes": [
+    {
+     "id": "ch11_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "samer",
+       "text": "الشام! سوق الحميديّة طويل، والناس ما بتخلص."
+      },
+      {
+       "speaker": "sitti",
+       "text": "بالشام كل حجر إله حكاية، وكل صحن إله تاريخ."
+      },
+      {
+       "speaker": "player",
+       "text": "رح أعمل مسبّحة تخلّي الحكاية تكمل."
+      }
+     ]
+    },
+    {
+     "id": "ch11_g06",
+     "trigger": "manual",
+     "triggerParam": "goal:damascus.g06",
+     "lines": [
+      {
+       "speaker": "hakawati",
+       "text": "أنا أبو راشد الحكواتي. كل شوي بتفوت جماعة سيّاح للسوق."
+      },
+      {
+       "speaker": "hakawati",
+       "text": {
+        "m": "استقبلهم بسرعة، وأنا بحكيلهم عن بسطتك.",
+        "f": "استقبليهم بسرعة، وأنا بحكيلهم عن بسطتك."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "أوّل جماعة! أهلا وسهلا بالشام."
+      }
+     ]
+    },
+    {
+     "id": "ch11_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "أنا أبو صيّاح! بدقّ البوظة عالإيقاع، دم تك تك!"
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "بتقدر تلحقني؟ كل دقّة بتجيب زبون.",
+        "f": "بتقدري تلحقيني؟ كل دقّة بتجيب زبون."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "بدقّ الفلافل أسرع من بوظتك يا أبو صيّاح!"
+      }
+     ]
+    },
+    {
+     "id": "ch11_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:damascus.g13",
+     "lines": [
+      {
+       "speaker": "hakawati",
+       "text": {
+        "m": "الليلة بحكي حكاية جديدة: الفلافلي اللي إجا من القدس.",
+        "f": "الليلة بحكي حكاية جديدة: الفلافليّة اللي إجت من القدس."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "وشو آخر الحكاية؟"
+      },
+      {
+       "speaker": "hakawati",
+       "text": {
+        "m": "آخرها لسّا ما انكتب… إنت اللي بتكتبه.",
+        "f": "آخرها لسّا ما انكتب… إنتِ اللي بتكتبيه."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch11_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": "جدّك أخذني عالشام بشهر العسل، أكلنا بوظة بالفستق."
+      },
+      {
+       "speaker": "player",
+       "text": "يعني أنا هون عشان أكمّل الحكاية؟"
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "إيه يا عمري، وكمّلها حلوة زيّ البوظة.",
+        "f": "إيه يا عمري، وكمّليها حلوة زيّ البوظة."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch11_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:damascus.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "خمس جماعات بيوم واحد؟ إيدك صارت أسرع من إيدي!"
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "تعال، دقّ معي البوظة. إذا لحقت الإيقاع، بتصير شامي.",
+        "f": "تعالي، دقّي معي البوظة. إذا لحقتي الإيقاع، بتصيري شاميّة."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "دم تك تك… دم تك! هيك؟"
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "قرّبت! بكرة بتصير معلّم.",
+        "f": "قرّبتي! بكرة بتصيري معلّمة."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch11_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "الشام فتحتلك بابها، وبوظتي إلك ببلاش طول العمر."
+      },
+      {
+       "speaker": "samer",
+       "text": {
+        "m": "القاهرة جاهزة! بسّ انتبه… هناك اسمها طعميّة مش فلافل.",
+        "f": "القاهرة جاهزة! بسّ انتبهي… هناك اسمها طعميّة مش فلافل."
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "مصر أمّ الدنيا، وعم صابر هناك بيعرف كل زاروب."
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "nadiaCairo",
+       "amount": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch12_cairo",
+   "cityId": "cairo",
+   "scenes": [
+    {
+     "id": "ch12_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "samer",
+       "text": "القاهرة! زحمة وزمامير، وريحة طعميّة بكل شارع."
+      },
+      {
+       "speaker": "sitti",
+       "text": "المصريّين بيعملوا الطعميّة من الفول، مش من الحمّص."
+      },
+      {
+       "speaker": "player",
+       "text": "فول؟! بجرّبها… بسّ فلافلنا ما بتتنازل!"
+      }
+     ]
+    },
+    {
+     "id": "ch12_g05",
+     "trigger": "manual",
+     "triggerParam": "goal:cairo.g05",
+     "lines": [
+      {
+       "speaker": "bawwab",
+       "text": "أنا عم حسنين، بوّاب العمارة. السكّان كلّهم عايزين دليفري!"
+      },
+      {
+       "speaker": "bawwab",
+       "text": {
+        "m": "الدور العاشر عايز فول، والسابع عايز كشري… يلا يا باشا!",
+        "f": "الدور العاشر عايز فول، والسابع عايز كشري… يلا يا هانم!"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "تلات طلبات طلعوا! عم حسنين، إنت أحسن مدير طلبات."
+      }
+     ]
+    },
+    {
+     "id": "ch12_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "إزيّك يا فلسطيني؟ أنا عم صابر، ملك الطعميّة والدليفري.",
+        "f": "إزيّك يا فلسطينيّة؟ أنا عم صابر، ملك الطعميّة والدليفري."
+       }
+      },
+      {
+       "speaker": "rival",
+       "text": "عجلاتي بتعرف كل حارة بالقاهرة، حتّى اللي مش عالخريطة."
+      },
+      {
+       "speaker": "rival",
+       "text": "فلافل ولا طعميّة؟ الشارع هو اللي هيحكم!"
+      }
+     ]
+    },
+    {
+     "id": "ch12_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:cairo.g13",
+     "lines": [
+      {
+       "speaker": "bawwab",
+       "text": "مدام الدور التالت بتقول أم علي بتاعتك أحلى من بتاعة أمّها!"
+      },
+      {
+       "speaker": "player",
+       "text": "لا يا عمّ، ما بدنا مشاكل عيليّة!"
+      },
+      {
+       "speaker": "bawwab",
+       "text": {
+        "m": "ما تخافش، أمّها هي اللي طلبت الصحن التاني!",
+        "f": "ما تخافيش، أمّها هي اللي طلبت الصحن التاني!"
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch12_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "سمعت إنّك عملت صحن فلافل وطعميّة جنب بعض!",
+        "f": "سمعت إنّك عملتي صحن فلافل وطعميّة جنب بعض!"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "والناس انقسموا: نصّ مع هاي ونصّ مع هاي."
+      },
+      {
+       "speaker": "sitti",
+       "text": "الحمّص والفول إخوة، والفلافل والطعميّة ولاد عمّ."
+      }
+     ]
+    },
+    {
+     "id": "ch12_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:cairo.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "عشرين طلب في يوم واحد؟ ده إنت عفريت!",
+        "f": "عشرين طلب في يوم واحد؟ ده إنتي عفريتة!"
+       }
+      },
+      {
+       "speaker": "rival",
+       "text": "خلاص، عجلاتي تحت أمرك. نوصّل طعميّة وفلافل مع بعض."
+      },
+      {
+       "speaker": "player",
+       "text": "اتّفقنا يا عم صابر، الشارع للكل."
+      }
+     ]
+    },
+    {
+     "id": "ch12_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "مصر هتوحشك، وإنت هتوحشنا أكتر يا باشا.",
+        "f": "مصر هتوحشك، وإنتي هتوحشينا أكتر يا هانم."
+       }
+      },
+      {
+       "speaker": "samer",
+       "text": "بغداد جاهزة! على دجلة، والمسكوف بيستنّاك."
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "أبو جاسم هناك فرنه ما بيستنّى حدا، كون جاهز.",
+        "f": "أبو جاسم هناك فرنه ما بيستنّى حدا، كوني جاهزة."
+       }
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "karimBaghdadi",
+       "amount": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch13_baghdad",
+   "cityId": "baghdad",
+   "scenes": [
+    {
+     "id": "ch13_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "samer",
+       "text": {
+        "m": "بغداد! شوف دجلة، والسمك المسكوف عالنار.",
+        "f": "بغداد! شوفي دجلة، والسمك المسكوف عالنار."
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "البغداديّة كرماء، والشاي عندهم بالاستكان وبالهيل."
+      },
+      {
+       "speaker": "player",
+       "text": {
+        "m": "وأنا جايب شطّة وفلافل، يعني منتبادل!",
+        "f": "وأنا جايبة شطّة وفلافل، يعني منتبادل!"
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch13_g06",
+     "trigger": "manual",
+     "triggerParam": "goal:baghdad.g06",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "هلا بيك! أنا أبو جاسم. الصمّون عندي يطلع من الفرن ويطير."
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "لما يحمرّ الصمّون، دقّ عليه فوراً، وإلّا راح عليك.",
+        "f": "لما يحمرّ الصمّون، دقّي عليه فوراً، وإلّا راح عليكِ."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "خمس صمّونات مظبوطة! سخنة ومقرمشة."
+      },
+      {
+       "speaker": "rival",
+       "text": "زين… زين. بسّ الفرن ما يستنّى أحد."
+      }
+     ]
+    },
+    {
+     "id": "ch13_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "عيني، البغداديّة يعرفون الصمّون الزين من ريحته."
+      },
+      {
+       "speaker": "rival",
+       "text": "إذا صمّونك طلع مثل صمّوني، أعزمك على مسكوف بأبو نوّاس."
+      },
+      {
+       "speaker": "sitti",
+       "text": "أبو جاسم صعب، بسّ لمّا يحبّ حدا، بيحبّه من قلبه."
+      }
+     ]
+    },
+    {
+     "id": "ch13_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:baghdad.g13",
+     "lines": [
+      {
+       "speaker": "ustazNawfal",
+       "text": "أنا الأستاذ نوفل، عندي مكتبة بشارع المتنبّي."
+      },
+      {
+       "speaker": "ustazNawfal",
+       "text": "يقولون: القاهرة تكتب، بيروت تطبع، وبغداد تقرأ… وتاكل!"
+      },
+      {
+       "speaker": "player",
+       "text": "إذا هيك، بعملك سندويشة بحجم كتاب!"
+      }
+     ]
+    },
+    {
+     "id": "ch13_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": "بعرف إنّه الشغل صعب بعيد عن البيت. اشتقتلك."
+      },
+      {
+       "speaker": "player",
+       "text": "وأنا اشتقتلك يا ستّي، وللقدس ولبسطة جدّي."
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "كل فرع فتحته حجر بدار العيلة. كمّل.",
+        "f": "كل فرع فتحتيه حجر بدار العيلة. كمّلي."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch13_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:baghdad.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "أربعين صمّونة مظبوطة! والله صرت خبّاز بغدادي.",
+        "f": "أربعين صمّونة مظبوطة! والله صرتي خبّازة بغداديّة."
+       }
+      },
+      {
+       "speaker": "rival",
+       "text": "يلا، المسكوف عليّ الليلة بأبو نوّاس، مثل ما وعدتك."
+      },
+      {
+       "speaker": "player",
+       "text": {
+        "m": "وأنا جايب الفلافل… وهذا وعدي!",
+        "f": "وأنا جايبة الفلافل… وهذا وعدي!"
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch13_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "بغداد ما تنساك. كل ما تطلع صمّونة، أتذكّرك."
+      },
+      {
+       "speaker": "samer",
+       "text": "الرياض جاهزة، بسّ الحرّ هناك ولا مزح!"
+      },
+      {
+       "speaker": "sitti",
+       "text": "أبو سلطان هناك كريم، والقهوة عنده ما بتخلص."
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "abuFahdKabsa",
+       "amount": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch14_riyadh",
+   "cityId": "riyadh",
+   "scenes": [
+    {
+     "id": "ch14_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "samer",
+       "text": {
+        "m": "الرياض! الشمس هون مش مزح، اشرب مي كتير.",
+        "f": "الرياض! الشمس هون مش مزح، اشربي مي كتير."
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "أهل نجد كرماء، والقهوة عندهم بالهيل والتمر."
+      },
+      {
+       "speaker": "player",
+       "text": {
+        "m": "ولقيمات بالدبس! صرت جوعان من هلّق.",
+        "f": "ولقيمات بالدبس! صرت جوعانة من هلّق."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch14_g05",
+     "trigger": "manual",
+     "triggerParam": "goal:riyadh.g05",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "هلا والله! أنا أبو سلطان. الطقس هنا يقلب بين يوم ويوم."
+      },
+      {
+       "speaker": "rival",
+       "text": "إذا حرّ: لبن بارد وآيس كريم. إذا برد: قهوة وجريش."
+      },
+      {
+       "speaker": "player",
+       "text": "يعني الطقس هو المعلّم الحقيقي هون!"
+      }
+     ]
+    },
+    {
+     "id": "ch14_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "قهوتي ما يشربها أحد إلّا ويرجع. وش عندك أنت؟",
+        "f": "قهوتي ما يشربها أحد إلّا ويرجع. وش عندك أنتِ؟"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "عندي فلافل… وكبسة تعلّمتها من أهل الرياض."
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "كبسة؟ تبي تنافسني بكبستي؟ أبشر!",
+        "f": "كبسة؟ تبين تنافسيني بكبستي؟ أبشري!"
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch14_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:riyadh.g13",
+     "lines": [
+      {
+       "speaker": "saad",
+       "text": "أنا سعد، عندي مخيّم بالبرّ. نبي عشا لعشرين نفر!"
+      },
+      {
+       "speaker": "player",
+       "text": "مندي ولقيمات وقهوة، منوصّلها لحدّ الخيمة."
+      },
+      {
+       "speaker": "saad",
+       "text": "كفو! هالعشا بيصير سالفة المخيّم أسبوع كامل."
+      }
+     ]
+    },
+    {
+     "id": "ch14_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": "سمعت إنّه بالصيف اللبن البارد عندك صار ذهب!"
+      },
+      {
+       "speaker": "player",
+       "text": "الناس بتقول: لبنك بيطفّي الحرّ."
+      },
+      {
+       "speaker": "sitti",
+       "text": "الشاطر بيقرأ السما قبل ما يقرأ الدفتر."
+      }
+     ]
+    },
+    {
+     "id": "ch14_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:riyadh.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "يا الغالي، كل يوم حرّ والطابور عندك. وش السرّ؟",
+        "f": "يا الغالية، كل يوم حرّ والطابور عندك. وش السرّ؟"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "السرّ إنّي بسمع لأهل البلد، وبحطّ اللبن بالتلج!"
+      },
+      {
+       "speaker": "rival",
+       "text": "كفو! من اليوم قهوتي معك، والضيف ضيفنا سوا."
+      }
+     ]
+    },
+    {
+     "id": "ch14_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "الرياض صارت ديرتك. ارجع لنا بالشتا، الكشتة عليّ.",
+        "f": "الرياض صارت ديرتك. ارجعي لنا بالشتا، الكشتة عليّ."
+       }
+      },
+      {
+       "speaker": "samer",
+       "text": "دبي جاهزة! بسّ هناك الزباين… كبار كتير."
+      },
+      {
+       "speaker": "sitti",
+       "text": "الشيف لؤي هناك بيقول البسطة ما بتليق بالكبار. فرجيه!"
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "reemCoffee",
+       "amount": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch15_dubai",
+   "cityId": "dubai",
+   "scenes": [
+    {
+     "id": "ch15_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "samer",
+       "text": "دبي! أبراج وسيّارات فخمة، وضيوف من كل الدنيا."
+      },
+      {
+       "speaker": "sitti",
+       "text": "هون الكل مستعجل، بسّ الكل بيحبّ الأكل الطيّب."
+      },
+      {
+       "speaker": "player",
+       "text": "وبسطتنا رح تلمع بين الأبراج!"
+      }
+     ]
+    },
+    {
+     "id": "ch15_g06",
+     "trigger": "manual",
+     "triggerParam": "goal:dubai.g06",
+     "lines": [
+      {
+       "speaker": "mira",
+       "text": "هاي! أنا ميرا، بلوغر أكل. عندي مليون متابع!"
+      },
+      {
+       "speaker": "mira",
+       "text": "الضيوف الكبار بدّهم صالة خاصّة، ولقيمات بالذهب!"
+      },
+      {
+       "speaker": "player",
+       "text": "أوّل ضيف كبير انبسط! الصالة اشتغلت."
+      }
+     ]
+    },
+    {
+     "id": "ch15_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "أنا الشيف لؤي، مطعمي بالطابق المية. وإنت؟ بسطة؟",
+        "f": "أنا الشيف لؤي، مطعمي بالطابق المية. وإنتِ؟ بسطة؟"
+       }
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "الضيوف الكبار ما بياكلوا عالرصيف يا عزيزي.",
+        "f": "الضيوف الكبار ما بياكلوا عالرصيف يا عزيزتي."
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "خلّيه يحكي. الأكل الطيّب بيطلع للطابق المية لحاله."
+      }
+     ]
+    },
+    {
+     "id": "ch15_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:dubai.g13",
+     "lines": [
+      {
+       "speaker": "mira",
+       "text": "نزّلت فيديو للقيماتك… صار عليه مليونين مشاهدة!"
+      },
+      {
+       "speaker": "player",
+       "text": "مليونين؟! لازم نكبّر الصالة هسّا."
+      },
+      {
+       "speaker": "mira",
+       "text": "والكل بيسأل: وين البسطة اللي بتلمع؟"
+      }
+     ]
+    },
+    {
+     "id": "ch15_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "شفت؟ البسطة الزغيرة صار إلها اسم بأكبر مدينة.",
+        "f": "شفتي؟ البسطة الزغيرة صار إلها اسم بأكبر مدينة."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "بسّ الفلافل ضلّت نفس فلافل القدس، ما تغيّرت."
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "هيك صحّ. كبّر المكان، وخلّي الطعمة متل ما هي.",
+        "f": "هيك صحّ. كبّري المكان، وخلّي الطعمة متل ما هي."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch15_g16",
+     "trigger": "manual",
+     "triggerParam": "goal:dubai.g16",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "ستّ ضيوف كبار تركوا مطعمي وإجوا لبسطتك!"
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "طيب… بتعلّمني الفلافل؟ بسّ ما تحكي لحدا.",
+        "f": "طيب… بتعلّميني الفلافل؟ بسّ ما تحكي لحدا."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "على شرط: تعزمني عالطابق المية!"
+      }
+     ]
+    },
+    {
+     "id": "ch15_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "بعترف: البسطة بتليق بالكبار، وإنت أكبر منهم كلّهم.",
+        "f": "بعترف: البسطة بتليق بالكبار، وإنتِ أكبر منهم كلّهم."
+       }
+      },
+      {
+       "speaker": "samer",
+       "text": "مراكش جاهزة، والساحة هناك بتولّع كل ليلة."
+      },
+      {
+       "speaker": "sitti",
+       "text": "لالّة زهرة هناك بتطبخ حريرة بتشفي القلب."
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "fatimaMaghreb",
+       "amount": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch16_marrakesh",
+   "cityId": "marrakesh",
+   "scenes": [
+    {
+     "id": "ch16_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "samer",
+       "text": "مراكش! ساحة جامع الفنا: دخان وموسيقى وحكايات."
+      },
+      {
+       "speaker": "sitti",
+       "text": "المغاربة بيحبّوا الضيف، وأتاي عندهم بالنعناع والسكّر."
+      },
+      {
+       "speaker": "player",
+       "text": "شاي بالنعنع؟ زيّ القدس بالضبط!"
+      }
+     ]
+    },
+    {
+     "id": "ch16_g05",
+     "trigger": "manual",
+     "triggerParam": "goal:marrakesh.g05",
+     "lines": [
+      {
+       "speaker": "idris",
+       "text": "مرحبا بيك! أنا إدريس. الساحة بالنهار عاديّة، وبالليل بتولّع!"
+      },
+      {
+       "speaker": "idris",
+       "text": "من المغرب للساعة وحدة، الناس بتاكل بزّاف."
+      },
+      {
+       "speaker": "player",
+       "text": "واخا! سوق الليل فتح، حريرة وأتاي للكل."
+      }
+     ]
+    },
+    {
+     "id": "ch16_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "مرحبا! أنا لالّة زهرة، حريرتي مشهورة من أيّام جدّتي."
+      },
+      {
+       "speaker": "rival",
+       "text": "الساحة بتساع الكل، بسّ الحريرة… ما كاين غير حريرة زهرة!"
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "لالّة زهرة متلي، ستّ بتطبخ بقلبها. احترمها.",
+        "f": "لالّة زهرة متلي، ستّ بتطبخ بقلبها. احترميها."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch16_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:marrakesh.g13",
+     "lines": [
+      {
+       "speaker": "idris",
+       "text": "جماعة سيّاح نزلوا من الحافلة، كلّهم بدّهم مسمّن!"
+      },
+      {
+       "speaker": "player",
+       "text": {
+        "m": "مسمّن بالعسل والزبدة؟ جاهز!",
+        "f": "مسمّن بالعسل والزبدة؟ جاهزة!"
+       }
+      },
+      {
+       "speaker": "idris",
+       "text": "والله زوين بزّاف! غادي يرجعوا كل يوم."
+      }
+     ]
+    },
+    {
+     "id": "ch16_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "بتذكر لما حكيتلك عن مراكش وإنت زغير؟",
+        "f": "بتذكري لما حكيتلك عن مراكش وإنتِ زغيرة؟"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "إيه! قلتيلي فيها نجوم أكتر من السما."
+      },
+      {
+       "speaker": "sitti",
+       "text": "النجوم هي فوانيس الساحة، وهلّق فانوسك منهم."
+      }
+     ]
+    },
+    {
+     "id": "ch16_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:marrakesh.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "الليلة الطابور عندك وصل لعندي! شنو هاد؟"
+      },
+      {
+       "speaker": "rival",
+       "text": "واخا… نتشاركوا: حريرتي مع فلافلك، بصحن واحد."
+      },
+      {
+       "speaker": "player",
+       "text": "صحن الساحة! اسمه حريرة وفلافل."
+      }
+     ]
+    },
+    {
+     "id": "ch16_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "مراكش غادي توحشك. الحريرة ديالي ديما إلك."
+      },
+      {
+       "speaker": "samer",
+       "text": "إسطنبول جاهزة! البوسفور والعبّارات والسميت."
+      },
+      {
+       "speaker": "sitti",
+       "text": "الأسطى كمال هناك بيقول الفلافل تركيّة… بدّها نقاش!"
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "muratGrill",
+       "amount": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch17_istanbul",
+   "cityId": "istanbul",
+   "scenes": [
+    {
+     "id": "ch17_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "samer",
+       "text": "إسطنبول! قارّتين ومدينة وحدة، والعبّارات رايحة جاية."
+      },
+      {
+       "speaker": "sitti",
+       "text": "الأتراك بيحبّوا الشاي بكاسات زغار، وكتير!"
+      },
+      {
+       "speaker": "player",
+       "text": "وأنا بحبّ الكاسات الزغار، بشرب أكتر!"
+      }
+     ]
+    },
+    {
+     "id": "ch17_g05",
+     "trigger": "manual",
+     "triggerParam": "goal:istanbul.g05",
+     "lines": [
+      {
+       "speaker": "ayse",
+       "text": "أهلين! أنا عائشة، ببيع شاي عالعبّارة."
+      },
+      {
+       "speaker": "ayse",
+       "text": "قوارب الصيّادين بترسى، والركّاب بدّهم سندويشات سمك!"
+      },
+      {
+       "speaker": "player",
+       "text": "أوّل شحنة سندويشات طلعت عالقارب!"
+      }
+     ]
+    },
+    {
+     "id": "ch17_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "أنا الأسطى كمال. الفلافل؟ أكلة تركيّة طبعاً!"
+      },
+      {
+       "speaker": "player",
+       "text": "تركيّة؟! يا أسطى، الفلافل أكبر من الكل."
+      },
+      {
+       "speaker": "rival",
+       "text": "ماشي! خلّي الزباين يحكموا: كفتتي ضدّ فلافلك."
+      }
+     ]
+    },
+    {
+     "id": "ch17_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:istanbul.g13",
+     "lines": [
+      {
+       "speaker": "ayse",
+       "text": "الركّاب صاروا يسألوا: وين البسطة الفلسطينيّة؟"
+      },
+      {
+       "speaker": "player",
+       "text": "احكيلهم: جنب الميناء، الشاي عليكِ والفلافل عليّ."
+      },
+      {
+       "speaker": "ayse",
+       "text": {
+        "m": "تشكّرلر! يعني شكراً. صرنا شركاء يا صاحبي.",
+        "f": "تشكّرلر! يعني شكراً. صرنا شركاء يا صاحبتي."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch17_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": "جدّك كان يحكي إنّه جدّه اشتغل بإسطنبول زمان."
+      },
+      {
+       "speaker": "player",
+       "text": "يعني رجعنا لمحلّ ما بلّشت الحكاية؟"
+      },
+      {
+       "speaker": "sitti",
+       "text": "الحكايات بتلفّ وبترجع، زيّ العبّارة."
+      }
+     ]
+    },
+    {
+     "id": "ch17_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:istanbul.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "أربع شحنات! الصيّادين صاروا يحبّوك أكتر منّي.",
+        "f": "أربع شحنات! الصيّادين صاروا يحبّوكي أكتر منّي."
+       }
+      },
+      {
+       "speaker": "rival",
+       "text": "طيب، بعترف: الفلافل مش تركيّة… بسّ الكنافة تركيّة!"
+      },
+      {
+       "speaker": "player",
+       "text": "يا أسطى، الكنافة نابلسيّة! بسّ منكمّل النقاش عالشاي."
+      }
+     ]
+    },
+    {
+     "id": "ch17_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "إسطنبول بتقلّك: غوله غوله، يعني مع السلامة وارجع.",
+        "f": "إسطنبول بتقلّك: غوله غوله، يعني مع السلامة وارجعي."
+       }
+      },
+      {
+       "speaker": "samer",
+       "text": "أثينا جاهزة! آثار وبحر وشمس."
+      },
+      {
+       "speaker": "sitti",
+       "text": "كيريا ماريا هناك بتعمل لقمة القاضي. بنت عمّ العوّامة!"
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "yukiStreet",
+       "amount": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch18_athens",
+   "cityId": "athens",
+   "scenes": [
+    {
+     "id": "ch18_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "samer",
+       "text": "أثينا! الآثار فوق، والسيّاح تحت، والشمس بكل مكان."
+      },
+      {
+       "speaker": "sitti",
+       "text": "اليونانيّين متلنا، بيحبّوا الزيتون والسهر والعيلة."
+      },
+      {
+       "speaker": "player",
+       "text": "والجيروس عندهم زيّ الشاورما تبعتنا!"
+      }
+     ]
+    },
+    {
+     "id": "ch18_g06",
+     "trigger": "manual",
+     "triggerParam": "goal:athens.g06",
+     "lines": [
+      {
+       "speaker": "yannis",
+       "text": "ياسو! أنا يانيس. الباصات بتنزّل سيّاح للآثار كل شوي."
+      },
+      {
+       "speaker": "yannis",
+       "text": {
+        "m": "استقبلهم بسرعة، وبيرجعوا يحكوا لكل الباص.",
+        "f": "استقبليهم بسرعة، وبيرجعوا يحكوا لكل الباص."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "أوّل باص! كاليميرا… هيك بيقولوا صح؟"
+      }
+     ]
+    },
+    {
+     "id": "ch18_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "كاليسبيرا! أنا كيريا ماريا، اللوكوماديس عندي بالعسل والقرفة."
+      },
+      {
+       "speaker": "player",
+       "text": "لوكوماديس؟ هاي لقمة القاضي تبعتنا!"
+      },
+      {
+       "speaker": "rival",
+       "text": "مستحيل! إلّا إذا… إحنا ولاد عمّ؟"
+      }
+     ]
+    },
+    {
+     "id": "ch18_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:athens.g13",
+     "lines": [
+      {
+       "speaker": "yannis",
+       "text": "اليوم الشوب قوي. السيّاح بدّهم فرابيه وسلطة باردة!"
+      },
+      {
+       "speaker": "player",
+       "text": "البحر بيعطيك سمك، وأنا بعطيك فلافل. صفقة؟"
+      },
+      {
+       "speaker": "yannis",
+       "text": "صفقة يونانيّة فلسطينيّة! أوبا!"
+      }
+     ]
+    },
+    {
+     "id": "ch18_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "شفت؟ الأكل بيجمع الناس أكتر من أيّ لغة.",
+        "f": "شفتي؟ الأكل بيجمع الناس أكتر من أيّ لغة."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "يا ستّي، ماريا بتعرف كل وصفاتك بأسامي تانية!"
+      },
+      {
+       "speaker": "sitti",
+       "text": "البحر المتوسّط مطبخ واحد كبير، يا عمري."
+      }
+     ]
+    },
+    {
+     "id": "ch18_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:athens.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "خمس باصات وقفوا عندك! السيّاح صاروا يطلبوا فلافل بدل جيروس."
+      },
+      {
+       "speaker": "rival",
+       "text": "يلا، منعمل صحن لقمة القاضي ولوكوماديس سوا، نصّ ونصّ."
+      },
+      {
+       "speaker": "player",
+       "text": "واسمه: لقمة ماريا!"
+      }
+     ]
+    },
+    {
+     "id": "ch18_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "أثينا بتودّعك بالعسل. إفخاريستو يا صديقي.",
+        "f": "أثينا بتودّعك بالعسل. إفخاريستو يا صديقتي."
+       }
+      },
+      {
+       "speaker": "samer",
+       "text": {
+        "m": "لندن جاهزة… بسّ جيب شمسيّة!",
+        "f": "لندن جاهزة… بسّ جيبي شمسيّة!"
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "خالتك سهى هناك من عشرين سنة، واشتاقتلك."
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "mariaChile",
+       "amount": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch19_london",
+   "cityId": "london",
+   "scenes": [
+    {
+     "id": "ch19_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "auntSuha",
+       "text": {
+        "m": "حبيب خالتك! أخيراً وصلت لندن. تعال البس جاكيت!",
+        "f": "حبيبة خالتك! أخيراً وصلتي لندن. تعالي البسي جاكيت!"
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "سهى بنتي، بتعرف لندن شارع شارع. اسمع منها.",
+        "f": "سهى بنتي، بتعرف لندن شارع شارع. اسمعي منها."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "خالتو! ستّي بعتتلك زعتر وزيت من البلد."
+      }
+     ]
+    },
+    {
+     "id": "ch19_g05",
+     "trigger": "manual",
+     "triggerParam": "goal:london.g05",
+     "lines": [
+      {
+       "speaker": "auntSuha",
+       "text": "الطقس هون بيقلب كل ساعة: شمس، شتي، برد!"
+      },
+      {
+       "speaker": "auntSuha",
+       "text": "لما تشتي، الكل بيطلب شاي وفطيرة سخنة."
+      },
+      {
+       "speaker": "player",
+       "text": "يعني الشتي هون… رزقة!"
+      }
+     ]
+    },
+    {
+     "id": "ch19_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "غود إيفنينغ! أنا مستر هاري، سمك وبطاطا من خمسين سنة."
+      },
+      {
+       "speaker": "rival",
+       "text": "الفلافل؟ إشي لطيف… بسّ الإنجليز بيحبّوا البطاطا."
+      },
+      {
+       "speaker": "sitti",
+       "text": "خلّيه يجرّب راب الفلافل، وبعدين منحكي."
+      }
+     ]
+    },
+    {
+     "id": "ch19_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:london.g13",
+     "lines": [
+      {
+       "speaker": "auntSuha",
+       "text": "صحباتي بالشغل كلّهم بيطلبوا دليفري من عندك!"
+      },
+      {
+       "speaker": "player",
+       "text": "يا خالتو، صار عنّا دليفري تحت الشتي كمان."
+      },
+      {
+       "speaker": "auntSuha",
+       "text": "لو ستّك تشوفك، رح تعيّط من الفرحة."
+      }
+     ]
+    },
+    {
+     "id": "ch19_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": "سهى بعتتلي صورة البسطة تحت المطر، بتلمع زيّ القمر."
+      },
+      {
+       "speaker": "player",
+       "text": "الناس بيوقفوا بالدور تحت الشمسيّات!"
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "اللي بيستنّاك بالشتي، أكرمه بلقمة زيادة.",
+        "f": "اللي بيستنّاكي بالشتي، أكرميه بلقمة زيادة."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch19_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:london.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "يا ربّي، بطاطتي صارت طريّة من الشتي، وفلافلك لسّا مقرمشة!"
+      },
+      {
+       "speaker": "rival",
+       "text": "ممكن أطلب راب فلافل… والبطاطا جوّاته؟"
+      },
+      {
+       "speaker": "player",
+       "text": "أكيد يا مستر هاري، اسمه: راب لندن!"
+      }
+     ]
+    },
+    {
+     "id": "ch19_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "تشيريو يا صاحبي! لندن رح تشتاق لفلافلك.",
+        "f": "تشيريو يا صاحبتي! لندن رح تشتاق لفلافلك."
+       }
+      },
+      {
+       "speaker": "auntSuha",
+       "text": {
+        "m": "باريس قريبة بالقطار، بسّ لا تنسى خالتك!",
+        "f": "باريس قريبة بالقطار، بسّ لا تنسي خالتك!"
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "مسيو بيير هناك بيقول الخبز فنّ. فرجيه فنّك."
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "rarity": "epic",
+       "amount": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch20_paris",
+   "cityId": "paris",
+   "scenes": [
+    {
+     "id": "ch20_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "samer",
+       "text": "باريس! النهر والجسور والمقاهي، وريحة الكرواسون الصبح."
+      },
+      {
+       "speaker": "sitti",
+       "text": "الفرنسيّين بيحترموا الأكل كأنّه رسمة بمتحف."
+      },
+      {
+       "speaker": "player",
+       "text": "منيح، صحن الفلافل تبعي لوحة فنّيّة!"
+      }
+     ]
+    },
+    {
+     "id": "ch20_g06",
+     "trigger": "manual",
+     "triggerParam": "goal:paris.g06",
+     "lines": [
+      {
+       "speaker": "claire",
+       "text": "بونجور، أنا كلير، ناقدة أكل. النقّاد بيدوّروا على صحن مميّز."
+      },
+      {
+       "speaker": "claire",
+       "text": "فلافل فاخر بصالة خاصّة؟ فكرة… جريئة."
+      },
+      {
+       "speaker": "player",
+       "text": "أوّل ناقد كبير طلع مبسوط! الصالة جاهزة."
+      }
+     ]
+    },
+    {
+     "id": "ch20_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "بونسوار. أنا مسيو بيير. الباغيت عندي بيطلع بالثانية المظبوطة."
+      },
+      {
+       "speaker": "rival",
+       "text": "الفلافل؟ أكل شارع. باريس بدها فنّ، مش شارع."
+      },
+      {
+       "speaker": "sitti",
+       "text": "الشارع فيه أحلى فنّ. فرجيه!"
+      }
+     ]
+    },
+    {
+     "id": "ch20_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:paris.g13",
+     "lines": [
+      {
+       "speaker": "claire",
+       "text": "كتبت عنك بالجريدة: فلافل بتخلّي باريس تحكي عربي!"
+      },
+      {
+       "speaker": "player",
+       "text": "مرسي كلير! بعزمك على صحن كنافة من إيدي."
+      },
+      {
+       "speaker": "claire",
+       "text": "وأنا بعزمك على كرواسون… باريس بتحبّ التبادل."
+      }
+     ]
+    },
+    {
+     "id": "ch20_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": "شو بدّك بالنجوم يا عمري؟ نجومك هم زباينك."
+      },
+      {
+       "speaker": "player",
+       "text": "بسّ يا ستّي، النقّاد هون صعبين كتير."
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "الصعب بيصير سهل لمّا تحطّ قلبك بالعجينة.",
+        "f": "الصعب بيصير سهل لمّا تحطّي قلبك بالعجينة."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch20_g16",
+     "trigger": "manual",
+     "triggerParam": "goal:paris.g16",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "ستّ نقّاد كبار مدحوا فلافلك… وواحد بسّ مدح باغيتي."
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "طيب، علّمني: كيف الفلافل مقرمشة برّا وطريّة جوّا؟",
+        "f": "طيب، علّميني: كيف الفلافل مقرمشة برّا وطريّة جوّا؟"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "بعلّمك، إذا علّمتني توقيت الباغيت!"
+      }
+     ]
+    },
+    {
+     "id": "ch20_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "مرسي يا صديقي. من اليوم، باغيت فلافل على قائمتي.",
+        "f": "مرسي يا صديقتي. من اليوم، باغيت فلافل على قائمتي."
+       }
+      },
+      {
+       "speaker": "samer",
+       "text": "نيويورك جاهزة! مدينة ما بتنام، أكتر من رام الله كمان."
+      },
+      {
+       "speaker": "sitti",
+       "text": "عمّك جميل هناك من تلاتين سنة، وبيستنّاك."
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "samiFryer",
+       "amount": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch21_newYork",
+   "cityId": "newYork",
+   "scenes": [
+    {
+     "id": "ch21_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "uncleJamil",
+       "text": {
+        "m": "أهلا يا ابن أخوي! أخيراً نيويورك.",
+        "f": "أهلا يا بنت أخوي! أخيراً نيويورك."
+       }
+      },
+      {
+       "speaker": "samer",
+       "text": "يابا! اشتقتلك كتير!"
+      },
+      {
+       "speaker": "sitti",
+       "text": "جميل ابني، راح على أمريكا وأخذ ريحة الفلافل معه."
+      }
+     ]
+    },
+    {
+     "id": "ch21_g05",
+     "trigger": "manual",
+     "triggerParam": "goal:newYork.g05",
+     "lines": [
+      {
+       "speaker": "uncleJamil",
+       "text": "هون الكل مستعجل. بدّهم الأكل يطلع للطابق الأربعين!"
+      },
+      {
+       "speaker": "uncleJamil",
+       "text": {
+        "m": "ابعت الطلبات بسرعة، وما تنسى الصوص الأبيض.",
+        "f": "ابعتي الطلبات بسرعة، وما تنسي الصوص الأبيض."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "تلات طلبات وصلت! نيويورك بتاكل فلافل."
+      }
+     ]
+    },
+    {
+     "id": "ch21_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "هاي! أنا بيغ توني. عربايتي بالشارع من عشرين سنة."
+      },
+      {
+       "speaker": "rival",
+       "text": "السرّ؟ صوص أبيض زيادة. دايماً زيادة!"
+      },
+      {
+       "speaker": "player",
+       "text": "وأنا عندي طحينة القدس… منشوف مين بيكسب."
+      }
+     ]
+    },
+    {
+     "id": "ch21_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:newYork.g13",
+     "lines": [
+      {
+       "speaker": "uncleJamil",
+       "text": {
+        "m": "شفت الطابور الساعة تلاتة الصبح؟ سوّاقين وطلّاب وممرّضين!",
+        "f": "شفتي الطابور الساعة تلاتة الصبح؟ سوّاقين وطلّاب وممرّضين!"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "زيّ أبو العبد بالقدس! سوّاقين التكسي بيعرفوا الأكل الطيّب."
+      },
+      {
+       "speaker": "uncleJamil",
+       "text": {
+        "m": "بلّغه سلامي، كان يوصّلني عالمطار زمان.",
+        "f": "بلّغيه سلامي، كان يوصّلني عالمطار زمان."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch21_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": "جميل بيقول بسطتك صارت أشهر من الجسر!"
+      },
+      {
+       "speaker": "player",
+       "text": "عمّي جميل بيبالغ، بسّ الناس بتحبّ الفلافل كتير."
+      },
+      {
+       "speaker": "sitti",
+       "text": "اللي بيطلع من القلب بيوصل للقلب، حتّى بنيويورك."
+      }
+     ]
+    },
+    {
+     "id": "ch21_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:newYork.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "عشرين طلب وصلوا قبل طلباتي؟ إنت ماكينة!",
+        "f": "عشرين طلب وصلوا قبل طلباتي؟ إنتِ ماكينة!"
+       }
+      },
+      {
+       "speaker": "rival",
+       "text": "اتّفقنا: الصوص الأبيض منّي، والطحينة منك. أحسن صحن بالمدينة."
+      },
+      {
+       "speaker": "player",
+       "text": "صحن الصحاب! صوص أبيض وطحينة."
+      }
+     ]
+    },
+    {
+     "id": "ch21_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "نيويورك بتقلّك: شكراً يا بطل! ارجع بأيّ وقت.",
+        "f": "نيويورك بتقلّك: شكراً يا بطلة! ارجعي بأيّ وقت."
+       }
+      },
+      {
+       "speaker": "uncleJamil",
+       "text": "سانتياغو جاهزة. هناك جالية فلسطينيّة كبيرة كتير!"
+      },
+      {
+       "speaker": "sitti",
+       "text": "عمّو إلياس هناك، صاحب جدّك من أيّام الشباب."
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "mariaChile",
+       "amount": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch22_santiago",
+   "cityId": "santiago",
+   "scenes": [
+    {
+     "id": "ch22_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "uncleElias",
+       "text": "أهلا وسهلا! أنا عمّو إلياس، أصلي من بيت جالا."
+      },
+      {
+       "speaker": "uncleElias",
+       "text": "هون بالتشيلي فلسطين بالقلب، والنادي كلّه عيلة."
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "إلياس صاحب جدّك. سلّملي عليه، وبوسلي راسه.",
+        "f": "إلياس صاحب جدّك. سلّميلي عليه، وبوسيلي راسه."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch22_g05",
+     "trigger": "manual",
+     "triggerParam": "goal:santiago.g05",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "أولا! أنا دون خوسيه. الإمبانادا بدها قمح مطحون منيح."
+      },
+      {
+       "speaker": "rival",
+       "text": "القمح بيصير عجين، والعجين بيصير إمبانادا. خطوة خطوة."
+      },
+      {
+       "speaker": "player",
+       "text": "زيّ الحليب والجميد بعمّان! بعرف هاللعبة."
+      }
+     ]
+    },
+    {
+     "id": "ch22_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "الإمبانادا تبعتي أطيب إمبانادا بسانتياغو، والكل بيعرف."
+      },
+      {
+       "speaker": "rival",
+       "text": "فلافل؟ ما بعرفها… بسّ ريحتها حلوة، لازم أعترف."
+      },
+      {
+       "speaker": "uncleElias",
+       "text": "خوسيه عنيد، بسّ بطنه بيفهم أكتر من راسه!"
+      }
+     ]
+    },
+    {
+     "id": "ch22_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:santiago.g13",
+     "lines": [
+      {
+       "speaker": "uncleElias",
+       "text": "النادي الفلسطيني عامل عرس الجمعة. بدّهم فلافلك!"
+      },
+      {
+       "speaker": "player",
+       "text": "على راسي يا عمّو! فلافل وحمّص ومسخّن."
+      },
+      {
+       "speaker": "uncleElias",
+       "text": "العرسان من بيت لحم، رح يبكوا من الفرحة."
+      }
+     ]
+    },
+    {
+     "id": "ch22_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": "إلياس بعتلي صورة… النادي كلّه بيدبك حوالين بسطتك!"
+      },
+      {
+       "speaker": "player",
+       "text": "يا ستّي، حسّيت حالي بالبلد."
+      },
+      {
+       "speaker": "sitti",
+       "text": "البلد ساكنة فينا، وين ما رحنا."
+      }
+     ]
+    },
+    {
+     "id": "ch22_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:santiago.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "أكلت فلافلك مبارح الصبح… والظهر… والمسا."
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "إذا بتعلّمني، بحطّ فلافل جوّا الإمبانادا!",
+        "f": "إذا بتعلّميني، بحطّ فلافل جوّا الإمبانادا!"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "إمبانادا فلافل؟ دون خوسيه، إنت عبقري!"
+      }
+     ]
+    },
+    {
+     "id": "ch22_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "uncleElias",
+       "text": {
+        "m": "ارجع بعيد الميلاد، النادي كلّه بيستنّاك.",
+        "f": "ارجعي بعيد الميلاد، النادي كلّه بيستنّاكي."
+       }
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "صرت فلافلي يا صديقي. شكراً من القلب.",
+        "f": "صرت فلافلي يا صديقتي. شكراً من القلب."
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "ريو جاهزة: كرنفال وموسيقى، وكارلوس ما بيوقف رقص."
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "rarity": "epic",
+       "amount": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch23_rio",
+   "cityId": "rio",
+   "scenes": [
+    {
+     "id": "ch23_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "samer",
+       "text": "ريو! الجبال والبحر والكرنفال… وكل الناس بترقص!"
+      },
+      {
+       "speaker": "sitti",
+       "text": "البرازيليّين قلبهم دافي، زيّ شمسهم."
+      },
+      {
+       "speaker": "player",
+       "text": "رح نخلّي الفلافل ترقص سامبا!"
+      }
+     ]
+    },
+    {
+     "id": "ch23_g05",
+     "trigger": "manual",
+     "triggerParam": "goal:rio.g05",
+     "lines": [
+      {
+       "speaker": "mariana",
+       "text": "أولا! أنا ماريانا. أسبوع الكرنفال، والناس ما بتنام!"
+      },
+      {
+       "speaker": "mariana",
+       "text": "من الساعة تمانية، الكل بيطلب أكل وحلو… كتير كتير!"
+      },
+      {
+       "speaker": "player",
+       "text": "سوق الليل فتح! فلافل سامبا للكل."
+      }
+     ]
+    },
+    {
+     "id": "ch23_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "أنا كارلوس، ملك الشوراسكو. المشاوي عندي ما بتنطفي."
+      },
+      {
+       "speaker": "rival",
+       "text": "إذا الناس رقصت عندك أكتر من عندي، بعزمك عالشوراسكو."
+      },
+      {
+       "speaker": "sitti",
+       "text": "كارلوس بيحبّ التحدّي، بسّ قلبه أبيض."
+      }
+     ]
+    },
+    {
+     "id": "ch23_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:rio.g13",
+     "lines": [
+      {
+       "speaker": "mariana",
+       "text": "فرقة السامبا تبعتي بدها تمرق قدّام بسطتك الليلة!"
+      },
+      {
+       "speaker": "player",
+       "text": "الفلافل والبريغاديرو عليّ لكل الفرقة!"
+      },
+      {
+       "speaker": "mariana",
+       "text": "أوبريغادا! يعني شكراً بالبرتغالي."
+      }
+     ]
+    },
+    {
+     "id": "ch23_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "سمعت إنّك رقصت سامبا؟ جدّك كان أشطر منك بالدبكة!",
+        "f": "سمعت إنّك رقصتي سامبا؟ جدّك كان أشطر منك بالدبكة!"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "يا ستّي، الدبكة والسامبا ولاد عمّ."
+      },
+      {
+       "speaker": "sitti",
+       "text": "كل الرقصات بتبلّش من فرحة القلب."
+      }
+     ]
+    },
+    {
+     "id": "ch23_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:rio.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "الناس رقصوا عندك لطلوع الضو! خسرت التحدّي…"
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "يلا، الشوراسكو عليّ والفلافل عليك. حفلة للكل!",
+        "f": "يلا، الشوراسكو عليّ والفلافل عليكِ. حفلة للكل!"
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "أوبا! ريو بتعرف تحتفل."
+      }
+     ]
+    },
+    {
+     "id": "ch23_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "ريو بتقلّك: مش وداع، بسّ لنشوفك بالكرنفال الجاي!"
+      },
+      {
+       "speaker": "samer",
+       "text": "آخر محطّة: طوكيو! المدينة اللي كلّها دقّة."
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "الشيف كينجي بيقيس كل إشي بالثانية، وإنت بتقيس بالقلب.",
+        "f": "الشيف كينجي بيقيس كل إشي بالثانية، وإنتِ بتقيسي بالقلب."
+       }
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "id": "yukiStreet",
+       "amount": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ch24_tokyo",
+   "cityId": "tokyo",
+   "scenes": [
+    {
+     "id": "ch24_arrival",
+     "trigger": "arrival",
+     "lines": [
+      {
+       "speaker": "samer",
+       "text": "طوكيو! قطارات عالدقيقة، وأضواء، وناس مؤدّبين كتير."
+      },
+      {
+       "speaker": "sitti",
+       "text": "آخر مدينة يا عمري. بعدها منرجع عالقدس سوا."
+      },
+      {
+       "speaker": "player",
+       "text": "يعني هاي الحلقة الأخيرة؟ لازم تكون أحلى وحدة!"
+      }
+     ]
+    },
+    {
+     "id": "ch24_g06",
+     "trigger": "manual",
+     "triggerParam": "goal:tokyo.g06",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "كونيتشيوا. أنا الشيف كينجي. التمبورا بتطلع بثانية وحدة مظبوطة."
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "لما تلمع، دقّ. لا قبل، ولا بعد.",
+        "f": "لما تلمع، دقّي. لا قبل، ولا بعد."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "خمس قطع مظبوطة! أريغاتو يا شيف."
+      }
+     ]
+    },
+    {
+     "id": "ch24_rival",
+     "trigger": "rival",
+     "triggerParam": 0.25,
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "الدقّة هي كل إشي. عشرين سنة وأنا بتعلّم أقطع السمك."
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "وإنت؟ فلافل؟ بدون قياس؟ بدون ميزان؟",
+        "f": "وإنتِ؟ فلافل؟ بدون قياس؟ بدون ميزان؟"
+       }
+      },
+      {
+       "speaker": "sitti",
+       "text": "ميزاننا بالقلب يا شيف، مش بالغرامات."
+      }
+     ]
+    },
+    {
+     "id": "ch24_g13",
+     "trigger": "manual",
+     "triggerParam": "goal:tokyo.g13",
+     "lines": [
+      {
+       "speaker": "haruto",
+       "text": "أنا هاروتو، طالب. أكلت فلافل لأوّل مرّة… واو!"
+      },
+      {
+       "speaker": "haruto",
+       "text": "صوّرتها ونزّلتها، وهلّق كل الصفّ جاي!"
+      },
+      {
+       "speaker": "player",
+       "text": "أهلا بالصفّ كلّه! أونيغيري وفلافل لكل واحد."
+      }
+     ]
+    },
+    {
+     "id": "ch24_midpoint",
+     "trigger": "midpoint",
+     "triggerParam": 0.5,
+     "lines": [
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "بتعرف شو أحلى إشي بهالرحلة؟ إنّك ما نسيت أصلك.",
+        "f": "بتعرفي شو أحلى إشي بهالرحلة؟ إنّك ما نسيتي أصلك."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "كيف بنسى يا ستّي؟ الفلافل بتذكّرني فيكِ كل يوم."
+      },
+      {
+       "speaker": "sitti",
+       "text": {
+        "m": "الله يرضى عليك. يلا، خلّص طوكيو وتعال عالدار.",
+        "f": "الله يرضى عليكِ. يلا، خلّصي طوكيو وتعالي عالدار."
+       }
+      }
+     ]
+    },
+    {
+     "id": "ch24_g15",
+     "trigger": "manual",
+     "triggerParam": "goal:tokyo.g15",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": "أربعين قطعة مظبوطة. أنا… بنحنيلك احترام."
+      },
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "علّمني الفلافل. بدّي أعمل فلافل أوماكاسي.",
+        "f": "علّميني الفلافل. بدّي أعمل فلافل أوماكاسي."
+       }
+      },
+      {
+       "speaker": "player",
+       "text": "بشرط: تيجي معي عالقدس، عالعزومة الكبيرة!"
+      },
+      {
+       "speaker": "rival",
+       "text": "هاي! يشرّفني."
+      }
+     ]
+    },
+    {
+     "id": "ch24_finale",
+     "trigger": "finale",
+     "lines": [
+      {
+       "speaker": "rival",
+       "text": {
+        "m": "الفلافل فنّ، وإنت معلّمه.",
+        "f": "الفلافل فنّ، وإنتِ معلّمته."
+       }
+      },
+      {
+       "speaker": "samer",
+       "text": "كل الفروع شغّالة، من القدس لطوكيو! يا عيلة!"
+      },
+      {
+       "speaker": "sitti",
+       "text": "يلا يا روحي، الطيّارة عالقدس. العيلة كلّها ناطرة."
+      }
+     ],
+     "rewards": [
+      {
+       "type": "chefCards",
+       "rarity": "legendary",
+       "amount": 1
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "extraScenes": [
+  {
+   "id": "epilogue_backToJerusalem",
+   "trigger": "manual",
+   "triggerParam": "campaignComplete",
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": {
+      "m": "شوف! أبو شاكر وجريس وأبو حمدي… كل الجيران إجوا.",
+      "f": "شوفي! أبو شاكر وجريس وأبو حمدي… كل الجيران إجوا."
+     }
+    },
+    {
+     "speaker": "abuShaker",
+     "text": {
+      "m": "يا جار! الفلافل طلعت من هالبسطة ولفّت الدنيا كلّها.",
+      "f": "يا جارة! الفلافل طلعت من هالبسطة ولفّت الدنيا كلّها."
+     }
+    },
+    {
+     "speaker": "lina",
+     "text": {
+      "m": "عمّو! أنا كبرت وصرت طبّاخة، بدّي أشتغل عندك!",
+      "f": "خالتو! أنا كبرت وصرت طبّاخة، بدّي أشتغل عندك!"
+     }
+    },
+    {
+     "speaker": "player",
+     "text": "البسطة بسطتك يا لينا، والحكاية مكمّلة."
+    },
+    {
+     "speaker": "sitti",
+     "text": "جدّك لو هون، كان قال: هيك بتكون البسطة."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "chest",
+     "id": "gold",
+     "amount": 1
+    }
+   ]
+  },
+  {
+   "id": "fest_mothersDay",
+   "trigger": "festival",
+   "triggerParam": "mothersDay",
+   "lines": [
+    {
+     "speaker": "player",
+     "text": "كل عام وإنتِ بخير يا ستّي، يا أحلى أمّ بالدنيا."
+    },
+    {
+     "speaker": "sitti",
+     "text": {
+      "m": "وإنت بخير يا روحي. أحلى هديّة إنّك اتّصلت.",
+      "f": "وإنتِ بخير يا روحي. أحلى هديّة إنّك اتّصلتي."
+     }
+    },
+    {
+     "speaker": "sitti",
+     "text": {
+      "m": "بعتتلك وصفة سرّيّة… افتحها لما تشتاقلي.",
+      "f": "بعتتلك وصفة سرّيّة… افتحيها لما تشتاقيلي."
+     }
+    }
+   ]
+  },
+  {
+   "id": "fest_ramadan",
+   "trigger": "festival",
+   "triggerParam": "ramadan",
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "رمضان كريم يا عمري! الفوانيس منوّرة بكل حارة."
+    },
+    {
+     "speaker": "player",
+     "text": "الله أكرم يا ستّي. الفطور عندي اليوم؟"
+    },
+    {
+     "speaker": "sitti",
+     "text": {
+      "m": "أكيد! وبعد الفطور قطايف بالجوز، متل ما بتحبّ.",
+      "f": "أكيد! وبعد الفطور قطايف بالجوز، متل ما بتحبّي."
+     }
+    }
+   ]
+  },
+  {
+   "id": "fest_eidFitr",
+   "trigger": "festival",
+   "triggerParam": "eidFitr",
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": {
+      "m": "كل عام وإنت بخير! هاي عيديّتك من ستّك.",
+      "f": "كل عام وإنتِ بخير! هاي عيديّتك من ستّك."
+     }
+    },
+    {
+     "speaker": "player",
+     "text": {
+      "m": "يا ستّي، صرت كبير عالعيديّة!",
+      "f": "يا ستّي، صرت كبيرة عالعيديّة!"
+     }
+    },
+    {
+     "speaker": "sitti",
+     "text": {
+      "m": "عمرك ما بتكبر على عيديّة ستّك.",
+      "f": "عمرك ما بتكبري على عيديّة ستّك."
+     }
+    }
+   ]
+  },
+  {
+   "id": "fest_eidAdha",
+   "trigger": "festival",
+   "triggerParam": "eidAdha",
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": {
+      "m": "عيد أضحى مبارك! اعمل صحن كبير ووزّع عالجيران.",
+      "f": "عيد أضحى مبارك! اعملي صحن كبير ووزّعي عالجيران."
+     }
+    },
+    {
+     "speaker": "player",
+     "text": "على راسي يا ستّي، المنسف جاهز للكل."
+    }
+   ]
+  },
+  {
+   "id": "fest_oliveHarvest",
+   "trigger": "festival",
+   "triggerParam": "oliveHarvest",
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "موسم الزيتون! زمان كانت العيلة كلّها تطلع عالكرم."
+    },
+    {
+     "speaker": "sitti",
+     "text": "الزيت الجديد بيخلّي الفلافل تغنّي."
+    },
+    {
+     "speaker": "player",
+     "text": "رح أبعتلك تنكة زيت من أوّل عصرة!"
+    }
+   ]
+  },
+  {
+   "id": "fest_bethlehemChristmas",
+   "trigger": "festival",
+   "triggerParam": "bethlehemChristmas",
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "ميلاد مجيد! بيت لحم منوّرة، والشجرة بالساحة عالية."
+    },
+    {
+     "speaker": "player",
+     "text": "رح أبعت سحلب وكستنا لجريس، بيستاهل."
+    }
+   ]
+  },
+  {
+   "id": "fest_summer",
+   "trigger": "festival",
+   "triggerParam": "summer",
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "إجت الصيفيّة! بطّيخ وبوظة وسهر عالسطوح."
+    },
+    {
+     "speaker": "player",
+     "text": "وليموناضة بالنعنع، يا سلام!"
+    }
+   ]
+  },
+  {
+   "id": "fest_backToSchool",
+   "trigger": "festival",
+   "triggerParam": "backToSchool",
+   "lines": [
+    {
+     "speaker": "lina",
+     "text": "رجعت عالمدرسة! بدّي سندويشة فلافل للفرصة."
+    },
+    {
+     "speaker": "player",
+     "text": "سندويشة فلافل وتفّاحة، عشان تتفوّقي!"
+    },
+    {
+     "speaker": "sitti",
+     "text": "العلم نور، والفلافل وقود. بالتوفيق يا لينا!"
+    }
+   ]
+  },
+  {
+   "id": "choice_radio",
+   "trigger": "manual",
+   "triggerParam": "choice:radio",
+   "lines": [
+    {
+     "speaker": "player",
+     "text": "ستّي أم خليل علّمتني كل إشي: الوصفة والصبر والابتسامة."
+    },
+    {
+     "speaker": "sitti",
+     "text": {
+      "m": "سمعتك بالراديو! الحارة كلّها سمعت. رفعت راسي.",
+      "f": "سمعتك بالراديو! الحارة كلّها سمعت. رفعتي راسي."
+     }
+    }
+   ]
+  },
+  {
+   "id": "choice_grandmaCall",
+   "trigger": "manual",
+   "triggerParam": "choice:grandmaCall",
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "وصل الصحن! والله طعمته متل طعمة جدّك."
+    },
+    {
+     "speaker": "player",
+     "text": "منك تعلّمت يا ستّي، كلّه منك."
+    },
+    {
+     "speaker": "sitti",
+     "text": {
+      "m": "الله يرضى عليك ويوسّع رزقك.",
+      "f": "الله يرضى عليكِ ويوسّع رزقك."
+     }
+    }
+   ]
+  }
+ ],
+ "memories": [
+  {
+   "id": "memory_L82",
+   "trigger": "memory",
+   "triggerParam": 82,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": {
+      "m": "بتذكر أوّل يوم فتح جدّك البسطة؟ كان معه عشر حبّات فلافل.",
+      "f": "بتذكري أوّل يوم فتح جدّك البسطة؟ كان معه عشر حبّات فلافل."
+     }
+    },
+    {
+     "speaker": "sitti",
+     "text": "بعنا تسعة، والعاشرة أكلها هو وضحك!"
+    }
+   ]
+  },
+  {
+   "id": "memory_L83",
+   "trigger": "memory",
+   "triggerParam": 83,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "زمان كنّا نطحن الحمّص بالجاروشة. إيدي تتعب وقلبي يغنّي."
+    },
+    {
+     "speaker": "player",
+     "text": "هلّق في ماكينة يا ستّي!"
+    },
+    {
+     "speaker": "sitti",
+     "text": "الماكينة بتطحن، بسّ الغنا ما بتعرفه."
+    }
+   ]
+  },
+  {
+   "id": "memory_L84",
+   "trigger": "memory",
+   "triggerParam": 84,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "جدّك كان يحطّ وردة عالبسطة كل صبح… عشاني."
+    },
+    {
+     "speaker": "player",
+     "text": "يا عيني! عشان هيك البسطة دايماً حلوة."
+    }
+   ]
+  },
+  {
+   "id": "memory_L85",
+   "trigger": "memory",
+   "triggerParam": 85,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "أوّل مرّة شفت البحر كانت بيافا. أكلنا سمك وبرتقال."
+    },
+    {
+     "speaker": "sitti",
+     "text": "من يومها، ريحة البرتقال بترجّعني صبيّة."
+    }
+   ]
+  },
+  {
+   "id": "memory_L86",
+   "trigger": "memory",
+   "triggerParam": 86,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "أمّي علّمتني التطريز. كل غرزة إلها اسم وحكاية."
+    },
+    {
+     "speaker": "player",
+     "text": "وأنا بتعلّم منك: كل صحن إله اسم وحكاية."
+    }
+   ]
+  },
+  {
+   "id": "memory_L87",
+   "trigger": "memory",
+   "triggerParam": 87,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "بالشتا كنّا نتجمّع حوالين الكانون، والكستنا تطقّ."
+    },
+    {
+     "speaker": "sitti",
+     "text": "وجدّك يحكي حكايات، والولاد يناموا عحضني."
+    }
+   ]
+  },
+  {
+   "id": "memory_L88",
+   "trigger": "memory",
+   "triggerParam": 88,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "عمّك جميل لما كان زغير، كان يسرق قرص فلافل ويركض."
+    },
+    {
+     "speaker": "player",
+     "text": "عمّي جميل؟! هلّق صار عنده عربايّة بنيويورك!"
+    }
+   ]
+  },
+  {
+   "id": "memory_L89",
+   "trigger": "memory",
+   "triggerParam": 89,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "موسم الزيتون كان عرس. العيلة كلّها تحت الشجر."
+    },
+    {
+     "speaker": "sitti",
+     "text": "والغدا عالكرم: زيت جديد وخبز طابون سخن."
+    }
+   ]
+  },
+  {
+   "id": "memory_L91",
+   "trigger": "memory",
+   "triggerParam": 91,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": {
+      "m": "جدّك عملّي خاتم من خشب الزيتون. لسّا معي، شوف.",
+      "f": "جدّك عملّي خاتم من خشب الزيتون. لسّا معي، شوفي."
+     }
+    },
+    {
+     "speaker": "player",
+     "text": "أحلى من الدهب يا ستّي."
+    }
+   ]
+  },
+  {
+   "id": "memory_L92",
+   "trigger": "memory",
+   "triggerParam": 92,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "الطابون كان بالحارة، وكل الجيران يخبزوا فيه سوا."
+    },
+    {
+     "speaker": "sitti",
+     "text": "الخبز بطلع أطيب لمّا الإيدين كتار."
+    }
+   ]
+  },
+  {
+   "id": "memory_L93",
+   "trigger": "memory",
+   "triggerParam": 93,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "أوّل قرص فلافل عملته كان محروق…"
+    },
+    {
+     "speaker": "sitti",
+     "text": "وجدّك أكله كلّه وقال: أطيب قرص بحياتي!"
+    }
+   ]
+  },
+  {
+   "id": "memory_L94",
+   "trigger": "memory",
+   "triggerParam": 94,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "كنّا نسمع الراديو عالبسطة، والشارع كلّه يغنّي معه."
+    },
+    {
+     "speaker": "player",
+     "text": "يلا نشغّل الراديو هلّق يا ستّي!"
+    }
+   ]
+  },
+  {
+   "id": "memory_L95",
+   "trigger": "memory",
+   "triggerParam": 95,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "أبو شاكر وجدّك كانوا يتسابقوا مين بيفتح أوّل."
+    },
+    {
+     "speaker": "sitti",
+     "text": "وكل يوم بيخسر واحد، وبيعزم التاني على شاي."
+    }
+   ]
+  },
+  {
+   "id": "memory_L96",
+   "trigger": "memory",
+   "triggerParam": 96,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": {
+      "m": "لما انولدت يا عمري، جدّك وزّع فلافل عالحارة كلّها.",
+      "f": "لما انولدتي يا عمري، جدّك وزّع فلافل عالحارة كلّها."
+     }
+    },
+    {
+     "speaker": "player",
+     "text": "يعني أنا من أوّل يوم ريحتي فلافل!"
+    }
+   ]
+  },
+  {
+   "id": "memory_L97",
+   "trigger": "memory",
+   "triggerParam": 97,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "مفتاح دار سيدي لسّا معي، بيذكّرني بالدار والعيلة."
+    },
+    {
+     "speaker": "sitti",
+     "text": {
+      "m": "خبّيه منيح… يوم من الأيّام بصير إلك.",
+      "f": "خبّيه منيح… يوم من الأيّام بصير إلكِ."
+     }
+    }
+   ]
+  },
+  {
+   "id": "memory_L98",
+   "trigger": "memory",
+   "triggerParam": 98,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": "الرزق بحبّ الخفّية. جدّك كان يقولها كل صبح."
+    },
+    {
+     "speaker": "player",
+     "text": "وأنا بقولها كل صبح هلّق، بكل الفروع."
+    }
+   ]
+  },
+  {
+   "id": "memory_L99",
+   "trigger": "memory",
+   "triggerParam": 99,
+   "lines": [
+    {
+     "speaker": "sitti",
+     "text": {
+      "m": "أنا فخورة فيك، أكتر من كل الفروع والنجوم.",
+      "f": "أنا فخورة فيكي، أكتر من كل الفروع والنجوم."
+     }
+    },
+    {
+     "speaker": "player",
+     "text": "وأنا كل اللي عملته، عشان أشوف هالضحكة."
+    }
+   ]
+  }
+ ]
+}

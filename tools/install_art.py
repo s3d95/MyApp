@@ -2,7 +2,7 @@
 
 Usage: python3 tools/install_art.py <png_dir> <key> [<key> ...]
        python3 tools/install_art.py <png_dir> --from-swift MyApp
-The second form scans Swift sources for Art keys like "food_falafel" and installs exactly those.
+The second form scans Swift sources and content JSON for art keys like "food_falafel" and installs exactly those.
 Images land in MyApp/Assets.xcassets/Art/<key>.imageset, tagged @3x (256px -> 85pt).
 """
 import json
@@ -17,11 +17,14 @@ PREFIXES = ('food_', 'ppl_', 'face_', 'bld_', 'veh_', 'ui_', 'ani_')
 
 
 def keys_from_swift(src):
+    """Art keys quoted in Swift sources and in bundled content JSON (MyApp/Content)."""
     pat = re.compile(r'"((?:%s)[a-z0-9_]+)"' % '|'.join(PREFIXES))
     found = set()
     for d, _, files in os.walk(os.path.join(ROOT, src)):
         for f in files:
-            if f.endswith('.swift'):
+            if f.endswith('.swift') or f.endswith('.json'):
+                if f == 'Contents.json':
+                    continue
                 found.update(pat.findall(open(os.path.join(d, f), encoding='utf-8').read()))
     return sorted(found)
 

@@ -1,0 +1,128 @@
+import Foundation
+
+/// Empire level, XP and level rewards (GDD 4).
+extension GameStore {
+    /// Systems that exist in this build (their unlocks are announced at level-up).
+    static let builtSystems: Set<String> = ["kitchen", "goals", "managers", "specials", "upgrades", "rushHours",
+                                            "vault", "map", "branchUpgrades"]
+
+    func systemName(_ id: String) -> String {
+        switch id {
+        case "managers": return "المعلّمين"
+        case "specials": return "الزباين المميّزين"
+        case "upgrades": return "الترقيات"
+        case "rushHours": return "ساعات الذروة"
+        case "vault": return "الخزنة"
+        case "map": return "الخريطة والفروع"
+        case "branchUpgrades": return "تكبير الفروع"
+        case "chefs": return "الطبّاخين"
+        case "shop": return "الدكان"
+        case "research": return "دفتر ستّي"
+        case "supply": return "رحلات التوريد"
+        case "daily": return "طلبات اليوم"
+        default: return id
+        }
+    }
+
+    func xpNeed(_ level: Int) -> Int { max(1, Rules.xpToNext(level, curve: cat.levels.xpCurve)) }
+
+    var xpProgress: Double { Double(s.empire.xp) / Double(xpNeed(level)) }
+
+    func title(for level: Int) -> String {
+        let row = cat.levels.titles.filter { $0.level <= level }.max { $0.level < $1.level }
+        return row.map { t($0.name) } ?? "بيّاع عالبسطة"
+    }
+
+    var currentTitle: String { title(for: level) }
+
+    func addXP(_ n: Int) {
+        guard n > 0 else { return }
+        s.empire.xp += n
+        s.empire.totalXp += n
+        var extraXP = 0
+        while s.empire.xp >= xpNeed(s.empire.level) {
+            s.empire.xp -= xpNeed(s.empire.level)
+            let from = s.empire.level
+            s.empire.level += 1
+            let lv = s.empire.level
+            var info = pendingLevelUp ?? LevelUpInfo(from: from, to: lv, rewards: [], unlocks: [], title: nil)
+            info.to = lv
+            let rewards = cat.levelRow(lv)?.rewards ?? (lv > 100 ? cat.levels.beyond100Rewards : [Reward(type: "gold", amount: 25)])
+            for r in rewards {
+                if r.type == "xp" {
+                    extraXP += Int(r.amount)
+                    continue
+                }
+                if let line = applyReward(r) { info.rewards.append(line) }
+            }
+            for u in cat.levelRow(lv)?.unlocks ?? [] where u.type == "system" {
+                if let id = u.id, GameStore.builtSystems.contains(id) { info.unlocks.append(systemName(id)) }
+            }
+            if cat.levels.titles.contains(where: { $0.level == lv }) { info.title = title(for: lv) }
+            pendingLevelUp = info
+        }
+        if extraXP > 0 { addXP(extraXP) }
+    }
+
+    /// Queues the merged level-up modal (called after each action burst).
+    func flushLevelUp() {
+        guard let info = pendingLevelUp else { return }
+        pendingLevelUp = nil
+        enqueue(.levelUp(info))
+        Feedback.play(.t2)
+        if s.legacy.eligible && !s.legacy.claimed && info.to >= 2 { enqueue(.legacy) }
+        if !s.settings.addressAsked && info.to >= 2 { enqueue(.address) }
+        save()
+    }
+
+    func chestArt(_ kind: String) -> String {
+        switch kind {
+        case "gold": return "ui_crown"
+        case "silver": return "ui_gift"
+        default: return "veh_package"
+        }
+    }
+
+    func chestName(_ kind: String) -> String {
+        switch kind {
+        case "gold": return "صندوق ذهب"
+        case "silver": return "صندوق فضّة"
+        default: return "صندوق خشب"
+        }
+    }
+
+    /// The only place rewards are granted. Returns a display line.
+    @discardableResult
+    func applyReward(_ r: Reward) -> RewardLine? {
+        let n = Int(r.amount.rounded())
+        switch r.type {
+        case "gold":
+            s.wallet.gold += n
+            return RewardLine(art: "ui_coin", amount: "+" + Num.int(n), caption: "ذهب")
+        case "zaatar":
+            s.wallet.zaatar += n
+            return RewardLine(art: "food_herb", amount: "+" + Num.int(n), caption: "زعتر ذهبي")
+        case "chest":
+            let kind = r.id ?? "wood"
+            s.wallet.pendingChests[kind, default: 0] += max(1, n)
+            return RewardLine(art: chestArt(kind), amount: "×" + Num.int(max(1, n)), caption: chestName(kind))
+        case "timeWarpMin":
+            s.wallet.timeWarps.append(n)
+            return RewardLine(art: "ui_hourglass", amount: Num.dur(Double(n) * 60), caption: "رزمة وقت")
+        case "chefCards":
+            s.wallet.pendingChefCards += max(1, n)
+            return RewardLine(art: "ppl_cook", amount: "+" + Num.int(max(1, n)), caption: "كروت طبّاخين")
+        case "heritageItem", "heritageCase":
+            s.wallet.pendingHeritage += max(1, n)
+            return RewardLine(art: "ui_old_key", amount: "+" + Num.int(max(1, n)), caption: "قطعة تراث")
+        case "incomeMin":
+            let amount = r.amount * 60 * totalIncome(active: false)
+            credit(amount, station: nil, at: now())
+            return RewardLine(art: city.currency.art, amount: "+" + Num.big(amount), caption: currencyName)
+        default:
+            return nil
+        }
+    }
+
+    var pendingChestCount: Int { s.wallet.pendingChests.values.reduce(0, +) }
+}

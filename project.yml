@@ -12,8 +12,8 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.wardapp.falafel
-        MARKETING_VERSION: "2.0"
-        CURRENT_PROJECT_VERSION: "3"
+        MARKETING_VERSION: "3.0"
+        CURRENT_PROJECT_VERSION: "4"
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_FILE: Support/Info.plist
         INFOPLIST_KEY_CFBundleDisplayName: "بسطة فلافل"

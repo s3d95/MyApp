@@ -1,0 +1,44 @@
+name: Compile check
+
+# Builds every branch except main without publishing a release, and reports compiler errors as
+# annotations (readable through the public API without logs access).
+on:
+  push:
+    branches-ignore: [main]
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Build (unsigned, debug)
+        run: |
+          set -o pipefail
+          xcodebuild -project MyApp.xcodeproj -scheme MyApp \
+            -configuration Debug -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            build 2>&1 | tee build.log
+
+      - name: Report compiler errors
+        if: failure()
+        run: |
+          grep -E "(error|fatal error):" build.log | sed "s#$GITHUB_WORKSPACE/##g" | sort -u | head -80 > errors.txt || true
+          echo "errors: $(wc -l < errors.txt)"
+          split -l 12 errors.txt chunk_ || true
+          n=0
+          for f in chunk_*; do
+            [ -f "$f" ] || continue
+            n=$((n+1))
+            msg=$(sed -e 's/%/%25/g' "$f" | awk 'BEGIN{ORS="%0A"} {print}')
+            echo "::error title=Compiler errors $n::$msg"
+          done

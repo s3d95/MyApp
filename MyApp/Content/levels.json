@@ -1,0 +1,2122 @@
+{
+ "version": 1,
+ "xpCurve": {
+  "a": 15,
+  "p": 1.36,
+  "roundTo": 5,
+  "after100": 8000
+ },
+ "goldByLevel": [
+  {
+   "from": 2,
+   "to": 10,
+   "gold": 10
+  },
+  {
+   "from": 11,
+   "to": 30,
+   "gold": 15
+  },
+  {
+   "from": 31,
+   "to": 60,
+   "gold": 20
+  },
+  {
+   "from": 61,
+   "to": 100,
+   "gold": 25
+  }
+ ],
+ "levels": [
+  {
+   "level": 1,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "kitchen"
+    },
+    {
+     "type": "system",
+     "id": "goals"
+    }
+   ],
+   "rewards": [],
+   "ceremony": false
+  },
+  {
+   "level": 2,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "managers"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 3,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "specials"
+    },
+    {
+     "type": "system",
+     "id": "upgrades"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 4,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "chefs"
+    },
+    {
+     "type": "system",
+     "id": "chests"
+    },
+    {
+     "type": "system",
+     "id": "shop"
+    },
+    {
+     "type": "chefSlots",
+     "value": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 5,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "rushHours"
+    },
+    {
+     "type": "system",
+     "id": "vault"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 6,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "map"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 7,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "research"
+    },
+    {
+     "type": "researchSlots",
+     "value": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 8,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "supply"
+    },
+    {
+     "type": "system",
+     "id": "heritage"
+    },
+    {
+     "type": "supplySlots",
+     "value": 1
+    },
+    {
+     "type": "chefSlots",
+     "value": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 9,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "daily"
+    },
+    {
+     "type": "system",
+     "id": "calendar"
+    },
+    {
+     "type": "system",
+     "id": "streak"
+    },
+    {
+     "type": "freezeCap",
+     "value": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 10,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "choices"
+    },
+    {
+     "type": "system",
+     "id": "newspaper"
+    },
+    {
+     "type": "supplySlots",
+     "value": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    },
+    {
+     "type": "timeWarpMin",
+     "amount": 60
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 11,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "rush"
+    },
+    {
+     "type": "ticketCap",
+     "value": 3
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 12,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "league"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 13,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "market"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 14,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "contracts"
+    },
+    {
+     "type": "contractSlots",
+     "value": 1
+    },
+    {
+     "type": "sideGrade",
+     "value": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 15,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "events"
+    },
+    {
+     "type": "chefSlots",
+     "value": 3
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 16,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "season"
+    },
+    {
+     "type": "supplySlots",
+     "value": 3
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 17,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "branchUpgrades"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 18,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "inspector"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 19,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "crafting"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 20,
+   "unlocks": [
+    {
+     "type": "researchSlots",
+     "value": 2
+    },
+    {
+     "type": "sideGrade",
+     "value": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    },
+    {
+     "type": "timeWarpMin",
+     "amount": 60
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 21,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_teacher"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 22,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "chefSkills"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 23,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_health_worker"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 24,
+   "unlocks": [
+    {
+     "type": "system",
+     "id": "timeWarpShop"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 25,
+   "unlocks": [
+    {
+     "type": "chefSlots",
+     "value": 4
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    },
+    {
+     "type": "chefCards",
+     "amount": 3,
+     "rarity": "legendary"
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 26,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "awningOlive"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 27,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_mechanic"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 28,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "propMint"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 29,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_pilot"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 30,
+   "unlocks": [
+    {
+     "type": "contractSlots",
+     "value": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    },
+    {
+     "type": "timeWarpMin",
+     "amount": 60
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 31,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_artist"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 32,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "lightsLanterns"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 33,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_scientist"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 34,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "signCopper"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 35,
+   "unlocks": [
+    {
+     "type": "ticketCap",
+     "value": 4
+    },
+    {
+     "type": "sideGrade",
+     "value": 3
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 36,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "propCat"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 37,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_farmer"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 38,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "awningTatreez"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 39,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_woman_farmer"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 40,
+   "unlocks": [
+    {
+     "type": "chefSlots",
+     "value": 5
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    },
+    {
+     "type": "timeWarpMin",
+     "amount": 60
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 41,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_technologist"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 42,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "propBell"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 43,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_construction"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 44,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "lightsStars"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 45,
+   "unlocks": [
+    {
+     "type": "freezeCap",
+     "value": 3
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 46,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "signCalligraphy"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 47,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ani_dog"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 48,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "propSunflower"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 49,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_singer"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 50,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "awningSky"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "gold"
+    },
+    {
+     "type": "timeWarpMin",
+     "amount": 60
+    },
+    {
+     "type": "chefCards",
+     "amount": 3,
+     "rarity": "legendary"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 51,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_office"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 52,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "propOliveTree"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 53,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_superhero"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 54,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "lightsCandles"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 55,
+   "unlocks": [
+    {
+     "type": "sideGrade",
+     "value": 4
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 56,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "signTiles"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 57,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_princess"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 58,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "propRooster"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 59,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_detective"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 60,
+   "unlocks": [
+    {
+     "type": "chefSlots",
+     "value": 6
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "gold"
+    },
+    {
+     "type": "timeWarpMin",
+     "amount": 60
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 61,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_baby"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 62,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "awningKeffiyeh"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 63,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_person_raising_hand"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 64,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "propBouquet"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 65,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_waving_hand"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 66,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "lightsHearts"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 67,
+   "unlocks": [
+    {
+     "type": "visitor",
+     "id": "ppl_man_office"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 68,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "signNeon"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 69,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "propTulips"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 70,
+   "unlocks": [
+    {
+     "type": "researchSlots",
+     "value": 3
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "gold"
+    },
+    {
+     "type": "timeWarpMin",
+     "amount": 60
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 71,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "awningLilac"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 72,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "propPalm"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 73,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "lightsBalloons"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 74,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "awningSunset"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 75,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "propCactus"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    },
+    {
+     "type": "chefCards",
+     "amount": 3,
+     "rarity": "legendary"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 76,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "awningRoyal"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 77,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "propClover"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 78,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "signGold"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 79,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "frameOlive"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 80,
+   "unlocks": [
+    {
+     "type": "sideGrade",
+     "value": 5
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "gold"
+    },
+    {
+     "type": "timeWarpMin",
+     "amount": 60
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 81,
+   "unlocks": [
+    {
+     "type": "cosmetic",
+     "id": "frameGold"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 82,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L82"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 83,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L83"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 84,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L84"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 85,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L85"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "gold"
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 86,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L86"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 87,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L87"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 88,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L88"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 89,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L89"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 90,
+   "unlocks": [
+    {
+     "type": "supplySlots",
+     "value": 4
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "gold"
+    },
+    {
+     "type": "timeWarpMin",
+     "amount": 60
+    }
+   ],
+   "ceremony": true
+  },
+  {
+   "level": 91,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L91"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 92,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L92"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 93,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L93"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 94,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L94"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 95,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L95"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "gold"
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 96,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L96"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 97,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L97"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 98,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L98"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 99,
+   "unlocks": [
+    {
+     "type": "storyMemory",
+     "id": "memory_L99"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "ceremony": false
+  },
+  {
+   "level": 100,
+   "unlocks": [
+    {
+     "type": "title",
+     "id": "title.L100"
+    },
+    {
+     "type": "cosmetic",
+     "id": "awningSultan"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 25
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "gold"
+    },
+    {
+     "type": "timeWarpMin",
+     "amount": 60
+    },
+    {
+     "type": "chefCards",
+     "amount": 3,
+     "rarity": "legendary"
+    }
+   ],
+   "ceremony": false
+  }
+ ],
+ "titles": [
+  {
+   "level": 1,
+   "name": {
+    "m": "بيّاع عالبسطة",
+    "f": "بيّاعة عالبسطة"
+   }
+  },
+  {
+   "level": 5,
+   "name": {
+    "m": "صاحب عربايّة",
+    "f": "صاحبة عربايّة"
+   }
+  },
+  {
+   "level": 10,
+   "name": {
+    "m": "معلّم فلافل",
+    "f": "معلّمة فلافل"
+   }
+  },
+  {
+   "level": 15,
+   "name": {
+    "m": "صاحب كشك",
+    "f": "صاحبة كشك"
+   }
+  },
+  {
+   "level": 20,
+   "name": {
+    "m": "معلّم حمّص",
+    "f": "معلّمة حمّص"
+   }
+  },
+  {
+   "level": 25,
+   "name": {
+    "m": "صاحب دكّانة",
+    "f": "صاحبة دكّانة"
+   }
+  },
+  {
+   "level": 30,
+   "name": {
+    "m": "طبّاخ الحارة",
+    "f": "طبّاخة الحارة"
+   }
+  },
+  {
+   "level": 35,
+   "name": {
+    "m": "مشهور بالبلد",
+    "f": "مشهورة بالبلد"
+   }
+  },
+  {
+   "level": 40,
+   "name": {
+    "m": "صاحب مطعم",
+    "f": "صاحبة مطعم"
+   }
+  },
+  {
+   "level": 45,
+   "name": {
+    "m": "معلّم المعلّمين",
+    "f": "معلّمة المعلّمين"
+   }
+  },
+  {
+   "level": 50,
+   "name": {
+    "m": "شيف المدينة",
+    "f": "شيفة المدينة"
+   }
+  },
+  {
+   "level": 55,
+   "name": {
+    "m": "صاحب فروع",
+    "f": "صاحبة فروع"
+   }
+  },
+  {
+   "level": 60,
+   "name": {
+    "m": "تاجر الشام",
+    "f": "تاجرة الشام"
+   }
+  },
+  {
+   "level": 65,
+   "name": {
+    "m": "نجم المطابخ",
+    "f": "نجمة المطابخ"
+   }
+  },
+  {
+   "level": 70,
+   "name": {
+    "m": "ملك الصاج",
+    "f": "ملكة الصاج"
+   }
+  },
+  {
+   "level": 75,
+   "name": {
+    "m": "شيخ الطبّاخين",
+    "f": "شيخة الطبّاخين"
+   }
+  },
+  {
+   "level": 80,
+   "name": {
+    "m": "سفير الفلافل",
+    "f": "سفيرة الفلافل"
+   }
+  },
+  {
+   "level": 85,
+   "name": "أسطورة السوق"
+  },
+  {
+   "level": 90,
+   "name": {
+    "m": "إمبراطور الحمّص",
+    "f": "إمبراطورة الحمّص"
+   }
+  },
+  {
+   "level": 95,
+   "name": {
+    "m": "إمبراطور الفلافل",
+    "f": "إمبراطورة الفلافل"
+   }
+  },
+  {
+   "level": 100,
+   "name": {
+    "m": "سلطان البسطات",
+    "f": "سلطانة البسطات"
+   }
+  }
+ ],
+ "beyond100Rewards": [
+  {
+   "type": "gold",
+   "amount": 25
+  },
+  {
+   "type": "chest",
+   "amount": 1,
+   "id": "wood"
+  }
+ ]
+}

@@ -22,6 +22,8 @@ struct StreetScene: View {
     /// Customers per minute, roughly.
     var rate: Double = 12
     var lights = true
+    /// Stall look 0–8 (GDD 6.20): lights, bunting, tables, plants and a gold sign appear as it grows.
+    var tier: Int = 8
 
     static let defaultCustomers = ["ppl_man", "ppl_woman", "ppl_old_man", "ppl_old_woman", "ppl_boy",
                                    "ppl_girl", "ppl_woman_headscarf", "ppl_turban", "ppl_man_office",
@@ -33,6 +35,11 @@ struct StreetScene: View {
                 let t = ctx.date.timeIntervalSinceReferenceDate
                 ZStack(alignment: .topLeading) {
                     backdrop(geo.size)
+                    if tier >= 3 {
+                        Bunting(count: 13, sag: 8)
+                            .frame(width: geo.size.width, height: 34)
+                    }
+                    props(geo.size)
                     stall(geo.size)
                     crowd(t: t, size: geo.size)
                 }
@@ -63,6 +70,24 @@ struct StreetScene: View {
             Rectangle()
                 .fill(LinearGradient(colors: [style.ground, style.ground.opacity(0.75)], startPoint: .top, endPoint: .bottom))
                 .frame(height: 30)
+        }
+        .frame(width: s.width, height: s.height)
+    }
+
+    private func props(_ s: CGSize) -> some View {
+        let w: CGFloat = min(190, s.width * 0.48)
+        let stallLeft = s.width - w - 14
+        return ZStack {
+            if tier >= 5 {
+                ArtIcon("food_fork_knife_plate", size: 26)
+                    .position(x: stallLeft - 4, y: s.height - 30)
+            }
+            if tier >= 7 {
+                ArtIcon("bld_potted_plant", size: 34)
+                    .position(x: s.width - 12, y: s.height - 40)
+                ArtIcon("ui_lantern", size: 24)
+                    .position(x: stallLeft + 8, y: s.height - (min(130, s.height * 0.68)) - 2)
+            }
         }
         .frame(width: s.width, height: s.height)
     }
@@ -99,7 +124,8 @@ struct StreetScene: View {
                 .padding(.horizontal, 10)
                 .padding(.vertical, 3)
                 .background(Capsule().fill(Brand.woodDark))
-                .overlay(Capsule().stroke(Brand.gold, lineWidth: 1.5))
+                .overlay(Capsule().stroke(tier >= 8 ? Brand.goldLight : Brand.gold, lineWidth: tier >= 8 ? 2.5 : 1.5))
+                .shadow(color: tier >= 8 ? Brand.gold.opacity(0.8) : .clear, radius: 6)
                 .offset(y: -14)
             // Counter with today's dishes
             VStack(spacing: 0) {
