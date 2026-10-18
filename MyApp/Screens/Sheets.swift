@@ -104,8 +104,8 @@ struct GoalsSheet: View {
     var body: some View {
         GameModal(title: "أهداف " + store.t(store.city.name), onClose: { closeSheet(store) }) {
             VStack(spacing: 4) {
-                FancyBar(value: Double(store.s.city.stars) / Double(max(1, store.city.starsToGraduate)), tint: Brand.gold, height: 16,
-                         label: "★ " + Num.int(store.s.city.stars) + " / " + Num.int(store.city.starsToGraduate) + " للفرع")
+                FancyBar(value: Double(store.s.city.stars) / Double(max(1, store.starsNeeded)), tint: Brand.gold, height: 16,
+                         label: "★ " + Num.int(store.s.city.stars) + " / " + Num.int(store.starsNeeded) + " للفرع")
                 if let n = store.nextCity {
                     Text(licenceText(n))
                         .font(.body(11, bold: true))

@@ -131,7 +131,13 @@ extension GameStore {
         step.soft || step.anchors.isEmpty || ["bubbleClosed", "screenViewed", "graduated"].contains(step.complete.type)
     }
 
-    func ftueText(_ step: FtueStepDef) -> String { t(step.text) }
+    func ftueText(_ step: FtueStepDef) -> String {
+        let text = t(step.text)
+        if step.complete.type == "screenViewed" {
+            return text.replacingOccurrences(of: "25", with: Num.int(starsNeeded))
+        }
+        return text
+    }
 
     func closeFtueBubble() {
         s.ftue.bubbleClosed = true

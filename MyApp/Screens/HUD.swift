@@ -18,7 +18,7 @@ struct HUDBar: View {
                 CurrencyPill(icon: store.city.currency.art, text: Num.big(store.s.city.cash), anchor: "pill.cash")
                     .layoutPriority(2)
                 CurrencyPill(icon: "ui_coin", text: Num.int(store.s.wallet.gold), anchor: "pill.gold")
-                CurrencyPill(icon: "ui_star", text: Num.int(store.s.city.stars) + "/" + Num.int(store.city.starsToGraduate),
+                CurrencyPill(icon: "ui_star", text: Num.int(store.s.city.stars) + "/" + Num.int(store.starsNeeded),
                              anchor: "pill.stars")
             }
             .frame(maxWidth: .infinity)

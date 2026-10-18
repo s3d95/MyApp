@@ -252,7 +252,13 @@ extension GameStore {
         return max(0, licenceReadyAt(n) - now())
     }
 
-    var starsEnough: Bool { s.city.stars >= city.starsToGraduate }
+    /// Stars needed to graduate: the content value, or 75% of the stars this build can award
+    /// (goals of systems that are not built yet are hidden), whichever is lower.
+    var starsNeeded: Int {
+        min(city.starsToGraduate, Int((0.75 * Double(supportedStars)).rounded(.up)))
+    }
+
+    var starsEnough: Bool { s.city.stars >= starsNeeded }
 
     var canGraduate: Bool {
         starsEnough && licenceLeft <= 0 && nextCity != nil && unlocked("map") && !s.meta.clockFrozen

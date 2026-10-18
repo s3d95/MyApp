@@ -16,13 +16,14 @@ All UI text is Levantine Arabic, right-to-left. Display name: بسطة فلاف�
 - Keep the tree compiling before pushing to `main`; each push makes a release the owner may install.
 
 ## Current state
-- `MyApp/Core`, `MyApp/Views`: the current playable game (v2: sections, managers, prestige stars, daily
-  rewards, chefs, wheel, rush minigame). It works but players finish it too fast.
-- v3 rebuild (planned, not yet started in code): read `docs/v3/NEXT_STEPS.md` first, then
-  `docs/v3/GDD.md` (full design), `docs/v3/SCHEMA.md` (content JSON schemas), `docs/v3/INPUTS.md`
-  (scope, constraints, pacing targets), `docs/v3/research_brief.md` (why). Draft content in
-  `docs/v3/content/*.json`, generators and checks in `docs/v3/design_tools/`.
-- v3 groundwork already in the app target and compiling (reuse it, don't rewrite):
+- v3 Phase I is the app (v2 code was removed; it is in git history before commit 3c6dafc). Read
+  `docs/v3/NEXT_STEPS.md` first, then `docs/v3/ARCHITECTURE.md` (file map), `docs/v3/GDD.md` (full design),
+  `docs/v3/SCHEMA.md` (content JSON schemas), `docs/v3/INPUTS.md` (scope, pacing targets).
+- Engine in `MyApp/Engine` (`GameStore` + `Store+*.swift` extensions), screens in `MyApp/Screens`,
+  shipped content in `MyApp/Content/*.json` (copied from the drafts in `docs/v3/content`).
+- Compile-check a branch first: any push to a non-main branch runs `.github/workflows/check.yml`
+  (no release); compiler errors appear as annotations on the job (public API, no login needed).
+- UI kit and groundwork (reuse it, don't rewrite):
   - `MyApp/UI/Kit`: `Font.game/.body` (bundled Baloo Bhaijaan 2 + Cairo), `ArtIcon`, `ChunkyButton`,
     `WoodPanel`, `Ribbon`, `FancyBar`, `GameModal`, `CurrencyPill`, `LevelBadge`, `SideButton`,
     `RewardReveal`, `TutorialHand`, `StoryBubble`.
@@ -30,13 +31,14 @@ All UI text is Levantine Arabic, right-to-left. Display name: بسطة فلاف�
     shine/pulse/bump modifiers.
   - `MyApp/UI/Scene/StreetScene.swift`: living street with customers queuing and paying.
   - `MyApp/Audio/AudioEngine.swift`: `SFX` (WAVs from `tools/make_sfx.py`) and `Haptic`.
-  - `MyApp/Views/Brand.swift` (palette from the logo), `MyApp/Views/LoadingView.swift`.
+  - `MyApp/UI/Brand.swift` (palette from the logo), `MyApp/UI/LoadingView.swift`, `MyApp/UI/Kit/Theme.swift`.
+  - Game code plays feedback through `Feedback.play(.t0…t3)` (Engine/Feedback.swift), not SFX/Haptic directly.
 
 ## Art
 - 3D icons: Microsoft Fluent Emoji 3D (MIT, license in `ThirdParty/`). 256 px PNGs, show at ≤ 85 pt.
 - Keys are listed in `tools/art_keys.txt` (prefixes food_, ppl_, face_, bld_, veh_, ui_, ani_).
 - Download all PNGs: `python tools/art/fetch.py` (manifest `tools/art/manifest.json`), then install only
-  the keys the Swift code uses: `python tools/install_art.py <png_dir> --from-swift MyApp`.
+  the keys the Swift code and content JSON use: `python tools/install_art.py <png_dir> --from-swift MyApp`.
 - Never render emoji characters as `Text` in v3 screens; use `ArtIcon`.
 
 ## Conventions

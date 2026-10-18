@@ -182,10 +182,10 @@ struct CityNode: View {
             let perDay = store.econ.branches.goldPerDayBase * (1 + store.econ.branches.goldPerLevel * Double(b.level))
             return "فرع · " + String(format: "%.1f", perDay) + " ذهب/يوم"
         case .current:
-            return "★ " + Num.int(store.s.city.stars) + "/" + Num.int(city.starsToGraduate)
+            return "★ " + Num.int(store.s.city.stars) + "/" + Num.int(store.starsNeeded)
         case .next:
             if store.licenceLeft > 0 { return "الرخصة بعد " + Num.dur(store.licenceLeft) }
-            return "بدها " + Num.int(store.city.starsToGraduate) + " نجمة"
+            return "بدها " + Num.int(store.starsNeeded) + " نجمة"
         case .locked:
             return city.regionName
         }
@@ -200,7 +200,7 @@ struct CityNode: View {
             if store.canGraduate {
                 store.requestGraduation()
             } else {
-                store.showToast(store.t(city.name) + " بتفتح لما تجمع " + Num.int(store.city.starsToGraduate) + " نجمة وتطلع الرخصة",
+                store.showToast(store.t(city.name) + " بتفتح لما تجمع " + Num.int(store.starsNeeded) + " نجمة وتطلع الرخصة",
                                 art: city.landmarkArt)
             }
         case .locked:
