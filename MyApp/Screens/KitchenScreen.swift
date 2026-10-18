@@ -123,6 +123,7 @@ struct BoostChips: View {
 
     var body: some View {
         HStack(spacing: 4) {
+            chip(art: store.city.landmarkArt, text: store.t(store.city.name))
             ForEach(store.s.boosts) { b in
                 chip(art: store.boostArt(b.kind), text: Num.mult(b.mult) + " " + Num.dur(b.left))
             }

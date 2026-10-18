@@ -56,7 +56,7 @@ private struct OptionalAnchor: ViewModifier {
     }
 }
 
-/// Player avatar with an XP ring and the level number, top-left of the HUD.
+/// Player avatar with an XP ring and the level in a gold chip underneath.
 struct LevelBadge: View {
     let level: Int
     let progress: Double
@@ -67,21 +67,31 @@ struct LevelBadge: View {
             Circle()
                 .fill(LinearGradient(colors: [Brand.woodLight, Brand.woodDark], startPoint: .top, endPoint: .bottom))
             Circle()
+                .stroke(Color.black.opacity(0.35), lineWidth: 4)
+                .padding(2)
+            Circle()
                 .trim(from: 0, to: CGFloat(min(1, max(0, progress))))
                 .stroke(Brand.gold, style: StrokeStyle(lineWidth: 4, lineCap: .round))
                 .rotationEffect(.degrees(-90))
                 .padding(2)
-            ArtIcon(avatar, size: 34, shadow: false)
-            Text("\(level)")
-                .font(.game(11, .black))
-                .foregroundColor(Brand.outline)
-                .frame(minWidth: 20, minHeight: 20)
-                .background(Circle().fill(Brand.titleFill))
-                .overlay(Circle().stroke(Brand.outline, lineWidth: 1.5))
-                .offset(x: 17, y: 17)
+            ArtIcon(avatar, size: 32, shadow: false)
+                .offset(y: -2)
         }
         .frame(width: 46, height: 46)
         .overlay(Circle().stroke(Brand.outline, lineWidth: 2))
+        .overlay(
+            Text(Num.int(level))
+                .font(.game(12, .black))
+                .foregroundColor(Brand.outline)
+                .padding(.horizontal, 6)
+                .frame(minWidth: 26, minHeight: 17)
+                .background(Capsule().fill(Brand.titleFill))
+                .overlay(Capsule().stroke(Brand.outline, lineWidth: 1.5))
+                .offset(y: 9),
+            alignment: .bottom
+        )
+        .environment(\.layoutDirection, .leftToRight)
+        .padding(.bottom, 6)
     }
 }
 
