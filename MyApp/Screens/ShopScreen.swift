@@ -29,10 +29,7 @@ struct ShopScreen: View {
                     TimeWarpRow()
                 }
                 ShopSection(title: "ديكور البسطة", art: "ui_artist_palette") {
-                    Text("مظلّات ويافطات وإضاءة للبسطة… جاي قريباً")
-                        .font(.body(12, bold: true))
-                        .foregroundColor(Brand.cream.opacity(0.75))
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    DecorSection()
                 }
             }
             .padding(.horizontal, 10)
@@ -178,5 +175,93 @@ extension GameStore {
         s.wallet.gold -= price
         s.wallet.timeWarps.insert(hours * 60, at: 0)
         useTimeWarp(at: 0)
+    }
+}
+
+/// Stall decor (GDD 6.20): buy shop items with gold and wear anything you own. Visual only.
+struct DecorSection: View {
+    @EnvironmentObject var store: GameStore
+    @State private var slot = "awning"
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 6) {
+                    ForEach(GameStore.cosmeticSlots, id: \.self) { sl in
+                        Button {
+                            Feedback.play(.t0)
+                            slot = sl
+                        } label: {
+                            Text(store.slotName(sl))
+                                .font(.game(12, .bold))
+                                .foregroundColor(slot == sl ? Brand.outline : Brand.cream)
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 5)
+                                .background(Capsule().fill(slot == sl ? Brand.goldLight : Color.black.opacity(0.35)))
+                        }
+                        .buttonStyle(PressScaleStyle())
+                    }
+                }
+            }
+            ForEach(items) { c in
+                DecorRow(item: c)
+            }
+            if items.isEmpty {
+                Text("لسّا ما في إشي هون")
+                    .font(.body(12))
+                    .foregroundColor(Brand.cream.opacity(0.6))
+            }
+        }
+    }
+
+    private var items: [CosmeticDef] {
+        store.cat.cosmetics.cosmetics.filter { $0.slot == slot && (store.ownsCosmetic($0) || $0.price != nil) }
+    }
+}
+
+private struct DecorRow: View {
+    @EnvironmentObject var store: GameStore
+    let item: CosmeticDef
+
+    var body: some View {
+        let owned = store.ownsCosmetic(item)
+        let wearing = store.equipped(item.slot)?.id == item.id
+        HStack(spacing: 8) {
+            preview
+            Text(store.t(item.name))
+                .font(.game(13, .black))
+                .foregroundColor(Brand.cream)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
+            Spacer(minLength: 4)
+            if wearing {
+                Tag(text: "لابسها", color: Brand.parsley, textColor: .white)
+            } else if owned {
+                ChunkyButton(title: "لبّس", color: .green, sound: nil) { store.wear(item) }
+                    .frame(width: 76)
+            } else if let p = item.price {
+                ChunkyButton(title: Num.int(p), icon: "ui_coin", color: store.s.wallet.gold >= p ? .gold : .gray, sound: nil) {
+                    store.buyCosmetic(item)
+                }
+                .frame(width: 90)
+            }
+        }
+        .padding(8)
+        .background(RoundedRectangle(cornerRadius: 10).fill(Color.black.opacity(0.3)))
+    }
+
+    @ViewBuilder
+    private var preview: some View {
+        if let a = item.art {
+            ArtIcon(a, size: 34)
+        } else {
+            HStack(spacing: 0) {
+                ForEach(Array(item.swatch.enumerated()), id: \.offset) { _, c in
+                    Rectangle().fill(c).frame(width: 12, height: 30)
+                }
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 6))
+            .overlay(RoundedRectangle(cornerRadius: 6).stroke(Brand.outline, lineWidth: 1.5))
+        }
     }
 }

@@ -72,8 +72,12 @@ extension GameStore {
                 }
                 if let line = applyReward(r) { info.rewards.append(line) }
             }
-            for u in cat.levelRow(lv)?.unlocks ?? [] where u.type == "system" {
-                if let id = u.id, GameStore.builtSystems.contains(id) { info.unlocks.append(systemName(id)) }
+            for u in cat.levelRow(lv)?.unlocks ?? [] {
+                if u.type == "system", let id = u.id, GameStore.builtSystems.contains(id) { info.unlocks.append(systemName(id)) }
+                if u.type == "cosmetic", let id = u.id, let c = cosmetic(id) {
+                    grantCosmetic(id)
+                    info.rewards.append(RewardLine(art: c.art ?? "ui_artist_palette", amount: "", caption: t(c.name)))
+                }
             }
             if cat.levels.titles.contains(where: { $0.level == lv }) { info.title = title(for: lv) }
             pendingLevelUp = info
@@ -165,8 +169,9 @@ extension GameStore {
             bump("rep", r.amount)
             return nil
         case "cosmetic":
-            bump("cosmetic." + (r.id ?? ""), 1)
-            return RewardLine(art: "ui_artist_palette", amount: "", caption: "ديكور جديد")
+            grantCosmetic(r.id ?? "")
+            let c = cosmetic(r.id ?? "")
+            return RewardLine(art: c?.art ?? "ui_artist_palette", amount: "", caption: c.map { t($0.name) } ?? "ديكور جديد")
         case "incomeMin":
             let amount = r.amount * 60 * totalIncome(active: false)
             credit(amount, station: nil, at: now())

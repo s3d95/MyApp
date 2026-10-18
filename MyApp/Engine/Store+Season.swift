@@ -185,7 +185,6 @@ extension GameStore {
         s.season.claimed.append(tier)
         var lines: [RewardLine] = []
         for r in seasonRewards(tier) {
-            if r.type == "cosmetic" { bump("cosmetic.season", 1); continue }
             if let l = applyReward(r) { lines.append(l) }
         }
         if tier == sx.tiers.count { bump("seasonsCompleted") }
@@ -202,7 +201,7 @@ extension GameStore {
     func autoClaimSeason() {
         for t in 1...max(1, seasonTier) where seasonTierReady(t) {
             s.season.claimed.append(t)
-            for r in seasonRewards(t) where r.type != "cosmetic" { _ = applyReward(r) }
+            for r in seasonRewards(t) { _ = applyReward(r) }
         }
     }
 

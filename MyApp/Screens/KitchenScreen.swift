@@ -45,11 +45,13 @@ struct StageView: View {
         let c = store.city
         let night = store.nightActive
         let sky = night ? [Color(hex: 0x0B1030), Color(hex: 0x1B2350), Color(hex: 0x3A2D63), Color(hex: 0x6E4A7A)] : c.palette.sky
-        let style = SceneStyle(sky: sky, ground: Color(hex: 0x6B4A33), landmark: c.landmarkArt)
+        let aw = store.awningColors
+        let style = SceneStyle(sky: sky, ground: Color(hex: 0x6B4A33), landmark: c.landmarkArt, awningA: aw.0, awningB: aw.1)
         ZStack {
             StreetScene(style: style, title: store.s.settings.stallName,
                         dishes: unlockedDishes, customers: c.customerArts + StreetScene.defaultCustomers,
-                        rate: crowdRate, lights: store.stallTier >= 2 || night, tier: store.stallTier)
+                        rate: crowdRate, lights: store.stallTier >= 2 || night, tier: store.stallTier,
+                        prop: store.propArt, lightArt: store.lightsArt, signColor: store.signColor)
             VStack(spacing: 4) {
                 BannerLine()
                 BoostChips()

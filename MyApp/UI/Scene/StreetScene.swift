@@ -24,6 +24,10 @@ struct StreetScene: View {
     var lights = true
     /// Stall look 0–8 (GDD 6.20): lights, bunting, tables, plants and a gold sign appear as it grows.
     var tier: Int = 8
+    /// Decor (GDD 6.20): a prop next to the stall, hanging light art and the sign colour.
+    var prop: String? = nil
+    var lightArt: String? = nil
+    var signColor: Color? = nil
 
     static let defaultCustomers = ["ppl_man", "ppl_woman", "ppl_old_man", "ppl_old_woman", "ppl_boy",
                                    "ppl_girl", "ppl_woman_headscarf", "ppl_turban", "ppl_man_office",
@@ -82,6 +86,10 @@ struct StreetScene: View {
                 ArtIcon("food_fork_knife_plate", size: 26)
                     .position(x: stallLeft - 4, y: s.height - 30)
             }
+            if let p = prop {
+                ArtIcon(p, size: 30)
+                    .position(x: stallLeft - 2, y: s.height - 56)
+            }
             if tier >= 7 {
                 ArtIcon("bld_potted_plant", size: 34)
                     .position(x: s.width - 12, y: s.height - 40)
@@ -113,7 +121,12 @@ struct StreetScene: View {
             ScallopAwning(stripes: 9, a: style.awningA, b: style.awningB)
                 .frame(width: w + 10, height: 30)
                 .shadow(color: .black.opacity(0.3), radius: 3, y: 3)
-            if lights {
+            if let la = lightArt {
+                HStack(spacing: 6) {
+                    ForEach(0..<5, id: \.self) { _ in ArtIcon(la, size: 16, shadow: false) }
+                }
+                .offset(y: 30)
+            } else if lights {
                 TwinkleLights(count: 9, sag: 6)
                     .frame(width: w - 16, height: 20)
                     .offset(y: 30)
@@ -123,7 +136,7 @@ struct StreetScene: View {
                 .lineLimit(1)
                 .padding(.horizontal, 10)
                 .padding(.vertical, 3)
-                .background(Capsule().fill(Brand.woodDark))
+                .background(Capsule().fill(signColor ?? Brand.woodDark))
                 .overlay(Capsule().stroke(tier >= 8 ? Brand.goldLight : Brand.gold, lineWidth: tier >= 8 ? 2.5 : 1.5))
                 .shadow(color: tier >= 8 ? Brand.gold.opacity(0.8) : .clear, radius: 6)
                 .offset(y: -14)

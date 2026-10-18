@@ -278,7 +278,7 @@ extension GameStore {
             let n = Int(metric(key))
             lines.append(RewardLine(art: c.art, amount: Num.frac(n, c.count), caption: t(c.name)))
             for m in c.rawMilestones where m.count == n {
-                for r in m.rewards where r.type != "cosmetic" { if let l = applyReward(r) { lines.append(l) } }
+                for r in m.rewards { if let l = applyReward(r) { lines.append(l) } }
             }
         }
         bump("festivals")
@@ -356,7 +356,7 @@ extension GameStore {
         let score = checks.reduce(0) { $0 + $1.points }
         var lines: [RewardLine] = []
         if let band = ix.bands.filter({ score >= $0.minScore }).max(by: { $0.minScore < $1.minScore }) {
-            for r in band.rewards where r.type != "cosmetic" { if let l = applyReward(r) { lines.append(l) } }
+            for r in band.rewards { if let l = applyReward(r) { lines.append(l) } }
         }
         addXP(Int(ix.xpPerPoint * score))
         bump("rep", ix.repPerPoint * score)

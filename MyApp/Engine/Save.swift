@@ -400,6 +400,20 @@ extension EventSave {
     }
 }
 
+struct CosmeticsSave: Codable {
+    var owned: [String] = []
+    var equipped: [String: String] = [:]
+}
+
+extension CosmeticsSave {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        owned = c.v("owned", owned)
+        equipped = c.v("equipped", equipped)
+    }
+}
+
 struct RushSave: Codable {
     var best: [String: Int] = [:]
     var rounds = 0
@@ -761,6 +775,7 @@ struct GameSave: Codable {
     var season = SeasonSave()
     var contracts = ContractsSave()
     var event = EventSave()
+    var cosmetics = CosmeticsSave()
     var achievements: [String: Int] = [:]
 
     static let key = "basta.save.v3"
@@ -795,6 +810,7 @@ extension GameSave {
         season = c.v("season", season)
         contracts = c.v("contracts", contracts)
         event = c.v("event", event)
+        cosmetics = c.v("cosmetics", cosmetics)
         achievements = c.v("achievements", achievements)
     }
 

@@ -486,7 +486,6 @@ extension GameStore {
                     continue
                 }
                 if r.type == "chefCards" && r.id == "themeChef" { r.id = cat.theme(s.event.themeId)?.chefId }
-                if r.type == "cosmetic" { continue }
                 if let l = applyReward(r) { lines.append(l) }
             }
             let final = k.reached == ms.count
@@ -540,7 +539,7 @@ extension GameStore {
         s.event.shop[item.id] = bought + 1
         var r = item.reward
         if r.type == "chefCards" && r.id == "themeChef" { r.id = cat.theme(s.event.themeId)?.chefId }
-        if r.type != "cosmetic", let l = applyReward(r) {
+        if let l = applyReward(r) {
             Feedback.play(.t1, fromAnchor: "eventShop." + item.id, art: l.art, to: "eventShop." + item.id, amount: 1, label: l.amount)
         }
         save()
@@ -553,7 +552,7 @@ extension GameStore {
         let rank = 1 + finals.filter { $0 > score }.count
         var lines: [RewardLine] = []
         if let rw = cat.events.rankRewards.first(where: { rank >= $0.fromRank && rank <= $0.toRank }) {
-            for r in rw.rewards where r.type != "cosmetic" { if let l = applyReward(r) { lines.append(l) } }
+            for r in rw.rewards { if let l = applyReward(r) { lines.append(l) } }
         }
         let gold = min(cat.events.maxGold, s.event.tokens / max(1, cat.events.tokensPerGold))
         if gold > 0 {

@@ -102,6 +102,8 @@ extension GameStore {
             s.ftue.step = 14
         case "kitchen":
             demoKitchen()
+            s.cosmetics.owned = ["awningTatreez", "propCat"]
+            s.cosmetics.equipped = ["awning": "awningTatreez", "prop": "propCat"]
         case "scroll":
             demoCity(1, levels: [100, 80, 60, 50, 40, 25], managed: 6, claimed: 15, cash: 4.2e9, level: 8)
         case "special":
@@ -210,6 +212,8 @@ extension GameStore {
         case "shop":
             demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e6, level: 9)
             s.wallet.gold = 320
+            s.cosmetics.owned = ["awningOlive", "propCat", "lightsLanterns"]
+            s.cosmetics.equipped = ["awning": "awningOlive", "prop": "propCat", "lights": "lightsLanterns"]
             tab = .shop
         case "tut12":
             demoCity(1, levels: [30, 20, 10, 0, 0, 0], managed: 2, claimed: 5, cash: 300_000, level: 4)

@@ -835,6 +835,7 @@ final class Catalog {
     let side: SideEconomyDef
     let festivals: FestivalsFile
     let inspector: InspectorFile
+    let cosmetics: CosmeticsFile
     private let scenesById: [String: SceneDef]
     private let chefsById: [String: ChefDef]
     private let castById: [String: CastDef]
@@ -843,8 +844,9 @@ final class Catalog {
          research: ResearchFile, vehicles: VehiclesFile, heritage: HeritageFile, quests: QuestsFile, calendar: CalendarFile,
          happenings: HappeningsFile, league: LeagueFile, market: MarketFile, season: SeasonFile,
          achievements: AchievementsFile, contracts: ContractsFile, events: EventsFile, side: SideEconomyDef,
-         festivals: FestivalsFile, inspector: InspectorFile) {
+         festivals: FestivalsFile, inspector: InspectorFile, cosmetics: CosmeticsFile) {
         self.economy = economy
+        self.cosmetics = cosmetics
         self.festivals = festivals
         self.inspector = inspector
         self.contracts = contracts
@@ -901,11 +903,12 @@ final class Catalog {
         let side: SideEconomyDef = decode("economy") ?? SideEconomyDef()
         let festivals: FestivalsFile = decode("festivals") ?? FestivalsFile()
         let inspector: InspectorFile = decode("happenings") ?? InspectorFile()
+        let cosmetics: CosmeticsFile = decode("cosmetics") ?? CosmeticsFile()
         return Catalog(economy: economy, cities: cities.cities, levels: levels, story: story, ftue: ftue, chefs: chefs,
                        research: research, vehicles: vehicles, heritage: heritage, quests: quests, calendar: calendar,
                        happenings: happenings, league: league, market: market, season: season,
                        achievements: achievements, contracts: contracts, events: events, side: side,
-                       festivals: festivals, inspector: inspector)
+                       festivals: festivals, inspector: inspector, cosmetics: cosmetics)
     }
 
     private static func decode<T: Decodable>(_ name: String) -> T? {
