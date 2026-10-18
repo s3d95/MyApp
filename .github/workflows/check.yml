@@ -95,7 +95,8 @@ jobs:
           else
             echo "$GITHUB_SHA success" > status.txt
           fi
+          (cd shots && ls) > files.txt
           gh release delete ci-screens --yes --cleanup-tag || true
-          gh release create ci-screens status.txt shots/* --prerelease --latest=false --target "$GITHUB_SHA" \
+          gh release create ci-screens status.txt files.txt shots/* --prerelease --latest=false --target "$GITHUB_SHA" \
             --title "CI screenshots (للمطوّر)" \
             --notes "Simulator screenshots from the latest compile check of ${GITHUB_REF_NAME} (${GITHUB_SHA::7}). Not an app build."
