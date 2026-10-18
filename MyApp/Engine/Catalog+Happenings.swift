@@ -47,6 +47,8 @@ struct EffectDef: Decodable {
     var flag: String? = nil
     var sceneId: String? = nil
     var minutes: Double = 0
+    var target: String? = nil
+    var add: Double = 0
 
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: AnyKey.self)
@@ -63,6 +65,8 @@ struct EffectDef: Decodable {
         flag = c.opt("flag")
         sceneId = c.opt("sceneId")
         minutes = c.dbl("minutes", 0)
+        target = c.opt("target")
+        add = c.dbl("add", 0)
     }
 }
 

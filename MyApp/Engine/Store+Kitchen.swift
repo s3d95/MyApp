@@ -59,7 +59,7 @@ extension GameStore {
     }
 
     /// Price scale for station levels (research "مورّد أمين", floor 0.5).
-    var stationCostScale: Double { scale * max(0.5, 1 - researchValue("stationCostPct")) }
+    var stationCostScale: Double { scale * max(0.5, (1 - researchValue("stationCostPct")) * marketCost("stationLevel")) }
 
     func effCycle(_ i: Int) -> Double {
         max(econ.cycleFloorSec, row(i).baseCycleSec / speedMult(i))
@@ -89,7 +89,7 @@ extension GameStore {
     }
 
     func profitMult(_ i: Int, at t: Double, active: Bool) -> Double {
-        var m = upgradeMult(i) * pow(econ.milestoneMult, Double(allMilestones)) * permMult * twistProfit(i, at: t) * chefMult(i)
+        var m = upgradeMult(i) * pow(econ.milestoneMult, Double(allMilestones)) * permMult * twistProfit(i, at: t) * chefMult(i) * dayMult(i)
         if active { m *= activeMult(for: i) }
         return m
     }
@@ -263,7 +263,7 @@ extension GameStore {
 
     func managerCost(_ i: Int) -> Double {
         let r = row(i)
-        return scale * r.baseCost * r.managerMult * (1 - min(0.9, researchValue("managerCostPct")))
+        return scale * r.baseCost * r.managerMult * (1 - min(0.9, researchValue("managerCostPct"))) * marketCost("manager")
     }
 
     func managerName(_ i: Int) -> String {

@@ -61,7 +61,7 @@ extension GameStore {
             if r.unit() < p { break }
             t += 1
         }
-        let m = twist(.vipLounge)?.specialIntervalMult ?? 1
+        let m = (twist(.vipLounge)?.specialIntervalMult ?? 1) * marketSpecialInterval
         s.happenings.nextSpecialAt = t * m
         s.happenings.activeSinceSpecial = 0
     }
@@ -105,6 +105,7 @@ extension GameStore {
         s.city.counters["specials", default: 0] += 1
         s.stats.specials += 1
         bump("specials")
+        rep("special")
         specialTappedFlag = true
         addXP(econ.xp.special)
         let inc = totalIncome(active: false) * specialRewardMult

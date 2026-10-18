@@ -38,6 +38,9 @@ struct TasksScreen: View {
     private var today: some View {
         VStack(spacing: 10) {
             StreakCard()
+            if store.marketOn {
+                MarketCard()
+            }
             if store.s.daily.repairOld > 0 {
                 RepairCard()
             }
@@ -112,6 +115,63 @@ struct StreakCard: View {
                 }
                 .fxAnchor("streak.freeze")
             }
+        }
+    }
+}
+
+/// سوق اليوم والطقس (GDD S37).
+struct MarketCard: View {
+    @EnvironmentObject var store: GameStore
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(spacing: 6) {
+                ArtIcon("bld_convenience_store", size: 26)
+                Text("سوق اليوم")
+                    .font(.game(16, .black))
+                    .foregroundColor(Brand.goldLight)
+                Spacer()
+                if let w = store.globalWeather {
+                    HStack(spacing: 3) {
+                        ArtIcon(w.art, size: 24)
+                        Text(w.name)
+                            .font(.game(13, .black))
+                            .foregroundColor(Brand.cream)
+                    }
+                }
+            }
+            ForEach(store.todayMods) { m in
+                HStack(spacing: 8) {
+                    ArtIcon(m.art, size: 32)
+                    VStack(alignment: .leading, spacing: 1) {
+                        Text(store.t(m.name))
+                            .font(.game(14, .black))
+                            .foregroundColor(Brand.cream)
+                        Text(store.t(m.desc))
+                            .font(.body(11, bold: true))
+                            .foregroundColor(Brand.cream.opacity(0.75))
+                            .lineLimit(2)
+                    }
+                    Spacer(minLength: 0)
+                }
+            }
+            if let w = store.globalWeather, w != .sunny {
+                Text(weatherText(w))
+                    .font(.body(11, bold: true))
+                    .foregroundColor(Brand.teal)
+            }
+        }
+        .padding(10)
+        .background(RoundedRectangle(cornerRadius: 14).fill(Color.black.opacity(0.32)))
+        .overlay(RoundedRectangle(cornerRadius: 14).stroke(Brand.teal.opacity(0.6), lineWidth: 1.5))
+    }
+
+    private func weatherText(_ w: Weather) -> String {
+        switch w {
+        case .hot: return "شوب: المشروبات الباردة " + Num.mult(1.15)
+        case .cold: return "برد: الأكل السخن " + Num.mult(1.15)
+        case .rain: return "شتا: الزباين المميّزين بيجوا أسرع، والدليفري " + Num.mult(1.5)
+        case .sunny: return ""
         }
     }
 }

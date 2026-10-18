@@ -286,6 +286,16 @@ extension GameStore {
             s.empire.level = 11
             s.wallet.tickets = 2
             sheet = .rushIntro
+        case "market":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e8, level: 13)
+            s.daily.lastRolledDay = dayNum
+            dailyRollover()
+            tab = .tasks
+        case "league":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e8, level: 13)
+            leagueRollover()
+            bump("rep", 420)
+            sheet = .league
         case "anchors", "fx":
             demoKitchen()
             spawnSpecial(forced: .tip)

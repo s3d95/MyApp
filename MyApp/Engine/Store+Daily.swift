@@ -82,6 +82,7 @@ extension GameStore {
     // MARK: Rollover
 
     func dailyRollover() {
+        marketGifts()
         guard unlocked("daily") else { return }
         let d = dayNum
         processStreak(today: d)
@@ -274,6 +275,7 @@ extension GameStore {
         }
         addXP(15)
         bump("calendarClaims")
+        rep("calendar")
         let big = def.big || def.day == 28
         s.daily.calIndex += 1
         if s.daily.calIndex > 28 {

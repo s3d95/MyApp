@@ -43,7 +43,7 @@ extension GameStore {
 
     func runDuration(_ v: VehicleDef, _ idx: Int) -> Double {
         let base = v.durationsMin[min(idx, v.durationsMin.count - 1)] * 60
-        return base * (1 - min(0.5, researchValue("supplyTimePct"))) * (1 - heritageBonus("supplyTimePct"))
+        return base * (1 - min(0.5, researchValue("supplyTimePct"))) * (1 - heritageBonus("supplyTimePct")) * marketDuration("supply")
     }
 
     func runRolls(_ v: VehicleDef, _ idx: Int) -> Int {
@@ -67,6 +67,7 @@ extension GameStore {
         slot.sentAt = t
         slot.endAt = t + runDuration(v, durationIdx)
         slot.seed = s.supply.runCounter
+        slot.rollsMult = marketRollsMult
         s.supply.runCounter += 1
         s.supply.slots.append(slot)
         s.supply.launches[vehicleId, default: 0] += 1
@@ -102,7 +103,7 @@ extension GameStore {
         let sl = s.supply.slots.remove(at: k)
         var r = Seed.rng("supplyRoll", ["\(sl.seed)"], player: s.meta.seed)
         var loot: [SupplyLoot] = []
-        let rolls = runRolls(v, sl.durationIdx)
+        let rolls = Int((Double(runRolls(v, sl.durationIdx)) * max(1, sl.rollsMult)).rounded())
         var weights = Rarity.allCases.map { v.rarityWeights[$0.rawValue] ?? 0 }
         if vehicleStars(v.id) >= 3 {
             let shift = vx.star3CommonToEpic * weights.reduce(0, +)
@@ -143,6 +144,7 @@ extension GameStore {
         addXP(xp)
         s.supply.returned += 1
         bump("runsClaimed")
+        rep("supplyRun")
         let result = SupplyResult(vehicleId: v.id, loot: loot, xp: xp)
         enqueue(.supply(result))
         save()

@@ -7,7 +7,7 @@ extension GameStore {
         "unlockStation", "stationLevel", "allStationsLevel", "hireManager", "managersCount", "earnCash",
         "incomeRate", "buyUpgrades", "customersServed", "tapCook", "specialCustomers", "collectVault",
         "branchCollect", "twistMetric", "equipChefs", "chefTagMatch", "startResearch", "researchLevels",
-        "sendSupplyRun", "supplyReturns", "heritageItems", "choiceEvents", "rushRounds", "dailyOrders",
+        "sendSupplyRun", "supplyReturns", "heritageItems", "choiceEvents", "rushRounds", "dailyOrders", "leagueRep",
     ]
 
     func goalSupported(_ g: GoalDef) -> Bool { GameStore.builtGoalTypes.contains(g.type) }
@@ -28,7 +28,7 @@ extension GameStore {
         if let sc = g.scope { return sc }
         switch g.type {
         case "collectVault", "branchCollect", "startResearch", "researchLevels", "sendSupplyRun", "supplyReturns",
-             "heritageItems", "choiceEvents", "rushRounds", "dailyOrders": return "slot"
+             "heritageItems", "choiceEvents", "rushRounds", "dailyOrders", "leagueRep": return "slot"
         default: return "city"
         }
     }
@@ -45,6 +45,7 @@ extension GameStore {
         case "choiceEvents": return metric("choices")
         case "rushRounds": return metric("rushRounds")
         case "dailyOrders": return metric("dailyOrders")
+        case "leagueRep": return metric("rep")
         default: return 0
         }
     }
@@ -78,9 +79,9 @@ extension GameStore {
         case "specialCustomers":
             return (s.city.counters["specials"] ?? 0, Double(p.count ?? 1))
         case "collectVault", "branchCollect", "startResearch", "researchLevels", "sendSupplyRun", "supplyReturns",
-             "heritageItems", "choiceEvents", "rushRounds", "dailyOrders":
+             "heritageItems", "choiceEvents", "rushRounds", "dailyOrders", "leagueRep":
             let base = s.city.goalBaselines[g.id] ?? slotMetric(g.type)
-            return (max(0, slotMetric(g.type) - base), Double(p.count ?? 1))
+            return (max(0, slotMetric(g.type) - base), p.amount ?? Double(p.count ?? 1))
         case "equipChefs":
             return (Double(s.chefs.equipped.count), Double(p.count ?? 1))
         case "chefTagMatch":
@@ -201,6 +202,7 @@ extension GameStore {
         s.stats.starsTotal += g.stars
         bump("goalsClaimed")
         bump("stars", Double(g.stars))
+        rep("goalStar", Double(g.stars))
         readyGoals.remove(g.id)
         if g.stars >= 3 {
             Feedback.play(.t2, fromAnchor: anchor, art: "ui_star", to: "pill.stars", amount: 30)
@@ -311,6 +313,7 @@ extension GameStore {
         s.branches[from.id] = b
         if crowned { s.wallet.zaatar += 1 }
         s.stats.graduations += 1
+        rep("graduation")
         if !modals.isEmpty && modals[0].id == "gradConfirm" { modals.removeFirst() }
         if let fin = cat.chapter(cityId: from.id)?.scenes.first(where: { $0.trigger == "finale" }) {
             playScene(fin.id, city: from.id)

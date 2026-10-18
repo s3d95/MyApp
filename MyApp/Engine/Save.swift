@@ -282,6 +282,28 @@ struct HappeningsSave: Codable {
     var playSeconds: Double = 0
 }
 
+struct LeagueSave: Codable {
+    var week = 0
+    var tier = 1
+    var startRep: Double = 0
+    var trial = false
+    var joinFraction: Double = 0
+    var finals: [Double] = []
+}
+
+extension LeagueSave {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        week = c.int("week", week)
+        tier = c.int("tier", tier)
+        startRep = c.dbl("startRep", startRep)
+        trial = c.v("trial", trial)
+        joinFraction = c.dbl("joinFraction", joinFraction)
+        finals = c.v("finals", finals)
+    }
+}
+
 struct RushSave: Codable {
     var best: [String: Int] = [:]
     var rounds = 0
@@ -496,6 +518,7 @@ struct SupplySlot: Codable {
     var sentAt: Double = 0
     var endAt: Double = 0
     var seed = 0
+    var rollsMult: Double = 1
 }
 
 extension SupplySlot {
@@ -508,6 +531,7 @@ extension SupplySlot {
         sentAt = c.dbl("sentAt", sentAt)
         endAt = c.dbl("endAt", endAt)
         seed = c.int("seed", seed)
+        rollsMult = c.dbl("rollsMult", rollsMult)
     }
 }
 
@@ -581,6 +605,7 @@ struct DailySave: Codable {
     var repairUntil = 0
     var repairProgress = 0
     var orderCounter = 0
+    var marketGiftDay = 0
 }
 
 extension DailySave {
@@ -606,6 +631,7 @@ extension DailySave {
         repairUntil = c.int("repairUntil", repairUntil)
         repairProgress = c.int("repairProgress", repairProgress)
         orderCounter = c.int("orderCounter", orderCounter)
+        marketGiftDay = c.int("marketGiftDay", marketGiftDay)
     }
 }
 
@@ -629,6 +655,7 @@ struct GameSave: Codable {
     var daily = DailySave()
     var metrics: [String: Double] = [:]
     var rush = RushSave()
+    var league = LeagueSave()
 
     static let key = "basta.save.v3"
     static let backupKey = "basta.save.v3.bak"
@@ -658,6 +685,7 @@ extension GameSave {
         daily = c.v("daily", daily)
         metrics = c.v("metrics", metrics)
         rush = c.v("rush", rush)
+        league = c.v("league", league)
     }
 
     static func load() -> GameSave? {

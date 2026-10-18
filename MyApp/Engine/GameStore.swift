@@ -61,7 +61,7 @@ enum BuyMode: Int {
 
 enum Sheet: Identifiable, Equatable {
     case upgrades, goals, profile, settings, branch(String), teaser(GameTab), twist, chef(String), chefPicker
-    case research, supply, rushIntro
+    case research, supply, rushIntro, league
 
     var id: String {
         switch self {
@@ -77,6 +77,7 @@ enum Sheet: Identifiable, Equatable {
         case .research: return "research"
         case .supply: return "supply"
         case .rushIntro: return "rushIntro"
+        case .league: return "league"
         }
     }
 }
@@ -199,6 +200,8 @@ final class GameStore: ObservableObject {
     var lastCycleFeedback: [Int: Double] = [:]
     var newsAwayGap: Double = 0
     var chainSigma: [Double] = []
+    var marketCacheDay = -1
+    var marketCache: [MarketModDef] = []
     var deliveryPaidFeedback: Double = 0
 
     init() {
@@ -377,6 +380,7 @@ final class GameStore: ObservableObject {
             checkGoalChimes()
             checkStoryTriggers()
             dailyRollover()
+            leagueRollover()
             evaluateFtue()
             flushLevelUp()
         }

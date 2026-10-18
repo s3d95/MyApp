@@ -307,7 +307,8 @@ extension GameStore {
             guard !pool.isEmpty else { continue }
             var r = Seed.rng("stall", ["\(day)", "\(o.slot)"], player: s.meta.seed)
             let chef = pool[r.int(pool.count)]
-            out.append(StallOffer(slot: o.slot, chefId: chef.id, rarity: rar, cards: o.cards, price: o.price))
+            let price = Int((Double(o.price) * marketCost("chefOffers")).rounded())
+            out.append(StallOffer(slot: o.slot, chefId: chef.id, rarity: rar, cards: o.cards, price: price))
         }
         return out
     }

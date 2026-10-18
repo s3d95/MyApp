@@ -57,6 +57,7 @@ struct StageView: View {
             }
             .padding(8)
             HStack {
+                RightRail()
                 Spacer()
                 LeftRail()
             }
@@ -120,6 +121,9 @@ struct BoostChips: View {
         HStack(spacing: 4) {
             ForEach(store.s.boosts) { b in
                 chip(art: store.boostArt(b.kind), text: Num.mult(b.mult) + " " + Num.dur(b.left))
+            }
+            if let m = store.todayMods.first {
+                chip(art: m.art, text: store.t(m.name))
             }
             if store.s.city.twist.busWaveLeft > 0, let p = store.twist(.busWaves) {
                 chip(art: "veh_bus", text: Num.mult(p.waveMult) + " " + Num.dur(store.s.city.twist.busWaveLeft))

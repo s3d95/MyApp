@@ -32,14 +32,14 @@ extension GameStore {
         let m = n.costMin * Double(l)
         let inc = totalIncome(active: false)
         let floor = city.finalGoalBase * scale * cat.research.costFloorFracOfFinal * m
-        return max(inc * 60 * m, floor)
+        return max(inc * 60 * m, floor) * marketCost("research")
     }
 
     func researchDuration(_ n: ResearchNodeDef, level l: Int) -> Double {
         let r = cat.research
         let base = min(r.capHours * 3600, r.baseMinutes * 60 * n.timeMult * pow(r.growth, Double(l - 1)))
         let cut = (1 - min(0.6, researchValue("researchTimePct"))) * (1 - heritageBonus("researchTimePct"))
-        return max(30, base * cut)
+        return max(30, base * cut * marketDuration("research"))
     }
 
     var freeResearchSlots: Int { max(0, researchSlots - s.research.slots.count) }
@@ -82,6 +82,7 @@ extension GameStore {
             s.research.slots[k].applied = true
             s.research.completed += 1
             bump("researchCompleted")
+            rep("researchLevel")
             if isForeground, let n = cat.node(sl.nodeId) {
                 showToast("دفتر ستّي: خلص بحث \"" + t(n.name) + "\"", art: n.art)
             }

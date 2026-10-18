@@ -11,9 +11,14 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   check:
     runs-on: macos-15
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
 
@@ -48,6 +53,7 @@ jobs:
           done
 
       - name: Screenshots
+        timeout-minutes: 20
         run: |
           UDID=$(xcrun simctl list devices available -j | python3 -c "
           import json, sys
@@ -61,20 +67,20 @@ jobs:
           xcrun simctl status_bar "$UDID" override --time "9:41" --batteryLevel 100 --cellularBars 4 || true
           xcrun simctl install "$UDID" build/Build/Products/Debug-iphonesimulator/MyApp.app
           mkdir -p shots
-          DEMOS="tut1 tut3 tut7 tut11b tut12 tut14 tut17 tut18 kitchen scroll special fx chefs chestopen chefdetail shop research supply heritage supplyreveal tasks choice rush rushintro upgrades goals profile settings teaser levelup story map nablus hebron jaffa"
+          DEMOS="tut1 tut3 tut7 tut11b tut12 tut14 tut17 tut18 kitchen scroll special fx chefs chestopen chefdetail shop research supply heritage supplyreveal tasks choice rush rushintro league market upgrades goals profile settings teaser levelup story map nablus hebron jaffa"
           i=0
           for d in $DEMOS; do
             i=$((i+1))
             name=$(printf "%02d_%s" $i $d)
-            xcrun simctl launch --terminate-running-process "$UDID" com.wardapp.falafel -demo "$d" > /dev/null
+            t() { perl -e 'alarm shift; exec @ARGV' "$@"; }
+            t 30 xcrun simctl launch --terminate-running-process "$UDID" com.wardapp.falafel -demo "$d" > /dev/null || echo "launch failed $d"
             sleep 4
-            xcrun simctl io "$UDID" screenshot "shots/$name.png" > /dev/null 2>&1
-            sips -Z 900 "shots/$name.png" > /dev/null
+            t 30 xcrun simctl io "$UDID" screenshot "shots/$name.png" > /dev/null 2>&1 || echo "shot failed $d"
+            [ -f "shots/$name.png" ] && sips -Z 900 "shots/$name.png" > /dev/null
           done
-          xcrun simctl launch --terminate-running-process "$UDID" com.wardapp.falafel -demo tut1 > /dev/null
-          sleep 1.2
-          xcrun simctl io "$UDID" screenshot "shots/99_launch.png" > /dev/null 2>&1
-          sips -Z 900 shots/99_launch.png > /dev/null
+          for f in ~/Library/Logs/DiagnosticReports/MyApp*; do
+            [ -f "$f" ] && cp "$f" "shots/crash_$(basename "$f").txt"
+          done
           ls shots
 
       - name: Publish status, errors and screenshots

@@ -6,7 +6,7 @@ extension GameStore {
         min(econ.offline.maxCapHours, econ.offline.baseCapHours + researchValue("vaultCapHours") + heritageBonus("vaultCapHours"))
     }
 
-    var vaultEff: Double { min(1, econ.offline.baseEff + researchValue("vaultEffPct")) }
+    var vaultEff: Double { min(1, econ.offline.baseEff + researchValue("vaultEffPct") + marketVaultAdd) }
 
     /// Called at launch and on every return to the foreground.
     func resume(launch: Bool) {

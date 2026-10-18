@@ -80,6 +80,7 @@ extension GameStore {
         s.happenings.cooldowns[rowId] = dayNum
         s.happenings.choicesToday += 1
         bump("choices")
+        rep("choice")
         addXP(5)
         var lines: [RewardLine] = []
         let inc = totalIncome(active: false) * (1 + researchValue("happeningRewardPct"))
