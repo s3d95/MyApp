@@ -828,14 +828,19 @@ final class Catalog {
     let happenings: HappeningsFile
     let league: LeagueFile
     let market: MarketFile
+    let season: SeasonFile
+    let achievements: AchievementsFile
     private let scenesById: [String: SceneDef]
     private let chefsById: [String: ChefDef]
     private let castById: [String: CastDef]
 
     init(economy: EconomyDef, cities: [CityDef], levels: LevelsDef, story: StoryDef, ftue: FtueDef, chefs: ChefsFile,
          research: ResearchFile, vehicles: VehiclesFile, heritage: HeritageFile, quests: QuestsFile, calendar: CalendarFile,
-         happenings: HappeningsFile, league: LeagueFile, market: MarketFile) {
+         happenings: HappeningsFile, league: LeagueFile, market: MarketFile, season: SeasonFile,
+         achievements: AchievementsFile) {
         self.economy = economy
+        self.season = season
+        self.achievements = achievements
         self.market = market
         self.league = league
         self.happenings = happenings
@@ -878,9 +883,12 @@ final class Catalog {
         let happenings: HappeningsFile = decode("happenings") ?? HappeningsFile()
         let league: LeagueFile = decode("league") ?? LeagueFile()
         let market: MarketFile = decode("market") ?? MarketFile()
+        let season: SeasonFile = decode("season") ?? SeasonFile()
+        let achievements: AchievementsFile = decode("achievements") ?? AchievementsFile()
         return Catalog(economy: economy, cities: cities.cities, levels: levels, story: story, ftue: ftue, chefs: chefs,
                        research: research, vehicles: vehicles, heritage: heritage, quests: quests, calendar: calendar,
-                       happenings: happenings, league: league, market: market)
+                       happenings: happenings, league: league, market: market, season: season,
+                       achievements: achievements)
     }
 
     private static func decode<T: Decodable>(_ name: String) -> T? {

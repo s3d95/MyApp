@@ -304,6 +304,28 @@ extension LeagueSave {
     }
 }
 
+struct SeasonSave: Codable {
+    var index = -1
+    var points: Double = 0
+    var claimed: [Int] = []
+    var lateMult: Double = 1
+    var capDay = 0
+    var capUsed: [String: Double] = [:]
+}
+
+extension SeasonSave {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        index = c.int("index", index)
+        points = c.dbl("points", points)
+        claimed = c.v("claimed", claimed)
+        lateMult = c.dbl("lateMult", lateMult)
+        capDay = c.int("capDay", capDay)
+        capUsed = c.v("capUsed", capUsed)
+    }
+}
+
 struct RushSave: Codable {
     var best: [String: Int] = [:]
     var rounds = 0
@@ -656,6 +678,8 @@ struct GameSave: Codable {
     var metrics: [String: Double] = [:]
     var rush = RushSave()
     var league = LeagueSave()
+    var season = SeasonSave()
+    var achievements: [String: Int] = [:]
 
     static let key = "basta.save.v3"
     static let backupKey = "basta.save.v3.bak"
@@ -686,6 +710,8 @@ extension GameSave {
         metrics = c.v("metrics", metrics)
         rush = c.v("rush", rush)
         league = c.v("league", league)
+        season = c.v("season", season)
+        achievements = c.v("achievements", achievements)
     }
 
     static func load() -> GameSave? {

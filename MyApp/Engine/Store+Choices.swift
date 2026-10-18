@@ -171,6 +171,7 @@ extension GameStore {
         addXP(10)
         lines.append(RewardLine(art: "ui_sparkles", amount: "+10", caption: "خبرة"))
         bump("rushRounds")
+        seasonPoint("rushRound")
         bump("rep", Double(10 + score / 500))
         if score > rushBest {
             s.rush.best[city.id] = score

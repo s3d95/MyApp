@@ -145,6 +145,7 @@ extension GameStore {
         s.supply.returned += 1
         bump("runsClaimed")
         rep("supplyRun")
+        seasonPoint("supplyRun")
         let result = SupplyResult(vehicleId: v.id, loot: loot, xp: xp)
         enqueue(.supply(result))
         save()

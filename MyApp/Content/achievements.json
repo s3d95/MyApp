@@ -1,0 +1,525 @@
+{
+ "version": 1,
+ "tierRewards": [
+  {
+   "gold": 5,
+   "xp": 20
+  },
+  {
+   "gold": 10,
+   "xp": 40
+  },
+  {
+   "gold": 15,
+   "xp": 80
+  },
+  {
+   "gold": 25,
+   "xp": 150
+  },
+  {
+   "gold": 40,
+   "xp": 250
+  }
+ ],
+ "families": [
+  {
+   "id": "handCook",
+   "name": "طبّاخ بإيده",
+   "art": "ppl_man_cook",
+   "metric": "tapCooks",
+   "tiers": [
+    100,
+    1000,
+    5000,
+    20000,
+    100000
+   ],
+   "desc": {
+    "m": "اطبخ {n} مرّة بإيدك",
+    "f": "اطبخي {n} مرّة بإيدك"
+   }
+  },
+  {
+   "id": "customers",
+   "name": "زباين وبس",
+   "art": "ppl_raising_hands",
+   "metric": "customers",
+   "tiers": [
+    1000.0,
+    100000.0,
+    10000000.0,
+    1000000000.0,
+    100000000000.0
+   ],
+   "desc": {
+    "m": "خدّم {n} زبون",
+    "f": "خدّمي {n} زبون"
+   }
+  },
+  {
+   "id": "stars",
+   "name": "نجوم المعلّم",
+   "art": "ui_star",
+   "metric": "starsEarned",
+   "tiers": [
+    10,
+    50,
+    200,
+    500,
+    1000
+   ],
+   "desc": {
+    "m": "اجمع {n} نجمة",
+    "f": "اجمعي {n} نجمة"
+   }
+  },
+  {
+   "id": "cities",
+   "name": "مسافر",
+   "art": "bld_world_map",
+   "metric": "citiesGraduated",
+   "tiers": [
+    1,
+    4,
+    8,
+    16,
+    23
+   ],
+   "desc": {
+    "m": "افتح فروع بـ {n} مدن",
+    "f": "افتحي فروع بـ {n} مدن"
+   }
+  },
+  {
+   "id": "crowns",
+   "name": "تيجان",
+   "art": "ui_crown",
+   "metric": "crowns",
+   "tiers": [
+    1,
+    5,
+    10,
+    18,
+    24
+   ],
+   "desc": {
+    "m": "خذ تاج {n} مدن",
+    "f": "خذي تاج {n} مدن"
+   }
+  },
+  {
+   "id": "level",
+   "name": "مستوى المعلّم",
+   "art": "ui_sparkles",
+   "metric": "empireLevel",
+   "tiers": [
+    10,
+    25,
+    50,
+    75,
+    100
+   ],
+   "desc": {
+    "m": "وصّل مستوى {n}",
+    "f": "وصّلي مستوى {n}"
+   }
+  },
+  {
+   "id": "managers",
+   "name": "صاحب شغل",
+   "art": "ppl_handshake",
+   "metric": "managersHired",
+   "tiers": [
+    10,
+    50,
+    100,
+    150,
+    180
+   ],
+   "desc": {
+    "m": "وظّف {n} معلّم",
+    "f": "وظّفي {n} معلّم"
+   }
+  },
+  {
+   "id": "upgrades",
+   "name": "مستثمر",
+   "art": "ui_chart_up",
+   "metric": "upgradesBought",
+   "tiers": [
+    5,
+    25,
+    75,
+    150,
+    250
+   ],
+   "desc": "اشتري {n} ترقية"
+  },
+  {
+   "id": "maxStations",
+   "name": "للآخر",
+   "art": "ui_top_arrow",
+   "metric": "stationsMaxed",
+   "tiers": [
+    1,
+    10,
+    30,
+    80,
+    150
+   ],
+   "desc": {
+    "m": "كمّل {n} محطّة لآخر مستوى",
+    "f": "كمّلي {n} محطّة لآخر مستوى"
+   }
+  },
+  {
+   "id": "chefsOwned",
+   "name": "فريق الطبخ",
+   "art": "ppl_cook",
+   "metric": "chefsOwned",
+   "tiers": [
+    5,
+    10,
+    18,
+    25,
+    32
+   ],
+   "desc": {
+    "m": "جمّع {n} طبّاخ",
+    "f": "جمّعي {n} طبّاخ"
+   }
+  },
+  {
+   "id": "chefLevel",
+   "name": "معلّم الطبّاخين",
+   "art": "ui_glowing_star",
+   "metric": "bestChefLevel",
+   "tiers": [
+    3,
+    5,
+    7,
+    9,
+    10
+   ],
+   "desc": "رقّي طبّاخ لمستوى {n}"
+  },
+  {
+   "id": "chests",
+   "name": "فتّاح الصناديق",
+   "art": "ui_gift",
+   "metric": "chestsOpened",
+   "tiers": [
+    10,
+    50,
+    150,
+    400,
+    1000
+   ],
+   "desc": {
+    "m": "افتح {n} صندوق",
+    "f": "افتحي {n} صندوق"
+   }
+  },
+  {
+   "id": "research",
+   "name": "دفتر ستّي",
+   "art": "ui_notebook",
+   "metric": "researchLevels",
+   "tiers": [
+    5,
+    25,
+    75,
+    150,
+    302
+   ],
+   "desc": {
+    "m": "خلّص {n} بحث بالدفتر",
+    "f": "خلّصي {n} بحث بالدفتر"
+   }
+  },
+  {
+   "id": "runs",
+   "name": "راعي رحلات",
+   "art": "veh_pickup_truck",
+   "metric": "runsClaimed",
+   "tiers": [
+    5,
+    25,
+    100,
+    300,
+    1000
+   ],
+   "desc": {
+    "m": "استلم {n} رحلة توريد",
+    "f": "استلمي {n} رحلة توريد"
+   }
+  },
+  {
+   "id": "heritage",
+   "name": "حارس التراث",
+   "art": "ui_old_key",
+   "metric": "heritageUnique",
+   "tiers": [
+    4,
+    12,
+    20,
+    28,
+    32
+   ],
+   "desc": {
+    "m": "جمّع {n} قطعة تراث مختلفة",
+    "f": "جمّعي {n} قطعة تراث مختلفة"
+   }
+  },
+  {
+   "id": "sets",
+   "name": "المجموعة كاملة",
+   "art": "ui_puzzle_piece",
+   "metric": "setsCompleted",
+   "tiers": [
+    1,
+    2,
+    4,
+    6,
+    8
+   ],
+   "desc": {
+    "m": "كمّل {n} مجموعات تراث",
+    "f": "كمّلي {n} مجموعات تراث"
+   }
+  },
+  {
+   "id": "contracts",
+   "name": "معلّم طلبيات",
+   "art": "ui_clipboard",
+   "metric": "contractsCompleted",
+   "tiers": [
+    1,
+    5,
+    15,
+    30,
+    60
+   ],
+   "desc": {
+    "m": "خلّص {n} طلبيّة للآخر",
+    "f": "خلّصي {n} طلبيّة للآخر"
+   }
+  },
+  {
+   "id": "events",
+   "name": "نجم المهرجان",
+   "art": "ui_party_popper",
+   "metric": "eventsMaxed",
+   "tiers": [
+    1,
+    3,
+    8,
+    15,
+    30
+   ],
+   "desc": {
+    "m": "وصّل آخر مرحلة بـ {n} مهرجانات",
+    "f": "وصّلي آخر مرحلة بـ {n} مهرجانات"
+   }
+  },
+  {
+   "id": "league",
+   "name": "ابن الدوري",
+   "art": "ui_trophy",
+   "metric": "bestLeagueTier",
+   "tiers": [
+    2,
+    4,
+    6,
+    8,
+    10
+   ],
+   "desc": {
+    "m": "اطلع للدرجة {n} بالدوري",
+    "f": "اطلعي للدرجة {n} بالدوري"
+   }
+  },
+  {
+   "id": "season",
+   "name": "ابن الموسم",
+   "art": "ui_ticket",
+   "metric": "seasonsCompleted",
+   "tiers": [
+    1,
+    2,
+    4,
+    6,
+    10
+   ],
+   "desc": {
+    "m": "كمّل {n} مواسم للآخر",
+    "f": "كمّلي {n} مواسم للآخر"
+   }
+  },
+  {
+   "id": "streak",
+   "name": "نار ما بتنطفي",
+   "art": "ui_fire",
+   "metric": "bestStreak",
+   "tiers": [
+    7,
+    30,
+    100,
+    200,
+    365
+   ],
+   "desc": "خلّي السلسلة توصل {n} يوم"
+  },
+  {
+   "id": "calendar",
+   "name": "ابن الروزنامة",
+   "art": "ui_spiral_calendar",
+   "metric": "calendarClaims",
+   "tiers": [
+    7,
+    28,
+    84,
+    168,
+    336
+   ],
+   "desc": {
+    "m": "استلم الروزنامة {n} يوم",
+    "f": "استلمي الروزنامة {n} يوم"
+   }
+  },
+  {
+   "id": "dailyOrders",
+   "name": "شغّيل",
+   "art": "ui_check_mark_button",
+   "metric": "dailyOrders",
+   "tiers": [
+    10,
+    50,
+    200,
+    500,
+    1000
+   ],
+   "desc": {
+    "m": "خلّص {n} طلب يومي",
+    "f": "خلّصي {n} طلب يومي"
+   }
+  },
+  {
+   "id": "specials",
+   "name": "صيّاد الزباين",
+   "art": "ui_bellhop_bell",
+   "metric": "specials",
+   "tiers": [
+    10,
+    50,
+    200,
+    500,
+    1500
+   ],
+   "desc": {
+    "m": "استقبل {n} زبون مميّز",
+    "f": "استقبلي {n} زبون مميّز"
+   }
+  },
+  {
+   "id": "stories",
+   "name": "حكواتي",
+   "art": "ui_speech_balloon",
+   "metric": "choices",
+   "tiers": [
+    5,
+    25,
+    75,
+    150,
+    300
+   ],
+   "desc": {
+    "m": "جاوب على {n} حكاية",
+    "f": "جاوبي على {n} حكاية"
+   }
+  },
+  {
+   "id": "rush",
+   "name": "على السريع",
+   "art": "ui_stopwatch",
+   "metric": "rushRounds",
+   "tiers": [
+    5,
+    25,
+    100,
+    250,
+    500
+   ],
+   "desc": {
+    "m": "العب {n} جولة على السريع",
+    "f": "العبي {n} جولة على السريع"
+   }
+  },
+  {
+   "id": "zaatar",
+   "name": "زعتر ذهبي",
+   "art": "food_herb",
+   "metric": "zaatar",
+   "tiers": [
+    1,
+    5,
+    15,
+    30,
+    50
+   ],
+   "desc": {
+    "m": "جمّع {n} زعتر ذهبي",
+    "f": "جمّعي {n} زعتر ذهبي"
+   }
+  },
+  {
+   "id": "branches",
+   "name": "صاحب فروع",
+   "art": "bld_department_store",
+   "metric": "branchLevels",
+   "tiers": [
+    5,
+    20,
+    50,
+    100,
+    230
+   ],
+   "desc": "رقّي الفروع {n} مستوى"
+  },
+  {
+   "id": "festivals",
+   "name": "ابن المواسم",
+   "art": "ui_lantern",
+   "metric": "festivals",
+   "tiers": [
+    1,
+    3,
+    5,
+    8,
+    12
+   ],
+   "desc": {
+    "m": "عيّد {n} مواسم مع البسطة",
+    "f": "عيّدي {n} مواسم مع البسطة"
+   }
+  },
+  {
+   "id": "karma",
+   "name": "قلب طيّب",
+   "art": "ui_red_heart",
+   "metric": "karma",
+   "tiers": [
+    3,
+    10,
+    20,
+    40,
+    80
+   ],
+   "desc": {
+    "m": "اعمل خير {n} مرّات بالحكايات",
+    "f": "اعملي خير {n} مرّات بالحكايات"
+   }
+  }
+ ]
+}

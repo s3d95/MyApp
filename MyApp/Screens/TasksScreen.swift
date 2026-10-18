@@ -7,14 +7,16 @@ struct TasksScreen: View {
 
     var body: some View {
         VStack(spacing: 8) {
-            SegmentBar(titles: ["اليوم", "الأسبوع", "الروزنامة"], selection: $segment, dots: dots)
+            SegmentBar(titles: ["اليوم", "الأسبوع", "الروزنامة", "الموسم", "الإنجازات"], selection: $segment, dots: dots)
                 .padding(.horizontal, 10)
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 10) {
                     switch segment {
                     case 0: today
                     case 1: week
-                    default: CalendarGrid()
+                    case 2: CalendarGrid()
+                    case 3: SeasonView()
+                    default: AchievementsView()
                     }
                 }
                 .padding(.horizontal, 10)
@@ -24,7 +26,7 @@ struct TasksScreen: View {
         .padding(.top, 6)
     }
 
-    private var dots: [Bool] { [todayDot, weekDot, store.calendarReady] }
+    private var dots: [Bool] { [todayDot, weekDot, store.calendarReady, store.seasonDot, store.achDot] }
 
     private var weekDot: Bool {
         if store.weeklyBonusReady { return true }

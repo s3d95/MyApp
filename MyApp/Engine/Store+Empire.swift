@@ -6,7 +6,7 @@ extension GameStore {
     static let builtSystems: Set<String> = ["kitchen", "goals", "managers", "specials", "upgrades", "rushHours",
                                             "vault", "map", "branchUpgrades", "chefs", "chests", "shop", "chefSkills",
                                             "research", "supply", "heritage", "crafting", "timeWarpShop",
-                                            "daily", "calendar", "streak", "choices", "newspaper", "rush", "league", "market"]
+                                            "daily", "calendar", "streak", "choices", "newspaper", "rush", "league", "market", "season"]
 
     func systemName(_ id: String) -> String {
         switch id {
@@ -23,6 +23,7 @@ extension GameStore {
         case "rush": return "طلبيات على السريع"
         case "league": return "الدوري"
         case "market": return "سوق اليوم والطقس"
+        case "season": return "الموسم"
         case "streak": return "السلسلة"
         case "heritage": return "صندوق التراث"
         case "crafting": return "صنع التراث"
@@ -150,8 +151,14 @@ extension GameStore {
         case "freezes":
             s.wallet.freezes = min(freezeCap, s.wallet.freezes + max(1, n))
             return RewardLine(art: "ui_snowflake", amount: "+" + Num.int(max(1, n)), caption: "تجميدة")
-        case "seasonPoints", "rep":
-            bump(r.type, r.amount)
+        case "seasonPoints":
+            if unlocked("season") {
+                seasonRollover()
+                s.season.points += r.amount * s.season.lateMult
+            }
+            return nil
+        case "rep":
+            bump("rep", r.amount)
             return nil
         case "cosmetic":
             bump("cosmetic." + (r.id ?? ""), 1)

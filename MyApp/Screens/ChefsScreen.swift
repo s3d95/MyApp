@@ -58,6 +58,8 @@ struct SegmentBar: View {
                 } label: {
                     Text(titles[k])
                         .font(.game(14, .black))
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.6)
                         .foregroundColor(selection == k ? Brand.outline : Brand.cream.opacity(0.85))
                         .frame(maxWidth: .infinity, minHeight: 34)
                         .background(Capsule().fill(selection == k ? AnyShapeStyle(Brand.titleFill) : AnyShapeStyle(Color.clear)))

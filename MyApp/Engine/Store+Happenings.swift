@@ -106,6 +106,7 @@ extension GameStore {
         s.stats.specials += 1
         bump("specials")
         rep("special")
+        seasonPoint("special")
         specialTappedFlag = true
         addXP(econ.xp.special)
         let inc = totalIncome(active: false) * specialRewardMult

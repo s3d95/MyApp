@@ -276,6 +276,7 @@ extension GameStore {
         addXP(15)
         bump("calendarClaims")
         rep("calendar")
+        seasonPoint("calendar")
         let big = def.big || def.day == 28
         s.daily.calIndex += 1
         if s.daily.calIndex > 28 {
@@ -311,7 +312,7 @@ extension GameStore {
 
     var tasksDot: Bool {
         guard unlocked("daily") else { return false }
-        if calendarReady || dailyBonusReady || weeklyBonusReady { return true }
+        if calendarReady || dailyBonusReady || weeklyBonusReady || seasonDot || achDot { return true }
         return s.daily.orders.contains { !$0.claimed && orderDone($0) } || s.daily.weekly.contains { !$0.claimed && orderDone($0) }
     }
 }

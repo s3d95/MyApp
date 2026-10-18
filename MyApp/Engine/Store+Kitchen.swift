@@ -233,6 +233,7 @@ extension GameStore {
         s.city.stations[i].level += plan.count
         bump("levelsBought", Double(plan.count))
         let after = s.city.stations[i].level
+        if after >= cap { bump("stationsMaxed") }
         if before == 0 {
             addXP(econ.xp.stationUnlock)
             Feedback.play(.t1, fromAnchor: "station.\(i).cook", art: city.stations[i].art, to: "station.\(i).cook", amount: 1)
@@ -285,6 +286,7 @@ extension GameStore {
         st.managed = true
         st.cooking = true
         s.city.stations[i] = st
+        bump("managersHired")
         addXP(econ.xp.managerHire)
         Feedback.play(.t1, fromAnchor: "station.\(i).manager", art: city.stations[i].managerArt, to: "station.\(i).cook", amount: 1,
                       label: "وظّفت " + managerName(i))

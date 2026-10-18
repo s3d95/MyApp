@@ -381,6 +381,7 @@ final class GameStore: ObservableObject {
             checkStoryTriggers()
             dailyRollover()
             leagueRollover()
+            seasonRollover()
             evaluateFtue()
             flushLevelUp()
         }

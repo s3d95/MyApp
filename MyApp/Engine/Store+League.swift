@@ -247,6 +247,8 @@ extension GameStore {
                 s.league.tier = tier + 1
                 for r in lg.promotionRewards { if let l = applyReward(r) { lines.append(l) } }
                 title = "طلعت درجة بالدوري!"
+                seasonPoint("leaguePromotion")
+                s.metrics["bestLeagueTier"] = max(metric("bestLeagueTier"), Double(tier + 1))
             } else if tier > 1 && rank > lg.groupSize - (def?.demote ?? 0) {
                 s.league.tier = tier - 1
             }
@@ -254,6 +256,7 @@ extension GameStore {
             if s.league.finals.count > 2 { s.league.finals.removeFirst(s.league.finals.count - 2) }
         }
         addXP(50 + 10 * tier)
+        seasonPoint("leagueWeek")
         enqueue(.rewards(title: title, lines: lines))
         save()
     }

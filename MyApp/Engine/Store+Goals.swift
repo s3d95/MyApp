@@ -203,6 +203,7 @@ extension GameStore {
         bump("goalsClaimed")
         bump("stars", Double(g.stars))
         rep("goalStar", Double(g.stars))
+        seasonPoint("goalStar", Double(g.stars))
         readyGoals.remove(g.id)
         if g.stars >= 3 {
             Feedback.play(.t2, fromAnchor: anchor, art: "ui_star", to: "pill.stars", amount: 30)

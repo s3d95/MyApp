@@ -83,6 +83,7 @@ extension GameStore {
             s.research.completed += 1
             bump("researchCompleted")
             rep("researchLevel")
+            seasonPoint("researchLevel")
             if isForeground, let n = cat.node(sl.nodeId) {
                 showToast("دفتر ستّي: خلص بحث \"" + t(n.name) + "\"", art: n.art)
             }
