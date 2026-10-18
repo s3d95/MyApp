@@ -28,6 +28,8 @@ struct ModalLayer: View {
         case .chest(let r): ChestRevealModal(result: r)
         case .supply(let r): SupplyRevealModal(result: r)
         case .rewards(let title, let lines): RewardsModal(title: title, lines: lines)
+        case .choice(let id): ChoiceModal(rowId: id)
+        case .rush(let p): RushGameView(practice: p)
         }
     }
 }

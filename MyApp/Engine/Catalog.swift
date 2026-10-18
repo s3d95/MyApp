@@ -549,6 +549,8 @@ struct CityDef: Decodable, Identifiable {
     var rival = RivalDef()
     var chapterId = ""
     var customerArts: [String] = []
+    var rushBases: [IngredientDef] = []
+    var rushFillings: [IngredientDef] = []
 
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: AnyKey.self)
@@ -572,6 +574,10 @@ struct CityDef: Decodable, Identifiable {
         rival = c.v("rival", rival)
         chapterId = c.v("chapterId", "")
         customerArts = c.v("customerArts", [])
+        if let r = try? c.nestedContainer(keyedBy: AnyKey.self, forKey: AnyKey("rushIngredients")) {
+            rushBases = r.v("bases", [])
+            rushFillings = r.v("fillings", [])
+        }
         let total = goals.reduce(0) { $0 + $1.stars }
         starsToGraduate = c.int("starsToGraduate", Int((0.75 * Double(total)).rounded(.up)))
     }
@@ -587,6 +593,21 @@ struct CityDef: Decodable, Identifiable {
         case "arab": return "الوطن العربي"
         default: return "العالم"
         }
+    }
+}
+
+struct IngredientDef: Decodable, Identifiable {
+    var key = ""
+    var name = GText("")
+    var art = "food_bread"
+
+    var id: String { key }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        key = c.v("key", "")
+        name = c.v("name", GText(key))
+        art = c.v("art", art)
     }
 }
 
@@ -804,13 +825,16 @@ final class Catalog {
     let heritage: HeritageFile
     let quests: QuestsFile
     let calendar: CalendarFile
+    let happenings: HappeningsFile
     private let scenesById: [String: SceneDef]
     private let chefsById: [String: ChefDef]
     private let castById: [String: CastDef]
 
     init(economy: EconomyDef, cities: [CityDef], levels: LevelsDef, story: StoryDef, ftue: FtueDef, chefs: ChefsFile,
-         research: ResearchFile, vehicles: VehiclesFile, heritage: HeritageFile, quests: QuestsFile, calendar: CalendarFile) {
+         research: ResearchFile, vehicles: VehiclesFile, heritage: HeritageFile, quests: QuestsFile, calendar: CalendarFile,
+         happenings: HappeningsFile) {
         self.economy = economy
+        self.happenings = happenings
         self.quests = quests
         self.calendar = calendar
         self.chefs = chefs
@@ -847,8 +871,10 @@ final class Catalog {
         let heritage: HeritageFile = decode("heritage") ?? HeritageFile()
         let quests: QuestsFile = decode("quests") ?? QuestsFile()
         let calendar: CalendarFile = decode("calendar") ?? CalendarFile()
+        let happenings: HappeningsFile = decode("happenings") ?? HappeningsFile()
         return Catalog(economy: economy, cities: cities.cities, levels: levels, story: story, ftue: ftue, chefs: chefs,
-                       research: research, vehicles: vehicles, heritage: heritage, quests: quests, calendar: calendar)
+                       research: research, vehicles: vehicles, heritage: heritage, quests: quests, calendar: calendar,
+                       happenings: happenings)
     }
 
     private static func decode<T: Decodable>(_ name: String) -> T? {

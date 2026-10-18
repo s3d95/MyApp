@@ -28,6 +28,7 @@ struct SheetLayer: View {
         case .chefPicker: ChefPickerSheet()
         case .research: ResearchSheet()
         case .supply: SupplySheet()
+        case .rushIntro: RushIntroSheet()
         }
     }
 }

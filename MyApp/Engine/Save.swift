@@ -270,6 +270,32 @@ struct HappeningsSave: Codable {
     var specialCounter = 0
     var activeSinceSpecial: Double = 0
     var nextSpecialAt: Double = 0
+    var choiceNext: Double = 0
+    var activeSinceChoice: Double = 0
+    var choicesDay = 0
+    var choicesToday = 0
+    var choiceCounter = 0
+    var cooldowns: [String: Int] = [:]
+    var karma = 0
+    var karmaClaimed: [Int] = []
+    var flags: [String] = []
+    var playSeconds: Double = 0
+}
+
+struct RushSave: Codable {
+    var best: [String: Int] = [:]
+    var rounds = 0
+    var counter = 0
+}
+
+extension RushSave {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        best = c.v("best", best)
+        rounds = c.int("rounds", rounds)
+        counter = c.int("counter", counter)
+    }
 }
 
 extension HappeningsSave {
@@ -279,6 +305,16 @@ extension HappeningsSave {
         specialCounter = c.int("specialCounter", specialCounter)
         activeSinceSpecial = c.dbl("activeSinceSpecial", activeSinceSpecial)
         nextSpecialAt = c.dbl("nextSpecialAt", nextSpecialAt)
+        choiceNext = c.dbl("choiceNext", choiceNext)
+        activeSinceChoice = c.dbl("activeSinceChoice", activeSinceChoice)
+        choicesDay = c.int("choicesDay", choicesDay)
+        choicesToday = c.int("choicesToday", choicesToday)
+        choiceCounter = c.int("choiceCounter", choiceCounter)
+        cooldowns = c.v("cooldowns", cooldowns)
+        karma = c.int("karma", karma)
+        karmaClaimed = c.v("karmaClaimed", karmaClaimed)
+        flags = c.v("flags", flags)
+        playSeconds = c.dbl("playSeconds", playSeconds)
     }
 }
 
@@ -592,6 +628,7 @@ struct GameSave: Codable {
     var supply = SupplySave()
     var daily = DailySave()
     var metrics: [String: Double] = [:]
+    var rush = RushSave()
 
     static let key = "basta.save.v3"
     static let backupKey = "basta.save.v3.bak"
@@ -620,6 +657,7 @@ extension GameSave {
         supply = c.v("supply", supply)
         daily = c.v("daily", daily)
         metrics = c.v("metrics", metrics)
+        rush = c.v("rush", rush)
     }
 
     static func load() -> GameSave? {

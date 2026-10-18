@@ -26,6 +26,7 @@ extension GameStore {
         case "frenzy": return "عجقة زباين"
         case "critic": return "ناقد طعام"
         case "dough": return "عجينة طازة"
+        case "walla": return "ولعة"
         default: return kind
         }
     }
@@ -36,6 +37,7 @@ extension GameStore {
         case "frenzy": return "ui_fire"
         case "critic": return "ui_memo"
         case "dough": return "food_bread"
+        case "walla": return "ui_high_voltage"
         default: return "ui_sparkles"
         }
     }

@@ -272,6 +272,20 @@ extension GameStore {
             s.wallet.freezes = 1
             s.daily.calIndex = 6
             tab = .tasks
+        case "choice":
+            demoKitchen()
+            s.empire.level = 11
+            modals = [.choice(cat.happenings.choices.first?.id ?? "")]
+        case "rush":
+            demoKitchen()
+            s.empire.level = 11
+            s.wallet.tickets = 2
+            modals = [.rush(practice: true)]
+        case "rushintro":
+            demoKitchen()
+            s.empire.level = 11
+            s.wallet.tickets = 2
+            sheet = .rushIntro
         case "anchors", "fx":
             demoKitchen()
             spawnSpecial(forced: .tip)

@@ -7,7 +7,7 @@ extension GameStore {
         "unlockStation", "stationLevel", "allStationsLevel", "hireManager", "managersCount", "earnCash",
         "incomeRate", "buyUpgrades", "customersServed", "tapCook", "specialCustomers", "collectVault",
         "branchCollect", "twistMetric", "equipChefs", "chefTagMatch", "startResearch", "researchLevels",
-        "sendSupplyRun", "supplyReturns", "heritageItems",
+        "sendSupplyRun", "supplyReturns", "heritageItems", "choiceEvents", "rushRounds", "dailyOrders",
     ]
 
     func goalSupported(_ g: GoalDef) -> Bool { GameStore.builtGoalTypes.contains(g.type) }
@@ -28,7 +28,7 @@ extension GameStore {
         if let sc = g.scope { return sc }
         switch g.type {
         case "collectVault", "branchCollect", "startResearch", "researchLevels", "sendSupplyRun", "supplyReturns",
-             "heritageItems": return "slot"
+             "heritageItems", "choiceEvents", "rushRounds", "dailyOrders": return "slot"
         default: return "city"
         }
     }
@@ -42,6 +42,9 @@ extension GameStore {
         case "sendSupplyRun": return Double(s.supply.sent)
         case "supplyReturns": return Double(s.supply.returned)
         case "heritageItems": return Double(s.supply.newItems)
+        case "choiceEvents": return metric("choices")
+        case "rushRounds": return metric("rushRounds")
+        case "dailyOrders": return metric("dailyOrders")
         default: return 0
         }
     }
@@ -75,7 +78,7 @@ extension GameStore {
         case "specialCustomers":
             return (s.city.counters["specials"] ?? 0, Double(p.count ?? 1))
         case "collectVault", "branchCollect", "startResearch", "researchLevels", "sendSupplyRun", "supplyReturns",
-             "heritageItems":
+             "heritageItems", "choiceEvents", "rushRounds", "dailyOrders":
             let base = s.city.goalBaselines[g.id] ?? slotMetric(g.type)
             return (max(0, slotMetric(g.type) - base), Double(p.count ?? 1))
         case "equipChefs":

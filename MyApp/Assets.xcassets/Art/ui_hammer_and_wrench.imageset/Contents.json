@@ -1,0 +1,13 @@
+{
+  "images": [
+    {
+      "filename": "ui_hammer_and_wrench.png",
+      "idiom": "universal",
+      "scale": "3x"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}

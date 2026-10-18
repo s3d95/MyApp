@@ -159,10 +159,19 @@ struct LeftRail: View {
                 }
                 .fxAnchor("rail.supply")
             }
-            RailButton(icon: "ui_money_bag", label: Num.dur(store.vaultCapHours * 3600), dot: false) {
-                store.showToast("الخزنة بتجمع دخل المعلّمين لحد " + Num.dur(store.vaultCapHours * 3600) + " وإنت برّا", art: "ui_money_bag")
+            if store.unlocked("rush") {
+                RailButton(icon: "ui_admission_tickets", label: Num.frac(store.s.wallet.tickets, store.ticketCap),
+                           dot: store.s.wallet.tickets > 0) {
+                    store.sheet = .rushIntro
+                }
+                .fxAnchor("rail.tickets")
             }
-            .fxAnchor("rail.vault")
+            if !(store.unlocked("rush") && !store.s.branches.isEmpty) {
+                RailButton(icon: "ui_money_bag", label: Num.dur(store.vaultCapHours * 3600), dot: false) {
+                    store.showToast("الخزنة بتجمع دخل المعلّمين لحد " + Num.dur(store.vaultCapHours * 3600) + " وإنت برّا", art: "ui_money_bag")
+                }
+                .fxAnchor("rail.vault")
+            }
             if !store.s.branches.isEmpty {
                 RailButton(icon: "bld_classical_building", label: Num.percent(store.safeFill), dot: store.safeFill >= 0.5) {
                     store.collectSafe()

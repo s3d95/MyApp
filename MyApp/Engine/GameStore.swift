@@ -61,7 +61,7 @@ enum BuyMode: Int {
 
 enum Sheet: Identifiable, Equatable {
     case upgrades, goals, profile, settings, branch(String), teaser(GameTab), twist, chef(String), chefPicker
-    case research, supply
+    case research, supply, rushIntro
 
     var id: String {
         switch self {
@@ -76,6 +76,7 @@ enum Sheet: Identifiable, Equatable {
         case .chefPicker: return "chefPicker"
         case .research: return "research"
         case .supply: return "supply"
+        case .rushIntro: return "rushIntro"
         }
     }
 }
@@ -118,6 +119,8 @@ enum Modal: Identifiable {
     case chest(ChestResult)
     case supply(SupplyResult)
     case rewards(title: String, lines: [RewardLine])
+    case choice(String)
+    case rush(practice: Bool)
 
     var id: String {
         switch self {
@@ -132,6 +135,8 @@ enum Modal: Identifiable {
         case .chest(let r): return "chest." + r.id.uuidString
         case .supply(let r): return "supply." + r.id.uuidString
         case .rewards(let title, _): return "rewards." + title
+        case .choice(let id): return "choice." + id
+        case .rush(let p): return p ? "rush.practice" : "rush"
         }
     }
 }
@@ -354,6 +359,7 @@ final class GameStore: ObservableObject {
         tickTwists(dt: dt, at: t)
         tickBoosts(dt: dt)
         tickSpecials(dt: dt, at: t)
+        tickChoices(dt: dt)
         if !s.meta.clockFrozen { accrueBranchSafe(until: t) }
         tickResearch(at: t)
         tickTickets(at: t)

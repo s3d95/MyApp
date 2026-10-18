@@ -61,7 +61,7 @@ jobs:
           xcrun simctl status_bar "$UDID" override --time "9:41" --batteryLevel 100 --cellularBars 4 || true
           xcrun simctl install "$UDID" build/Build/Products/Debug-iphonesimulator/MyApp.app
           mkdir -p shots
-          DEMOS="tut1 tut3 tut7 tut11b tut12 tut14 tut17 tut18 kitchen scroll special fx chefs chestopen chefdetail shop research supply heritage supplyreveal tasks upgrades goals profile settings teaser levelup story map nablus hebron jaffa"
+          DEMOS="tut1 tut3 tut7 tut11b tut12 tut14 tut17 tut18 kitchen scroll special fx chefs chestopen chefdetail shop research supply heritage supplyreveal tasks choice rush rushintro upgrades goals profile settings teaser levelup story map nablus hebron jaffa"
           i=0
           for d in $DEMOS; do
             i=$((i+1))
@@ -77,11 +77,19 @@ jobs:
           sips -Z 900 shots/99_launch.png > /dev/null
           ls shots
 
-      - name: Publish screenshots
+      - name: Publish status, errors and screenshots
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          mkdir -p shots
+          if [ -s errors.txt ]; then
+            echo "$GITHUB_SHA failure" > status.txt
+            cp errors.txt shots/errors.txt
+          else
+            echo "$GITHUB_SHA success" > status.txt
+          fi
           gh release delete ci-screens --yes --cleanup-tag || true
-          gh release create ci-screens shots/*.png --prerelease --latest=false --target "$GITHUB_SHA" \
+          gh release create ci-screens status.txt shots/* --prerelease --latest=false --target "$GITHUB_SHA" \
             --title "CI screenshots (للمطوّر)" \
             --notes "Simulator screenshots from the latest compile check of ${GITHUB_REF_NAME} (${GITHUB_SHA::7}). Not an app build."
