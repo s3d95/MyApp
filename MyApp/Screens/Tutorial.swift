@@ -80,18 +80,22 @@ struct TutorialLayer: View {
         let store = self.store
         var next: (() -> Void)? = nil
         if closable(step) { next = { store.closeFtueBubble() } }
+        let asksNotifications = step.id == 14 && !store.s.ftue.bubbleClosed
+        let canSkip = !soft && Date().timeIntervalSince(stepShownAt) > 20
+        let interactive = next != nil || asksNotifications || canSkip
         return VStack(spacing: 6) {
             StoryBubble(character: "ppl_old_woman", name: "ستّي", text: store.ftueText(step), onNext: next)
-            if step.id == 14 && !store.s.ftue.bubbleClosed {
+            if asksNotifications {
                 notificationButtons
             }
-            if !soft && Date().timeIntervalSince(stepShownAt) > 20 {
+            if canSkip {
                 Button("تخطّي الشرح") { store.skipFtueStep() }
                     .font(.body(12, bold: true))
                     .foregroundColor(Brand.cream.opacity(0.8))
             }
         }
         .frame(width: min(size.width - 24, 380))
+        .allowsHitTesting(interactive)
         .position(x: size.width / 2, y: y)
         .transition(.opacity)
     }
@@ -123,7 +127,7 @@ struct TutorialLayer: View {
     }
 
     private func bubbleY(_ rect: CGRect?) -> CGFloat {
-        guard let r = rect else { return size.height * 0.62 }
+        guard let r = rect else { return size.height - 220 }
         let h: CGFloat = 130
         if r.midY > size.height / 2 {
             return max(h / 2 + 40, r.minY - 28 - h / 2)
