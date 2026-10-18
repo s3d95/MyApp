@@ -59,7 +59,7 @@ struct TabButton: View {
     let tab: GameTab
 
     private var isOpen: Bool { store.unlocked(tab.system) }
-    private var isBuilt: Bool { tab != .tasks }
+    private var isBuilt: Bool { true }
 
     var body: some View {
         let selected = store.tab == tab
@@ -118,6 +118,7 @@ struct TabButton: View {
         case .home: return store.tab != .home && store.claimableGoals > 0
         case .map: return isOpen && (store.canGraduate || (!store.s.branches.isEmpty && store.safeFill >= 0.5))
         case .chefs: return isOpen && store.tab != .chefs && (store.chestCount > 0 || store.anyChefCanLevel)
+        case .tasks: return isOpen && store.tab != .tasks && store.tasksDot
         default: return false
         }
     }

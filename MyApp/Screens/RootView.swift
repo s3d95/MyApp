@@ -84,6 +84,7 @@ struct GameScreen: View {
         case .map: MapScreen()
         case .chefs: ChefsScreen()
         case .shop: ShopScreen()
+        case .tasks: TasksScreen()
         default: TeaserScreen(tab: store.tab)
         }
     }

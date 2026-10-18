@@ -802,13 +802,17 @@ final class Catalog {
     let research: ResearchFile
     let vehicles: VehiclesFile
     let heritage: HeritageFile
+    let quests: QuestsFile
+    let calendar: CalendarFile
     private let scenesById: [String: SceneDef]
     private let chefsById: [String: ChefDef]
     private let castById: [String: CastDef]
 
     init(economy: EconomyDef, cities: [CityDef], levels: LevelsDef, story: StoryDef, ftue: FtueDef, chefs: ChefsFile,
-         research: ResearchFile, vehicles: VehiclesFile, heritage: HeritageFile) {
+         research: ResearchFile, vehicles: VehiclesFile, heritage: HeritageFile, quests: QuestsFile, calendar: CalendarFile) {
         self.economy = economy
+        self.quests = quests
+        self.calendar = calendar
         self.chefs = chefs
         self.research = research
         self.vehicles = vehicles
@@ -841,8 +845,10 @@ final class Catalog {
         let research: ResearchFile = decode("research") ?? ResearchFile()
         let vehicles: VehiclesFile = decode("vehicles") ?? VehiclesFile()
         let heritage: HeritageFile = decode("heritage") ?? HeritageFile()
+        let quests: QuestsFile = decode("quests") ?? QuestsFile()
+        let calendar: CalendarFile = decode("calendar") ?? CalendarFile()
         return Catalog(economy: economy, cities: cities.cities, levels: levels, story: story, ftue: ftue, chefs: chefs,
-                       research: research, vehicles: vehicles, heritage: heritage)
+                       research: research, vehicles: vehicles, heritage: heritage, quests: quests, calendar: calendar)
     }
 
     private static func decode<T: Decodable>(_ name: String) -> T? {

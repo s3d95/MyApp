@@ -1,0 +1,436 @@
+{
+ "version": 1,
+ "unlockLevel": 9,
+ "days": [
+  {
+   "day": 1,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 2,
+   "rewards": [
+    {
+     "type": "tickets",
+     "amount": 2
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 3,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 4,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 10
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 5,
+   "rewards": [
+    {
+     "type": "chefCards",
+     "amount": 3,
+     "rarity": "rare"
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 6,
+   "rewards": [
+    {
+     "type": "timeWarpMin",
+     "amount": 60
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 7,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    }
+   ],
+   "big": true
+  },
+  {
+   "day": 8,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 9,
+   "rewards": [
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "common"
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 10,
+   "rewards": [
+    {
+     "type": "tickets",
+     "amount": 2
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 11,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 12,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 13,
+   "rewards": [
+    {
+     "type": "timeWarpMin",
+     "amount": 120
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 14,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    },
+    {
+     "type": "freezes",
+     "amount": 1
+    }
+   ],
+   "big": true
+  },
+  {
+   "day": 15,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 16,
+   "rewards": [
+    {
+     "type": "chefCards",
+     "amount": 5,
+     "rarity": "rare"
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 17,
+   "rewards": [
+    {
+     "type": "tickets",
+     "amount": 2
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 18,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 19,
+   "rewards": [
+    {
+     "type": "heritageItem",
+     "amount": 1,
+     "rarity": "rare"
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 20,
+   "rewards": [
+    {
+     "type": "timeWarpMin",
+     "amount": 120
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 21,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "gold"
+    }
+   ],
+   "big": true
+  },
+  {
+   "day": 22,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 15
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 23,
+   "rewards": [
+    {
+     "type": "tickets",
+     "amount": 2
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 24,
+   "rewards": [
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "wood"
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 25,
+   "rewards": [
+    {
+     "type": "chefCards",
+     "amount": 2,
+     "rarity": "epic"
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 26,
+   "rewards": [
+    {
+     "type": "gold",
+     "amount": 20
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 27,
+   "rewards": [
+    {
+     "type": "timeWarpMin",
+     "amount": 240
+    }
+   ],
+   "big": false
+  },
+  {
+   "day": 28,
+   "rewards": [
+    {
+     "type": "zaatar",
+     "amount": 1
+    },
+    {
+     "type": "chest",
+     "amount": 1,
+     "id": "silver"
+    }
+   ],
+   "big": true
+  }
+ ],
+ "goldScalePerCycle": 0.1,
+ "goldScaleMax": 2,
+ "streak": {
+  "milestones": [
+   {
+    "days": 3,
+    "rewards": [
+     {
+      "type": "gold",
+      "amount": 10
+     }
+    ]
+   },
+   {
+    "days": 7,
+    "rewards": [
+     {
+      "type": "gold",
+      "amount": 20
+     },
+     {
+      "type": "freezes",
+      "amount": 1
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "silver"
+     }
+    ]
+   },
+   {
+    "days": 14,
+    "rewards": [
+     {
+      "type": "gold",
+      "amount": 30
+     },
+     {
+      "type": "freezes",
+      "amount": 1
+     }
+    ]
+   },
+   {
+    "days": 30,
+    "rewards": [
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "gold"
+     },
+     {
+      "type": "cosmetic",
+      "amount": 1,
+      "id": "frameFlame"
+     }
+    ]
+   },
+   {
+    "days": 50,
+    "rewards": [
+     {
+      "type": "chefCards",
+      "amount": 3,
+      "rarity": "epic"
+     }
+    ]
+   },
+   {
+    "days": 100,
+    "rewards": [
+     {
+      "type": "chefCards",
+      "amount": 1,
+      "rarity": "legendary"
+     },
+     {
+      "type": "cosmetic",
+      "amount": 1,
+      "id": "propFlame"
+     }
+    ]
+   },
+   {
+    "days": 200,
+    "rewards": [
+     {
+      "type": "gold",
+      "amount": 150
+     },
+     {
+      "type": "chest",
+      "amount": 1,
+      "id": "gold"
+     }
+    ]
+   },
+   {
+    "days": 365,
+    "rewards": [
+     {
+      "type": "cosmetic",
+      "amount": 1,
+      "id": "awningYear"
+     },
+     {
+      "type": "gold",
+      "amount": 365
+     }
+    ]
+   }
+  ],
+  "freezeCaps": [
+   {
+    "level": 9,
+    "cap": 2
+   },
+   {
+    "level": 45,
+    "cap": 3
+   }
+  ],
+  "freezePrice": 50,
+  "repair": {
+   "orders": 6,
+   "days": 2,
+   "bonusDays": 2
+  }
+ }
+}

@@ -196,6 +196,8 @@ extension GameStore {
         s.city.goalsClaimed.append(g.id)
         s.city.stars += g.stars
         s.stats.starsTotal += g.stars
+        bump("goalsClaimed")
+        bump("stars", Double(g.stars))
         readyGoals.remove(g.id)
         if g.stars >= 3 {
             Feedback.play(.t2, fromAnchor: anchor, art: "ui_star", to: "pill.stars", amount: 30)
@@ -384,6 +386,7 @@ extension GameStore {
         s.branchSafe.stored -= Double(g)
         s.wallet.gold += g
         s.stats.branchCollects += 1
+        bump("branchCollects")
         Feedback.play(.t1, fromAnchor: "safe.collect", art: "ui_coin", to: "pill.gold", amount: Double(g),
                       label: "+" + Num.int(g) + " ذهب")
         save()

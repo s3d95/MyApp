@@ -5,7 +5,8 @@ extension GameStore {
     /// Systems that exist in this build (their unlocks are announced at level-up).
     static let builtSystems: Set<String> = ["kitchen", "goals", "managers", "specials", "upgrades", "rushHours",
                                             "vault", "map", "branchUpgrades", "chefs", "chests", "shop", "chefSkills",
-                                            "research", "supply", "heritage", "crafting", "timeWarpShop"]
+                                            "research", "supply", "heritage", "crafting", "timeWarpShop",
+                                            "daily", "calendar", "streak"]
 
     func systemName(_ id: String) -> String {
         switch id {
@@ -17,6 +18,12 @@ extension GameStore {
         case "map": return "الخريطة والفروع"
         case "branchUpgrades": return "تكبير الفروع"
         case "chefs": return "الطبّاخين"
+        case "calendar": return "الروزنامة"
+        case "streak": return "السلسلة"
+        case "heritage": return "صندوق التراث"
+        case "crafting": return "صنع التراث"
+        case "chefSkills": return "مهارات الطبّاخين"
+        case "timeWarpShop": return "رزم الوقت بالدكان"
         case "shop": return "الدكان"
         case "research": return "دفتر ستّي"
         case "supply": return "رحلات التوريد"
@@ -117,8 +124,34 @@ extension GameStore {
             s.wallet.pendingChefCards += count
             return RewardLine(art: "ppl_cook", amount: "+" + Num.int(count), caption: "كروت طبّاخين")
         case "heritageItem", "heritageCase":
-            s.wallet.pendingHeritage += max(1, n)
-            return RewardLine(art: "ui_old_key", amount: "+" + Num.int(max(1, n)), caption: "قطعة تراث")
+            let count = r.type == "heritageCase" ? 3 * max(1, n) : max(1, n)
+            if let id = r.id, let item = cat.item(id) {
+                addItem(id)
+                return RewardLine(art: item.art, amount: "+1", caption: t(item.name))
+            }
+            var rr = Seed.rng("heritageReward", ["\(s.supply.runCounter)", "\(s.chefs.cardCounter)"], player: s.meta.seed)
+            s.supply.runCounter += 1
+            var last: HeritageItemDef? = nil
+            let floor = r.type == "heritageCase" ? Rarity.rare : (Rarity(rawValue: r.rarity ?? "common") ?? .common)
+            for _ in 0..<count {
+                if let item = rollItem(floor, &rr) {
+                    addItem(item.id)
+                    last = item
+                }
+            }
+            return RewardLine(art: last?.art ?? "ui_old_key", amount: "+" + Num.int(count), caption: last.map { t($0.name) } ?? "قطعة تراث")
+        case "tickets":
+            s.wallet.tickets = min(9, s.wallet.tickets + max(1, n))
+            return RewardLine(art: "ui_admission_tickets", amount: "+" + Num.int(max(1, n)), caption: "تذاكر")
+        case "freezes":
+            s.wallet.freezes = min(freezeCap, s.wallet.freezes + max(1, n))
+            return RewardLine(art: "ui_snowflake", amount: "+" + Num.int(max(1, n)), caption: "تجميدة")
+        case "seasonPoints", "rep":
+            bump(r.type, r.amount)
+            return nil
+        case "cosmetic":
+            bump("cosmetic." + (r.id ?? ""), 1)
+            return RewardLine(art: "ui_artist_palette", amount: "", caption: "ديكور جديد")
         case "incomeMin":
             let amount = r.amount * 60 * totalIncome(active: false)
             credit(amount, station: nil, at: now())

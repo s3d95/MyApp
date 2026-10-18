@@ -258,6 +258,20 @@ extension GameStore {
             s.ftue.done = false
             s.ftue.step = 18
             sheet = .supply
+        case "tasks", "weekly", "calendar":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e8, level: 12)
+            s.daily.lastRolledDay = dayNum
+            dailyRollover()
+            for k in s.daily.orders.indices where k < 2 {
+                if let q = template(s.daily.orders[k].templateId) { bump(q.metric, s.daily.orders[k].target * (k == 0 ? 1 : 0.4)) }
+            }
+            if !s.daily.orders.isEmpty { s.daily.orders[0].claimed = true }
+            s.daily.streak = 5
+            s.daily.streakBest = 9
+            s.daily.streakLastDay = dayNum
+            s.wallet.freezes = 1
+            s.daily.calIndex = 6
+            tab = .tasks
         case "anchors", "fx":
             demoKitchen()
             spawnSpecial(forced: .tip)

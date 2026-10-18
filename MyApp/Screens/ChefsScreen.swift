@@ -270,7 +270,7 @@ struct ChestRow: View {
                 Text(store.t(def.name))
                     .font(.game(16, .black))
                     .foregroundColor(Brand.cream)
-                Text(Num.int(def.cards) + " كرت · " + Num.int(def.goldMin) + "–" + Num.int(def.goldMax) + " ذهب")
+                Text(contents)
                     .font(.body(11, bold: true))
                     .foregroundColor(Brand.cream.opacity(0.7))
                 Text("عندك " + Num.int(count))
@@ -283,11 +283,7 @@ struct ChestRow: View {
                     .frame(width: 90)
                     .fxAnchor(isFirst ? "chest.free" : "chest." + def.id)
             } else {
-                ChunkyButton(title: "اشتري", icon: "ui_coin", subtitle: Num.int(def.price),
-                             color: store.s.wallet.gold >= def.price ? .gold : .gray, sound: nil) {
-                    store.buyChest(def.id)
-                }
-                .frame(width: 90)
+                buyButton
             }
         }
         .padding(10)
@@ -296,6 +292,20 @@ struct ChestRow: View {
     }
 
     private var chestTint: Color { ChestArt.tint(def.id) }
+
+    private var buyButton: some View {
+        let ok = store.s.wallet.gold >= def.price
+        return ChunkyButton(title: "اشتري", icon: "ui_coin", subtitle: Num.int(def.price), color: ok ? .gold : .gray, sound: nil) {
+            store.buyChest(def.id)
+        }
+        .frame(width: 90)
+    }
+
+    private var contents: String {
+        let cards: String = Num.int(def.cards)
+        let gold: String = Num.frac(def.goldMin, def.goldMax).replacingOccurrences(of: "/", with: "–")
+        return "\(cards) كرت · \(gold) ذهب"
+    }
 }
 
 /// The gift art inside a coloured ring that tells wood, silver and gold apart.

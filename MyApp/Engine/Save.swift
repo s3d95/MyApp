@@ -224,6 +224,11 @@ struct WalletSave: Codable {
     var vaultDoubleDay = 0
     var warpDay = 0
     var warpBuys = 0
+    var tickets = 0
+    var ticketAt: Double = 0
+    var freezes = 0
+    var ticketBuyDay = 0
+    var ticketBuys = 0
 }
 
 extension WalletSave {
@@ -239,6 +244,11 @@ extension WalletSave {
         vaultDoubleDay = c.int("vaultDoubleDay", vaultDoubleDay)
         warpDay = c.int("warpDay", warpDay)
         warpBuys = c.int("warpBuys", warpBuys)
+        tickets = c.int("tickets", tickets)
+        ticketAt = c.dbl("ticketAt", ticketAt)
+        freezes = c.int("freezes", freezes)
+        ticketBuyDay = c.int("ticketBuyDay", ticketBuyDay)
+        ticketBuys = c.int("ticketBuys", ticketBuys)
     }
 }
 
@@ -491,6 +501,78 @@ extension SupplySave {
     }
 }
 
+struct OrderSave: Codable, Identifiable {
+    var uid = ""
+    var templateId = ""
+    var target: Double = 1
+    var baseline: Double = 0
+    var rate: Double = 0
+    var claimed = false
+
+    var id: String { uid }
+}
+
+extension OrderSave {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        uid = c.v("uid", uid)
+        templateId = c.v("templateId", templateId)
+        target = c.dbl("target", target)
+        baseline = c.dbl("baseline", baseline)
+        rate = c.dbl("rate", rate)
+        claimed = c.v("claimed", claimed)
+    }
+}
+
+struct DailySave: Codable {
+    var day = 0
+    var orders: [OrderSave] = []
+    var rerolls = 0
+    var bonusClaimed = false
+    var week = 0
+    var weekly: [OrderSave] = []
+    var weeklyBonusClaimed = false
+    var calIndex = 1
+    var calCycle = 1
+    var calLastDay = 0
+    var streak = 0
+    var streakBest = 0
+    var streakLastDay = 0
+    var lastRolledDay = 0
+    var milestonesClaimed: [Int] = []
+    var repairOld = 0
+    var repairUntil = 0
+    var repairProgress = 0
+    var orderCounter = 0
+}
+
+extension DailySave {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        day = c.int("day", day)
+        orders = c.v("orders", orders)
+        rerolls = c.int("rerolls", rerolls)
+        bonusClaimed = c.v("bonusClaimed", bonusClaimed)
+        week = c.int("week", week)
+        weekly = c.v("weekly", weekly)
+        weeklyBonusClaimed = c.v("weeklyBonusClaimed", weeklyBonusClaimed)
+        calIndex = c.int("calIndex", calIndex)
+        calCycle = c.int("calCycle", calCycle)
+        calLastDay = c.int("calLastDay", calLastDay)
+        streak = c.int("streak", streak)
+        streakBest = c.int("streakBest", streakBest)
+        streakLastDay = c.int("streakLastDay", streakLastDay)
+        lastRolledDay = c.int("lastRolledDay", lastRolledDay)
+        milestonesClaimed = c.v("milestonesClaimed", milestonesClaimed)
+        repairOld = c.int("repairOld", repairOld)
+        repairUntil = c.int("repairUntil", repairUntil)
+        repairProgress = c.int("repairProgress", repairProgress)
+        orderCounter = c.int("orderCounter", orderCounter)
+    }
+}
+
 struct GameSave: Codable {
     var meta = MetaSave()
     var settings = SettingsSave()
@@ -508,6 +590,8 @@ struct GameSave: Codable {
     var chefs = ChefsSave()
     var research = ResearchSave()
     var supply = SupplySave()
+    var daily = DailySave()
+    var metrics: [String: Double] = [:]
 
     static let key = "basta.save.v3"
     static let backupKey = "basta.save.v3.bak"
@@ -534,6 +618,8 @@ extension GameSave {
         chefs = c.v("chefs", chefs)
         research = c.v("research", research)
         supply = c.v("supply", supply)
+        daily = c.v("daily", daily)
+        metrics = c.v("metrics", metrics)
     }
 
     static func load() -> GameSave? {

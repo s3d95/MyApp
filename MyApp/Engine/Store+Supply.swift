@@ -71,6 +71,7 @@ extension GameStore {
         s.supply.slots.append(slot)
         s.supply.launches[vehicleId, default: 0] += 1
         s.supply.sent += 1
+        bump("runsSent")
         Feedback.play(.t0)
         SFX.whoosh.play()
         evaluateFtue()
@@ -141,6 +142,7 @@ extension GameStore {
         let xp = Int((Double(xpBase) * (1 + 0.25 * Double(v.tier))).rounded())
         addXP(xp)
         s.supply.returned += 1
+        bump("runsClaimed")
         let result = SupplyResult(vehicleId: v.id, loot: loot, xp: xp)
         enqueue(.supply(result))
         save()

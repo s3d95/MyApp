@@ -161,6 +161,7 @@ extension GameStore {
         }
         own.cards -= cards
         own.level += 1
+        bump("chefLevelUps")
         s.chefs.owned[id] = own
         s.wallet.gold -= gold
         if own.level >= chefRules.maxLevel {
@@ -272,6 +273,7 @@ extension GameStore {
             scripted = "samiFryer"
         }
         let result = rollChest(kind, scriptedChef: scripted)
+        bump("chestsOpened")
         s.chefs.revealViews += 1
         enqueue(.chest(result))
         save()

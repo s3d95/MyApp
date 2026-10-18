@@ -164,6 +164,7 @@ extension GameStore {
         guard amount > 0, amount.isFinite else { return }
         s.city.cash += amount
         s.city.lifetimeEarned += amount
+        s.metrics["earned", default: 0] += amount
         if let i = i {
             s.city.stations[i].lifetimeEarned += amount
             twistMetricsOnCredit(i, amount: amount, at: t)
@@ -191,6 +192,7 @@ extension GameStore {
         s.ftue.tapCooks[id, default: 0] += 1
         s.city.counters["tapCook", default: 0] += 1
         s.stats.taps += 1
+        bump("tapCooks")
         Feedback.play(.t0)
         evaluateFtue()
     }
@@ -229,6 +231,7 @@ extension GameStore {
         let before = s.city.stations[i].level
         s.city.cash -= plan.cost
         s.city.stations[i].level += plan.count
+        bump("levelsBought", Double(plan.count))
         let after = s.city.stations[i].level
         if before == 0 {
             addXP(econ.xp.stationUnlock)
@@ -239,6 +242,7 @@ extension GameStore {
         let seen = s.city.stations[i].milestonesSeen
         if ms > seen {
             s.city.stations[i].milestonesSeen = ms
+            bump("stationMilestones", Double(ms - seen))
             addXP(econ.xp.stationMilestone * (ms - seen))
             let label = milestoneIsSpeed(i, count: ms) ? "سرعة ×2" : "ربح ×2"
             Feedback.play(.t1, fromAnchor: "station.\(i).cook", art: "ui_sparkles", to: "station.\(i).cook", amount: 1, label: label)
@@ -309,6 +313,7 @@ extension GameStore {
         }
         s.city.cash -= p
         s.city.upgradesBought.append(u.id)
+        bump("upgradesBought")
         Feedback.play(.t1, fromAnchor: "upgrade.0.buy", art: "ui_sparkles", to: "pill.cash", amount: 1, label: Num.mult(u.mult))
         SFX.upgrade.play()
         evaluateFtue()

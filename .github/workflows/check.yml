@@ -61,7 +61,7 @@ jobs:
           xcrun simctl status_bar "$UDID" override --time "9:41" --batteryLevel 100 --cellularBars 4 || true
           xcrun simctl install "$UDID" build/Build/Products/Debug-iphonesimulator/MyApp.app
           mkdir -p shots
-          DEMOS="tut1 tut3 tut7 tut11b tut12 tut14 tut17 tut18 kitchen scroll special fx chefs chestopen chefdetail shop research supply heritage supplyreveal upgrades goals profile settings teaser levelup story map nablus hebron jaffa"
+          DEMOS="tut1 tut3 tut7 tut11b tut12 tut14 tut17 tut18 kitchen scroll special fx chefs chestopen chefdetail shop research supply heritage supplyreveal tasks upgrades goals profile settings teaser levelup story map nablus hebron jaffa"
           i=0
           for d in $DEMOS; do
             i=$((i+1))

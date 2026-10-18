@@ -66,6 +66,7 @@ extension GameStore {
         slot.endAt = t + researchDuration(n, level: l)
         s.research.slots.append(slot)
         s.research.started += 1
+        bump("researchStarted")
         Feedback.play(.t0)
         SFX.upgrade.play()
         evaluateFtue()
@@ -80,6 +81,7 @@ extension GameStore {
             s.research.levels[sl.nodeId] = max(researchLevel(sl.nodeId), sl.level)
             s.research.slots[k].applied = true
             s.research.completed += 1
+            bump("researchCompleted")
             if isForeground, let n = cat.node(sl.nodeId) {
                 showToast("دفتر ستّي: خلص بحث \"" + t(n.name) + "\"", art: n.art)
             }

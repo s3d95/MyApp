@@ -117,6 +117,7 @@ enum Modal: Identifiable {
     case graduation(from: String, to: String)
     case chest(ChestResult)
     case supply(SupplyResult)
+    case rewards(title: String, lines: [RewardLine])
 
     var id: String {
         switch self {
@@ -130,6 +131,7 @@ enum Modal: Identifiable {
         case .graduation(let a, let b): return "grad." + a + b
         case .chest(let r): return "chest." + r.id.uuidString
         case .supply(let r): return "supply." + r.id.uuidString
+        case .rewards(let title, _): return "rewards." + title
         }
     }
 }
@@ -354,6 +356,7 @@ final class GameStore: ObservableObject {
         tickSpecials(dt: dt, at: t)
         if !s.meta.clockFrozen { accrueBranchSafe(until: t) }
         tickResearch(at: t)
+        tickTickets(at: t)
 
         if let o = oven, t >= o.deadline { collectOven(perfect: false) }
         if toastClock > 0 {
@@ -367,6 +370,7 @@ final class GameStore: ObservableObject {
             refreshGoalSlots()
             checkGoalChimes()
             checkStoryTriggers()
+            dailyRollover()
             evaluateFtue()
             flushLevelUp()
         }

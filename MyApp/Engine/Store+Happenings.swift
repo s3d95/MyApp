@@ -102,6 +102,7 @@ extension GameStore {
         rollNextSpecial()
         s.city.counters["specials", default: 0] += 1
         s.stats.specials += 1
+        bump("specials")
         specialTappedFlag = true
         addXP(econ.xp.special)
         let inc = totalIncome(active: false) * specialRewardMult

@@ -1,0 +1,608 @@
+{
+ "version": 1,
+ "unlockLevel": 9,
+ "bands": [
+  {
+   "id": 1,
+   "minLevel": 9,
+   "maxLevel": 14
+  },
+  {
+   "id": 2,
+   "minLevel": 15,
+   "maxLevel": 24
+  },
+  {
+   "id": 3,
+   "minLevel": 25,
+   "maxLevel": 39
+  },
+  {
+   "id": 4,
+   "minLevel": 40,
+   "maxLevel": 59
+  },
+  {
+   "id": 5,
+   "minLevel": 60,
+   "maxLevel": 9999
+  }
+ ],
+ "dailyReward": [
+  {
+   "type": "gold",
+   "amount": 2
+  },
+  {
+   "type": "xp",
+   "amount": 30
+  },
+  {
+   "type": "seasonPoints",
+   "amount": 10
+  },
+  {
+   "type": "rep",
+   "amount": 20
+  }
+ ],
+ "dailyBonus": [
+  {
+   "type": "chest",
+   "amount": 1,
+   "id": "wood"
+  },
+  {
+   "type": "xp",
+   "amount": 40
+  },
+  {
+   "type": "seasonPoints",
+   "amount": 20
+  },
+  {
+   "type": "rep",
+   "amount": 30
+  }
+ ],
+ "weeklyReward": [
+  {
+   "type": "gold",
+   "amount": 10
+  },
+  {
+   "type": "xp",
+   "amount": 120
+  },
+  {
+   "type": "seasonPoints",
+   "amount": 40
+  },
+  {
+   "type": "rep",
+   "amount": 60
+  }
+ ],
+ "weeklyBonus": [
+  {
+   "type": "chest",
+   "amount": 1,
+   "id": "silver"
+  },
+  {
+   "type": "xp",
+   "amount": 150
+  },
+  {
+   "type": "seasonPoints",
+   "amount": 50
+  },
+  {
+   "type": "rep",
+   "amount": 100
+  },
+  {
+   "type": "freezes",
+   "amount": 1
+  }
+ ],
+ "reroll": {
+  "freePerDay": 1,
+  "cost": 5,
+  "maxPerDay": 3
+ },
+ "daily": [
+  {
+   "id": "buyLevels",
+   "text": "اشتري {n} مستوى بالمحطّات",
+   "metric": "levelsBought",
+   "difficulty": "medium",
+   "targets": [
+    40,
+    80,
+    150,
+    250,
+    400
+   ],
+   "eligibility": "always"
+  },
+  {
+   "id": "claimGoals",
+   "text": {
+    "m": "خلّص {n} أهداف بالمدينة",
+    "f": "خلّصي {n} أهداف بالمدينة"
+   },
+   "metric": "goalsClaimed",
+   "difficulty": "hard",
+   "targets": [
+    1,
+    2,
+    2,
+    3,
+    3
+   ],
+   "eligibility": "goalsRemaining"
+  },
+  {
+   "id": "specials",
+   "text": {
+    "m": "استقبل {n} زباين مميّزين",
+    "f": "استقبلي {n} زباين مميّزين"
+   },
+   "metric": "specials",
+   "difficulty": "easy",
+   "targets": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "condition": {
+    "requiresSystem": "specials"
+   },
+   "eligibility": "always"
+  },
+  {
+   "id": "rushRounds",
+   "text": {
+    "m": "العب {n} جولة طلبيات على السريع",
+    "f": "العبي {n} جولة طلبيات على السريع"
+   },
+   "metric": "rushRounds",
+   "difficulty": "medium",
+   "targets": [
+    1,
+    1,
+    2,
+    2,
+    3
+   ],
+   "condition": {
+    "requiresSystem": "rush"
+   },
+   "eligibility": "always"
+  },
+  {
+   "id": "choices",
+   "text": {
+    "m": "جاوب على {n} حكاية",
+    "f": "جاوبي على {n} حكاية"
+   },
+   "metric": "choices",
+   "difficulty": "medium",
+   "targets": [
+    1,
+    1,
+    2,
+    2,
+    2
+   ],
+   "condition": {
+    "requiresSystem": "choices"
+   },
+   "eligibility": "always"
+  },
+  {
+   "id": "sendRuns",
+   "text": {
+    "m": "ابعت {n} رحلة توريد",
+    "f": "ابعتي {n} رحلة توريد"
+   },
+   "metric": "runsSent",
+   "difficulty": "easy",
+   "targets": [
+    1,
+    2,
+    2,
+    3,
+    3
+   ],
+   "condition": {
+    "requiresSystem": "supply"
+   },
+   "eligibility": "always"
+  },
+  {
+   "id": "returnRuns",
+   "text": {
+    "m": "استلم {n} رحلة",
+    "f": "استلمي {n} رحلة"
+   },
+   "metric": "runsClaimed",
+   "difficulty": "medium",
+   "targets": [
+    1,
+    2,
+    2,
+    3,
+    3
+   ],
+   "condition": {
+    "requiresSystem": "supply"
+   },
+   "eligibility": "always"
+  },
+  {
+   "id": "startResearch",
+   "text": {
+    "m": "ابدأ {n} بحث بدفتر ستّي",
+    "f": "ابدئي {n} بحث بدفتر ستّي"
+   },
+   "metric": "researchStarted",
+   "difficulty": "easy",
+   "targets": [
+    1,
+    1,
+    1,
+    2,
+    2
+   ],
+   "condition": {
+    "requiresSystem": "research"
+   },
+   "eligibility": "researchSlotFree"
+  },
+  {
+   "id": "earnMinutes",
+   "text": {
+    "m": "اربح قدّ {n} دقيقة شغل",
+    "f": "اربحي قدّ {n} دقيقة شغل"
+   },
+   "metric": "earnMinutes",
+   "difficulty": "hard",
+   "targets": [
+    20,
+    30,
+    45,
+    60,
+    90
+   ],
+   "eligibility": "always"
+  },
+  {
+   "id": "milestones",
+   "text": {
+    "m": "وصّل {n} محطّات لعلامة جديدة",
+    "f": "وصّلي {n} محطّات لعلامة جديدة"
+   },
+   "metric": "stationMilestones",
+   "difficulty": "medium",
+   "targets": [
+    2,
+    3,
+    3,
+    4,
+    5
+   ],
+   "eligibility": "stationBelowCap"
+  },
+  {
+   "id": "vault",
+   "text": {
+    "m": "ارجع واجمع الخزنة",
+    "f": "ارجعي واجمعي الخزنة"
+   },
+   "metric": "vaultCollects",
+   "difficulty": "easy",
+   "targets": [
+    1
+   ],
+   "condition": {
+    "requiresSystem": "vault"
+   },
+   "eligibility": "always"
+  },
+  {
+   "id": "branches",
+   "text": {
+    "m": "اجمع ذهب الفروع",
+    "f": "اجمعي ذهب الفروع"
+   },
+   "metric": "branchCollects",
+   "difficulty": "easy",
+   "targets": [
+    1
+   ],
+   "condition": {
+    "minLevel": 17
+   },
+   "eligibility": "always"
+  },
+  {
+   "id": "contractPush",
+   "text": {
+    "m": "كمّل {n}% من هدف الطلبيّة الجاي",
+    "f": "كمّلي {n}% من هدف الطلبيّة الجاي"
+   },
+   "metric": "contractPct",
+   "difficulty": "hard",
+   "targets": [
+    10,
+    10,
+    15,
+    15,
+    20
+   ],
+   "condition": {
+    "requiresSystem": "contracts"
+   },
+   "eligibility": "activeContract"
+  },
+  {
+   "id": "eventPush",
+   "text": {
+    "m": "وصّل مرحلة جديدة بالمهرجان",
+    "f": "وصّلي مرحلة جديدة بالمهرجان"
+   },
+   "metric": "eventMilestones",
+   "difficulty": "medium",
+   "targets": [
+    1
+   ],
+   "condition": {
+    "requiresSystem": "events"
+   },
+   "eligibility": "eventLive"
+  },
+  {
+   "id": "tapCook",
+   "text": {
+    "m": "اطبخ {n} مرّة بإيدك",
+    "f": "اطبخي {n} مرّة بإيدك"
+   },
+   "metric": "tapCooks",
+   "difficulty": "easy",
+   "targets": [
+    30
+   ],
+   "eligibility": "unmanagedStation"
+  },
+  {
+   "id": "openChest",
+   "text": {
+    "m": "افتح صندوق",
+    "f": "افتحي صندوق"
+   },
+   "metric": "chestsOpened",
+   "difficulty": "easy",
+   "targets": [
+    1
+   ],
+   "condition": {
+    "requiresSystem": "chests"
+   },
+   "eligibility": "chestInInventory"
+  },
+  {
+   "id": "leagueRep",
+   "text": {
+    "m": "اجمع {n} سمعة اليوم",
+    "f": "اجمعي {n} سمعة اليوم"
+   },
+   "metric": "rep",
+   "difficulty": "hard",
+   "targets": [
+    100,
+    150,
+    200,
+    250,
+    300
+   ],
+   "condition": {
+    "requiresSystem": "league"
+   },
+   "eligibility": "always"
+  },
+  {
+   "id": "buyUpgrade",
+   "text": "اشتري ترقية",
+   "metric": "upgradesBought",
+   "difficulty": "hard",
+   "targets": [
+    1
+   ],
+   "condition": {
+    "requiresSystem": "upgrades"
+   },
+   "eligibility": "upgradeWithin30Min"
+  },
+  {
+   "id": "chefLevelUp",
+   "text": "رقّي طبّاخ مستوى",
+   "metric": "chefLevelUps",
+   "difficulty": "medium",
+   "targets": [
+    1
+   ],
+   "condition": {
+    "requiresSystem": "chefs"
+   },
+   "eligibility": "chefUpgradable"
+  }
+ ],
+ "weekly": [
+  {
+   "id": "wDaily",
+   "text": {
+    "m": "خلّص {n} طلب يومي",
+    "f": "خلّصي {n} طلب يومي"
+   },
+   "metric": "dailyOrders",
+   "targets": [
+    15
+   ],
+   "eligibility": "always"
+  },
+  {
+   "id": "wStars",
+   "text": {
+    "m": "اجمع {n} نجمة",
+    "f": "اجمعي {n} نجمة"
+   },
+   "metric": "stars",
+   "targets": [
+    20
+   ],
+   "eligibility": "starsRemaining"
+  },
+  {
+   "id": "wContract",
+   "text": {
+    "m": "وصّل {n} أهداف طلبيات",
+    "f": "وصّلي {n} أهداف طلبيات"
+   },
+   "metric": "contractGoals",
+   "targets": [
+    3
+   ],
+   "condition": {
+    "requiresSystem": "contracts"
+   },
+   "eligibility": "always"
+  },
+  {
+   "id": "wEvent",
+   "text": {
+    "m": "وصّل {n} مراحل بالمهرجان",
+    "f": "وصّلي {n} مراحل بالمهرجان"
+   },
+   "metric": "eventMilestones",
+   "targets": [
+    6
+   ],
+   "condition": {
+    "requiresSystem": "events"
+   },
+   "eligibility": "always"
+  },
+  {
+   "id": "wRuns",
+   "text": {
+    "m": "استلم {n} رحلة توريد",
+    "f": "استلمي {n} رحلة توريد"
+   },
+   "metric": "runsClaimed",
+   "targets": [
+    15
+   ],
+   "condition": {
+    "requiresSystem": "supply"
+   },
+   "eligibility": "always"
+  },
+  {
+   "id": "wResearch",
+   "text": {
+    "m": "خلّص {n} أبحاث",
+    "f": "خلّصي {n} أبحاث"
+   },
+   "metric": "researchCompleted",
+   "targets": [
+    4
+   ],
+   "condition": {
+    "requiresSystem": "research"
+   },
+   "eligibility": "always"
+  },
+  {
+   "id": "wSpecials",
+   "text": {
+    "m": "استقبل {n} زبون مميّز",
+    "f": "استقبلي {n} زبون مميّز"
+   },
+   "metric": "specials",
+   "targets": [
+    25
+   ],
+   "eligibility": "always"
+  },
+  {
+   "id": "wRush",
+   "text": {
+    "m": "العب {n} جولات على السريع",
+    "f": "العبي {n} جولات على السريع"
+   },
+   "metric": "rushRounds",
+   "targets": [
+    6
+   ],
+   "condition": {
+    "requiresSystem": "rush"
+   },
+   "eligibility": "always"
+  },
+  {
+   "id": "wRep",
+   "text": {
+    "m": "اجمع {n} سمعة",
+    "f": "اجمعي {n} سمعة"
+   },
+   "metric": "rep",
+   "targets": [
+    1500
+   ],
+   "condition": {
+    "requiresSystem": "league"
+   },
+   "eligibility": "always"
+  },
+  {
+   "id": "wChoices",
+   "text": {
+    "m": "جاوب على {n} حكايات",
+    "f": "جاوبي على {n} حكايات"
+   },
+   "metric": "choices",
+   "targets": [
+    8
+   ],
+   "condition": {
+    "requiresSystem": "choices"
+   },
+   "eligibility": "always"
+  },
+  {
+   "id": "wCalendar",
+   "text": {
+    "m": "استلم الروزنامة {n} أيام",
+    "f": "استلمي الروزنامة {n} أيام"
+   },
+   "metric": "calendarClaims",
+   "targets": [
+    5
+   ],
+   "eligibility": "always"
+  },
+  {
+   "id": "wChef",
+   "text": "رقّي أي طبّاخ مرّة",
+   "metric": "chefLevelUps",
+   "targets": [
+    1
+   ],
+   "eligibility": "chefUpgradable"
+  }
+ ]
+}

@@ -152,7 +152,10 @@ extension GameStore {
             amount *= 2
         }
         credit(amount, station: nil, at: now())
-        if info.away >= 1800 { s.stats.vaultCollects += 1 }
+        if info.away >= 1800 {
+            s.stats.vaultCollects += 1
+            bump("vaultCollects")
+        }
         vaultCollectedFlag = true
         modals.removeFirst()
         if amount > 0 {
