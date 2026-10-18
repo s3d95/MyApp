@@ -163,7 +163,7 @@ extension GameStore {
         modals.removeFirst()
         if amount > 0 {
             Feedback.play(.t1, fromAnchor: "vault.collect", art: city.currency.art, to: "pill.cash", amount: amount,
-                          label: "+" + Num.big(amount))
+                          label: Num.plus(Num.big(amount)))
         } else {
             Feedback.play(.t0)
         }

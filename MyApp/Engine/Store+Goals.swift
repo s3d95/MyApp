@@ -212,7 +212,7 @@ extension GameStore {
             Feedback.play(.t2, fromAnchor: anchor, art: "ui_star", to: "pill.stars", amount: 30)
         } else {
             Feedback.play(.t1, fromAnchor: anchor, art: "ui_star", to: "pill.stars", amount: Double(g.stars * 10),
-                          label: "+" + Num.int(g.stars) + " ★")
+                          label: Num.plus(Num.int(g.stars)) + " ★")
         }
         for r in g.rewards { _ = applyReward(r) }
         addXP(xpForGoal(g))
@@ -398,7 +398,7 @@ extension GameStore {
         s.stats.branchCollects += 1
         bump("branchCollects")
         Feedback.play(.t1, fromAnchor: "safe.collect", art: "ui_coin", to: "pill.gold", amount: Double(g),
-                      label: "+" + Num.int(g) + " ذهب")
+                      label: Num.plus(Num.int(g)) + " ذهب")
         save()
     }
 

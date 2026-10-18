@@ -184,7 +184,7 @@ extension GameStore {
         for r in weekly ? qx.weeklyBonus : qx.dailyBonus {
             if r.type == "xp" {
                 addXP(Int(r.amount))
-                items.append(RewardLine(art: "ui_sparkles", amount: "+" + Num.int(Int(r.amount)), caption: "خبرة"))
+                items.append(RewardLine(art: "ui_sparkles", amount: Num.plus(Num.int(Int(r.amount))), caption: "خبرة"))
                 continue
             }
             if let l = applyReward(r) { items.append(l) }

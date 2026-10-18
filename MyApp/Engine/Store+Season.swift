@@ -253,7 +253,7 @@ extension GameStore {
         s.wallet.gold += rw?.gold ?? 5
         addXP(rw?.xp ?? 20)
         Feedback.play(.t1, fromAnchor: "ach." + f.id, art: "ui_coin", to: "pill.gold", amount: Double(rw?.gold ?? 5),
-                      label: "+" + Num.int(rw?.gold ?? 5) + " ذهب")
+                      label: Num.plus(Num.int(rw?.gold ?? 5)) + " ذهب")
         save()
     }
 }

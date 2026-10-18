@@ -94,10 +94,10 @@ extension GameStore {
                 if rw.type == "incomeMin" {
                     let amount = rw.amount * 60 * inc
                     credit(amount, station: nil, at: now())
-                    lines.append(RewardLine(art: city.currency.art, amount: "+" + Num.big(amount), caption: currencyName))
+                    lines.append(RewardLine(art: city.currency.art, amount: Num.plus(Num.big(amount)), caption: currencyName))
                 } else if rw.type == "xp" {
                     addXP(Int(rw.amount))
-                    lines.append(RewardLine(art: "ui_sparkles", amount: "+" + Num.int(Int(rw.amount)), caption: "خبرة"))
+                    lines.append(RewardLine(art: "ui_sparkles", amount: Num.plus(Num.int(Int(rw.amount))), caption: "خبرة"))
                 } else if let l = applyReward(rw) {
                     lines.append(l)
                 }
@@ -166,7 +166,7 @@ extension GameStore {
         let cash = Double(score) / 1000 * 3 * 60 * totalIncome(active: false)
         if cash > 0 {
             credit(cash, station: nil, at: now())
-            lines.append(RewardLine(art: city.currency.art, amount: "+" + Num.big(cash), caption: currencyName))
+            lines.append(RewardLine(art: city.currency.art, amount: Num.plus(Num.big(cash)), caption: currencyName))
         }
         addXP(10)
         lines.append(RewardLine(art: "ui_sparkles", amount: "+10", caption: "خبرة"))

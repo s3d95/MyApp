@@ -474,7 +474,7 @@ struct BranchSheet: View {
                 .foregroundColor(Brand.goldLight)
             VStack(spacing: 3) {
                 Text("ذهب كل يوم: " + String(format: "%.1f", store.econ.branches.goldPerDayBase * (1 + store.econ.branches.goldPerLevel * Double(b.level))))
-                Text("+" + Num.percent(store.econ.branches.incomePerBranch + store.econ.branches.incomePerLevel * Double(b.level)) + " دخل لكل المدن")
+                Text(Num.plus(Num.percent(store.econ.branches.incomePerBranch + store.econ.branches.incomePerLevel * Double(b.level))) + " دخل لكل المدن")
                 Text("★ " + Num.int(b.stars) + " · دخل آخر يوم " + Num.big(b.finalIncome) + "/ث")
             }
             .font(.body(12, bold: true))

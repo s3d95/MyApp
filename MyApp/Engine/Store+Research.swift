@@ -97,7 +97,7 @@ extension GameStore {
         let sl = s.research.slots.remove(at: k)
         addXP(10 + 2 * sl.level)
         Feedback.play(.t1, fromAnchor: "research.slot." + nodeId, art: "ui_sparkles", to: "hud.level", amount: 10,
-                      label: "+" + Num.int(10 + 2 * sl.level) + " خبرة")
+                      label: Num.plus(Num.int(10 + 2 * sl.level)) + " خبرة")
         save()
     }
 
@@ -118,22 +118,25 @@ extension GameStore {
 
     var nextResearchEnd: Double? { s.research.slots.filter { !$0.applied }.map { $0.endAt }.min() }
 
+    /// Effect value without a sign; the content text carries "+" or "−".
     func researchEffectText(_ n: ResearchNodeDef, level l: Int) -> String {
         let v = n.perLevel * Double(l)
         switch n.effectType {
-        case "vaultCapHours", "branchCapHours": return "+" + Num.int(Int(v)) + "س"
-        case "frenzySec": return "+" + Num.int(Int(v)) + "ث"
-        case "rushHourAdd": return "+" + String(format: "%.1f", v)
+        case "vaultCapHours", "branchCapHours": return Num.int(Int(v)) + "س"
+        case "frenzySec": return Num.int(Int(v)) + "ث"
+        case "rushHourAdd": return Num.iso(String(format: "%.1f", v))
         case "startStations": return Num.int(Int(v)) + " محطّات"
-        default: return "+" + Num.percent(v)
+        default: return Num.percent(v)
         }
     }
 
     func researchDesc(_ n: ResearchNodeDef) -> String {
         let cur = researchLevel(n.id)
         var text = t(n.desc)
-        text = text.replacingOccurrences(of: "{v}", with: researchEffectText(n, level: cur))
-        text = text.replacingOccurrences(of: "{next}", with: researchEffectText(n, level: min(n.maxLevel, cur + 1)))
+        let now = researchEffectText(n, level: cur)
+        let next = researchEffectText(n, level: min(n.maxLevel, cur + 1))
+        text = text.replacingOccurrences(of: "+{v}", with: Num.plus(now)).replacingOccurrences(of: "+{next}", with: Num.plus(next))
+        text = text.replacingOccurrences(of: "{v}", with: now).replacingOccurrences(of: "{next}", with: next)
         return text
     }
 

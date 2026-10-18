@@ -36,7 +36,7 @@ struct ChestRevealModal: View {
                 if beat >= 2 {
                     HStack(spacing: 6) {
                         ArtIcon("ui_coin", size: 30)
-                        OutlinedText(text: "+" + Num.int(result.gold) + " ذهب", size: 18, color: Brand.goldLight)
+                        OutlinedText(text: Num.plus(Num.int(result.gold)) + " ذهب", size: 18, color: Brand.goldLight)
                     }
                     .opacity(shown >= result.stacks.count ? 1 : 0)
                 }
@@ -154,7 +154,7 @@ struct RevealCard: View {
                 .multilineTextAlignment(.center)
                 .minimumScaleFactor(0.7)
                 .frame(height: 30)
-            Text("+" + Num.int(stack.cards) + " كرت")
+            Text(Num.plus(Num.int(stack.cards)) + " كرت")
                 .font(.game(13, .black))
                 .foregroundColor(stack.rarity.color)
             if stack.isNew {

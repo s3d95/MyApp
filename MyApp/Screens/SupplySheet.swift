@@ -285,7 +285,7 @@ struct SupplyRevealModal: View {
             RewardItem(art: $0.art, amount: $0.amount > 1 ? "×" + Num.int($0.amount) : ($0.isNew ? "جديد!" : "+1"),
                        caption: $0.title, glow: $0.rarity.color)
         }
-        list.append(RewardItem(art: "ui_sparkles", amount: "+" + Num.int(result.xp), caption: "خبرة"))
+        list.append(RewardItem(art: "ui_sparkles", amount: Num.plus(Num.int(result.xp)), caption: "خبرة"))
         return Array(list)
     }
 }

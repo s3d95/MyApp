@@ -235,7 +235,7 @@ extension GameStore {
         if let rw = lg.rewards.first(where: { rank >= $0.fromRank && rank <= $0.toRank }) {
             let gold = rw.goldBase + rw.goldPerTier * tier
             s.wallet.gold += gold
-            lines.append(RewardLine(art: "ui_coin", amount: "+" + Num.int(gold), caption: "ذهب"))
+            lines.append(RewardLine(art: "ui_coin", amount: Num.plus(Num.int(gold)), caption: "ذهب"))
             if let chest = tier >= 6 ? (rw.chestFromTier6 ?? rw.chest) : rw.chest {
                 addChest(chest)
                 lines.append(RewardLine(art: "ui_gift", amount: "×1", caption: chestName(chest)))

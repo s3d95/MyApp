@@ -109,10 +109,10 @@ extension GameStore {
         switch r.type {
         case "gold":
             s.wallet.gold += n
-            return RewardLine(art: "ui_coin", amount: "+" + Num.int(n), caption: "ذهب")
+            return RewardLine(art: "ui_coin", amount: Num.plus(Num.int(n)), caption: "ذهب")
         case "zaatar":
             s.wallet.zaatar += n
-            return RewardLine(art: "food_herb", amount: "+" + Num.int(n), caption: "زعتر ذهبي")
+            return RewardLine(art: "food_herb", amount: Num.plus(Num.int(n)), caption: "زعتر ذهبي")
         case "chest":
             let kind = r.id ?? "wood"
             addChest(kind, max(1, n))
@@ -124,14 +124,14 @@ extension GameStore {
             let count = max(1, n)
             if let id = r.id, let c = cat.chef(id) {
                 addCards(id, count)
-                return RewardLine(art: c.art, amount: "+" + Num.int(count), caption: t(c.name))
+                return RewardLine(art: c.art, amount: Num.plus(Num.int(count)), caption: t(c.name))
             }
             if unlocked("chefs"), let id = grantRandomCards(rarity: Rarity(rawValue: r.rarity ?? "common") ?? .common, count: count),
                let c = cat.chef(id) {
-                return RewardLine(art: c.art, amount: "+" + Num.int(count), caption: t(c.name))
+                return RewardLine(art: c.art, amount: Num.plus(Num.int(count)), caption: t(c.name))
             }
             s.wallet.pendingChefCards += count
-            return RewardLine(art: "ppl_cook", amount: "+" + Num.int(count), caption: "كروت طبّاخين")
+            return RewardLine(art: "ppl_cook", amount: Num.plus(Num.int(count)), caption: "كروت طبّاخين")
         case "heritageItem", "heritageCase":
             let count = r.type == "heritageCase" ? 3 * max(1, n) : max(1, n)
             if let id = r.id, let item = cat.item(id) {
@@ -148,13 +148,13 @@ extension GameStore {
                     last = item
                 }
             }
-            return RewardLine(art: last?.art ?? "ui_old_key", amount: "+" + Num.int(count), caption: last.map { t($0.name) } ?? "قطعة تراث")
+            return RewardLine(art: last?.art ?? "ui_old_key", amount: Num.plus(Num.int(count)), caption: last.map { t($0.name) } ?? "قطعة تراث")
         case "tickets":
             s.wallet.tickets = min(9, s.wallet.tickets + max(1, n))
-            return RewardLine(art: "ui_admission_tickets", amount: "+" + Num.int(max(1, n)), caption: "تذاكر")
+            return RewardLine(art: "ui_admission_tickets", amount: Num.plus(Num.int(max(1, n))), caption: "تذاكر")
         case "freezes":
             s.wallet.freezes = min(freezeCap, s.wallet.freezes + max(1, n))
-            return RewardLine(art: "ui_snowflake", amount: "+" + Num.int(max(1, n)), caption: "تجميدة")
+            return RewardLine(art: "ui_snowflake", amount: Num.plus(Num.int(max(1, n))), caption: "تجميدة")
         case "seasonPoints":
             if unlocked("season") {
                 seasonRollover()
@@ -170,7 +170,7 @@ extension GameStore {
         case "incomeMin":
             let amount = r.amount * 60 * totalIncome(active: false)
             credit(amount, station: nil, at: now())
-            return RewardLine(art: city.currency.art, amount: "+" + Num.big(amount), caption: currencyName)
+            return RewardLine(art: city.currency.art, amount: Num.plus(Num.big(amount)), caption: currencyName)
         default:
             return nil
         }

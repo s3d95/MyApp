@@ -281,7 +281,7 @@ extension GameStore {
         s.city.counters["shipmentsDelivered", default: 0] += 1
         credit(reward, station: nil, at: now())
         Feedback.play(.t1, fromAnchor: "twist.port", art: city.currency.art, to: "pill.cash", amount: reward,
-                      label: "+" + Num.big(reward))
+                      label: Num.plus(Num.big(reward)))
         save()
     }
 
@@ -307,7 +307,7 @@ extension GameStore {
             s.city.counters["deliveriesDone", default: 0] += Double(back)
             credit(reward, station: nil, at: t)
             Feedback.play(.t1, fromAnchor: "twist.delivery", art: city.currency.art, to: "pill.cash", amount: reward,
-                          label: "+" + Num.big(reward))
+                          label: Num.plus(Num.big(reward)))
         }
     }
 

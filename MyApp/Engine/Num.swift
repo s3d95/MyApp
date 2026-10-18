@@ -68,6 +68,12 @@ enum Num {
         return big(a) + " / " + big(b)
     }
 
+    /// Puts a plus sign inside the number's isolate so it stays on the number's left in Arabic text.
+    static func plus(_ s: String) -> String {
+        if s.hasPrefix("\u{2066}") { return "\u{2066}+" + s.dropFirst() }
+        return "+" + s
+    }
+
     /// Integers (gold, stars, XP) with grouping.
     static func int(_ v: Int) -> String {
         iso(grouped.string(from: NSNumber(value: v)) ?? "\(v)")

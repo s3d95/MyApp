@@ -481,7 +481,7 @@ extension GameStore {
             for var r in m.rewards {
                 if r.type == "eventTokens" {
                     s.event.tokens += Int(r.amount)
-                    lines.append(RewardLine(art: cat.theme(s.event.themeId)?.tokens.art ?? "ui_star", amount: "+" + Num.int(Int(r.amount)),
+                    lines.append(RewardLine(art: cat.theme(s.event.themeId)?.tokens.art ?? "ui_star", amount: Num.plus(Num.int(Int(r.amount))),
                                             caption: cat.theme(s.event.themeId).map { t($0.tokens.name) } ?? ""))
                     continue
                 }
@@ -558,7 +558,7 @@ extension GameStore {
         let gold = min(cat.events.maxGold, s.event.tokens / max(1, cat.events.tokensPerGold))
         if gold > 0 {
             s.wallet.gold += gold
-            lines.append(RewardLine(art: "ui_coin", amount: "+" + Num.int(gold), caption: "ذهب من التوكنز"))
+            lines.append(RewardLine(art: "ui_coin", amount: Num.plus(Num.int(gold)), caption: "ذهب من التوكنز"))
         }
         if k.reached >= cat.events.milestones.count { bump("eventsMaxed") }
         s.event.finals.append(max(1, score))

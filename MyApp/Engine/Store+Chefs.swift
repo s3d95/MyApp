@@ -91,7 +91,7 @@ extension GameStore {
         }
         s.chefs.equipped.append(id)
         Feedback.play(.t1, fromAnchor: "chef.card." + id, art: cat.chef(id)?.art, to: "chef.slot.\(s.chefs.equipped.count - 1)",
-                      amount: 1, label: "+" + Num.percent(chefBonus(id)))
+                      amount: 1, label: Num.plus(Num.percent(chefBonus(id))))
         evaluateFtue()
         save()
     }
@@ -330,7 +330,7 @@ extension GameStore {
         let res = addCards(offer.chefId, offer.cards)
         let name = cat.chef(offer.chefId).map { t($0.name) } ?? ""
         Feedback.play(res.0 ? .t2 : .t1, fromAnchor: "stall.\(offer.slot)", art: cat.chef(offer.chefId)?.art, to: "tab.chefs",
-                      amount: Double(offer.cards), label: "+" + Num.int(offer.cards) + " " + name)
+                      amount: Double(offer.cards), label: Num.plus(Num.int(offer.cards)) + " " + name)
         save()
     }
 

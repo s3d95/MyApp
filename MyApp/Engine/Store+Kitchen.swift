@@ -157,7 +157,7 @@ extension GameStore {
             if t - last > 0.25 {
                 lastCycleFeedback[i] = t
                 Feedback.play(.t1, fromAnchor: "station.\(i).cook", art: city.currency.art, to: "pill.cash",
-                              amount: 1, label: "+" + Num.big(payout * n))
+                              amount: 1, label: Num.plus(Num.big(payout * n)))
             }
         }
     }
@@ -343,7 +343,7 @@ extension GameStore {
         let amount = Double(minutes) * 60 * totalIncome(active: false, managedOnly: true)
         credit(amount, station: nil, at: now())
         Feedback.play(.t1, fromAnchor: "pill.cash", art: city.currency.art, to: "pill.cash", amount: amount,
-                      label: "+" + Num.big(amount))
+                      label: Num.plus(Num.big(amount)))
         showToast("رزمة وقت: " + Num.dur(Double(minutes) * 60) + " دخل", art: "ui_hourglass")
         save()
     }

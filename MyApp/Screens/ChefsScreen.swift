@@ -503,7 +503,7 @@ struct ChefPickerSheet: View {
             RarityFrame(rarity: c.rarity, art: c.art, size: 46)
             VStack(alignment: .leading, spacing: 2) {
                 Text(store.t(c.name)).font(.game(13, .black)).foregroundColor(Brand.cream).lineLimit(1)
-                Text("+" + Num.percent(store.chefBonus(c.id)) + " · " + Num.int(store.chefStations(c.id).count) + " محطّات هون")
+                Text(Num.plus(Num.percent(store.chefBonus(c.id))) + " · " + Num.int(store.chefStations(c.id).count) + " محطّات هون")
                     .font(.body(11, bold: true))
                     .foregroundColor(Brand.goldLight)
             }
