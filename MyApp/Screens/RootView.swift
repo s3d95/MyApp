@@ -7,7 +7,7 @@ final class AnchorBox: ObservableObject {
 
 struct RootView: View {
     @StateObject private var store = GameStore()
-    @State private var loading = true
+    @State private var loading = !GameStore.isDemo
     @Environment(\.scenePhase) private var phase
 
     var body: some View {
@@ -29,34 +29,51 @@ struct RootView: View {
     }
 }
 
+/// The root of the game. The root itself is left-to-right so that measured anchor frames, the tutorial
+/// spotlight and flying effects all share one physical coordinate space; every screen inside is
+/// laid out right-to-left for Arabic.
 struct GameScreen: View {
     @EnvironmentObject var store: GameStore
     @StateObject private var box = AnchorBox()
 
     var body: some View {
-        GeometryReader { geo in
-            ZStack {
-                CityBackdrop()
-                VStack(spacing: 0) {
-                    HUDBar()
-                        .padding(.top, geo.safeAreaInsets.top + 4)
-                    tabContent
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    GameTabBar()
-                        .padding(.bottom, max(6, geo.safeAreaInsets.bottom))
+        // The outer reader respects the safe area (for the insets); the inner one fills the screen,
+        // so the game's coordinate space starts at the top-left corner of the display.
+        GeometryReader { outer in
+            let insets = outer.safeAreaInsets
+            GeometryReader { geo in
+                let full = geo.size
+                ZStack {
+                    CityBackdrop()
+                    VStack(spacing: 0) {
+                        HUDBar()
+                            .padding(.top, insets.top + 4)
+                        tabContent
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        GameTabBar(bottomInset: insets.bottom)
+                    }
+                    .environment(\.layoutDirection, .rightToLeft)
+                    ToastLayer(top: insets.top + 62)
+                        .environment(\.layoutDirection, .rightToLeft)
+                    SheetLayer()
+                        .environment(\.layoutDirection, .rightToLeft)
+                    ModalLayer()
+                        .environment(\.layoutDirection, .rightToLeft)
+                    TutorialLayer(box: box, size: full)
+                    FXOverlay()
+                    if GameStore.demoName == "anchors" {
+                        DebugAnchorsView(box: box)
+                    }
                 }
-                ToastLayer(top: geo.safeAreaInsets.top + 62)
-                SheetLayer()
-                ModalLayer()
-                TutorialLayer(box: box, size: CGSize(width: geo.size.width, height: geo.size.height + geo.safeAreaInsets.top + geo.safeAreaInsets.bottom))
-                FXOverlay()
+                .frame(width: full.width, height: full.height)
+                .coordinateSpace(name: gameSpace)
+                .environment(\.layoutDirection, .leftToRight)
+                .onPreferenceChange(FXAnchorKey.self) { value in
+                    FX.shared.anchors = value
+                    box.rects = value
+                }
             }
             .ignoresSafeArea(.container, edges: .all)
-            .coordinateSpace(name: gameSpace)
-            .onPreferenceChange(FXAnchorKey.self) { value in
-                FX.shared.anchors = value
-                box.rects = value
-            }
         }
     }
 

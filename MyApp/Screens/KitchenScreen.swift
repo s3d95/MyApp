@@ -63,6 +63,7 @@ struct StageView: View {
             .padding(.horizontal, 6)
             if let sp = store.special {
                 SpecialCustomerView(visit: sp)
+                    .environment(\.layoutDirection, .leftToRight)
                     .id(sp.id)
                     .transition(.scale.combined(with: .opacity))
             }

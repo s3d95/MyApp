@@ -34,6 +34,7 @@ struct HUDBar: View {
 
 struct GameTabBar: View {
     @EnvironmentObject var store: GameStore
+    var bottomInset: CGFloat = 0
 
     var body: some View {
         HStack(alignment: .bottom, spacing: 0) {
@@ -44,6 +45,7 @@ struct GameTabBar: View {
         }
         .padding(.horizontal, 6)
         .padding(.top, 6)
+        .padding(.bottom, max(6, bottomInset))
         .background(
             LinearGradient(colors: [Brand.wood, Brand.woodDark], startPoint: .top, endPoint: .bottom)
                 .overlay(Rectangle().fill(Brand.gold.opacity(0.5)).frame(height: 2), alignment: .top)

@@ -188,7 +188,7 @@ final class GameStore: ObservableObject {
     init() {
         let catalog = Catalog.load()
         cat = catalog
-        var save = GameSave.load() ?? GameSave()
+        var save = GameStore.isDemo ? GameSave() : (GameSave.load() ?? GameSave())
         let fresh = save.meta.createdAt == 0
         if fresh {
             save.meta.playerSeed = String(UInt64.random(in: 1...UInt64.max))
@@ -206,9 +206,10 @@ final class GameStore: ObservableObject {
         cityCache = cat.city(s.city.cityId)
         normalizeCity()
         applySettings()
-        checkLegacy()
+        if !GameStore.isDemo { checkLegacy() }
         resume(launch: true)
         start()
+        if let d = GameStore.demoName { applyDemo(d) }
     }
 
     deinit { timer?.invalidate() }
@@ -299,7 +300,7 @@ final class GameStore: ObservableObject {
         isForeground = false
         stampClock()
         save()
-        Notifier.schedule(store: self)
+        if !GameStore.isDemo { Notifier.schedule(store: self) }
     }
 
     func didBecomeActive() {
@@ -318,8 +319,9 @@ final class GameStore: ObservableObject {
 
     func save(backup: Bool = false) {
         stampClock()
-        s.write(backup: backup)
         saveClock = 0
+        guard !GameStore.isDemo else { return }
+        s.write(backup: backup)
     }
 
     // MARK: - Tick (10 Hz, GDD 2.12)

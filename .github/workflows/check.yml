@@ -1,11 +1,15 @@
 name: Compile check
 
-# Builds every branch except main without publishing a release, and reports compiler errors as
-# annotations (readable through the public API without logs access).
+# Builds every branch except main for the iOS Simulator without publishing an app release, reports
+# compiler errors as annotations, then runs the game in a simulator and publishes screenshots of the
+# demo states (MyApp/Engine/Demo.swift) to the "ci-screens" pre-release.
 on:
   push:
     branches-ignore: [main]
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   check:
@@ -19,14 +23,14 @@ jobs:
       - name: Generate Xcode project
         run: xcodegen generate
 
-      - name: Build (unsigned, debug)
+      - name: Build (simulator)
         run: |
           set -o pipefail
           xcodebuild -project MyApp.xcodeproj -scheme MyApp \
-            -configuration Debug -sdk iphoneos \
-            -destination 'generic/platform=iOS' \
+            -configuration Debug -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
             -derivedDataPath build \
-            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_ALLOWED=NO \
             build 2>&1 | tee build.log
 
       - name: Report compiler errors
@@ -42,3 +46,42 @@ jobs:
             msg=$(sed -e 's/%/%25/g' "$f" | awk 'BEGIN{ORS="%0A"} {print}')
             echo "::error title=Compiler errors $n::$msg"
           done
+
+      - name: Screenshots
+        run: |
+          UDID=$(xcrun simctl list devices available -j | python3 -c "
+          import json, sys
+          d = json.load(sys.stdin)['devices']
+          ids = [x['udid'] for k, v in d.items() if 'iOS' in k for x in v if x['name'] in ('iPhone 16', 'iPhone 16 Pro', 'iPhone 15')]
+          ids = ids or [x['udid'] for k, v in d.items() if 'iOS' in k for x in v if x['name'].startswith('iPhone')]
+          print(ids[-1])")
+          echo "device $UDID"
+          xcrun simctl boot "$UDID"
+          xcrun simctl bootstatus "$UDID" -b
+          xcrun simctl status_bar "$UDID" override --time "9:41" --batteryLevel 100 --cellularBars 4 || true
+          xcrun simctl install "$UDID" build/Build/Products/Debug-iphonesimulator/MyApp.app
+          mkdir -p shots
+          DEMOS="tut1 tut3 tut5 tut7 tut8 tut11 tut11b tut14 kitchen scroll special anchors fx upgrades goals profile settings teaser levelup news story address legacy confirm graduation unlock map bethlehem nablus hebron jaffa haifa gaza ramallah dubai"
+          i=0
+          for d in $DEMOS; do
+            i=$((i+1))
+            name=$(printf "%02d_%s" $i $d)
+            xcrun simctl launch --terminate-running-process "$UDID" com.wardapp.falafel -demo "$d" > /dev/null
+            sleep 4
+            xcrun simctl io "$UDID" screenshot "shots/$name.png" > /dev/null 2>&1
+            sips -Z 900 "shots/$name.png" > /dev/null
+          done
+          xcrun simctl launch --terminate-running-process "$UDID" com.wardapp.falafel -demo tut1 > /dev/null
+          sleep 1.2
+          xcrun simctl io "$UDID" screenshot "shots/99_launch.png" > /dev/null 2>&1
+          sips -Z 900 shots/99_launch.png > /dev/null
+          ls shots
+
+      - name: Publish screenshots
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release delete ci-screens --yes --cleanup-tag || true
+          gh release create ci-screens shots/*.png --prerelease --latest=false --target "$GITHUB_SHA" \
+            --title "CI screenshots (للمطوّر)" \
+            --notes "Simulator screenshots from the latest compile check of ${GITHUB_REF_NAME} (${GITHUB_SHA::7}). Not an app build."

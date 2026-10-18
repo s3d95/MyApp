@@ -94,6 +94,7 @@ struct TutorialLayer: View {
                     .foregroundColor(Brand.cream.opacity(0.8))
             }
         }
+        .environment(\.layoutDirection, .rightToLeft)
         .frame(width: min(size.width - 24, 380))
         .allowsHitTesting(interactive)
         .position(x: size.width / 2, y: y)
