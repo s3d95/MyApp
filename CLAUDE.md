@@ -22,7 +22,11 @@ All UI text is Levantine Arabic, right-to-left. Display name: بسطة فلاف�
 - Engine in `MyApp/Engine` (`GameStore` + `Store+*.swift` extensions), screens in `MyApp/Screens`,
   shipped content in `MyApp/Content/*.json` (copied from the drafts in `docs/v3/content`).
 - Compile-check a branch first: any push to a non-main branch runs `.github/workflows/check.yml`
-  (no release); compiler errors appear as annotations on the job (public API, no login needed).
+  (no app release). It builds for the simulator, runs the demo states in `MyApp/Engine/Demo.swift`
+  (`-demo <name>` launch argument; list in the workflow's `DEMOS`) and publishes `status.txt`
+  (`<sha> success|failure`), `files.txt`, `errors.txt`, crash reports and screenshots to the
+  `ci-screens` pre-release. Download them from
+  `https://github.com/s3d95/MyApp/releases/download/ci-screens/<file>` (no API, no rate limit).
 - UI kit and groundwork (reuse it, don't rewrite):
   - `MyApp/UI/Kit`: `Font.game/.body` (bundled Baloo Bhaijaan 2 + Cairo), `ArtIcon`, `ChunkyButton`,
     `WoodPanel`, `Ribbon`, `FancyBar`, `GameModal`, `CurrencyPill`, `LevelBadge`, `SideButton`,
