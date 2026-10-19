@@ -341,6 +341,7 @@ struct SettingsSheet: View {
                     notificationsToggle
                     toggle("تقليل الحركة", \.reduceMotion)
                     toggle("أرقام عربية (١٢٣)", \.arabicDigits)
+                    toggle("زينة المواسم", \.seasonDecor)
                     addressPicker
                     credits
                     resetBox

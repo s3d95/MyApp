@@ -20,6 +20,9 @@ Swift sources for the v3 game. Rules come from `GDD.md`; content shapes from `SC
 | `Engine/Store+Empire.swift` | XP, empire level, level rewards, unlocks, titles |
 | `Engine/Store+Happenings.swift` | Special customers, active boosts, rush hours |
 | `Engine/Store+Twists.swift` | The 8 city twists (GDD 3.6) |
+| `Engine/Store+Side.swift` | Side kitchens: catering contracts and the weekend venue (GDD 6.9, 6.10) |
+| `Engine/Store+SideTwists.swift` | Twists inside side kitchens (bus, port, oven, weather, night market, chain) and the `goldenHour` rule |
+| `Engine/Store+Festivals.swift` | Real-calendar festivals, street decorations, "زينة المواسم", venue theme overrides, the inspector |
 | `Engine/Store+Offline.swift` | Offline vault (stepwise integration), newspaper, fresh dough, clock guard |
 | `Engine/Store+FTUE.swift` | Data-driven FTUE steps from `ftue.json` |
 | `Engine/Feedback.swift` | Feedback tiers T0–T3 (the only caller of SFX/Haptic/FX from game code) |

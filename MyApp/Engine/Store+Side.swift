@@ -117,8 +117,8 @@ extension GameStore {
         var boostKey = "eventIncomePct"
         if case .contract = r { boostKey = "contractIncomePct" }
         let boost = 1 + researchValue(boostKey) + heritageBonus("sideIncomePct")
-        var m = upg * pow(2, Double(allMs)) * chef * boost
-        if active { m *= activeMult }
+        var m = upg * pow(2, Double(allMs)) * chef * boost * sideTwistProfit(k, r, i, at: now())
+        if active { m *= min(econ.boosts.activeCap, activeMult * sideTwistActive(k, r, i)) }
         return Double(k.stations[i].level) * row.baseRevenue * m * sideSpeed(k, r, i) / row.baseCycleSec
     }
 
@@ -135,11 +135,14 @@ extension GameStore {
     }
 
     func advanceSides(dt: Double, foreground: Bool) {
+        let tNow = now()
         for r in sideRefs {
             guard var k = side(r) else { continue }
+            tickSideTwists(&k, r, dt: dt, at: tNow)
             for i in k.stations.indices {
                 var st = k.stations[i]
                 guard st.level > 0, st.managed || st.cooking else { continue }
+                if k.twist.ovenStation == i && !st.managed { continue }
                 let T = sideCycle(k, r, i)
                 st.progress += dt / T
                 var done = 0
@@ -154,8 +157,10 @@ extension GameStore {
                 k.stations[i] = st
                 if done > 0 {
                     let pay = sideIncome(k, r, i, active: foreground) * T * Double(done)
-                    k.cash += pay
-                    k.lifetime += pay
+                    if !sideCycleDone(&k, r, i, count: done, pay: pay, foreground: foreground) {
+                        k.cash += pay
+                        k.lifetime += pay
+                    }
                 }
             }
             setSide(r, k)
@@ -252,6 +257,11 @@ extension GameStore {
     }
 
     func sideTap(_ r: SideRef, _ i: Int) {
+        if var k = side(r), k.twist.ovenStation == i {
+            collectSideOven(&k, r, perfect: true)
+            setSide(r, k)
+            return
+        }
         guard var k = side(r), i < k.stations.count, k.stations[i].level > 0, !k.stations[i].managed, !k.stations[i].cooking else { return }
         k.stations[i].cooking = true
         k.stations[i].progress = 0
@@ -440,6 +450,7 @@ extension GameStore {
     }
 
     func themeFor(week: Int) -> EventThemeDef? {
+        if let th = festivalTheme(weekStart: 4 + week * 7) { return th }
         let rot = cat.events.rotation
         guard !rot.isEmpty else { return nil }
         let id = rot[((week % rot.count) + rot.count) % rot.count]

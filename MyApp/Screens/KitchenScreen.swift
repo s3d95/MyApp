@@ -51,7 +51,8 @@ struct StageView: View {
             StreetScene(style: style, title: store.s.settings.stallName,
                         dishes: unlockedDishes, customers: c.customerArts + StreetScene.defaultCustomers,
                         rate: crowdRate, lights: store.stallTier >= 2 || night, tier: store.stallTier,
-                        prop: store.propArt, lightArt: store.lightsArt, signColor: store.signColor)
+                        prop: store.propArt, lightArt: store.lightsArt, signColor: store.signColor,
+                        festive: store.streetDecor)
             VStack(spacing: 4) {
                 BannerLine()
                 BoostChips()
@@ -92,7 +93,11 @@ struct BannerLine: View {
             if store.s.meta.clockFrozen {
                 banner("ساعة الجهاز رجعت لورا، الوقت موقّف لحد ما ترجع", color: Brand.red, art: "ui_alarm_clock")
             } else if store.iftarNow {
-                banner("ساعة الإفطار! الدخل ×5", color: Brand.teal, art: "ui_crescent_moon")
+                if store.decorOn {
+                    banner("ساعة الإفطار! الدخل ×5", color: Brand.teal, art: "ui_crescent_moon")
+                } else {
+                    banner("ساعة البركة! الدخل ×5", color: Brand.teal, art: "ui_sparkles")
+                }
             } else if store.inspectorWarning {
                 banner("مفتّش البلدية جاي بعد " + Num.dur(store.s.happenings.inspectorAt - store.now()), color: Brand.wood, art: "ui_clipboard")
             } else if store.busWaiting {

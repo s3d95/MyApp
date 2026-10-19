@@ -28,6 +28,8 @@ struct StreetScene: View {
     var prop: String? = nil
     var lightArt: String? = nil
     var signColor: Color? = nil
+    /// Festival decorations (GDD 6.11) hung on a string from the left edge to the stall.
+    var festive: [String] = []
 
     static let defaultCustomers = ["ppl_man", "ppl_woman", "ppl_old_man", "ppl_old_woman", "ppl_boy",
                                    "ppl_girl", "ppl_woman_headscarf", "ppl_turban", "ppl_man_office",
@@ -44,6 +46,9 @@ struct StreetScene: View {
                             .frame(width: geo.size.width, height: 34)
                     }
                     props(geo.size)
+                    if !festive.isEmpty {
+                        garland(geo.size, t: t)
+                    }
                     stall(geo.size)
                     crowd(t: t, size: geo.size)
                 }
@@ -98,6 +103,39 @@ struct StreetScene: View {
             }
         }
         .frame(width: s.width, height: s.height)
+    }
+
+    private func garland(_ s: CGSize, t: Double) -> some View {
+        let w: CGFloat = min(190, s.width * 0.48)
+        let h: CGFloat = min(130, s.height * 0.68)
+        let a = CGPoint(x: -4, y: 26)
+        let b = CGPoint(x: s.width - w - 10, y: s.height - h + 10)
+        let c = CGPoint(x: (a.x + b.x) / 2, y: max(a.y, b.y) + 24)
+        let n = 6
+        return ZStack(alignment: .topLeading) {
+            Path { p in
+                p.move(to: a)
+                p.addQuadCurve(to: b, control: c)
+            }
+            .stroke(Brand.woodDark, lineWidth: 1.5)
+            ForEach(0..<n, id: \.self) { k in
+                let pt = StreetScene.quad(a, c, b, (Double(k) + 0.5) / Double(n))
+                VStack(spacing: 0) {
+                    Rectangle().fill(Brand.woodDark).frame(width: 1, height: 5)
+                    ArtIcon(festive[k % festive.count], size: 20, shadow: false)
+                }
+                .rotationEffect(.degrees(sin(t * 1.6 + Double(k)) * 7), anchor: .top)
+                .position(x: pt.x, y: pt.y + 12.5)
+            }
+        }
+        .frame(width: s.width, height: s.height)
+    }
+
+    static func quad(_ a: CGPoint, _ c: CGPoint, _ b: CGPoint, _ u: Double) -> CGPoint {
+        let v = CGFloat(u)
+        let x = (1 - v) * (1 - v) * a.x + 2 * v * (1 - v) * c.x + v * v * b.x
+        let y = (1 - v) * (1 - v) * a.y + 2 * v * (1 - v) * c.y + v * v * b.y
+        return CGPoint(x: x, y: y)
     }
 
     private func stall(_ s: CGSize) -> some View {

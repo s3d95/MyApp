@@ -89,6 +89,7 @@ private struct ReleaseCard: View {
                     .font(.body(11))
                     .foregroundColor(Brand.cream.opacity(0.8))
                     .lineLimit(2)
+                SideFeatureTags(def: d)
                 HStack(spacing: -6) {
                     ForEach(d.stations.prefix(5)) { st in
                         ArtIcon(st.art, size: 28)
@@ -125,6 +126,7 @@ struct SideKitchenSheet: View {
                         goalBar
                         ScrollView(showsIndicators: false) {
                             VStack(spacing: 8) {
+                                SideTwistStrip(ref: ref)
                                 ForEach(0..<store.sideStations(ref).count, id: \.self) { i in
                                     SideStationCard(ref: ref, index: i)
                                 }
@@ -175,6 +177,7 @@ struct SideKitchenSheet: View {
             }
             Spacer(minLength: 4)
             CurrencyPill(icon: store.sideCashArt(ref), text: Num.big(k?.cash ?? 0))
+                .fxAnchor("side.cash")
             RoundIconButton(system: "xmark", size: 30) { store.sheet = nil }
         }
     }
@@ -318,6 +321,7 @@ private struct SideStationCard: View {
         let st = k.stations[index]
         let locked = store.sideStationLocked(ref, index)
         let plan = store.sideBuyPlan(ref, index)
+        let tray = store.sideOvenReady(k, index)
         return HStack(spacing: 10) {
             Button {
                 store.sideTap(ref, index)
@@ -336,10 +340,24 @@ private struct SideStationCard: View {
                     ArtIcon(d.art, size: 40)
                         .saturation(st.level > 0 ? 1 : 0)
                         .opacity(st.level > 0 ? 1 : 0.5)
+                    if tray {
+                        Circle()
+                            .stroke(Brand.goldLight, lineWidth: 4)
+                            .frame(width: 62, height: 62)
+                            .shadow(color: Brand.glow, radius: 8)
+                        Text("دقّ!")
+                            .font(.game(11, .black))
+                            .foregroundColor(Brand.outline)
+                            .padding(.horizontal, 5)
+                            .background(Capsule().fill(Brand.goldLight))
+                            .offset(y: 26)
+                    }
                 }
                 .frame(width: 62, height: 62)
+                .pulse(tray, amount: 0.08)
             }
             .buttonStyle(PressScaleStyle())
+            .fxAnchor("side.\(index).cook")
             VStack(alignment: .leading, spacing: 3) {
                 Text(store.t(d.name))
                     .font(.game(15, .black))

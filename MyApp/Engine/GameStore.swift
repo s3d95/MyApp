@@ -213,6 +213,12 @@ final class GameStore: ObservableObject {
     var marketCache: [MarketModDef] = []
     var festCacheDay = -1
     var festCache: [FestivalDef] = []
+    var festDecorDay = -1
+    var festDecorCache: FestivalDef? = nil
+    var festThemeKey = ""
+    var festThemeCache: String? = nil
+    /// Demo screenshots only: pretend this festival is on.
+    var demoFestivalId: String? = nil
     var deliveryPaidFeedback: Double = 0
 
     init() {

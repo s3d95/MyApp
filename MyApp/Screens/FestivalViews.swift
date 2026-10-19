@@ -7,9 +7,9 @@ struct FestivalCard: View {
 
     var body: some View {
         HStack(spacing: 10) {
-            ArtIcon(festival.art, size: 44)
+            ArtIcon(store.festivalArt(festival), size: 44)
             VStack(alignment: .leading, spacing: 3) {
-                Text(store.t(festival.name))
+                Text(store.festivalName(festival))
                     .font(.game(16, .black))
                     .foregroundColor(Brand.goldLight)
                 Text(effectText)
@@ -20,7 +20,7 @@ struct FestivalCard: View {
             }
             Spacer(minLength: 4)
             if store.festivalClaimReady(festival) {
-                ChunkyButton(title: festival.collectible != nil ? "خذ" : "عيديّة", color: .gold, sound: nil) {
+                ChunkyButton(title: festival.collectible != nil || !store.decorOn ? "خذ" : "عيديّة", color: .gold, sound: nil) {
                     store.claimFestival(festival)
                 }
                 .frame(width: 80)
@@ -43,10 +43,15 @@ struct FestivalCard: View {
             }
         }
         for w in festival.windows {
-            parts.append((w.kind == "iftar" ? "ساعة الإفطار " : "السحور ") + Num.mult(w.mult))
+            parts.append(windowName(w.kind) + " " + Num.mult(w.mult))
         }
         if !festival.dailyClaim.isEmpty { parts.append("هديّة كل يوم") }
         return parts.isEmpty ? "أيام حلوة بالحارة" : parts.joined(separator: " · ")
+    }
+
+    private func windowName(_ kind: String) -> String {
+        if !store.decorOn { return kind == "iftar" ? "ساعة البركة" : "ساعة الفجر" }
+        return kind == "iftar" ? "ساعة الإفطار" : "السحور"
     }
 }
 

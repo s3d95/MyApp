@@ -53,6 +53,7 @@ struct ContractDef: Decodable, Identifiable {
     var goalsBase: [Double] = [1e9, 1e10, 1e11]
     var partners: [PartnerDef] = []
     var rules: [String] = []
+    var twists: [TwistDef] = []
     var goal1: [Reward] = []
     var goal2: [Reward] = []
     var goal3: [Reward] = []
@@ -69,6 +70,7 @@ struct ContractDef: Decodable, Identifiable {
         goalsBase = c.v("goalsBase", goalsBase)
         partners = c.v("partners", [])
         rules = c.v("rules", [])
+        twists = c.v("twists", [])
         if let r = try? c.nestedContainer(keyedBy: AnyKey.self, forKey: AnyKey("rewards")) {
             goal1 = r.v("goal1", [])
             goal2 = r.v("goal2", [])
@@ -122,6 +124,7 @@ struct EventThemeDef: Decodable, Identifiable {
     var stations: [SideStationDef] = []
     var chefId = ""
     var festivalOnly = false
+    var twists: [TwistDef] = []
 
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: AnyKey.self)
@@ -134,6 +137,7 @@ struct EventThemeDef: Decodable, Identifiable {
         stations = c.v("stations", [])
         chefId = c.v("chefId", "")
         festivalOnly = c.v("festivalOnly", false)
+        twists = c.v("twists", [])
     }
 }
 
@@ -188,6 +192,7 @@ struct EventsFile: Decodable {
     var maxGold = 20
     var shop: [EventShopItemDef] = []
     var themes: [EventThemeDef] = []
+    var festivalOverrides: [FestivalOverrideDef] = []
 
     init() {}
 
@@ -204,6 +209,18 @@ struct EventsFile: Decodable {
         }
         shop = c.v("shop", [])
         themes = c.v("themes", [])
+        festivalOverrides = c.v("festivalOverrides", [])
+    }
+}
+
+struct FestivalOverrideDef: Decodable {
+    var festivalId = ""
+    var themeId = ""
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        festivalId = c.v("festivalId", "")
+        themeId = c.v("themeId", "")
     }
 }
 

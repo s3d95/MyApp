@@ -568,6 +568,7 @@ Example theme: `{ "index": 3, "id": "oliveSeason", "name": "موسم الزيت�
 | `collectible` | `{ "id", "name": GText, "art": ArtKey, "count": Int, "milestones": [{ "count", "rewards": [Reward] }] }` | |
 | `eventThemeId` | String | |
 | `happeningTag` | String | enables choice rows whose `condition.festivalIds` contains this id |
+| `decor` | [ArtKey] | hung on a string over the street while the festival or its eve is on (hidden when "زينة المواسم" is off) |
 | `storySceneId` | String | |
 | `notificationQuiet` | `{ "start": "HH:mm", "end": "HH:mm", "streakRiskAt": "HH:mm" }` | |
 

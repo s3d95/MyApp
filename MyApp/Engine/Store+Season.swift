@@ -19,6 +19,7 @@ struct SeasonThemeDef: Decodable {
     var name = GText("")
     var art = "ui_calendar"
     var chefId = ""
+    var eventTwist: TwistDef? = nil
 
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: AnyKey.self)
@@ -27,6 +28,7 @@ struct SeasonThemeDef: Decodable {
         name = c.v("name", GText(id))
         art = c.v("art", art)
         chefId = c.v("chefId", "")
+        eventTwist = c.opt("eventTwist")
     }
 }
 

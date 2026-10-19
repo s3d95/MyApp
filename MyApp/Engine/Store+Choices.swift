@@ -12,7 +12,7 @@ extension GameStore {
     func conditionMet(_ c: ConditionDef) -> Bool {
         if level < c.minLevel || level > c.maxLevel { return false }
         if !c.cityIds.isEmpty && !c.cityIds.contains(city.id) { return false }
-        if !c.festivalIds.isEmpty { return false }
+        if !c.festivalIds.isEmpty && !festivalChoiceOpen(c.festivalIds) { return false }
         if !c.weather.isEmpty {
             guard let w = cityWeather(day: gameDay), c.weather.contains(w.rawValue) else { return false }
         }

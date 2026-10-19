@@ -154,6 +154,8 @@ struct SettingsSave: Codable {
     var address: AddressForm = .m
     var addressAsked = false
     var stallName = "بسطة ستّي"
+    /// "زينة المواسم" (GDD 6.11): festival visuals and names; numbers stay either way.
+    var seasonDecor = true
 }
 
 extension SettingsSave {
@@ -168,6 +170,7 @@ extension SettingsSave {
         address = c.v("address", address)
         addressAsked = c.v("addressAsked", addressAsked)
         stallName = c.v("stallName", stallName)
+        seasonDecor = c.v("seasonDecor", seasonDecor)
     }
 }
 
@@ -341,6 +344,38 @@ struct SideKitchenSave: Codable {
     var endAt: Double = 0
     var grade = 1
     var reached = 0
+    var twist = SideTwistSave()
+}
+
+/// Live state of a side kitchen's twists and the goldenHour rule.
+struct SideTwistSave: Codable {
+    var busHandledId = 0
+    var busWaveLeft: Double = 0
+    var portDockId = -1
+    var portUnits: Double = 0
+    var portTarget: Double = 1
+    var portLoaded = false
+    var ovenStation = -1
+    var ovenPayout: Double = 0
+    var ovenDeadline: Double = 0
+    var frenzyHour = -1
+}
+
+extension SideTwistSave {
+    init(from decoder: Decoder) throws {
+        self.init()
+        let c = try decoder.container(keyedBy: AnyKey.self)
+        busHandledId = c.int("busHandledId", busHandledId)
+        busWaveLeft = c.dbl("busWaveLeft", busWaveLeft)
+        portDockId = c.int("portDockId", portDockId)
+        portUnits = c.dbl("portUnits", portUnits)
+        portTarget = c.dbl("portTarget", portTarget)
+        portLoaded = c.v("portLoaded", portLoaded)
+        ovenStation = c.int("ovenStation", ovenStation)
+        ovenPayout = c.dbl("ovenPayout", ovenPayout)
+        ovenDeadline = c.dbl("ovenDeadline", ovenDeadline)
+        frenzyHour = c.int("frenzyHour", frenzyHour)
+    }
 }
 
 extension SideKitchenSave {
@@ -357,6 +392,7 @@ extension SideKitchenSave {
         endAt = c.dbl("endAt", endAt)
         grade = c.int("grade", grade)
         reached = c.int("reached", reached)
+        twist = c.v("twist", twist)
     }
 }
 

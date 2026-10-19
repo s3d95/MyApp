@@ -77,11 +77,22 @@ struct FestivalDef: Decodable, Identifiable {
     var dailyClaim: [Reward] = []
     var collectible: CollectibleDef? = nil
     var storySceneId: String? = nil
+    var neutralName = GText("أيام البركة")
+    var eveDays = 0
+    var eventThemeId: String? = nil
+    var happeningTag: String? = nil
+    /// Art keys hung over the street while the festival (or its eve) is on.
+    var decor: [String] = []
 
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: AnyKey.self)
         id = c.v("id", "")
         name = c.v("name", GText(id))
+        neutralName = c.v("neutralName", neutralName)
+        eveDays = c.int("eveDays", 0)
+        eventThemeId = c.opt("eventThemeId")
+        happeningTag = c.opt("happeningTag")
+        decor = c.v("decor", [])
         art = c.v("art", art)
         hijri = c.v("calendar", "gregorian") == "hijri"
         start = c.v("start", MonthDay())
@@ -191,12 +202,61 @@ extension GameStore {
     }
 
     var activeFestivals: [FestivalDef] {
+        if let id = demoFestivalId { return fx_.festivals.filter { $0.id == id } }
         let d = dayNum
         if festCacheDay == d { return festCache }
         let list = fx_.festivals.filter { festivalActive($0, at: now()) }
         festCacheDay = d
         festCache = list
         return list
+    }
+
+    // MARK: Decorations and "زينة المواسم" (GDD 6.11)
+
+    var decorOn: Bool { s.settings.seasonDecor }
+
+    func festivalName(_ f: FestivalDef) -> String { decorOn ? t(f.name) : t(f.neutralName) }
+
+    func festivalArt(_ f: FestivalDef) -> String { decorOn ? f.art : "ui_sparkles" }
+
+    /// The festival dressing the street today: an active one, or one whose eve has started.
+    var decorFestival: FestivalDef? {
+        guard decorOn else { return nil }
+        let d = dayNum
+        if festDecorDay != d || demoFestivalId != nil {
+            festDecorDay = d
+            let live = activeFestivals.first { !$0.decor.isEmpty }
+            festDecorCache = live ?? fx_.festivals.first { f in
+                f.eveDays > 0 && !f.decor.isEmpty && festivalActive(f, at: now() + Double(f.eveDays) * 86400)
+            }
+        }
+        return festDecorCache
+    }
+
+    var streetDecor: [String] { decorFestival?.decor ?? [] }
+
+    /// Festival that picks the weekend venue theme for the week starting on game day `weekStart`.
+    func festivalTheme(weekStart: Int) -> EventThemeDef? {
+        guard decorOn else { return nil }
+        let key = "\(weekStart)." + (demoFestivalId ?? "")
+        if festThemeKey != key {
+            festThemeKey = key
+            festThemeCache = nil
+            let thursday = now() + Double(weekStart + 3 - dayNum) * 86400
+            for f in fx_.festivals where demoFestivalId == f.id || (demoFestivalId == nil && festivalActive(f, at: thursday)) {
+                let id = cat.events.festivalOverrides.first { $0.festivalId == f.id }?.themeId ?? f.eventThemeId
+                if let id = id, cat.theme(id) != nil {
+                    festThemeCache = id
+                    break
+                }
+            }
+        }
+        return festThemeCache.flatMap { cat.theme($0) }
+    }
+
+    func festivalChoiceOpen(_ ids: [String]) -> Bool {
+        guard decorOn else { return false }
+        return activeFestivals.contains { ids.contains($0.id) || ids.contains($0.happeningTag ?? "") }
     }
 
     /// Festival day effects for a station (part of category 10).
