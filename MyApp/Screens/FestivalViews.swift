@@ -57,14 +57,30 @@ struct InspectorModal: View {
     let lines: [RewardLine]
     let checks: [String]
 
+    private func points(_ c: String) -> Double {
+        Double(c.split(separator: " ").last.map(String.init) ?? "0") ?? 0
+    }
+
+    private func icon(_ c: String) -> String {
+        let p = points(c)
+        if p >= 2.5 { return "checkmark.seal.fill" }
+        return p > 0 ? "checkmark.circle" : "xmark.circle"
+    }
+
+    private func color(_ c: String) -> Color {
+        let p = points(c)
+        if p >= 2.5 { return Brand.parsley }
+        return p > 0 ? Brand.gold : Brand.cream.opacity(0.4)
+    }
+
     var body: some View {
         GameModal(title: "مفتّش البلدية") {
             ArtIcon("ui_clipboard", size: 64)
             VStack(alignment: .leading, spacing: 4) {
                 ForEach(checks, id: \.self) { c in
                     HStack {
-                        Image(systemName: "checkmark.seal.fill")
-                            .foregroundColor(Brand.parsley)
+                        Image(systemName: icon(c))
+                            .foregroundColor(color(c))
                         Text(c)
                             .font(.body(13, bold: true))
                             .foregroundColor(Brand.cream)

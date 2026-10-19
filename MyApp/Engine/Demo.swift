@@ -330,6 +330,12 @@ extension GameStore {
             s.empire.level = 18
             let res = inspect()
             modals = [.inspector(score: res.score, lines: res.lines, checks: res.checks.map { $0.name + ": " + String(format: "%.1f", $0.points) })]
+        case "season", "achievements":
+            demoCity(1, levels: [60, 45, 30, 25, 10, 0], managed: 4, claimed: 9, cash: 2.5e8, level: 17)
+            seasonRollover()
+            s.season.points = 980
+            s.season.claimed = [1, 2, 3]
+            tab = .tasks
         case "festival":
             demoKitchen()
             s.empire.level = 12

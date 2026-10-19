@@ -3,7 +3,7 @@ import SwiftUI
 /// Tasks tab (GDD S12–S14): today's orders with the streak, the week, and the 28-day calendar.
 struct TasksScreen: View {
     @EnvironmentObject var store: GameStore
-    @State private var segment = 0
+    @State private var segment = GameStore.demoName == "season" ? 3 : (GameStore.demoName == "achievements" ? 4 : 0)
 
     var body: some View {
         VStack(spacing: 8) {
