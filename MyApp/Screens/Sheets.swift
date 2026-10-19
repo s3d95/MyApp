@@ -286,14 +286,20 @@ struct ProfileSheet: View {
                 }
             }
             ForEach(["wood", "silver", "gold"], id: \.self) { kind in
-                if let n = store.s.wallet.pendingChests[kind], n > 0 {
+                if let n = store.s.chefs.chests[kind], n > 0 {
                     HStack {
                         ArtIcon(store.chestArt(kind), size: 26)
                         Text(store.chestName(kind) + " ×" + Num.int(n))
                             .font(.body(12, bold: true))
                             .foregroundColor(Brand.cream)
                         Spacer()
-                        Tag(text: "بينفتح مع الطبّاخين", color: Brand.teal, textColor: .white)
+                        Button("افتحه") {
+                            store.sheet = nil
+                            if store.unlocked("chefs") { store.tab = .chefs }
+                        }
+                        .font(.game(12, .black))
+                        .buttonStyle(ChunkyStyle(color: .green, radius: 10, depth: 3))
+                        .fixedSize()
                     }
                 }
             }

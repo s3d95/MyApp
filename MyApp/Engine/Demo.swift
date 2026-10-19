@@ -119,7 +119,7 @@ extension GameStore {
         case "profile":
             demoKitchen()
             s.wallet.timeWarps = [60]
-            s.wallet.pendingChests = ["wood": 2, "silver": 1]
+            s.chefs.chests = ["wood": 2, "silver": 1]
             sheet = .profile
         case "settings":
             demoKitchen()
